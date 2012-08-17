@@ -1,0 +1,4 @@
+<project name="zebrafishPanther-tasks" default="default" basedir=".">
+  <description>build zebrafishPanther tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>

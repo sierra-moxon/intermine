@@ -1,0 +1,148 @@
+<project type="bio">
+    <property name="target.model" value="genomic"/>
+    <property name="source.location" location="../bio/sources/"/>
+    <property name="source.location" location="../bio/sources/zebrafish/"/>
+    <property name="common.os.prefix" value="common"/>
+    <property name="intermine.properties.file" value="zfinmine.properties"/>
+    <property name="default.intermine.properties.file" location="../default.intermine.integrate.properties"/>
+    <sources>
+<!--      <source name="reactome" type="biopax">
+	<property name="src.data.dir" location="/DATA/reactome"/>
+	<property name="biopax.organisms" value="7227 9606"/>
+	<property name="biopax.datasourcename" value="Reactome"/>
+	<property name="biopax.datasetname" value="Reactome data set"/>
+	<property name="biopax.curated" value="false"/>
+      </source> -->
+       <source name="so" type="so">
+            <property name="src.data.file" location="../../bio/sources/so/so.obo"/>
+       </source>
+        <source name="go" type="go">
+            <property name="src.data.file" location="/home/intermine/zebrafish/go/gene_ontology.obo"/>
+        </source>
+       <source name="zfin_pato" type="zfin_pato">
+            <property name="src.data.file" location="/home/intermine/zebrafish/zfin_pato/quality.obo"/>
+       </source>
+        <source name="zfin_anatomy" type="zfin_anatomy">
+            <property name="src.data.file" location="/home/intermine/zebrafish/zfin_anatomy/zebrafish_anatomy.obo"/>
+        </source>
+        <source name="zfinSpatial" type="zfinSpatial">
+            <property name="src.data.file" location="/home/intermine/zebrafish/zfinSpatial/spatial.obo"/>
+        </source>
+        <source name="zfinJournals" type="zfinJournals">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_journals/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <source name="zfin_pubs" type="zfin_pubs">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_pubs/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+	<source name="zfin_stages" type="zfin_stages">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_stages/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source> 
+        <source name="zfin_markers" type="zfin_markers">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_markers/"/>
+        </source>
+        <source name="zfinGenotypes" type="zfinGenotypes">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_genotypes/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <source name="zfinExperiments" type="zfinExperiments">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_experiments/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <source name="zfin_genoenvs" type="zfin_genoenvs">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_genoenvs/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <source name="zfin_genofeats" type="zfin_genofeats">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_genofeats/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <source name="zfin_features" type="zfin_features">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_features/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <source name="zfinFeatureMarkerRelationships" type="zfinFeatureMarkerRelationships">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_fmrels/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <source name="zfinFigures" type="zfinFigures">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_figures/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <source name="zfin_phenotypes" type="zfin_phenotypes">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_phenotypes/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <source name="fish" type="fish">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/fish/"/>
+        </source>
+        <source name="zfin_expression" type="zfin_expression" dump="true">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_expression/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+       <source name="go-annotation" type="go-annotation">
+            <property name="ontologyfile" location="/home/intermine/zebrafish/go-annotation/gene_ontology.obo"/>
+            <property name="src.data.dir" location="/home/intermine/zebrafish/go-annotation/"/>
+            <property name="src.data.dir.includes" value="gene_association*"/>
+       </source>
+        <source name="zfinOrthologues" type="zfinOrthologues">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_orthos/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <!--   <source name="uniprot-zebrafish" type="uniprot">
+       <property name="uniprot.organisms" value="7955"/>
+       <property name="src.data.dir" location="/home/intermine/zebrafish/uniprot/"/>
+     </source>
+     <source name="zfinSequence" type="zfinSequence">
+       <property name="gff3.taxonId" value="7955"/>
+       <property name="gff3.seqDataSourceName" value="ZFIN"/>
+       <property name="gff3.dataSourceName" value="ZFIN"/>
+       <property name="gff3.seqClsName" value="Chromosome"/>
+       <property name="gff3.dataSetTitle" value="ZFIN Danio rerio genome"/>
+       <property name="src.data.dir" location="/home/intermine/zebrafish/zfinSequence"/>
+     </source>
+     <source name="zebrafish-chromosome-fasta" type="fasta" dump="true">
+       <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+       <property name="fasta.dataSourceName" value="ZfinDB"/>
+       <property name="fasta.dataSetTitle" value="ZfinDB chromosome sequence"/>
+       <property name="fasta.taxonId" value="7955"/>
+       <property name="fasta.includes" value="DRE*.fasta"/>
+       <property name="src.data.dir" location="/home/intermine/zebrafish/genome"/>
+     </source>   -->
+<!--
+        <source name="kegg" type="kegg">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/kegg"/>
+            <property name="taxonId" value="7955"/>
+        </source> -->
+<!--   <source name="update-publications" type="update-publications">
+     <property name="src.data.file" location="build/publications.xml"/>
+   </source>-->   
+   <source name="labs" type="labs">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/lab/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+   </source><!--
+       <source name="treefam" type="treefam">
+          <property name="src.data.dir" location="/home/intermine/zebrafish/treefam"/>
+          <property name="src.data.dir.includes" value="ortholog.txt.table"/>
+          <property name="geneFile" value="/home/intermine/zebrafish/treefam/genes.txt.table"/>
+          <property name="treefam.organisms" value="7955"/> 
+          <property name="treefam.homologues" value="9606 10090 10116 7955 6239 7165 4932"/> 
+       </source>-->
+        <source name="entrez-organism" type="entrez-organism">
+            <property name="src.data.file" location="build/organisms.xml"/>
+        </source> 
+    </sources>
+    <post-processing>
+        <post-process name="create-references"/>
+	<!--<post-process name="transfer-sequences-located-sequence-feature"/>-->
+        <!-- this runs the postprocessing steps in all sources -->
+        <post-process name="do-sources"/>
+	<post-process name="create-search-index"/>
+        <post-process name="create-attribute-indexes"/>
+        <post-process name="summarise-objectstore"/>
+        <post-process name="create-autocomplete-index"/>
+    </post-processing>
+</project>
+
