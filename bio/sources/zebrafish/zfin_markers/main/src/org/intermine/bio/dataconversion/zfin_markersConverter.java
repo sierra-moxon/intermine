@@ -1289,6 +1289,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = proteins.get(accNum);
         if (item == null) {
             item = createItem("Protein");
+	    item.setReference("organism",  getOrganism("7955"));
             item.setAttribute("primaryAccession", accNum);
             item.setAttribute("primaryIdentifier", accNum);
             item.addToCollection("genes",getTypedItem(dataPrimaryIdentifier));
@@ -1321,6 +1322,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         if (item == null) {
             item = createItem("ProbeLibrary");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
+	    item.setReference("organism",  getOrganism("7955"));
             probelibs.put(primaryIdentifier, item);
         }
         return item;

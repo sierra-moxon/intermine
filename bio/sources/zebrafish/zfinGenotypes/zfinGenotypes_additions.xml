@@ -225,6 +225,7 @@
         <attribute name="stage" type="java.lang.String"/>
         <attribute name="host" type="java.lang.String"/>
         <attribute name="restrictionSites" type="java.lang.String"/>
+	<reference name="organism" referenced-type="Organism"/>
     </class>
     <class name="RAPD" is-interface="true" extends="Reagent">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
