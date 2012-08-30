@@ -1,3 +1,4 @@
+
 <project type="bio">
     <property name="target.model" value="genomic"/>
     <property name="source.location" location="../bio/sources/"/>
@@ -6,13 +7,13 @@
     <property name="intermine.properties.file" value="zfinmine.properties"/>
     <property name="default.intermine.properties.file" location="../default.intermine.integrate.properties"/>
     <sources>
-<!--      <source name="reactome" type="biopax">
-	<property name="src.data.dir" location="/DATA/reactome"/>
-	<property name="biopax.organisms" value="7227 9606"/>
+      <source name="reactome" type="biopax">
+	<property name="src.data.dir" location="/home/intermine/zebrafish/reactome"/>
+	<property name="biopax.organisms" value="7227 7955 9606"/>
 	<property name="biopax.datasourcename" value="Reactome"/>
 	<property name="biopax.datasetname" value="Reactome data set"/>
 	<property name="biopax.curated" value="false"/>
-      </source> -->
+      </source>
        <source name="so" type="so">
             <property name="src.data.file" location="../../bio/sources/so/so.obo"/>
        </source>
