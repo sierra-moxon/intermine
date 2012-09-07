@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<classes>
+<class name="ChromosomalDeletion" is-interface="true">
+	<collection name="deletions" referenced-type="Deletion" reverse-reference="chromosomalDeletion"/>
+</class>
+<class name="Chromosome" extends="SequenceFeature" is-interface="true"></class>
+<class name="Clone" extends="Reagent" is-interface="true"></class>
+<class name="ComplexSubstitution" extends="Substitution" is-interface="true"></class>
+<class name="Deletion" extends="SequenceAlteration" is-interface="true">
+	<reference name="chromosomalDeletion" referenced-type="ChromosomalDeletion" reverse-reference="deletions"/>
+</class>
+<class name="Gene" extends="SequenceFeature" is-interface="true">
+	<collection name="transcripts" referenced-type="Transcript" reverse-reference="gene"/>
+</class>
+<class name="Genotype" is-interface="true"></class>
+<class name="Insertion" extends="SequenceAlteration" is-interface="true"></class>
+<class name="Intron" extends="SequenceFeature" is-interface="true">
+	<reference name="transcript" referenced-type="Transcript" reverse-reference="introns"/>
+</class>
+<class name="Inversion" extends="SequenceAlteration" is-interface="true"></class>
+<class name="Morpholino" is-interface="true"></class>
+<class name="PointMutation" extends="Substitution" is-interface="true"></class>
+<class name="Pseudogene" extends="PseudogenicRegion" is-interface="true">
+	<collection name="pseudogenicTranscripts" referenced-type="PseudogenicTranscript" reverse-reference="pseudogene"/>
+</class>
+<class name="PseudogenicRegion" extends="SequenceFeature" is-interface="true"></class>
+<class name="PseudogenicTranscript" extends="PseudogenicRegion" is-interface="true">
+	<reference name="pseudogene" referenced-type="Pseudogene" reverse-reference="pseudogenicTranscripts"/>
+</class>
+<class name="RAPD" extends="Reagent" is-interface="true"></class>
+<class name="Reagent" extends="SequenceFeature" is-interface="true"></class>
+<class name="SequenceAlteration" extends="SequenceFeature" is-interface="true"></class>
+<class name="SequenceFeature" is-interface="true"></class>
+<class name="SequenceVariant" is-interface="true"></class>
+<class name="SimpleSequenceLengthVariation" extends="Substitution" is-interface="true"></class>
+<class name="SNP" extends="Substitution" is-interface="true"></class>
+<class name="STS" extends="Tag" is-interface="true"></class>
+<class name="Substitution" extends="SequenceAlteration" is-interface="true"></class>
+<class name="Tag" extends="Reagent" is-interface="true"></class>
+<class name="Transcript" extends="SequenceFeature" is-interface="true">
+	<reference name="gene" referenced-type="Gene" reverse-reference="transcripts"/>
+	<collection name="introns" referenced-type="Intron" reverse-reference="transcript"/>
+</class>
+<class name="TransgenicInsertion" extends="Insertion" is-interface="true"></class>
+<class name="Translocation" extends="SequenceAlteration" is-interface="true"></class>
+</classes>
