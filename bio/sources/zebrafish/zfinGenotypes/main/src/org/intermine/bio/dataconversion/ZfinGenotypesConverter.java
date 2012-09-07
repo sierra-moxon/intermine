@@ -94,7 +94,12 @@ public class ZfinGenotypesConverter extends BioFileConverter {
                 genotype.setAttribute("genoHandle", genoHandle);
             }
             if (!StringUtils.isEmpty(isWildType)) {
-                genotype.setAttribute("isWildType", isWildType);
+		if (StringUtils.equals (isWildType,"f")) {
+		    genotype.setAttribute("isWildType", "false");
+		}
+		if (StringUtils.equals(isWildType,"t")){
+		    genotype.setAttribute("isWildType","true");
+		}
             }
             if (!StringUtils.isEmpty(isExtinct)) {
                 genotype.setAttribute("isExtinct", isExtinct);

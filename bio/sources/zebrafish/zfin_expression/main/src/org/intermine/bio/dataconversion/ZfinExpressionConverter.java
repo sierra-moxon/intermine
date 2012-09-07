@@ -162,7 +162,12 @@ public class ZfinExpressionConverter extends BioFileConverter {
                 result.setReference("endStage", endStg);
             }
             if (!StringUtils.isEmpty(xpatFound)) {
-                result.setAttribute("expressionFound", xpatFound);
+		if (StringUtils.equals(xpatFound,"t")){
+		    result.setAttribute("expressionFound", "true");
+		}
+		if (StringUtils.equals(xpatFound,"f")){
+		    result.setAttribute("expressionFound","false");
+		}
             }
             if (!StringUtils.isEmpty(figId))
                 result.addToCollection("figures", getFigure(figId));
