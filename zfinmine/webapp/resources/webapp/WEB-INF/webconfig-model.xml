@@ -216,14 +216,13 @@
 <class className="org.intermine.model.bio.ExpressionResult">
    <fields>
       <fieldconfig  fieldExpr="gene.symbol"></fieldconfig>
-      <fieldconfig  fieldExpr="anatomy.name"></fieldconfig>
+      <fieldconfig  fieldExpr="superterm.name"></fieldconfig>
       <fieldconfig  fieldExpr="subterm.name"></fieldconfig>
       <fieldconfig  fieldExpr="startStage.name"></fieldconfig>
       <fieldconfig  fieldExpr="endStage.name"></fieldconfig>
       <fieldconfig  fieldExpr="expressionFound"></fieldconfig>
       <fieldconfig  fieldExpr="assay"></fieldconfig>
       <fieldconfig  fieldExpr="probe.symbol"></fieldconfig>
-      <fieldconfig  fieldExpr="publication.primaryIdentifier"></fieldconfig>
       <fieldconfig  fieldExpr="antibody.symbol"></fieldconfig>
    </fields>
 </class>
@@ -275,7 +274,8 @@
   <tableExportConfig id="gff3Exporter" actionPath="/exportAction?type=gff3Exporter"
                      className="org.intermine.bio.web.export.GFF3HttpExporter"/>
 
-<!--<enrichmentwidgetdisplayer id="go_enrichment"
+<widgets>
+<enrichmentwidgetdisplayer id="go_enrichment"
 			   title="Gene Ontology Enrichment"
 			   description="Terms enriched for genes in this list."
 			   label="GO Term"
@@ -286,8 +286,6 @@
 			   views="secondaryIdentifier,symbol,primaryIdentifier,organism.name"
 			   externalLink="http://amigo.geneontology.org/cgi-bin/amigo/term_details?term="
 			   enrichIdentifier="goAnnotation.ontologyTerm.parents.identifier"/>
--->
-<widgets>
 <!--
 <enrichmentwidgetdisplayer id="uniprot_keywords"
 			       title="UniProt Keywords"
@@ -323,6 +321,7 @@
                                  enrichIdentifier="publications.pubMedId"
                                  constraints="organism.name=[list],primaryIdentifier != null"
                                  typeClass="Gene"
+				 views="secondaryIdentifier,symbol,primaryIdentifier"
                                  externalLink="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids="/>
 </widgets>
 <!--
