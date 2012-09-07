@@ -135,14 +135,14 @@ public class zfin_genoenvsConverter extends BioDirectoryConverter {
             }
 
             String primaryIdentifier = line[0];
-            String name = line[1];
-            String sourceId = line[2];
+            //String name = line[1];
+            String sourceId = line[1];
 
             if (!StringUtils.isEmpty(primaryIdentifier)) {
                 Item env = getEnv(primaryIdentifier);
-                if (!StringUtils.isEmpty(name)) {
-                    env.setAttribute("name", name);
-                }
+                //if (!StringUtils.isEmpty(name)) {
+                //    env.setAttribute("name", name);
+		// }
                 if (!StringUtils.isEmpty(sourceId)) {
                     env.setReference("publication", getPub(sourceId));
                 }
