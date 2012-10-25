@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../bio/sources/zebrafish">
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfin_pubs/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/labs/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfin_genofeats/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfinOrthologues" isTestSource="false" packagePrefix="org.intermine.bio.dataconversion" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfinFigures/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfinJournals/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfin_expression/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfin_phenotypes/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfin_markers/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfin_genoenvs/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/fish/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfinSequence/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfinGenotypes/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zebrafishPanther/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfinFeatureMarkerRelationships/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfinExperiments/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfin_features/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfin_stages/main/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfin_expression/test/src" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfin_expression/test/resources" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfin_features/test" isTestSource="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../zfinmine">
+      <sourceFolder url="file://$MODULE_DIR$/../../zfinmine/dbmodel/build/gen/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="intermine-integrate" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="intermine-integrate-test" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../bio/sources/zebrafish/zfin_expression/test/resources" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
+
