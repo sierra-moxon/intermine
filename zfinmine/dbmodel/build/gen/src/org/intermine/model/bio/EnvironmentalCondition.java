@@ -17,14 +17,14 @@ public interface EnvironmentalCondition extends org.intermine.model.InterMineObj
     public java.lang.String getConditionGroup();
     public void setConditionGroup(final java.lang.String conditionGroup);
 
+    public org.intermine.model.bio.MorpholinoOligo getMorpholino();
+    public void setMorpholino(final org.intermine.model.bio.MorpholinoOligo morpholino);
+    public void proxyMorpholino(final org.intermine.objectstore.proxy.ProxyReference morpholino);
+    public org.intermine.model.InterMineObject proxGetMorpholino();
+
     public org.intermine.model.bio.Environment getEnvironment();
     public void setEnvironment(final org.intermine.model.bio.Environment environment);
     public void proxyEnvironment(final org.intermine.objectstore.proxy.ProxyReference environment);
     public org.intermine.model.InterMineObject proxGetEnvironment();
-
-    public org.intermine.model.bio.Morpholino getMorpholino();
-    public void setMorpholino(final org.intermine.model.bio.Morpholino morpholino);
-    public void proxyMorpholino(final org.intermine.objectstore.proxy.ProxyReference morpholino);
-    public org.intermine.model.InterMineObject proxGetMorpholino();
 
 }

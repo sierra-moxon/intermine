@@ -265,7 +265,7 @@ public class FishConverter extends BioDirectoryConverter{
     private Item getMorpholino(String primaryIdentifier) throws SAXException{
         Item item = morphs.get(primaryIdentifier);
         if (item == null) {
-            item = createItem("Morpholino");
+            item = createItem("MorpholinoOligo");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
             morphs.put(primaryIdentifier, item);
             try {

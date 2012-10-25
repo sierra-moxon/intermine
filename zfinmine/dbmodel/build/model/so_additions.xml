@@ -18,9 +18,9 @@
 	<reference name="transcript" referenced-type="Transcript" reverse-reference="introns"/>
 </class>
 <class name="Inversion" extends="SequenceAlteration" is-interface="true"></class>
-<class name="Morpholino" is-interface="true"></class>
+<class name="MorpholinoOligo" extends="Reagent" is-interface="true"></class>
 <class name="PointMutation" extends="Substitution" is-interface="true"></class>
-<class name="Pseudogene" extends="PseudogenicRegion" is-interface="true">
+<class name="Pseudogene" extends="SequenceFeature" is-interface="true">
 	<collection name="pseudogenicTranscripts" referenced-type="PseudogenicTranscript" reverse-reference="pseudogene"/>
 </class>
 <class name="PseudogenicRegion" extends="SequenceFeature" is-interface="true"></class>

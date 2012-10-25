@@ -1,6 +1,6 @@
 package org.intermine.model.bio;
 
-public interface Pseudogene extends org.intermine.model.bio.PseudogenicRegion
+public interface Pseudogene extends org.intermine.model.bio.SequenceFeature
 {
     public java.lang.String getType();
     public void setType(final java.lang.String type);

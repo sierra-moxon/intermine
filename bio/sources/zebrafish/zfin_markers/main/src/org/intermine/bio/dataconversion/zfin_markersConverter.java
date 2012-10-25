@@ -1242,7 +1242,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
             throws SAXException {
         Item item = mrphs.get(primaryIdentifier);
         if (item == null) {
-            item = createItem("Morpholino");
+            item = createItem("MorpholinoOligo");
             item.setReference("organism",  getOrganism("7955"));
             mrphs.put(primaryIdentifier, item);
         }

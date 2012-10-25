@@ -15,10 +15,10 @@ public class CommentShadow implements Comment, ShadowClass
     public java.lang.String getType() { return type; }
     public void setType(final java.lang.String type) { this.type = type; }
 
-    // Attr: org.intermine.model.bio.Comment.text
-    protected java.lang.String text;
-    public java.lang.String getText() { return text; }
-    public void setText(final java.lang.String text) { this.text = text; }
+    // Attr: org.intermine.model.bio.Comment.description
+    protected java.lang.String description;
+    public java.lang.String getDescription() { return description; }
+    public void setDescription(final java.lang.String description) { this.description = description; }
 
     // Attr: org.intermine.model.InterMineObject.id
     protected java.lang.Integer id;
@@ -27,13 +27,13 @@ public class CommentShadow implements Comment, ShadowClass
 
     @Override public boolean equals(Object o) { return (o instanceof Comment && id != null) ? id.equals(((Comment)o).getId()) : this == o; }
     @Override public int hashCode() { return (id != null) ? id.hashCode() : super.hashCode(); }
-    @Override public String toString() { return "Comment [id=\"" + id + "\", text=\"" + text + "\", type=\"" + type + "\"]"; }
+    @Override public String toString() { return "Comment [description=\"" + description + "\", id=\"" + id + "\", type=\"" + type + "\"]"; }
     public Object getFieldValue(final String fieldName) throws IllegalAccessException {
         if ("type".equals(fieldName)) {
             return type;
         }
-        if ("text".equals(fieldName)) {
-            return text;
+        if ("description".equals(fieldName)) {
+            return description;
         }
         if ("id".equals(fieldName)) {
             return id;
@@ -47,8 +47,8 @@ public class CommentShadow implements Comment, ShadowClass
         if ("type".equals(fieldName)) {
             return type;
         }
-        if ("text".equals(fieldName)) {
-            return text;
+        if ("description".equals(fieldName)) {
+            return description;
         }
         if ("id".equals(fieldName)) {
             return id;
@@ -61,8 +61,8 @@ public class CommentShadow implements Comment, ShadowClass
     public void setFieldValue(final String fieldName, final Object value) {
         if ("type".equals(fieldName)) {
             type = (java.lang.String) value;
-        } else if ("text".equals(fieldName)) {
-            text = (java.lang.String) value;
+        } else if ("description".equals(fieldName)) {
+            description = (java.lang.String) value;
         } else if ("id".equals(fieldName)) {
             id = (java.lang.Integer) value;
         } else {
@@ -77,7 +77,7 @@ public class CommentShadow implements Comment, ShadowClass
         if ("type".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("text".equals(fieldName)) {
+        if ("description".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("id".equals(fieldName)) {
@@ -109,9 +109,9 @@ public class CommentShadow implements Comment, ShadowClass
                 }
             }
         }
-        if (text != null) {
-            sb.append("$_^atext$_^");
-            String string = text;
+        if (description != null) {
+            sb.append("$_^adescription$_^");
+            String string = description;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -149,7 +149,7 @@ public class CommentShadow implements Comment, ShadowClass
                 type = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "atext".equals(notXml[i])) {
+            if ((i < notXml.length) && "adescription".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
                 while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
@@ -157,7 +157,7 @@ public class CommentShadow implements Comment, ShadowClass
                     i++;
                     string.append("$_^").append(notXml[i].substring(1));
                 }
-                text = string == null ? notXml[i] : string.toString();
+                description = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "aid".equals(notXml[i])) {
