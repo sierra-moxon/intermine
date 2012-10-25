@@ -3,7 +3,7 @@ clone
 sequence_feature
 gene
 genotype
-morpholino
+morpholino_oligo
 point_mutation
 pseudogene
 pseudogenic_region

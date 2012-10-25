@@ -65,24 +65,13 @@
             <unique-column name="id"/>
         </unique>
     </table>
-    <table name="Pseudogene">
-        <column name="secondaryIdentifier" type="LONGVARCHAR"/>
-        <column name="symbol" type="LONGVARCHAR"/>
-        <column name="type" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
-        <column name="comments" type="LONGVARCHAR"/>
-        <column name="length" type="INTEGER"/>
+    <table name="DatabaseReference">
+        <column name="identifier" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
-        <column name="name" type="LONGVARCHAR"/>
-        <column name="scoreType" type="LONGVARCHAR"/>
-        <column name="score" type="DOUBLE"/>
-        <column name="chromosomeId" type="INTEGER"/>
-        <column name="chromosomeLocationId" type="INTEGER"/>
-        <column name="organismId" type="INTEGER"/>
-        <column name="sequenceId" type="INTEGER"/>
-        <column name="sequenceOntologyTermId" type="INTEGER"/>
+        <column name="subjectId" type="INTEGER"/>
+        <column name="sourceId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
-        <unique name="Pseudogene_pkey">
+        <unique name="DatabaseReference_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -141,6 +130,38 @@
             <unique-column name="id"/>
         </unique>
     </table>
+    <table name="CrossReference">
+        <column name="identifier" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="linkType" type="LONGVARCHAR"/>
+        <column name="subjectId" type="INTEGER"/>
+        <column name="sourceId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="CrossReference_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
+    <table name="Pseudogene">
+        <column name="secondaryIdentifier" type="LONGVARCHAR"/>
+        <column name="symbol" type="LONGVARCHAR"/>
+        <column name="type" type="LONGVARCHAR"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="comments" type="LONGVARCHAR"/>
+        <column name="length" type="INTEGER"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="name" type="LONGVARCHAR"/>
+        <column name="scoreType" type="LONGVARCHAR"/>
+        <column name="score" type="DOUBLE"/>
+        <column name="chromosomeId" type="INTEGER"/>
+        <column name="chromosomeLocationId" type="INTEGER"/>
+        <column name="organismId" type="INTEGER"/>
+        <column name="sequenceId" type="INTEGER"/>
+        <column name="sequenceOntologyTermId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="Pseudogene_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
     <table name="ProbeLibrary">
         <column name="tissue" type="LONGVARCHAR"/>
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
@@ -176,41 +197,12 @@
             <unique-column name="id"/>
         </unique>
     </table>
-    <table name="Morpholino">
-        <column name="secondaryIdentifier" type="LONGVARCHAR"/>
-        <column name="symbol" type="LONGVARCHAR"/>
-        <column name="type" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
-        <column name="comments" type="LONGVARCHAR"/>
-        <column name="length" type="INTEGER"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="name" type="LONGVARCHAR"/>
-        <column name="scoreType" type="LONGVARCHAR"/>
-        <column name="score" type="DOUBLE"/>
-        <column name="chromosomeId" type="INTEGER"/>
-        <column name="chromosomeLocationId" type="INTEGER"/>
-        <column name="organismId" type="INTEGER"/>
-        <column name="sequenceId" type="INTEGER"/>
-        <column name="sequenceOntologyTermId" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="Morpholino_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
     <table name="CDS">
         <column name="id" type="INTEGER" required="true"/>
         <column name="geneId" type="INTEGER"/>
         <column name="proteinId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="CDS_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table name="GOEvidence">
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="codeId" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="GOEvidence_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -234,29 +226,6 @@
         <column name="chromosomalDeletionId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="Deletion_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table name="Gene">
-        <column name="secondaryIdentifier" type="LONGVARCHAR"/>
-        <column name="symbol" type="LONGVARCHAR"/>
-        <column name="type" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
-        <column name="length" type="INTEGER"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="name" type="LONGVARCHAR"/>
-        <column name="scoreType" type="LONGVARCHAR"/>
-        <column name="ncbiGeneNumber" type="LONGVARCHAR"/>
-        <column name="score" type="DOUBLE"/>
-        <column name="chromosomeId" type="INTEGER"/>
-        <column name="chromosomeLocationId" type="INTEGER"/>
-        <column name="organismId" type="INTEGER"/>
-        <column name="downstreamIntergenicRegionId" type="INTEGER"/>
-        <column name="upstreamIntergenicRegionId" type="INTEGER"/>
-        <column name="sequenceId" type="INTEGER"/>
-        <column name="sequenceOntologyTermId" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="Gene_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -340,6 +309,31 @@
         <column name="endStageId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="Phenotype_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
+    <table name="EnvironmentalCondition">
+        <column name="unit" type="LONGVARCHAR"/>
+        <column name="intermine_value" type="LONGVARCHAR"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="conditionName" type="LONGVARCHAR"/>
+        <column name="conditionGroup" type="LONGVARCHAR"/>
+        <column name="morpholinoId" type="INTEGER"/>
+        <column name="environmentId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="EnvironmentalCondition_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
+    <table name="GOAnnotation">
+        <column name="qualifier" type="LONGVARCHAR"/>
+        <column name="annotationExtension" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="ontologyTermId" type="INTEGER"/>
+        <column name="subjectId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="GOAnnotation_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -556,20 +550,20 @@
             <unique-column name="id"/>
         </unique>
     </table>
-    <table name="Comment">
-        <column name="type" type="LONGVARCHAR"/>
-        <column name="text" type="LONGVARCHAR"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="Comment_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
     <table name="MeshTerm">
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="MeshTerm_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
+    <table name="GOEvidence">
+        <column name="withText" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="codeId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="GOEvidence_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -630,20 +624,6 @@
             <unique-column name="id"/>
         </unique>
     </table>
-    <table name="EnvironmentalCondition">
-        <column name="unit" type="LONGVARCHAR"/>
-        <column name="intermine_value" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="conditionName" type="LONGVARCHAR"/>
-        <column name="conditionGroup" type="LONGVARCHAR"/>
-        <column name="environmentId" type="INTEGER"/>
-        <column name="morpholinoId" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="EnvironmentalCondition_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
     <table name="BioEntity">
         <column name="secondaryIdentifier" type="LONGVARCHAR"/>
         <column name="symbol" type="LONGVARCHAR"/>
@@ -653,6 +633,15 @@
         <column name="organismId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="BioEntity_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
+    <table name="Comment">
+        <column name="type" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="description" type="LONGVARCHAR"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="Comment_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -684,17 +673,6 @@
         <column name="organismId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="OntologyTerm_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table name="CrossReference">
-        <column name="identifier" type="LONGVARCHAR"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="linkType" type="LONGVARCHAR"/>
-        <column name="subjectId" type="INTEGER"/>
-        <column name="sourceId" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="CrossReference_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -829,6 +807,27 @@
             <unique-column name="id"/>
         </unique>
     </table>
+    <table name="MorpholinoOligo">
+        <column name="secondaryIdentifier" type="LONGVARCHAR"/>
+        <column name="symbol" type="LONGVARCHAR"/>
+        <column name="type" type="LONGVARCHAR"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="comments" type="LONGVARCHAR"/>
+        <column name="length" type="INTEGER"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="name" type="LONGVARCHAR"/>
+        <column name="scoreType" type="LONGVARCHAR"/>
+        <column name="score" type="DOUBLE"/>
+        <column name="chromosomeId" type="INTEGER"/>
+        <column name="chromosomeLocationId" type="INTEGER"/>
+        <column name="organismId" type="INTEGER"/>
+        <column name="sequenceId" type="INTEGER"/>
+        <column name="sequenceOntologyTermId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="MorpholinoOligo_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
     <table name="Organism">
         <column name="taxonId" type="INTEGER"/>
         <column name="shortName" type="LONGVARCHAR"/>
@@ -893,6 +892,30 @@
             <unique-column name="id"/>
         </unique>
     </table>
+    <table name="Gene">
+        <column name="secondaryIdentifier" type="LONGVARCHAR"/>
+        <column name="symbol" type="LONGVARCHAR"/>
+        <column name="briefDescription" type="LONGVARCHAR"/>
+        <column name="type" type="LONGVARCHAR"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="length" type="INTEGER"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="name" type="LONGVARCHAR"/>
+        <column name="scoreType" type="LONGVARCHAR"/>
+        <column name="score" type="DOUBLE"/>
+        <column name="description" type="LONGVARCHAR"/>
+        <column name="chromosomeId" type="INTEGER"/>
+        <column name="chromosomeLocationId" type="INTEGER"/>
+        <column name="organismId" type="INTEGER"/>
+        <column name="downstreamIntergenicRegionId" type="INTEGER"/>
+        <column name="upstreamIntergenicRegionId" type="INTEGER"/>
+        <column name="sequenceId" type="INTEGER"/>
+        <column name="sequenceOntologyTermId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="Gene_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
     <table name="STS">
         <column name="secondaryIdentifier" type="LONGVARCHAR"/>
         <column name="symbol" type="LONGVARCHAR"/>
@@ -927,6 +950,29 @@
         <column name="evidenceCodeId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="OrthologueEvidence_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
+    <table name="Publication">
+        <column name="accessionNumber" type="LONGVARCHAR"/>
+        <column name="volume" type="LONGVARCHAR"/>
+        <column name="issue" type="LONGVARCHAR"/>
+        <column name="intermine_month" type="LONGVARCHAR"/>
+        <column name="doi" type="LONGVARCHAR"/>
+        <column name="title" type="LONGVARCHAR"/>
+        <column name="firstAuthor" type="LONGVARCHAR"/>
+        <column name="abstractText" type="LONGVARCHAR"/>
+        <column name="pages" type="LONGVARCHAR"/>
+        <column name="intermine_year" type="INTEGER"/>
+        <column name="type" type="LONGVARCHAR"/>
+        <column name="pubMedId" type="LONGVARCHAR"/>
+        <column name="pubAbstract" type="LONGVARCHAR"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="authorNames" type="LONGVARCHAR"/>
+        <column name="journalId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="Publication_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -974,17 +1020,6 @@
         <column name="parentTermId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="OntologyRelation_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table name="GOAnnotation">
-        <column name="qualifier" type="LONGVARCHAR"/>
-        <column name="withText" type="LONGVARCHAR"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="ontologyTermId" type="INTEGER"/>
-        <column name="subjectId" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="GOAnnotation_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -1072,24 +1107,6 @@
             <unique-column name="id"/>
         </unique>
     </table>
-    <table name="ZFATerm">
-        <column name="identifier" type="LONGVARCHAR"/>
-        <column name="stageStartHour" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
-        <column name="obsolete" type="BIT"/>
-        <column name="namespace" type="LONGVARCHAR"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="name" type="LONGVARCHAR"/>
-        <column name="stageAbbreviation" type="LONGVARCHAR"/>
-        <column name="stageEndHour" type="LONGVARCHAR"/>
-        <column name="description" type="LONGVARCHAR"/>
-        <column name="ontologyId" type="INTEGER"/>
-        <column name="organismId" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="ZFATerm_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
     <table name="Intron">
         <column name="secondaryIdentifier" type="LONGVARCHAR"/>
         <column name="symbol" type="LONGVARCHAR"/>
@@ -1126,6 +1143,24 @@
         <column name="sequenceOntologyTermId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="PseudogenicRegion_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
+    <table name="ZFATerm">
+        <column name="identifier" type="LONGVARCHAR"/>
+        <column name="stageStartHour" type="LONGVARCHAR"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="obsolete" type="BIT"/>
+        <column name="namespace" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="name" type="LONGVARCHAR"/>
+        <column name="stageAbbreviation" type="LONGVARCHAR"/>
+        <column name="stageEndHour" type="LONGVARCHAR"/>
+        <column name="description" type="LONGVARCHAR"/>
+        <column name="ontologyId" type="INTEGER"/>
+        <column name="organismId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="ZFATerm_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -1206,29 +1241,6 @@
         <column name="organismId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="Marker_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table name="Publication">
-        <column name="accessionNumber" type="LONGVARCHAR"/>
-        <column name="volume" type="LONGVARCHAR"/>
-        <column name="issue" type="LONGVARCHAR"/>
-        <column name="intermine_month" type="LONGVARCHAR"/>
-        <column name="doi" type="LONGVARCHAR"/>
-        <column name="title" type="LONGVARCHAR"/>
-        <column name="firstAuthor" type="LONGVARCHAR"/>
-        <column name="abstractText" type="LONGVARCHAR"/>
-        <column name="pages" type="LONGVARCHAR"/>
-        <column name="intermine_year" type="INTEGER"/>
-        <column name="type" type="LONGVARCHAR"/>
-        <column name="pubMedId" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
-        <column name="pubAbstract" type="LONGVARCHAR"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="authorNames" type="LONGVARCHAR"/>
-        <column name="journalId" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="Publication_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -1350,37 +1362,37 @@
         <column name="SequenceVariant" type="INTEGER" required="true"/>
         <column name="Genes" type="INTEGER" required="true"/>
     </table>
-    <table name="GenesPathways">
-        <column name="Genes" type="INTEGER" required="true"/>
-        <column name="Pathways" type="INTEGER" required="true"/>
+    <table name="ArtifactsCloneArtifacts">
+        <column name="Artifacts" type="INTEGER" required="true"/>
+        <column name="CloneArtifacts" type="INTEGER" required="true"/>
     </table>
     <table name="InsertionAllelesInsertionConstructs">
         <column name="InsertionAlleles" type="INTEGER" required="true"/>
         <column name="InsertionConstructs" type="INTEGER" required="true"/>
     </table>
-    <table name="ArtifactsCloneArtifacts">
-        <column name="Artifacts" type="INTEGER" required="true"/>
-        <column name="CloneArtifacts" type="INTEGER" required="true"/>
+    <table name="MorpholinosTargets">
+        <column name="Morpholinos" type="INTEGER" required="true"/>
+        <column name="Targets" type="INTEGER" required="true"/>
     </table>
     <table name="PublicationTranscripts">
         <column name="Publication" type="INTEGER" required="true"/>
         <column name="Transcripts" type="INTEGER" required="true"/>
     </table>
-    <table name="ClonesPublication">
-        <column name="Publication" type="INTEGER" required="true"/>
-        <column name="Clones" type="INTEGER" required="true"/>
-    </table>
     <table name="OntologyAnnotationPublications">
         <column name="OntologyAnnotation" type="INTEGER" required="true"/>
         <column name="Publications" type="INTEGER" required="true"/>
     </table>
-    <table name="GenotypePublications">
-        <column name="Genotype" type="INTEGER" required="true"/>
-        <column name="Publications" type="INTEGER" required="true"/>
+    <table name="ClonesPublication">
+        <column name="Publication" type="INTEGER" required="true"/>
+        <column name="Clones" type="INTEGER" required="true"/>
     </table>
     <table name="OntologyTermRelations">
         <column name="OntologyTerm" type="INTEGER" required="true"/>
         <column name="Relations" type="INTEGER" required="true"/>
+    </table>
+    <table name="GenotypePublications">
+        <column name="Genotype" type="INTEGER" required="true"/>
+        <column name="Publications" type="INTEGER" required="true"/>
     </table>
     <table name="AuthorsPublications">
         <column name="Publications" type="INTEGER" required="true"/>
@@ -1406,10 +1418,6 @@
         <column name="Region" type="INTEGER" required="true"/>
         <column name="Publications" type="INTEGER" required="true"/>
     </table>
-    <table name="PromotersPromotes">
-        <column name="Promoters" type="INTEGER" required="true"/>
-        <column name="Promotes" type="INTEGER" required="true"/>
-    </table>
     <table name="LabOfOriginLines">
         <column name="Lines" type="INTEGER" required="true"/>
         <column name="LabOfOrigin" type="INTEGER" required="true"/>
@@ -1426,6 +1434,10 @@
         <column name="OntologyTerm" type="INTEGER" required="true"/>
         <column name="Synonyms" type="INTEGER" required="true"/>
     </table>
+    <table name="GenesGenotypes">
+        <column name="Genotypes" type="INTEGER" required="true"/>
+        <column name="Genes" type="INTEGER" required="true"/>
+    </table>
     <table name="DataSetsSynonym">
         <column name="Synonym" type="INTEGER" required="true"/>
         <column name="DataSets" type="INTEGER" required="true"/>
@@ -1437,10 +1449,6 @@
     <table name="AdjacentGenesIntergenicRegion">
         <column name="IntergenicRegion" type="INTEGER" required="true"/>
         <column name="AdjacentGenes" type="INTEGER" required="true"/>
-    </table>
-    <table name="GenesProteins">
-        <column name="Genes" type="INTEGER" required="true"/>
-        <column name="Proteins" type="INTEGER" required="true"/>
     </table>
     <table name="BioEntitiesDataSets">
         <column name="DataSets" type="INTEGER" required="true"/>
@@ -1457,6 +1465,14 @@
     <table name="MarkersPresentPresentIn">
         <column name="MarkersPresent" type="INTEGER" required="true"/>
         <column name="PresentIn" type="INTEGER" required="true"/>
+    </table>
+    <table name="MorpholinosPublication">
+        <column name="Publication" type="INTEGER" required="true"/>
+        <column name="Morpholinos" type="INTEGER" required="true"/>
+    </table>
+    <table name="GenesProteins">
+        <column name="Proteins" type="INTEGER" required="true"/>
+        <column name="Genes" type="INTEGER" required="true"/>
     </table>
     <table name="CrossReferencesEFG">
         <column name="EFG" type="INTEGER" required="true"/>
@@ -1490,6 +1506,14 @@
         <column name="Construct" type="INTEGER" required="true"/>
         <column name="Publications" type="INTEGER" required="true"/>
     </table>
+    <table name="GOEvidenceIntermine_with">
+        <column name="GOEvidence" type="INTEGER" required="true"/>
+        <column name="Intermine_with" type="INTEGER" required="true"/>
+    </table>
+    <table name="GenesPathways">
+        <column name="Pathways" type="INTEGER" required="true"/>
+        <column name="Genes" type="INTEGER" required="true"/>
+    </table>
     <table name="AntibodyPublications">
         <column name="Antibody" type="INTEGER" required="true"/>
         <column name="Publications" type="INTEGER" required="true"/>
@@ -1497,10 +1521,6 @@
     <table name="EFGPublications">
         <column name="EFG" type="INTEGER" required="true"/>
         <column name="Publications" type="INTEGER" required="true"/>
-    </table>
-    <table name="GenesGenotypes">
-        <column name="Genes" type="INTEGER" required="true"/>
-        <column name="Genotypes" type="INTEGER" required="true"/>
     </table>
     <table name="FishGenes">
         <column name="Fish" type="INTEGER" required="true"/>
@@ -1518,13 +1538,13 @@
         <column name="Transcripts" type="INTEGER" required="true"/>
         <column name="Clones" type="INTEGER" required="true"/>
     </table>
-    <table name="EFGsPublication">
-        <column name="Publication" type="INTEGER" required="true"/>
-        <column name="EFGs" type="INTEGER" required="true"/>
-    </table>
     <table name="DataSetsOntologyAnnotation">
         <column name="OntologyAnnotation" type="INTEGER" required="true"/>
         <column name="DataSets" type="INTEGER" required="true"/>
+    </table>
+    <table name="EFGsPublication">
+        <column name="Publication" type="INTEGER" required="true"/>
+        <column name="EFGs" type="INTEGER" required="true"/>
     </table>
     <table name="PathwaysProteins">
         <column name="Proteins" type="INTEGER" required="true"/>
@@ -1550,21 +1570,21 @@
         <column name="EFG" type="INTEGER" required="true"/>
         <column name="Promotes" type="INTEGER" required="true"/>
     </table>
-    <table name="CrossReferenceDataSets">
-        <column name="CrossReference" type="INTEGER" required="true"/>
-        <column name="DataSets" type="INTEGER" required="true"/>
-    </table>
     <table name="ConstructsEFGs">
         <column name="Constructs" type="INTEGER" required="true"/>
         <column name="EFGs" type="INTEGER" required="true"/>
     </table>
-    <table name="MorpholinosPublication">
-        <column name="Publication" type="INTEGER" required="true"/>
-        <column name="Morpholinos" type="INTEGER" required="true"/>
+    <table name="CrossReferencesZFATerm">
+        <column name="ZFATerm" type="INTEGER" required="true"/>
+        <column name="CrossReferences" type="INTEGER" required="true"/>
     </table>
     <table name="InnocuousAllelesInnocuousConstructs">
         <column name="InnocuousAlleles" type="INTEGER" required="true"/>
         <column name="InnocuousConstructs" type="INTEGER" required="true"/>
+    </table>
+    <table name="FeaturesGenes">
+        <column name="Features" type="INTEGER" required="true"/>
+        <column name="Genes" type="INTEGER" required="true"/>
     </table>
     <table name="OverlappingFeaturesSequenceFeature">
         <column name="SequenceFeature" type="INTEGER" required="true"/>
@@ -1578,10 +1598,6 @@
         <column name="OntologyTerm" type="INTEGER" required="true"/>
         <column name="ExpressionResultSubterms" type="INTEGER" required="true"/>
     </table>
-    <table name="FeaturesGenes">
-        <column name="Genes" type="INTEGER" required="true"/>
-        <column name="Features" type="INTEGER" required="true"/>
-    </table>
     <table name="MarkersMovedMovedIn">
         <column name="MarkersMoved" type="INTEGER" required="true"/>
         <column name="MovedIn" type="INTEGER" required="true"/>
@@ -1593,10 +1609,6 @@
     <table name="ExpressionsPublication">
         <column name="Publication" type="INTEGER" required="true"/>
         <column name="Expressions" type="INTEGER" required="true"/>
-    </table>
-    <table name="AntibodiesGenes">
-        <column name="Genes" type="INTEGER" required="true"/>
-        <column name="Antibodies" type="INTEGER" required="true"/>
     </table>
     <table name="GOEvidencePublications">
         <column name="GOEvidence" type="INTEGER" required="true"/>
@@ -1610,10 +1622,6 @@
         <column name="Region" type="INTEGER" required="true"/>
         <column name="Promotes" type="INTEGER" required="true"/>
     </table>
-    <table name="CodingSequenceOfCodingSequences">
-        <column name="CodingSequences" type="INTEGER" required="true"/>
-        <column name="CodingSequenceOf" type="INTEGER" required="true"/>
-    </table>
     <table name="DataSetsPathway">
         <column name="Pathway" type="INTEGER" required="true"/>
         <column name="DataSets" type="INTEGER" required="true"/>
@@ -1621,10 +1629,6 @@
     <table name="MarkersMissingMissingFrom">
         <column name="MarkersMissing" type="INTEGER" required="true"/>
         <column name="MissingFrom" type="INTEGER" required="true"/>
-    </table>
-    <table name="MorpholinosTargets">
-        <column name="Morpholinos" type="INTEGER" required="true"/>
-        <column name="Targets" type="INTEGER" required="true"/>
     </table>
     <table name="PhenotypicAllelesPhenotypicConstructs">
         <column name="PhenotypicAlleles" type="INTEGER" required="true"/>
@@ -1650,6 +1654,10 @@
         <column name="Antibody" type="INTEGER" required="true"/>
         <column name="CrossReferences" type="INTEGER" required="true"/>
     </table>
+    <table name="AntibodiesGenes">
+        <column name="Antibodies" type="INTEGER" required="true"/>
+        <column name="Genes" type="INTEGER" required="true"/>
+    </table>
     <table name="OntologyTermParents">
         <column name="OntologyTerm" type="INTEGER" required="true"/>
         <column name="Parents" type="INTEGER" required="true"/>
@@ -1657,6 +1665,10 @@
     <table name="PublicationSTSs">
         <column name="Publication" type="INTEGER" required="true"/>
         <column name="STSs" type="INTEGER" required="true"/>
+    </table>
+    <table name="CodingSequenceOfCodingSequences">
+        <column name="CodingSequenceOf" type="INTEGER" required="true"/>
+        <column name="CodingSequences" type="INTEGER" required="true"/>
     </table>
     <table name="PublicationSNPs">
         <column name="Publication" type="INTEGER" required="true"/>
@@ -1669,6 +1681,10 @@
     <table name="GenesIntrons">
         <column name="Genes" type="INTEGER" required="true"/>
         <column name="Introns" type="INTEGER" required="true"/>
+    </table>
+    <table name="PromotersPromotes">
+        <column name="Promotes" type="INTEGER" required="true"/>
+        <column name="Promoters" type="INTEGER" required="true"/>
     </table>
     <table name="CrossReferencesHomologue">
         <column name="Homologue" type="INTEGER" required="true"/>
@@ -1685,10 +1701,6 @@
     <table name="CDSConstruct">
         <column name="Construct" type="INTEGER" required="true"/>
         <column name="CDS" type="INTEGER" required="true"/>
-    </table>
-    <table name="GOAnnotationIntermine_with">
-        <column name="GOAnnotation" type="INTEGER" required="true"/>
-        <column name="Intermine_with" type="INTEGER" required="true"/>
     </table>
     <table name="EvidenceHomologue">
         <column name="Homologue" type="INTEGER" required="true"/>

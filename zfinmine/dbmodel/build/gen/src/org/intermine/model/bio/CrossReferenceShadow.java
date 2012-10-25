@@ -3,7 +3,6 @@ package org.intermine.model.bio;
 import org.intermine.objectstore.ObjectStore;
 import org.intermine.objectstore.intermine.NotXmlParser;
 import org.intermine.objectstore.intermine.NotXmlRenderer;
-import org.intermine.objectstore.proxy.ProxyCollection;
 import org.intermine.objectstore.proxy.ProxyReference;
 import org.intermine.util.StringConstructor;
 import org.intermine.util.TypeUtil;
@@ -36,12 +35,6 @@ public class CrossReferenceShadow implements CrossReference, ShadowClass
     public void proxySource(final org.intermine.objectstore.proxy.ProxyReference source) { this.source = source; }
     public org.intermine.model.InterMineObject proxGetSource() { return source; }
 
-    // Col: org.intermine.model.bio.CrossReference.dataSets
-    protected java.util.Set<org.intermine.model.bio.DataSet> dataSets = new java.util.HashSet<org.intermine.model.bio.DataSet>();
-    public java.util.Set<org.intermine.model.bio.DataSet> getDataSets() { return dataSets; }
-    public void setDataSets(final java.util.Set<org.intermine.model.bio.DataSet> dataSets) { this.dataSets = dataSets; }
-    public void addDataSets(final org.intermine.model.bio.DataSet arg) { dataSets.add(arg); }
-
     // Attr: org.intermine.model.InterMineObject.id
     protected java.lang.Integer id;
     public java.lang.Integer getId() { return id; }
@@ -71,9 +64,6 @@ public class CrossReferenceShadow implements CrossReference, ShadowClass
                 return source;
             }
         }
-        if ("dataSets".equals(fieldName)) {
-            return dataSets;
-        }
         if ("id".equals(fieldName)) {
             return id;
         }
@@ -95,9 +85,6 @@ public class CrossReferenceShadow implements CrossReference, ShadowClass
         if ("source".equals(fieldName)) {
             return source;
         }
-        if ("dataSets".equals(fieldName)) {
-            return dataSets;
-        }
         if ("id".equals(fieldName)) {
             return id;
         }
@@ -115,8 +102,6 @@ public class CrossReferenceShadow implements CrossReference, ShadowClass
             subject = (org.intermine.model.InterMineObject) value;
         } else if ("source".equals(fieldName)) {
             source = (org.intermine.model.InterMineObject) value;
-        } else if ("dataSets".equals(fieldName)) {
-            dataSets = (java.util.Set) value;
         } else if ("id".equals(fieldName)) {
             id = (java.lang.Integer) value;
         } else {
@@ -139,9 +124,6 @@ public class CrossReferenceShadow implements CrossReference, ShadowClass
         }
         if ("source".equals(fieldName)) {
             return org.intermine.model.bio.DataSource.class;
-        }
-        if ("dataSets".equals(fieldName)) {
-            return java.util.Set.class;
         }
         if ("id".equals(fieldName)) {
             return java.lang.Integer.class;
@@ -248,12 +230,9 @@ public class CrossReferenceShadow implements CrossReference, ShadowClass
                 throw new IllegalArgumentException("Unknown field " + notXml[i]);
             }
         }
-        dataSets = new ProxyCollection<org.intermine.model.bio.DataSet>(os, this, "dataSets", org.intermine.model.bio.DataSet.class);
     }
     public void addCollectionElement(final String fieldName, final org.intermine.model.InterMineObject element) {
-        if ("dataSets".equals(fieldName)) {
-            dataSets.add((org.intermine.model.bio.DataSet) element);
-        } else {
+        {
             if (!org.intermine.model.bio.CrossReference.class.equals(getClass())) {
                 TypeUtil.addCollectionElement(this, fieldName, element);
                 return;
@@ -262,9 +241,6 @@ public class CrossReferenceShadow implements CrossReference, ShadowClass
         }
     }
     public Class<?> getElementType(final String fieldName) {
-        if ("dataSets".equals(fieldName)) {
-            return org.intermine.model.bio.DataSet.class;
-        }
         if (!org.intermine.model.bio.CrossReference.class.equals(getClass())) {
             return TypeUtil.getElementType(org.intermine.model.bio.CrossReference.class, fieldName);
         }

@@ -72,15 +72,15 @@ public class PublicationShadow implements Publication, ShadowClass
     public java.lang.String getPubMedId() { return pubMedId; }
     public void setPubMedId(final java.lang.String pubMedId) { this.pubMedId = pubMedId; }
 
-    // Attr: org.intermine.model.bio.Publication.pubAbstract
-    protected java.lang.String pubAbstract;
-    public java.lang.String getPubAbstract() { return pubAbstract; }
-    public void setPubAbstract(final java.lang.String pubAbstract) { this.pubAbstract = pubAbstract; }
-
     // Attr: org.intermine.model.bio.Publication.primaryIdentifier
     protected java.lang.String primaryIdentifier;
     public java.lang.String getPrimaryIdentifier() { return primaryIdentifier; }
     public void setPrimaryIdentifier(final java.lang.String primaryIdentifier) { this.primaryIdentifier = primaryIdentifier; }
+
+    // Attr: org.intermine.model.bio.Publication.pubAbstract
+    protected java.lang.String pubAbstract;
+    public java.lang.String getPubAbstract() { return pubAbstract; }
+    public void setPubAbstract(final java.lang.String pubAbstract) { this.pubAbstract = pubAbstract; }
 
     // Attr: org.intermine.model.bio.Publication.authorNames
     protected java.lang.String authorNames;
@@ -106,12 +106,6 @@ public class PublicationShadow implements Publication, ShadowClass
     public void setBioEntities(final java.util.Set<org.intermine.model.bio.BioEntity> bioEntities) { this.bioEntities = bioEntities; }
     public void addBioEntities(final org.intermine.model.bio.BioEntity arg) { bioEntities.add(arg); }
 
-    // Col: org.intermine.model.bio.Publication.morpholinos
-    protected java.util.Set<org.intermine.model.bio.Morpholino> morpholinos = new java.util.HashSet<org.intermine.model.bio.Morpholino>();
-    public java.util.Set<org.intermine.model.bio.Morpholino> getMorpholinos() { return morpholinos; }
-    public void setMorpholinos(final java.util.Set<org.intermine.model.bio.Morpholino> morpholinos) { this.morpholinos = morpholinos; }
-    public void addMorpholinos(final org.intermine.model.bio.Morpholino arg) { morpholinos.add(arg); }
-
     // Col: org.intermine.model.bio.Publication.SSLPs
     protected java.util.Set<org.intermine.model.bio.SimpleSequenceLengthVariation> SSLPs = new java.util.HashSet<org.intermine.model.bio.SimpleSequenceLengthVariation>();
     public java.util.Set<org.intermine.model.bio.SimpleSequenceLengthVariation> getsSLPs() { return SSLPs; }
@@ -123,6 +117,12 @@ public class PublicationShadow implements Publication, ShadowClass
     public java.util.Set<org.intermine.model.bio.Clone> getClones() { return clones; }
     public void setClones(final java.util.Set<org.intermine.model.bio.Clone> clones) { this.clones = clones; }
     public void addClones(final org.intermine.model.bio.Clone arg) { clones.add(arg); }
+
+    // Col: org.intermine.model.bio.Publication.crossReferences
+    protected java.util.Set<org.intermine.model.bio.DatabaseReference> crossReferences = new java.util.HashSet<org.intermine.model.bio.DatabaseReference>();
+    public java.util.Set<org.intermine.model.bio.DatabaseReference> getCrossReferences() { return crossReferences; }
+    public void setCrossReferences(final java.util.Set<org.intermine.model.bio.DatabaseReference> crossReferences) { this.crossReferences = crossReferences; }
+    public void addCrossReferences(final org.intermine.model.bio.DatabaseReference arg) { crossReferences.add(arg); }
 
     // Col: org.intermine.model.bio.Publication.antibodies
     protected java.util.Set<org.intermine.model.bio.Antibody> antibodies = new java.util.HashSet<org.intermine.model.bio.Antibody>();
@@ -177,6 +177,12 @@ public class PublicationShadow implements Publication, ShadowClass
     public java.util.Set<org.intermine.model.bio.MeshTerm> getMeshTerms() { return meshTerms; }
     public void setMeshTerms(final java.util.Set<org.intermine.model.bio.MeshTerm> meshTerms) { this.meshTerms = meshTerms; }
     public void addMeshTerms(final org.intermine.model.bio.MeshTerm arg) { meshTerms.add(arg); }
+
+    // Col: org.intermine.model.bio.Publication.morpholinos
+    protected java.util.Set<org.intermine.model.bio.MorpholinoOligo> morpholinos = new java.util.HashSet<org.intermine.model.bio.MorpholinoOligo>();
+    public java.util.Set<org.intermine.model.bio.MorpholinoOligo> getMorpholinos() { return morpholinos; }
+    public void setMorpholinos(final java.util.Set<org.intermine.model.bio.MorpholinoOligo> morpholinos) { this.morpholinos = morpholinos; }
+    public void addMorpholinos(final org.intermine.model.bio.MorpholinoOligo arg) { morpholinos.add(arg); }
 
     // Col: org.intermine.model.bio.Publication.regions
     protected java.util.Set<org.intermine.model.bio.Region> regions = new java.util.HashSet<org.intermine.model.bio.Region>();
@@ -241,11 +247,11 @@ public class PublicationShadow implements Publication, ShadowClass
         if ("pubMedId".equals(fieldName)) {
             return pubMedId;
         }
-        if ("pubAbstract".equals(fieldName)) {
-            return pubAbstract;
-        }
         if ("primaryIdentifier".equals(fieldName)) {
             return primaryIdentifier;
+        }
+        if ("pubAbstract".equals(fieldName)) {
+            return pubAbstract;
         }
         if ("authorNames".equals(fieldName)) {
             return authorNames;
@@ -263,14 +269,14 @@ public class PublicationShadow implements Publication, ShadowClass
         if ("bioEntities".equals(fieldName)) {
             return bioEntities;
         }
-        if ("morpholinos".equals(fieldName)) {
-            return morpholinos;
-        }
         if ("SSLPs".equals(fieldName)) {
             return SSLPs;
         }
         if ("clones".equals(fieldName)) {
             return clones;
+        }
+        if ("crossReferences".equals(fieldName)) {
+            return crossReferences;
         }
         if ("antibodies".equals(fieldName)) {
             return antibodies;
@@ -298,6 +304,9 @@ public class PublicationShadow implements Publication, ShadowClass
         }
         if ("meshTerms".equals(fieldName)) {
             return meshTerms;
+        }
+        if ("morpholinos".equals(fieldName)) {
+            return morpholinos;
         }
         if ("regions".equals(fieldName)) {
             return regions;
@@ -353,11 +362,11 @@ public class PublicationShadow implements Publication, ShadowClass
         if ("pubMedId".equals(fieldName)) {
             return pubMedId;
         }
-        if ("pubAbstract".equals(fieldName)) {
-            return pubAbstract;
-        }
         if ("primaryIdentifier".equals(fieldName)) {
             return primaryIdentifier;
+        }
+        if ("pubAbstract".equals(fieldName)) {
+            return pubAbstract;
         }
         if ("authorNames".equals(fieldName)) {
             return authorNames;
@@ -371,14 +380,14 @@ public class PublicationShadow implements Publication, ShadowClass
         if ("bioEntities".equals(fieldName)) {
             return bioEntities;
         }
-        if ("morpholinos".equals(fieldName)) {
-            return morpholinos;
-        }
         if ("SSLPs".equals(fieldName)) {
             return SSLPs;
         }
         if ("clones".equals(fieldName)) {
             return clones;
+        }
+        if ("crossReferences".equals(fieldName)) {
+            return crossReferences;
         }
         if ("antibodies".equals(fieldName)) {
             return antibodies;
@@ -406,6 +415,9 @@ public class PublicationShadow implements Publication, ShadowClass
         }
         if ("meshTerms".equals(fieldName)) {
             return meshTerms;
+        }
+        if ("morpholinos".equals(fieldName)) {
+            return morpholinos;
         }
         if ("regions".equals(fieldName)) {
             return regions;
@@ -449,10 +461,10 @@ public class PublicationShadow implements Publication, ShadowClass
             type = (java.lang.String) value;
         } else if ("pubMedId".equals(fieldName)) {
             pubMedId = (java.lang.String) value;
-        } else if ("pubAbstract".equals(fieldName)) {
-            pubAbstract = (java.lang.String) value;
         } else if ("primaryIdentifier".equals(fieldName)) {
             primaryIdentifier = (java.lang.String) value;
+        } else if ("pubAbstract".equals(fieldName)) {
+            pubAbstract = (java.lang.String) value;
         } else if ("authorNames".equals(fieldName)) {
             authorNames = (java.lang.String) value;
         } else if ("journal".equals(fieldName)) {
@@ -461,12 +473,12 @@ public class PublicationShadow implements Publication, ShadowClass
             constructs = (java.util.Set) value;
         } else if ("bioEntities".equals(fieldName)) {
             bioEntities = (java.util.Set) value;
-        } else if ("morpholinos".equals(fieldName)) {
-            morpholinos = (java.util.Set) value;
         } else if ("SSLPs".equals(fieldName)) {
             SSLPs = (java.util.Set) value;
         } else if ("clones".equals(fieldName)) {
             clones = (java.util.Set) value;
+        } else if ("crossReferences".equals(fieldName)) {
+            crossReferences = (java.util.Set) value;
         } else if ("antibodies".equals(fieldName)) {
             antibodies = (java.util.Set) value;
         } else if ("STSs".equals(fieldName)) {
@@ -485,6 +497,8 @@ public class PublicationShadow implements Publication, ShadowClass
             expressions = (java.util.Set) value;
         } else if ("meshTerms".equals(fieldName)) {
             meshTerms = (java.util.Set) value;
+        } else if ("morpholinos".equals(fieldName)) {
+            morpholinos = (java.util.Set) value;
         } else if ("regions".equals(fieldName)) {
             regions = (java.util.Set) value;
         } else if ("authors".equals(fieldName)) {
@@ -538,10 +552,10 @@ public class PublicationShadow implements Publication, ShadowClass
         if ("pubMedId".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("pubAbstract".equals(fieldName)) {
+        if ("primaryIdentifier".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("primaryIdentifier".equals(fieldName)) {
+        if ("pubAbstract".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("authorNames".equals(fieldName)) {
@@ -556,13 +570,13 @@ public class PublicationShadow implements Publication, ShadowClass
         if ("bioEntities".equals(fieldName)) {
             return java.util.Set.class;
         }
-        if ("morpholinos".equals(fieldName)) {
-            return java.util.Set.class;
-        }
         if ("SSLPs".equals(fieldName)) {
             return java.util.Set.class;
         }
         if ("clones".equals(fieldName)) {
+            return java.util.Set.class;
+        }
+        if ("crossReferences".equals(fieldName)) {
             return java.util.Set.class;
         }
         if ("antibodies".equals(fieldName)) {
@@ -590,6 +604,9 @@ public class PublicationShadow implements Publication, ShadowClass
             return java.util.Set.class;
         }
         if ("meshTerms".equals(fieldName)) {
+            return java.util.Set.class;
+        }
+        if ("morpholinos".equals(fieldName)) {
             return java.util.Set.class;
         }
         if ("regions".equals(fieldName)) {
@@ -783,9 +800,9 @@ public class PublicationShadow implements Publication, ShadowClass
                 }
             }
         }
-        if (pubAbstract != null) {
-            sb.append("$_^apubAbstract$_^");
-            String string = pubAbstract;
+        if (primaryIdentifier != null) {
+            sb.append("$_^aprimaryIdentifier$_^");
+            String string = primaryIdentifier;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -798,9 +815,9 @@ public class PublicationShadow implements Publication, ShadowClass
                 }
             }
         }
-        if (primaryIdentifier != null) {
-            sb.append("$_^aprimaryIdentifier$_^");
-            String string = primaryIdentifier;
+        if (pubAbstract != null) {
+            sb.append("$_^apubAbstract$_^");
+            String string = pubAbstract;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -971,17 +988,6 @@ public class PublicationShadow implements Publication, ShadowClass
                 pubMedId = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "apubAbstract".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                pubAbstract = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "aprimaryIdentifier".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -991,6 +997,17 @@ public class PublicationShadow implements Publication, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 primaryIdentifier = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "apubAbstract".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                pubAbstract = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "aauthorNames".equals(notXml[i])) {
@@ -1020,9 +1037,9 @@ public class PublicationShadow implements Publication, ShadowClass
         }
         constructs = new ProxyCollection<org.intermine.model.bio.Construct>(os, this, "constructs", org.intermine.model.bio.Construct.class);
         bioEntities = new ProxyCollection<org.intermine.model.bio.BioEntity>(os, this, "bioEntities", org.intermine.model.bio.BioEntity.class);
-        morpholinos = new ProxyCollection<org.intermine.model.bio.Morpholino>(os, this, "morpholinos", org.intermine.model.bio.Morpholino.class);
         SSLPs = new ProxyCollection<org.intermine.model.bio.SimpleSequenceLengthVariation>(os, this, "SSLPs", org.intermine.model.bio.SimpleSequenceLengthVariation.class);
         clones = new ProxyCollection<org.intermine.model.bio.Clone>(os, this, "clones", org.intermine.model.bio.Clone.class);
+        crossReferences = new ProxyCollection<org.intermine.model.bio.DatabaseReference>(os, this, "crossReferences", org.intermine.model.bio.DatabaseReference.class);
         antibodies = new ProxyCollection<org.intermine.model.bio.Antibody>(os, this, "antibodies", org.intermine.model.bio.Antibody.class);
         STSs = new ProxyCollection<org.intermine.model.bio.STS>(os, this, "STSs", org.intermine.model.bio.STS.class);
         figures = new ProxyCollection<org.intermine.model.bio.Figure>(os, this, "figures", org.intermine.model.bio.Figure.class);
@@ -1032,6 +1049,7 @@ public class PublicationShadow implements Publication, ShadowClass
         environments = new ProxyCollection<org.intermine.model.bio.Environment>(os, this, "environments", org.intermine.model.bio.Environment.class);
         expressions = new ProxyCollection<org.intermine.model.bio.ExpressionResult>(os, this, "expressions", org.intermine.model.bio.ExpressionResult.class);
         meshTerms = new ProxyCollection<org.intermine.model.bio.MeshTerm>(os, this, "meshTerms", org.intermine.model.bio.MeshTerm.class);
+        morpholinos = new ProxyCollection<org.intermine.model.bio.MorpholinoOligo>(os, this, "morpholinos", org.intermine.model.bio.MorpholinoOligo.class);
         regions = new ProxyCollection<org.intermine.model.bio.Region>(os, this, "regions", org.intermine.model.bio.Region.class);
         authors = new ProxyCollection<org.intermine.model.bio.Author>(os, this, "authors", org.intermine.model.bio.Author.class);
         genes = new ProxyCollection<org.intermine.model.bio.Gene>(os, this, "genes", org.intermine.model.bio.Gene.class);
@@ -1041,12 +1059,12 @@ public class PublicationShadow implements Publication, ShadowClass
             constructs.add((org.intermine.model.bio.Construct) element);
         } else if ("bioEntities".equals(fieldName)) {
             bioEntities.add((org.intermine.model.bio.BioEntity) element);
-        } else if ("morpholinos".equals(fieldName)) {
-            morpholinos.add((org.intermine.model.bio.Morpholino) element);
         } else if ("SSLPs".equals(fieldName)) {
             SSLPs.add((org.intermine.model.bio.SimpleSequenceLengthVariation) element);
         } else if ("clones".equals(fieldName)) {
             clones.add((org.intermine.model.bio.Clone) element);
+        } else if ("crossReferences".equals(fieldName)) {
+            crossReferences.add((org.intermine.model.bio.DatabaseReference) element);
         } else if ("antibodies".equals(fieldName)) {
             antibodies.add((org.intermine.model.bio.Antibody) element);
         } else if ("STSs".equals(fieldName)) {
@@ -1065,6 +1083,8 @@ public class PublicationShadow implements Publication, ShadowClass
             expressions.add((org.intermine.model.bio.ExpressionResult) element);
         } else if ("meshTerms".equals(fieldName)) {
             meshTerms.add((org.intermine.model.bio.MeshTerm) element);
+        } else if ("morpholinos".equals(fieldName)) {
+            morpholinos.add((org.intermine.model.bio.MorpholinoOligo) element);
         } else if ("regions".equals(fieldName)) {
             regions.add((org.intermine.model.bio.Region) element);
         } else if ("authors".equals(fieldName)) {
@@ -1086,14 +1106,14 @@ public class PublicationShadow implements Publication, ShadowClass
         if ("bioEntities".equals(fieldName)) {
             return org.intermine.model.bio.BioEntity.class;
         }
-        if ("morpholinos".equals(fieldName)) {
-            return org.intermine.model.bio.Morpholino.class;
-        }
         if ("SSLPs".equals(fieldName)) {
             return org.intermine.model.bio.SimpleSequenceLengthVariation.class;
         }
         if ("clones".equals(fieldName)) {
             return org.intermine.model.bio.Clone.class;
+        }
+        if ("crossReferences".equals(fieldName)) {
+            return org.intermine.model.bio.DatabaseReference.class;
         }
         if ("antibodies".equals(fieldName)) {
             return org.intermine.model.bio.Antibody.class;
@@ -1121,6 +1141,9 @@ public class PublicationShadow implements Publication, ShadowClass
         }
         if ("meshTerms".equals(fieldName)) {
             return org.intermine.model.bio.MeshTerm.class;
+        }
+        if ("morpholinos".equals(fieldName)) {
+            return org.intermine.model.bio.MorpholinoOligo.class;
         }
         if ("regions".equals(fieldName)) {
             return org.intermine.model.bio.Region.class;

@@ -116,7 +116,7 @@ public class ZfinExperimentsConverter extends BioFileConverter {
             throws SAXException {
         Item item = morphs.get(morpholino);
         if (item == null) {
-            item = createItem("Morpholino");
+            item = createItem("MorpholinoOligo");
             item.setAttribute("primaryIdentifier", morpholino);
             morphs.put(morpholino, item);
             try {

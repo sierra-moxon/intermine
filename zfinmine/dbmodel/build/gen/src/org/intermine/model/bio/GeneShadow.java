@@ -17,10 +17,15 @@ public class GeneShadow implements Gene, ShadowClass
     public java.lang.String getType() { return type; }
     public void setType(final java.lang.String type) { this.type = type; }
 
-    // Attr: org.intermine.model.bio.Gene.ncbiGeneNumber
-    protected java.lang.String ncbiGeneNumber;
-    public java.lang.String getNcbiGeneNumber() { return ncbiGeneNumber; }
-    public void setNcbiGeneNumber(final java.lang.String ncbiGeneNumber) { this.ncbiGeneNumber = ncbiGeneNumber; }
+    // Attr: org.intermine.model.bio.Gene.briefDescription
+    protected java.lang.String briefDescription;
+    public java.lang.String getBriefDescription() { return briefDescription; }
+    public void setBriefDescription(final java.lang.String briefDescription) { this.briefDescription = briefDescription; }
+
+    // Attr: org.intermine.model.bio.Gene.description
+    protected java.lang.String description;
+    public java.lang.String getDescription() { return description; }
+    public void setDescription(final java.lang.String description) { this.description = description; }
 
     // Ref: org.intermine.model.bio.Gene.downstreamIntergenicRegion
     protected org.intermine.model.InterMineObject downstreamIntergenicRegion;
@@ -35,12 +40,6 @@ public class GeneShadow implements Gene, ShadowClass
     public void setUpstreamIntergenicRegion(final org.intermine.model.bio.IntergenicRegion upstreamIntergenicRegion) { this.upstreamIntergenicRegion = upstreamIntergenicRegion; }
     public void proxyUpstreamIntergenicRegion(final org.intermine.objectstore.proxy.ProxyReference upstreamIntergenicRegion) { this.upstreamIntergenicRegion = upstreamIntergenicRegion; }
     public org.intermine.model.InterMineObject proxGetUpstreamIntergenicRegion() { return upstreamIntergenicRegion; }
-
-    // Col: org.intermine.model.bio.Gene.morpholinos
-    protected java.util.Set<org.intermine.model.bio.Morpholino> morpholinos = new java.util.HashSet<org.intermine.model.bio.Morpholino>();
-    public java.util.Set<org.intermine.model.bio.Morpholino> getMorpholinos() { return morpholinos; }
-    public void setMorpholinos(final java.util.Set<org.intermine.model.bio.Morpholino> morpholinos) { this.morpholinos = morpholinos; }
-    public void addMorpholinos(final org.intermine.model.bio.Morpholino arg) { morpholinos.add(arg); }
 
     // Col: org.intermine.model.bio.Gene.cloneArtifacts
     protected java.util.Set<org.intermine.model.bio.Clone> cloneArtifacts = new java.util.HashSet<org.intermine.model.bio.Clone>();
@@ -101,6 +100,12 @@ public class GeneShadow implements Gene, ShadowClass
     public java.util.Set<org.intermine.model.bio.Antibody> getAntibodies() { return antibodies; }
     public void setAntibodies(final java.util.Set<org.intermine.model.bio.Antibody> antibodies) { this.antibodies = antibodies; }
     public void addAntibodies(final org.intermine.model.bio.Antibody arg) { antibodies.add(arg); }
+
+    // Col: org.intermine.model.bio.Gene.morpholinos
+    protected java.util.Set<org.intermine.model.bio.MorpholinoOligo> morpholinos = new java.util.HashSet<org.intermine.model.bio.MorpholinoOligo>();
+    public java.util.Set<org.intermine.model.bio.MorpholinoOligo> getMorpholinos() { return morpholinos; }
+    public void setMorpholinos(final java.util.Set<org.intermine.model.bio.MorpholinoOligo> morpholinos) { this.morpholinos = morpholinos; }
+    public void addMorpholinos(final org.intermine.model.bio.MorpholinoOligo arg) { morpholinos.add(arg); }
 
     // Col: org.intermine.model.bio.Gene.features
     protected java.util.Set<org.intermine.model.bio.SequenceAlteration> features = new java.util.HashSet<org.intermine.model.bio.SequenceAlteration>();
@@ -311,13 +316,16 @@ public class GeneShadow implements Gene, ShadowClass
 
     @Override public boolean equals(Object o) { return (o instanceof Gene && id != null) ? id.equals(((Gene)o).getId()) : this == o; }
     @Override public int hashCode() { return (id != null) ? id.hashCode() : super.hashCode(); }
-    @Override public String toString() { return "Gene [chromosome=" + (chromosome == null ? "null" : (chromosome.getId() == null ? "no id" : chromosome.getId().toString())) + ", chromosomeLocation=" + (chromosomeLocation == null ? "null" : (chromosomeLocation.getId() == null ? "no id" : chromosomeLocation.getId().toString())) + ", downstreamIntergenicRegion=" + (downstreamIntergenicRegion == null ? "null" : (downstreamIntergenicRegion.getId() == null ? "no id" : downstreamIntergenicRegion.getId().toString())) + ", id=\"" + id + "\", length=\"" + length + "\", name=\"" + name + "\", ncbiGeneNumber=\"" + ncbiGeneNumber + "\", organism=" + (organism == null ? "null" : (organism.getId() == null ? "no id" : organism.getId().toString())) + ", primaryIdentifier=\"" + primaryIdentifier + "\", score=\"" + score + "\", scoreType=\"" + scoreType + "\", secondaryIdentifier=\"" + secondaryIdentifier + "\", sequence=" + (sequence == null ? "null" : (sequence.getId() == null ? "no id" : sequence.getId().toString())) + ", sequenceOntologyTerm=" + (sequenceOntologyTerm == null ? "null" : (sequenceOntologyTerm.getId() == null ? "no id" : sequenceOntologyTerm.getId().toString())) + ", symbol=\"" + symbol + "\", type=\"" + type + "\", upstreamIntergenicRegion=" + (upstreamIntergenicRegion == null ? "null" : (upstreamIntergenicRegion.getId() == null ? "no id" : upstreamIntergenicRegion.getId().toString())) + "]"; }
+    @Override public String toString() { return "Gene [briefDescription=\"" + briefDescription + "\", chromosome=" + (chromosome == null ? "null" : (chromosome.getId() == null ? "no id" : chromosome.getId().toString())) + ", chromosomeLocation=" + (chromosomeLocation == null ? "null" : (chromosomeLocation.getId() == null ? "no id" : chromosomeLocation.getId().toString())) + ", description=\"" + description + "\", downstreamIntergenicRegion=" + (downstreamIntergenicRegion == null ? "null" : (downstreamIntergenicRegion.getId() == null ? "no id" : downstreamIntergenicRegion.getId().toString())) + ", id=\"" + id + "\", length=\"" + length + "\", name=\"" + name + "\", organism=" + (organism == null ? "null" : (organism.getId() == null ? "no id" : organism.getId().toString())) + ", primaryIdentifier=\"" + primaryIdentifier + "\", score=\"" + score + "\", scoreType=\"" + scoreType + "\", secondaryIdentifier=\"" + secondaryIdentifier + "\", sequence=" + (sequence == null ? "null" : (sequence.getId() == null ? "no id" : sequence.getId().toString())) + ", sequenceOntologyTerm=" + (sequenceOntologyTerm == null ? "null" : (sequenceOntologyTerm.getId() == null ? "no id" : sequenceOntologyTerm.getId().toString())) + ", symbol=\"" + symbol + "\", type=\"" + type + "\", upstreamIntergenicRegion=" + (upstreamIntergenicRegion == null ? "null" : (upstreamIntergenicRegion.getId() == null ? "no id" : upstreamIntergenicRegion.getId().toString())) + "]"; }
     public Object getFieldValue(final String fieldName) throws IllegalAccessException {
         if ("type".equals(fieldName)) {
             return type;
         }
-        if ("ncbiGeneNumber".equals(fieldName)) {
-            return ncbiGeneNumber;
+        if ("briefDescription".equals(fieldName)) {
+            return briefDescription;
+        }
+        if ("description".equals(fieldName)) {
+            return description;
         }
         if ("downstreamIntergenicRegion".equals(fieldName)) {
             if (downstreamIntergenicRegion instanceof ProxyReference) {
@@ -332,9 +340,6 @@ public class GeneShadow implements Gene, ShadowClass
             } else {
                 return upstreamIntergenicRegion;
             }
-        }
-        if ("morpholinos".equals(fieldName)) {
-            return morpholinos;
         }
         if ("cloneArtifacts".equals(fieldName)) {
             return cloneArtifacts;
@@ -365,6 +370,9 @@ public class GeneShadow implements Gene, ShadowClass
         }
         if ("antibodies".equals(fieldName)) {
             return antibodies;
+        }
+        if ("morpholinos".equals(fieldName)) {
+            return morpholinos;
         }
         if ("features".equals(fieldName)) {
             return features;
@@ -500,17 +508,17 @@ public class GeneShadow implements Gene, ShadowClass
         if ("type".equals(fieldName)) {
             return type;
         }
-        if ("ncbiGeneNumber".equals(fieldName)) {
-            return ncbiGeneNumber;
+        if ("briefDescription".equals(fieldName)) {
+            return briefDescription;
+        }
+        if ("description".equals(fieldName)) {
+            return description;
         }
         if ("downstreamIntergenicRegion".equals(fieldName)) {
             return downstreamIntergenicRegion;
         }
         if ("upstreamIntergenicRegion".equals(fieldName)) {
             return upstreamIntergenicRegion;
-        }
-        if ("morpholinos".equals(fieldName)) {
-            return morpholinos;
         }
         if ("cloneArtifacts".equals(fieldName)) {
             return cloneArtifacts;
@@ -541,6 +549,9 @@ public class GeneShadow implements Gene, ShadowClass
         }
         if ("antibodies".equals(fieldName)) {
             return antibodies;
+        }
+        if ("morpholinos".equals(fieldName)) {
+            return morpholinos;
         }
         if ("features".equals(fieldName)) {
             return features;
@@ -655,14 +666,14 @@ public class GeneShadow implements Gene, ShadowClass
     public void setFieldValue(final String fieldName, final Object value) {
         if ("type".equals(fieldName)) {
             type = (java.lang.String) value;
-        } else if ("ncbiGeneNumber".equals(fieldName)) {
-            ncbiGeneNumber = (java.lang.String) value;
+        } else if ("briefDescription".equals(fieldName)) {
+            briefDescription = (java.lang.String) value;
+        } else if ("description".equals(fieldName)) {
+            description = (java.lang.String) value;
         } else if ("downstreamIntergenicRegion".equals(fieldName)) {
             downstreamIntergenicRegion = (org.intermine.model.InterMineObject) value;
         } else if ("upstreamIntergenicRegion".equals(fieldName)) {
             upstreamIntergenicRegion = (org.intermine.model.InterMineObject) value;
-        } else if ("morpholinos".equals(fieldName)) {
-            morpholinos = (java.util.Set) value;
         } else if ("cloneArtifacts".equals(fieldName)) {
             cloneArtifacts = (java.util.Set) value;
         } else if ("goAnnotation".equals(fieldName)) {
@@ -683,6 +694,8 @@ public class GeneShadow implements Gene, ShadowClass
             flankingRegions = (java.util.Set) value;
         } else if ("antibodies".equals(fieldName)) {
             antibodies = (java.util.Set) value;
+        } else if ("morpholinos".equals(fieldName)) {
+            morpholinos = (java.util.Set) value;
         } else if ("features".equals(fieldName)) {
             features = (java.util.Set) value;
         } else if ("expressions".equals(fieldName)) {
@@ -765,7 +778,10 @@ public class GeneShadow implements Gene, ShadowClass
         if ("type".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("ncbiGeneNumber".equals(fieldName)) {
+        if ("briefDescription".equals(fieldName)) {
+            return java.lang.String.class;
+        }
+        if ("description".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("downstreamIntergenicRegion".equals(fieldName)) {
@@ -773,9 +789,6 @@ public class GeneShadow implements Gene, ShadowClass
         }
         if ("upstreamIntergenicRegion".equals(fieldName)) {
             return org.intermine.model.bio.IntergenicRegion.class;
-        }
-        if ("morpholinos".equals(fieldName)) {
-            return java.util.Set.class;
         }
         if ("cloneArtifacts".equals(fieldName)) {
             return java.util.Set.class;
@@ -805,6 +818,9 @@ public class GeneShadow implements Gene, ShadowClass
             return java.util.Set.class;
         }
         if ("antibodies".equals(fieldName)) {
+            return java.util.Set.class;
+        }
+        if ("morpholinos".equals(fieldName)) {
             return java.util.Set.class;
         }
         if ("features".equals(fieldName)) {
@@ -938,9 +954,24 @@ public class GeneShadow implements Gene, ShadowClass
                 }
             }
         }
-        if (ncbiGeneNumber != null) {
-            sb.append("$_^ancbiGeneNumber$_^");
-            String string = ncbiGeneNumber;
+        if (briefDescription != null) {
+            sb.append("$_^abriefDescription$_^");
+            String string = briefDescription;
+            while (string != null) {
+                int delimPosition = string.indexOf("$_^");
+                if (delimPosition == -1) {
+                    sb.append(string);
+                    string = null;
+                } else {
+                    sb.append(string.substring(0, delimPosition + 3));
+                    sb.append("d");
+                    string = string.substring(delimPosition + 3);
+                }
+            }
+        }
+        if (description != null) {
+            sb.append("$_^adescription$_^");
+            String string = description;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -1080,7 +1111,7 @@ public class GeneShadow implements Gene, ShadowClass
                 type = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "ancbiGeneNumber".equals(notXml[i])) {
+            if ((i < notXml.length) && "abriefDescription".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
                 while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
@@ -1088,7 +1119,18 @@ public class GeneShadow implements Gene, ShadowClass
                     i++;
                     string.append("$_^").append(notXml[i].substring(1));
                 }
-                ncbiGeneNumber = string == null ? notXml[i] : string.toString();
+                briefDescription = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "adescription".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                description = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) &&"rdownstreamIntergenicRegion".equals(notXml[i])) {
@@ -1200,7 +1242,6 @@ public class GeneShadow implements Gene, ShadowClass
                 throw new IllegalArgumentException("Unknown field " + notXml[i]);
             }
         }
-        morpholinos = new ProxyCollection<org.intermine.model.bio.Morpholino>(os, this, "morpholinos", org.intermine.model.bio.Morpholino.class);
         cloneArtifacts = new ProxyCollection<org.intermine.model.bio.Clone>(os, this, "cloneArtifacts", org.intermine.model.bio.Clone.class);
         goAnnotation = new ProxyCollection<org.intermine.model.bio.GOAnnotation>(os, this, "goAnnotation", org.intermine.model.bio.GOAnnotation.class);
         transcripts = new ProxyCollection<org.intermine.model.bio.Transcript>(os, this, "transcripts", org.intermine.model.bio.Transcript.class);
@@ -1211,6 +1252,7 @@ public class GeneShadow implements Gene, ShadowClass
         promotes = new ProxyCollection<org.intermine.model.bio.Construct>(os, this, "promotes", org.intermine.model.bio.Construct.class);
         flankingRegions = new ProxyCollection<org.intermine.model.bio.GeneFlankingRegion>(os, this, "flankingRegions", org.intermine.model.bio.GeneFlankingRegion.class);
         antibodies = new ProxyCollection<org.intermine.model.bio.Antibody>(os, this, "antibodies", org.intermine.model.bio.Antibody.class);
+        morpholinos = new ProxyCollection<org.intermine.model.bio.MorpholinoOligo>(os, this, "morpholinos", org.intermine.model.bio.MorpholinoOligo.class);
         features = new ProxyCollection<org.intermine.model.bio.SequenceAlteration>(os, this, "features", org.intermine.model.bio.SequenceAlteration.class);
         expressions = new ProxyCollection<org.intermine.model.bio.ExpressionResult>(os, this, "expressions", org.intermine.model.bio.ExpressionResult.class);
         proteins = new ProxyCollection<org.intermine.model.bio.Protein>(os, this, "proteins", org.intermine.model.bio.Protein.class);
@@ -1235,9 +1277,7 @@ public class GeneShadow implements Gene, ShadowClass
         crossReferences = new ProxyCollection<org.intermine.model.bio.CrossReference>(os, this, "crossReferences", org.intermine.model.bio.CrossReference.class);
     }
     public void addCollectionElement(final String fieldName, final org.intermine.model.InterMineObject element) {
-        if ("morpholinos".equals(fieldName)) {
-            morpholinos.add((org.intermine.model.bio.Morpholino) element);
-        } else if ("cloneArtifacts".equals(fieldName)) {
+        if ("cloneArtifacts".equals(fieldName)) {
             cloneArtifacts.add((org.intermine.model.bio.Clone) element);
         } else if ("goAnnotation".equals(fieldName)) {
             goAnnotation.add((org.intermine.model.bio.GOAnnotation) element);
@@ -1257,6 +1297,8 @@ public class GeneShadow implements Gene, ShadowClass
             flankingRegions.add((org.intermine.model.bio.GeneFlankingRegion) element);
         } else if ("antibodies".equals(fieldName)) {
             antibodies.add((org.intermine.model.bio.Antibody) element);
+        } else if ("morpholinos".equals(fieldName)) {
+            morpholinos.add((org.intermine.model.bio.MorpholinoOligo) element);
         } else if ("features".equals(fieldName)) {
             features.add((org.intermine.model.bio.SequenceAlteration) element);
         } else if ("expressions".equals(fieldName)) {
@@ -1310,9 +1352,6 @@ public class GeneShadow implements Gene, ShadowClass
         }
     }
     public Class<?> getElementType(final String fieldName) {
-        if ("morpholinos".equals(fieldName)) {
-            return org.intermine.model.bio.Morpholino.class;
-        }
         if ("cloneArtifacts".equals(fieldName)) {
             return org.intermine.model.bio.Clone.class;
         }
@@ -1342,6 +1381,9 @@ public class GeneShadow implements Gene, ShadowClass
         }
         if ("antibodies".equals(fieldName)) {
             return org.intermine.model.bio.Antibody.class;
+        }
+        if ("morpholinos".equals(fieldName)) {
+            return org.intermine.model.bio.MorpholinoOligo.class;
         }
         if ("features".equals(fieldName)) {
             return org.intermine.model.bio.SequenceAlteration.class;

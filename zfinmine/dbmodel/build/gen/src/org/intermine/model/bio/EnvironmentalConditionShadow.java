@@ -36,19 +36,19 @@ public class EnvironmentalConditionShadow implements EnvironmentalCondition, Sha
     public java.lang.String getConditionGroup() { return conditionGroup; }
     public void setConditionGroup(final java.lang.String conditionGroup) { this.conditionGroup = conditionGroup; }
 
+    // Ref: org.intermine.model.bio.EnvironmentalCondition.morpholino
+    protected org.intermine.model.InterMineObject morpholino;
+    public org.intermine.model.bio.MorpholinoOligo getMorpholino() { if (morpholino instanceof org.intermine.objectstore.proxy.ProxyReference) { return ((org.intermine.model.bio.MorpholinoOligo) ((org.intermine.objectstore.proxy.ProxyReference) morpholino).getObject()); }; return (org.intermine.model.bio.MorpholinoOligo) morpholino; }
+    public void setMorpholino(final org.intermine.model.bio.MorpholinoOligo morpholino) { this.morpholino = morpholino; }
+    public void proxyMorpholino(final org.intermine.objectstore.proxy.ProxyReference morpholino) { this.morpholino = morpholino; }
+    public org.intermine.model.InterMineObject proxGetMorpholino() { return morpholino; }
+
     // Ref: org.intermine.model.bio.EnvironmentalCondition.environment
     protected org.intermine.model.InterMineObject environment;
     public org.intermine.model.bio.Environment getEnvironment() { if (environment instanceof org.intermine.objectstore.proxy.ProxyReference) { return ((org.intermine.model.bio.Environment) ((org.intermine.objectstore.proxy.ProxyReference) environment).getObject()); }; return (org.intermine.model.bio.Environment) environment; }
     public void setEnvironment(final org.intermine.model.bio.Environment environment) { this.environment = environment; }
     public void proxyEnvironment(final org.intermine.objectstore.proxy.ProxyReference environment) { this.environment = environment; }
     public org.intermine.model.InterMineObject proxGetEnvironment() { return environment; }
-
-    // Ref: org.intermine.model.bio.EnvironmentalCondition.morpholino
-    protected org.intermine.model.InterMineObject morpholino;
-    public org.intermine.model.bio.Morpholino getMorpholino() { if (morpholino instanceof org.intermine.objectstore.proxy.ProxyReference) { return ((org.intermine.model.bio.Morpholino) ((org.intermine.objectstore.proxy.ProxyReference) morpholino).getObject()); }; return (org.intermine.model.bio.Morpholino) morpholino; }
-    public void setMorpholino(final org.intermine.model.bio.Morpholino morpholino) { this.morpholino = morpholino; }
-    public void proxyMorpholino(final org.intermine.objectstore.proxy.ProxyReference morpholino) { this.morpholino = morpholino; }
-    public org.intermine.model.InterMineObject proxGetMorpholino() { return morpholino; }
 
     // Attr: org.intermine.model.InterMineObject.id
     protected java.lang.Integer id;
@@ -74,18 +74,18 @@ public class EnvironmentalConditionShadow implements EnvironmentalCondition, Sha
         if ("conditionGroup".equals(fieldName)) {
             return conditionGroup;
         }
-        if ("environment".equals(fieldName)) {
-            if (environment instanceof ProxyReference) {
-                return ((ProxyReference) environment).getObject();
-            } else {
-                return environment;
-            }
-        }
         if ("morpholino".equals(fieldName)) {
             if (morpholino instanceof ProxyReference) {
                 return ((ProxyReference) morpholino).getObject();
             } else {
                 return morpholino;
+            }
+        }
+        if ("environment".equals(fieldName)) {
+            if (environment instanceof ProxyReference) {
+                return ((ProxyReference) environment).getObject();
+            } else {
+                return environment;
             }
         }
         if ("id".equals(fieldName)) {
@@ -112,11 +112,11 @@ public class EnvironmentalConditionShadow implements EnvironmentalCondition, Sha
         if ("conditionGroup".equals(fieldName)) {
             return conditionGroup;
         }
-        if ("environment".equals(fieldName)) {
-            return environment;
-        }
         if ("morpholino".equals(fieldName)) {
             return morpholino;
+        }
+        if ("environment".equals(fieldName)) {
+            return environment;
         }
         if ("id".equals(fieldName)) {
             return id;
@@ -137,10 +137,10 @@ public class EnvironmentalConditionShadow implements EnvironmentalCondition, Sha
             conditionName = (java.lang.String) value;
         } else if ("conditionGroup".equals(fieldName)) {
             conditionGroup = (java.lang.String) value;
-        } else if ("environment".equals(fieldName)) {
-            environment = (org.intermine.model.InterMineObject) value;
         } else if ("morpholino".equals(fieldName)) {
             morpholino = (org.intermine.model.InterMineObject) value;
+        } else if ("environment".equals(fieldName)) {
+            environment = (org.intermine.model.InterMineObject) value;
         } else if ("id".equals(fieldName)) {
             id = (java.lang.Integer) value;
         } else {
@@ -167,11 +167,11 @@ public class EnvironmentalConditionShadow implements EnvironmentalCondition, Sha
         if ("conditionGroup".equals(fieldName)) {
             return java.lang.String.class;
         }
+        if ("morpholino".equals(fieldName)) {
+            return org.intermine.model.bio.MorpholinoOligo.class;
+        }
         if ("environment".equals(fieldName)) {
             return org.intermine.model.bio.Environment.class;
-        }
-        if ("morpholino".equals(fieldName)) {
-            return org.intermine.model.bio.Morpholino.class;
         }
         if ("id".equals(fieldName)) {
             return java.lang.Integer.class;
@@ -262,11 +262,11 @@ public class EnvironmentalConditionShadow implements EnvironmentalCondition, Sha
                 }
             }
         }
-        if (environment != null) {
-            sb.append("$_^renvironment$_^").append(environment.getId());
-        }
         if (morpholino != null) {
             sb.append("$_^rmorpholino$_^").append(morpholino.getId());
+        }
+        if (environment != null) {
+            sb.append("$_^renvironment$_^").append(environment.getId());
         }
         if (id != null) {
             sb.append("$_^aid$_^").append(id);
@@ -337,14 +337,14 @@ public class EnvironmentalConditionShadow implements EnvironmentalCondition, Sha
                 conditionGroup = string == null ? notXml[i] : string.toString();
                 i++;
             }
+            if ((i < notXml.length) &&"rmorpholino".equals(notXml[i])) {
+                i++;
+                morpholino = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.MorpholinoOligo.class);
+                i++;
+            };
             if ((i < notXml.length) &&"renvironment".equals(notXml[i])) {
                 i++;
                 environment = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.Environment.class);
-                i++;
-            };
-            if ((i < notXml.length) &&"rmorpholino".equals(notXml[i])) {
-                i++;
-                morpholino = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.Morpholino.class);
                 i++;
             };
             if ((i < notXml.length) && "aid".equals(notXml[i])) {
