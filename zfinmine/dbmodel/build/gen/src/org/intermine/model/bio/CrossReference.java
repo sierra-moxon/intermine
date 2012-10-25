@@ -18,8 +18,4 @@ public interface CrossReference extends org.intermine.model.InterMineObject
     public void proxySource(final org.intermine.objectstore.proxy.ProxyReference source);
     public org.intermine.model.InterMineObject proxGetSource();
 
-    public java.util.Set<org.intermine.model.bio.DataSet> getDataSets();
-    public void setDataSets(final java.util.Set<org.intermine.model.bio.DataSet> dataSets);
-    public void addDataSets(final org.intermine.model.bio.DataSet arg);
-
 }

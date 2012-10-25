@@ -5,8 +5,11 @@ public interface Gene extends org.intermine.model.bio.SequenceFeature
     public java.lang.String getType();
     public void setType(final java.lang.String type);
 
-    public java.lang.String getNcbiGeneNumber();
-    public void setNcbiGeneNumber(final java.lang.String ncbiGeneNumber);
+    public java.lang.String getBriefDescription();
+    public void setBriefDescription(final java.lang.String briefDescription);
+
+    public java.lang.String getDescription();
+    public void setDescription(final java.lang.String description);
 
     public org.intermine.model.bio.IntergenicRegion getDownstreamIntergenicRegion();
     public void setDownstreamIntergenicRegion(final org.intermine.model.bio.IntergenicRegion downstreamIntergenicRegion);
@@ -17,10 +20,6 @@ public interface Gene extends org.intermine.model.bio.SequenceFeature
     public void setUpstreamIntergenicRegion(final org.intermine.model.bio.IntergenicRegion upstreamIntergenicRegion);
     public void proxyUpstreamIntergenicRegion(final org.intermine.objectstore.proxy.ProxyReference upstreamIntergenicRegion);
     public org.intermine.model.InterMineObject proxGetUpstreamIntergenicRegion();
-
-    public java.util.Set<org.intermine.model.bio.Morpholino> getMorpholinos();
-    public void setMorpholinos(final java.util.Set<org.intermine.model.bio.Morpholino> morpholinos);
-    public void addMorpholinos(final org.intermine.model.bio.Morpholino arg);
 
     public java.util.Set<org.intermine.model.bio.Clone> getCloneArtifacts();
     public void setCloneArtifacts(final java.util.Set<org.intermine.model.bio.Clone> cloneArtifacts);
@@ -61,6 +60,10 @@ public interface Gene extends org.intermine.model.bio.SequenceFeature
     public java.util.Set<org.intermine.model.bio.Antibody> getAntibodies();
     public void setAntibodies(final java.util.Set<org.intermine.model.bio.Antibody> antibodies);
     public void addAntibodies(final org.intermine.model.bio.Antibody arg);
+
+    public java.util.Set<org.intermine.model.bio.MorpholinoOligo> getMorpholinos();
+    public void setMorpholinos(final java.util.Set<org.intermine.model.bio.MorpholinoOligo> morpholinos);
+    public void addMorpholinos(final org.intermine.model.bio.MorpholinoOligo arg);
 
     public java.util.Set<org.intermine.model.bio.SequenceAlteration> getFeatures();
     public void setFeatures(final java.util.Set<org.intermine.model.bio.SequenceAlteration> features);

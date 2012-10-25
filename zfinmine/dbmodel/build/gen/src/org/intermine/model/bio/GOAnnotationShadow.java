@@ -12,22 +12,16 @@ import org.intermine.model.ShadowClass;
 public class GOAnnotationShadow implements GOAnnotation, ShadowClass
 {
     public static final Class<GOAnnotation> shadowOf = GOAnnotation.class;
-    // Attr: org.intermine.model.bio.GOAnnotation.withText
-    protected java.lang.String withText;
-    public java.lang.String getWithText() { return withText; }
-    public void setWithText(final java.lang.String withText) { this.withText = withText; }
+    // Attr: org.intermine.model.bio.GOAnnotation.annotationExtension
+    protected java.lang.String annotationExtension;
+    public java.lang.String getAnnotationExtension() { return annotationExtension; }
+    public void setAnnotationExtension(final java.lang.String annotationExtension) { this.annotationExtension = annotationExtension; }
 
     // Col: org.intermine.model.bio.GOAnnotation.evidence
     protected java.util.Set<org.intermine.model.bio.GOEvidence> evidence = new java.util.HashSet<org.intermine.model.bio.GOEvidence>();
     public java.util.Set<org.intermine.model.bio.GOEvidence> getEvidence() { return evidence; }
     public void setEvidence(final java.util.Set<org.intermine.model.bio.GOEvidence> evidence) { this.evidence = evidence; }
     public void addEvidence(final org.intermine.model.bio.GOEvidence arg) { evidence.add(arg); }
-
-    // Col: org.intermine.model.bio.GOAnnotation.with
-    protected java.util.Set<org.intermine.model.bio.BioEntity> with = new java.util.HashSet<org.intermine.model.bio.BioEntity>();
-    public java.util.Set<org.intermine.model.bio.BioEntity> getWith() { return with; }
-    public void setWith(final java.util.Set<org.intermine.model.bio.BioEntity> with) { this.with = with; }
-    public void addWith(final org.intermine.model.bio.BioEntity arg) { with.add(arg); }
 
     // Attr: org.intermine.model.bio.OntologyAnnotation.qualifier
     protected java.lang.String qualifier;
@@ -67,16 +61,13 @@ public class GOAnnotationShadow implements GOAnnotation, ShadowClass
 
     @Override public boolean equals(Object o) { return (o instanceof GOAnnotation && id != null) ? id.equals(((GOAnnotation)o).getId()) : this == o; }
     @Override public int hashCode() { return (id != null) ? id.hashCode() : super.hashCode(); }
-    @Override public String toString() { return "GOAnnotation [id=\"" + id + "\", ontologyTerm=" + (ontologyTerm == null ? "null" : (ontologyTerm.getId() == null ? "no id" : ontologyTerm.getId().toString())) + ", qualifier=\"" + qualifier + "\", subject=" + (subject == null ? "null" : (subject.getId() == null ? "no id" : subject.getId().toString())) + ", withText=\"" + withText + "\"]"; }
+    @Override public String toString() { return "GOAnnotation [annotationExtension=\"" + annotationExtension + "\", id=\"" + id + "\", ontologyTerm=" + (ontologyTerm == null ? "null" : (ontologyTerm.getId() == null ? "no id" : ontologyTerm.getId().toString())) + ", qualifier=\"" + qualifier + "\", subject=" + (subject == null ? "null" : (subject.getId() == null ? "no id" : subject.getId().toString())) + "]"; }
     public Object getFieldValue(final String fieldName) throws IllegalAccessException {
-        if ("withText".equals(fieldName)) {
-            return withText;
+        if ("annotationExtension".equals(fieldName)) {
+            return annotationExtension;
         }
         if ("evidence".equals(fieldName)) {
             return evidence;
-        }
-        if ("with".equals(fieldName)) {
-            return with;
         }
         if ("qualifier".equals(fieldName)) {
             return qualifier;
@@ -110,14 +101,11 @@ public class GOAnnotationShadow implements GOAnnotation, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public Object getFieldProxy(final String fieldName) throws IllegalAccessException {
-        if ("withText".equals(fieldName)) {
-            return withText;
+        if ("annotationExtension".equals(fieldName)) {
+            return annotationExtension;
         }
         if ("evidence".equals(fieldName)) {
             return evidence;
-        }
-        if ("with".equals(fieldName)) {
-            return with;
         }
         if ("qualifier".equals(fieldName)) {
             return qualifier;
@@ -143,12 +131,10 @@ public class GOAnnotationShadow implements GOAnnotation, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public void setFieldValue(final String fieldName, final Object value) {
-        if ("withText".equals(fieldName)) {
-            withText = (java.lang.String) value;
+        if ("annotationExtension".equals(fieldName)) {
+            annotationExtension = (java.lang.String) value;
         } else if ("evidence".equals(fieldName)) {
             evidence = (java.util.Set) value;
-        } else if ("with".equals(fieldName)) {
-            with = (java.util.Set) value;
         } else if ("qualifier".equals(fieldName)) {
             qualifier = (java.lang.String) value;
         } else if ("ontologyTerm".equals(fieldName)) {
@@ -170,13 +156,10 @@ public class GOAnnotationShadow implements GOAnnotation, ShadowClass
         }
     }
     public Class<?> getFieldType(final String fieldName) {
-        if ("withText".equals(fieldName)) {
+        if ("annotationExtension".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("evidence".equals(fieldName)) {
-            return java.util.Set.class;
-        }
-        if ("with".equals(fieldName)) {
             return java.util.Set.class;
         }
         if ("qualifier".equals(fieldName)) {
@@ -208,9 +191,9 @@ public class GOAnnotationShadow implements GOAnnotation, ShadowClass
         }
         StringConstructor sb = new StringConstructor();
         sb.append("$_^org.intermine.model.bio.GOAnnotation");
-        if (withText != null) {
-            sb.append("$_^awithText$_^");
-            String string = withText;
+        if (annotationExtension != null) {
+            sb.append("$_^aannotationExtension$_^");
+            String string = annotationExtension;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -258,7 +241,7 @@ public class GOAnnotationShadow implements GOAnnotation, ShadowClass
         }
         for (int i = 2; i < notXml.length;) {
             int startI = i;
-            if ((i < notXml.length) && "awithText".equals(notXml[i])) {
+            if ((i < notXml.length) && "aannotationExtension".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
                 while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
@@ -266,7 +249,7 @@ public class GOAnnotationShadow implements GOAnnotation, ShadowClass
                     i++;
                     string.append("$_^").append(notXml[i].substring(1));
                 }
-                withText = string == null ? notXml[i] : string.toString();
+                annotationExtension = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "aqualifier".equals(notXml[i])) {
@@ -300,15 +283,12 @@ public class GOAnnotationShadow implements GOAnnotation, ShadowClass
             }
         }
         evidence = new ProxyCollection<org.intermine.model.bio.GOEvidence>(os, this, "evidence", org.intermine.model.bio.GOEvidence.class);
-        with = new ProxyCollection<org.intermine.model.bio.BioEntity>(os, this, "with", org.intermine.model.bio.BioEntity.class);
         dataSets = new ProxyCollection<org.intermine.model.bio.DataSet>(os, this, "dataSets", org.intermine.model.bio.DataSet.class);
         publications = new ProxyCollection<org.intermine.model.bio.Publication>(os, this, "publications", org.intermine.model.bio.Publication.class);
     }
     public void addCollectionElement(final String fieldName, final org.intermine.model.InterMineObject element) {
         if ("evidence".equals(fieldName)) {
             evidence.add((org.intermine.model.bio.GOEvidence) element);
-        } else if ("with".equals(fieldName)) {
-            with.add((org.intermine.model.bio.BioEntity) element);
         } else if ("dataSets".equals(fieldName)) {
             dataSets.add((org.intermine.model.bio.DataSet) element);
         } else if ("publications".equals(fieldName)) {
@@ -324,9 +304,6 @@ public class GOAnnotationShadow implements GOAnnotation, ShadowClass
     public Class<?> getElementType(final String fieldName) {
         if ("evidence".equals(fieldName)) {
             return org.intermine.model.bio.GOEvidence.class;
-        }
-        if ("with".equals(fieldName)) {
-            return org.intermine.model.bio.BioEntity.class;
         }
         if ("dataSets".equals(fieldName)) {
             return org.intermine.model.bio.DataSet.class;

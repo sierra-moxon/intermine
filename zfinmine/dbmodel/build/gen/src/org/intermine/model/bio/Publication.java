@@ -38,11 +38,11 @@ public interface Publication extends org.intermine.model.InterMineObject
     public java.lang.String getPubMedId();
     public void setPubMedId(final java.lang.String pubMedId);
 
-    public java.lang.String getPubAbstract();
-    public void setPubAbstract(final java.lang.String pubAbstract);
-
     public java.lang.String getPrimaryIdentifier();
     public void setPrimaryIdentifier(final java.lang.String primaryIdentifier);
+
+    public java.lang.String getPubAbstract();
+    public void setPubAbstract(final java.lang.String pubAbstract);
 
     public java.lang.String getAuthorNames();
     public void setAuthorNames(final java.lang.String authorNames);
@@ -60,10 +60,6 @@ public interface Publication extends org.intermine.model.InterMineObject
     public void setBioEntities(final java.util.Set<org.intermine.model.bio.BioEntity> bioEntities);
     public void addBioEntities(final org.intermine.model.bio.BioEntity arg);
 
-    public java.util.Set<org.intermine.model.bio.Morpholino> getMorpholinos();
-    public void setMorpholinos(final java.util.Set<org.intermine.model.bio.Morpholino> morpholinos);
-    public void addMorpholinos(final org.intermine.model.bio.Morpholino arg);
-
     public java.util.Set<org.intermine.model.bio.SimpleSequenceLengthVariation> getsSLPs();
     public void setsSLPs(final java.util.Set<org.intermine.model.bio.SimpleSequenceLengthVariation> SSLPs);
     public void addsSLPs(final org.intermine.model.bio.SimpleSequenceLengthVariation arg);
@@ -71,6 +67,10 @@ public interface Publication extends org.intermine.model.InterMineObject
     public java.util.Set<org.intermine.model.bio.Clone> getClones();
     public void setClones(final java.util.Set<org.intermine.model.bio.Clone> clones);
     public void addClones(final org.intermine.model.bio.Clone arg);
+
+    public java.util.Set<org.intermine.model.bio.DatabaseReference> getCrossReferences();
+    public void setCrossReferences(final java.util.Set<org.intermine.model.bio.DatabaseReference> crossReferences);
+    public void addCrossReferences(final org.intermine.model.bio.DatabaseReference arg);
 
     public java.util.Set<org.intermine.model.bio.Antibody> getAntibodies();
     public void setAntibodies(final java.util.Set<org.intermine.model.bio.Antibody> antibodies);
@@ -107,6 +107,10 @@ public interface Publication extends org.intermine.model.InterMineObject
     public java.util.Set<org.intermine.model.bio.MeshTerm> getMeshTerms();
     public void setMeshTerms(final java.util.Set<org.intermine.model.bio.MeshTerm> meshTerms);
     public void addMeshTerms(final org.intermine.model.bio.MeshTerm arg);
+
+    public java.util.Set<org.intermine.model.bio.MorpholinoOligo> getMorpholinos();
+    public void setMorpholinos(final java.util.Set<org.intermine.model.bio.MorpholinoOligo> morpholinos);
+    public void addMorpholinos(final org.intermine.model.bio.MorpholinoOligo arg);
 
     public java.util.Set<org.intermine.model.bio.Region> getRegions();
     public void setRegions(final java.util.Set<org.intermine.model.bio.Region> regions);
