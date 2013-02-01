@@ -2,11 +2,11 @@ package org.intermine.model.bio;
 
 public interface Pathway extends org.intermine.model.InterMineObject
 {
-    public java.lang.String getIdentifier();
-    public void setIdentifier(final java.lang.String identifier);
-
     public java.lang.String getShortName();
     public void setShortName(final java.lang.String shortName);
+
+    public java.lang.String getIdentifier();
+    public void setIdentifier(final java.lang.String identifier);
 
     public java.lang.Boolean getCurated();
     public void setCurated(final java.lang.Boolean curated);

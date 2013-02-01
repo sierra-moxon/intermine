@@ -11,15 +11,15 @@ import org.intermine.model.ShadowClass;
 public class PathwayShadow implements Pathway, ShadowClass
 {
     public static final Class<Pathway> shadowOf = Pathway.class;
-    // Attr: org.intermine.model.bio.Pathway.identifier
-    protected java.lang.String identifier;
-    public java.lang.String getIdentifier() { return identifier; }
-    public void setIdentifier(final java.lang.String identifier) { this.identifier = identifier; }
-
     // Attr: org.intermine.model.bio.Pathway.shortName
     protected java.lang.String shortName;
     public java.lang.String getShortName() { return shortName; }
     public void setShortName(final java.lang.String shortName) { this.shortName = shortName; }
+
+    // Attr: org.intermine.model.bio.Pathway.identifier
+    protected java.lang.String identifier;
+    public java.lang.String getIdentifier() { return identifier; }
+    public void setIdentifier(final java.lang.String identifier) { this.identifier = identifier; }
 
     // Attr: org.intermine.model.bio.Pathway.curated
     protected java.lang.Boolean curated;
@@ -63,11 +63,11 @@ public class PathwayShadow implements Pathway, ShadowClass
     @Override public int hashCode() { return (id != null) ? id.hashCode() : super.hashCode(); }
     @Override public String toString() { return "Pathway [curated=\"" + curated + "\", description=\"" + description + "\", id=\"" + id + "\", identifier=\"" + identifier + "\", name=\"" + name + "\", shortName=\"" + shortName + "\"]"; }
     public Object getFieldValue(final String fieldName) throws IllegalAccessException {
-        if ("identifier".equals(fieldName)) {
-            return identifier;
-        }
         if ("shortName".equals(fieldName)) {
             return shortName;
+        }
+        if ("identifier".equals(fieldName)) {
+            return identifier;
         }
         if ("curated".equals(fieldName)) {
             return curated;
@@ -96,11 +96,11 @@ public class PathwayShadow implements Pathway, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public Object getFieldProxy(final String fieldName) throws IllegalAccessException {
-        if ("identifier".equals(fieldName)) {
-            return identifier;
-        }
         if ("shortName".equals(fieldName)) {
             return shortName;
+        }
+        if ("identifier".equals(fieldName)) {
+            return identifier;
         }
         if ("curated".equals(fieldName)) {
             return curated;
@@ -129,10 +129,10 @@ public class PathwayShadow implements Pathway, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public void setFieldValue(final String fieldName, final Object value) {
-        if ("identifier".equals(fieldName)) {
-            identifier = (java.lang.String) value;
-        } else if ("shortName".equals(fieldName)) {
+        if ("shortName".equals(fieldName)) {
             shortName = (java.lang.String) value;
+        } else if ("identifier".equals(fieldName)) {
+            identifier = (java.lang.String) value;
         } else if ("curated".equals(fieldName)) {
             curated = (java.lang.Boolean) value;
         } else if ("name".equals(fieldName)) {
@@ -156,10 +156,10 @@ public class PathwayShadow implements Pathway, ShadowClass
         }
     }
     public Class<?> getFieldType(final String fieldName) {
-        if ("identifier".equals(fieldName)) {
+        if ("shortName".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("shortName".equals(fieldName)) {
+        if ("identifier".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("curated".equals(fieldName)) {
@@ -194,9 +194,9 @@ public class PathwayShadow implements Pathway, ShadowClass
         }
         StringConstructor sb = new StringConstructor();
         sb.append("$_^org.intermine.model.bio.Pathway");
-        if (identifier != null) {
-            sb.append("$_^aidentifier$_^");
-            String string = identifier;
+        if (shortName != null) {
+            sb.append("$_^ashortName$_^");
+            String string = shortName;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -209,9 +209,9 @@ public class PathwayShadow implements Pathway, ShadowClass
                 }
             }
         }
-        if (shortName != null) {
-            sb.append("$_^ashortName$_^");
-            String string = shortName;
+        if (identifier != null) {
+            sb.append("$_^aidentifier$_^");
+            String string = identifier;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -271,17 +271,6 @@ public class PathwayShadow implements Pathway, ShadowClass
         }
         for (int i = 2; i < notXml.length;) {
             int startI = i;
-            if ((i < notXml.length) && "aidentifier".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                identifier = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "ashortName".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -291,6 +280,17 @@ public class PathwayShadow implements Pathway, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 shortName = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "aidentifier".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                identifier = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "acurated".equals(notXml[i])) {

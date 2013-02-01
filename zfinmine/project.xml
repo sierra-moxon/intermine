@@ -92,6 +92,10 @@
             <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_orthos/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
+       <source name="zebrafishPanther" type="zebrafishPanther">
+            <property name="src.data.dir" location="/home/intermine/zebrafish/panther/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+       </source>
         <!--   <source name="uniprot-zebrafish" type="uniprot">
        <property name="uniprot.organisms" value="7955"/>
        <property name="src.data.dir" location="/home/intermine/zebrafish/uniprot/"/>
