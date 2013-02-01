@@ -72,15 +72,15 @@ public class PublicationShadow implements Publication, ShadowClass
     public java.lang.String getPubMedId() { return pubMedId; }
     public void setPubMedId(final java.lang.String pubMedId) { this.pubMedId = pubMedId; }
 
-    // Attr: org.intermine.model.bio.Publication.primaryIdentifier
-    protected java.lang.String primaryIdentifier;
-    public java.lang.String getPrimaryIdentifier() { return primaryIdentifier; }
-    public void setPrimaryIdentifier(final java.lang.String primaryIdentifier) { this.primaryIdentifier = primaryIdentifier; }
-
     // Attr: org.intermine.model.bio.Publication.pubAbstract
     protected java.lang.String pubAbstract;
     public java.lang.String getPubAbstract() { return pubAbstract; }
     public void setPubAbstract(final java.lang.String pubAbstract) { this.pubAbstract = pubAbstract; }
+
+    // Attr: org.intermine.model.bio.Publication.primaryIdentifier
+    protected java.lang.String primaryIdentifier;
+    public java.lang.String getPrimaryIdentifier() { return primaryIdentifier; }
+    public void setPrimaryIdentifier(final java.lang.String primaryIdentifier) { this.primaryIdentifier = primaryIdentifier; }
 
     // Attr: org.intermine.model.bio.Publication.authorNames
     protected java.lang.String authorNames;
@@ -247,11 +247,11 @@ public class PublicationShadow implements Publication, ShadowClass
         if ("pubMedId".equals(fieldName)) {
             return pubMedId;
         }
-        if ("primaryIdentifier".equals(fieldName)) {
-            return primaryIdentifier;
-        }
         if ("pubAbstract".equals(fieldName)) {
             return pubAbstract;
+        }
+        if ("primaryIdentifier".equals(fieldName)) {
+            return primaryIdentifier;
         }
         if ("authorNames".equals(fieldName)) {
             return authorNames;
@@ -362,11 +362,11 @@ public class PublicationShadow implements Publication, ShadowClass
         if ("pubMedId".equals(fieldName)) {
             return pubMedId;
         }
-        if ("primaryIdentifier".equals(fieldName)) {
-            return primaryIdentifier;
-        }
         if ("pubAbstract".equals(fieldName)) {
             return pubAbstract;
+        }
+        if ("primaryIdentifier".equals(fieldName)) {
+            return primaryIdentifier;
         }
         if ("authorNames".equals(fieldName)) {
             return authorNames;
@@ -461,10 +461,10 @@ public class PublicationShadow implements Publication, ShadowClass
             type = (java.lang.String) value;
         } else if ("pubMedId".equals(fieldName)) {
             pubMedId = (java.lang.String) value;
-        } else if ("primaryIdentifier".equals(fieldName)) {
-            primaryIdentifier = (java.lang.String) value;
         } else if ("pubAbstract".equals(fieldName)) {
             pubAbstract = (java.lang.String) value;
+        } else if ("primaryIdentifier".equals(fieldName)) {
+            primaryIdentifier = (java.lang.String) value;
         } else if ("authorNames".equals(fieldName)) {
             authorNames = (java.lang.String) value;
         } else if ("journal".equals(fieldName)) {
@@ -552,10 +552,10 @@ public class PublicationShadow implements Publication, ShadowClass
         if ("pubMedId".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("primaryIdentifier".equals(fieldName)) {
+        if ("pubAbstract".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("pubAbstract".equals(fieldName)) {
+        if ("primaryIdentifier".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("authorNames".equals(fieldName)) {
@@ -800,9 +800,9 @@ public class PublicationShadow implements Publication, ShadowClass
                 }
             }
         }
-        if (primaryIdentifier != null) {
-            sb.append("$_^aprimaryIdentifier$_^");
-            String string = primaryIdentifier;
+        if (pubAbstract != null) {
+            sb.append("$_^apubAbstract$_^");
+            String string = pubAbstract;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -815,9 +815,9 @@ public class PublicationShadow implements Publication, ShadowClass
                 }
             }
         }
-        if (pubAbstract != null) {
-            sb.append("$_^apubAbstract$_^");
-            String string = pubAbstract;
+        if (primaryIdentifier != null) {
+            sb.append("$_^aprimaryIdentifier$_^");
+            String string = primaryIdentifier;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -988,17 +988,6 @@ public class PublicationShadow implements Publication, ShadowClass
                 pubMedId = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "aprimaryIdentifier".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                primaryIdentifier = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "apubAbstract".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -1008,6 +997,17 @@ public class PublicationShadow implements Publication, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 pubAbstract = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "aprimaryIdentifier".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                primaryIdentifier = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "aauthorNames".equals(notXml[i])) {

@@ -22,15 +22,15 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
     public java.lang.String getStageStartHour() { return stageStartHour; }
     public void setStageStartHour(final java.lang.String stageStartHour) { this.stageStartHour = stageStartHour; }
 
-    // Attr: org.intermine.model.bio.OntologyTerm.obsolete
-    protected java.lang.Boolean obsolete;
-    public java.lang.Boolean getObsolete() { return obsolete; }
-    public void setObsolete(final java.lang.Boolean obsolete) { this.obsolete = obsolete; }
-
     // Attr: org.intermine.model.bio.OntologyTerm.primaryIdentifier
     protected java.lang.String primaryIdentifier;
     public java.lang.String getPrimaryIdentifier() { return primaryIdentifier; }
     public void setPrimaryIdentifier(final java.lang.String primaryIdentifier) { this.primaryIdentifier = primaryIdentifier; }
+
+    // Attr: org.intermine.model.bio.OntologyTerm.obsolete
+    protected java.lang.Boolean obsolete;
+    public java.lang.Boolean getObsolete() { return obsolete; }
+    public void setObsolete(final java.lang.Boolean obsolete) { this.obsolete = obsolete; }
 
     // Attr: org.intermine.model.bio.OntologyTerm.namespace
     protected java.lang.String namespace;
@@ -47,15 +47,15 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
     public java.lang.String getStageAbbreviation() { return stageAbbreviation; }
     public void setStageAbbreviation(final java.lang.String stageAbbreviation) { this.stageAbbreviation = stageAbbreviation; }
 
-    // Attr: org.intermine.model.bio.OntologyTerm.description
-    protected java.lang.String description;
-    public java.lang.String getDescription() { return description; }
-    public void setDescription(final java.lang.String description) { this.description = description; }
-
     // Attr: org.intermine.model.bio.OntologyTerm.stageEndHour
     protected java.lang.String stageEndHour;
     public java.lang.String getStageEndHour() { return stageEndHour; }
     public void setStageEndHour(final java.lang.String stageEndHour) { this.stageEndHour = stageEndHour; }
+
+    // Attr: org.intermine.model.bio.OntologyTerm.description
+    protected java.lang.String description;
+    public java.lang.String getDescription() { return description; }
+    public void setDescription(final java.lang.String description) { this.description = description; }
 
     // Ref: org.intermine.model.bio.OntologyTerm.ontology
     protected org.intermine.model.InterMineObject ontology;
@@ -146,11 +146,11 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
         if ("stageStartHour".equals(fieldName)) {
             return stageStartHour;
         }
-        if ("obsolete".equals(fieldName)) {
-            return obsolete;
-        }
         if ("primaryIdentifier".equals(fieldName)) {
             return primaryIdentifier;
+        }
+        if ("obsolete".equals(fieldName)) {
+            return obsolete;
         }
         if ("namespace".equals(fieldName)) {
             return namespace;
@@ -161,11 +161,11 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
         if ("stageAbbreviation".equals(fieldName)) {
             return stageAbbreviation;
         }
-        if ("description".equals(fieldName)) {
-            return description;
-        }
         if ("stageEndHour".equals(fieldName)) {
             return stageEndHour;
+        }
+        if ("description".equals(fieldName)) {
+            return description;
         }
         if ("ontology".equals(fieldName)) {
             if (ontology instanceof ProxyReference) {
@@ -226,11 +226,11 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
         if ("stageStartHour".equals(fieldName)) {
             return stageStartHour;
         }
-        if ("obsolete".equals(fieldName)) {
-            return obsolete;
-        }
         if ("primaryIdentifier".equals(fieldName)) {
             return primaryIdentifier;
+        }
+        if ("obsolete".equals(fieldName)) {
+            return obsolete;
         }
         if ("namespace".equals(fieldName)) {
             return namespace;
@@ -241,11 +241,11 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
         if ("stageAbbreviation".equals(fieldName)) {
             return stageAbbreviation;
         }
-        if ("description".equals(fieldName)) {
-            return description;
-        }
         if ("stageEndHour".equals(fieldName)) {
             return stageEndHour;
+        }
+        if ("description".equals(fieldName)) {
+            return description;
         }
         if ("ontology".equals(fieldName)) {
             return ontology;
@@ -296,20 +296,20 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
             identifier = (java.lang.String) value;
         } else if ("stageStartHour".equals(fieldName)) {
             stageStartHour = (java.lang.String) value;
-        } else if ("obsolete".equals(fieldName)) {
-            obsolete = (java.lang.Boolean) value;
         } else if ("primaryIdentifier".equals(fieldName)) {
             primaryIdentifier = (java.lang.String) value;
+        } else if ("obsolete".equals(fieldName)) {
+            obsolete = (java.lang.Boolean) value;
         } else if ("namespace".equals(fieldName)) {
             namespace = (java.lang.String) value;
         } else if ("name".equals(fieldName)) {
             name = (java.lang.String) value;
         } else if ("stageAbbreviation".equals(fieldName)) {
             stageAbbreviation = (java.lang.String) value;
-        } else if ("description".equals(fieldName)) {
-            description = (java.lang.String) value;
         } else if ("stageEndHour".equals(fieldName)) {
             stageEndHour = (java.lang.String) value;
+        } else if ("description".equals(fieldName)) {
+            description = (java.lang.String) value;
         } else if ("ontology".equals(fieldName)) {
             ontology = (org.intermine.model.InterMineObject) value;
         } else if ("organism".equals(fieldName)) {
@@ -351,11 +351,11 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
         if ("stageStartHour".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("obsolete".equals(fieldName)) {
-            return java.lang.Boolean.class;
-        }
         if ("primaryIdentifier".equals(fieldName)) {
             return java.lang.String.class;
+        }
+        if ("obsolete".equals(fieldName)) {
+            return java.lang.Boolean.class;
         }
         if ("namespace".equals(fieldName)) {
             return java.lang.String.class;
@@ -366,10 +366,10 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
         if ("stageAbbreviation".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("description".equals(fieldName)) {
+        if ("stageEndHour".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("stageEndHour".equals(fieldName)) {
+        if ("description".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("ontology".equals(fieldName)) {
@@ -452,9 +452,6 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
                 }
             }
         }
-        if (obsolete != null) {
-            sb.append("$_^aobsolete$_^").append(obsolete);
-        }
         if (primaryIdentifier != null) {
             sb.append("$_^aprimaryIdentifier$_^");
             String string = primaryIdentifier;
@@ -469,6 +466,9 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
                     string = string.substring(delimPosition + 3);
                 }
             }
+        }
+        if (obsolete != null) {
+            sb.append("$_^aobsolete$_^").append(obsolete);
         }
         if (namespace != null) {
             sb.append("$_^anamespace$_^");
@@ -515,9 +515,9 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
                 }
             }
         }
-        if (description != null) {
-            sb.append("$_^adescription$_^");
-            String string = description;
+        if (stageEndHour != null) {
+            sb.append("$_^astageEndHour$_^");
+            String string = stageEndHour;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -530,9 +530,9 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
                 }
             }
         }
-        if (stageEndHour != null) {
-            sb.append("$_^astageEndHour$_^");
-            String string = stageEndHour;
+        if (description != null) {
+            sb.append("$_^adescription$_^");
+            String string = description;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -587,11 +587,6 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
                 stageStartHour = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "aobsolete".equals(notXml[i])) {
-                i++;
-                obsolete = Boolean.valueOf(notXml[i]);
-                i++;
-            }
             if ((i < notXml.length) && "aprimaryIdentifier".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -601,6 +596,11 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 primaryIdentifier = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "aobsolete".equals(notXml[i])) {
+                i++;
+                obsolete = Boolean.valueOf(notXml[i]);
                 i++;
             }
             if ((i < notXml.length) && "anamespace".equals(notXml[i])) {
@@ -636,17 +636,6 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
                 stageAbbreviation = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "adescription".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                description = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "astageEndHour".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -656,6 +645,17 @@ public class SPATIALTermShadow implements SPATIALTerm, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 stageEndHour = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "adescription".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                description = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) &&"rontology".equals(notXml[i])) {
