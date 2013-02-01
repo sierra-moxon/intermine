@@ -17,15 +17,15 @@ public class GenotypeShadow implements Genotype, ShadowClass
     public java.lang.Boolean getIsExtinct() { return isExtinct; }
     public void setIsExtinct(final java.lang.Boolean isExtinct) { this.isExtinct = isExtinct; }
 
-    // Attr: org.intermine.model.bio.Genotype.isWildType
-    protected java.lang.Boolean isWildType;
-    public java.lang.Boolean getIsWildType() { return isWildType; }
-    public void setIsWildType(final java.lang.Boolean isWildType) { this.isWildType = isWildType; }
-
     // Attr: org.intermine.model.bio.Genotype.backgrounds
     protected java.lang.String backgrounds;
     public java.lang.String getBackgrounds() { return backgrounds; }
     public void setBackgrounds(final java.lang.String backgrounds) { this.backgrounds = backgrounds; }
+
+    // Attr: org.intermine.model.bio.Genotype.isWildType
+    protected java.lang.Boolean isWildType;
+    public java.lang.Boolean getIsWildType() { return isWildType; }
+    public void setIsWildType(final java.lang.Boolean isWildType) { this.isWildType = isWildType; }
 
     // Attr: org.intermine.model.bio.Genotype.parentalZygocity
     protected java.lang.String parentalZygocity;
@@ -37,15 +37,15 @@ public class GenotypeShadow implements Genotype, ShadowClass
     public java.lang.String getPrimaryIdentifier() { return primaryIdentifier; }
     public void setPrimaryIdentifier(final java.lang.String primaryIdentifier) { this.primaryIdentifier = primaryIdentifier; }
 
-    // Attr: org.intermine.model.bio.Genotype.genoHandle
-    protected java.lang.String genoHandle;
-    public java.lang.String getGenoHandle() { return genoHandle; }
-    public void setGenoHandle(final java.lang.String genoHandle) { this.genoHandle = genoHandle; }
-
     // Attr: org.intermine.model.bio.Genotype.genoDisplayName
     protected java.lang.String genoDisplayName;
     public java.lang.String getGenoDisplayName() { return genoDisplayName; }
     public void setGenoDisplayName(final java.lang.String genoDisplayName) { this.genoDisplayName = genoDisplayName; }
+
+    // Attr: org.intermine.model.bio.Genotype.genoHandle
+    protected java.lang.String genoHandle;
+    public java.lang.String getGenoHandle() { return genoHandle; }
+    public void setGenoHandle(final java.lang.String genoHandle) { this.genoHandle = genoHandle; }
 
     // Ref: org.intermine.model.bio.Genotype.organism
     protected org.intermine.model.InterMineObject organism;
@@ -90,11 +90,11 @@ public class GenotypeShadow implements Genotype, ShadowClass
         if ("isExtinct".equals(fieldName)) {
             return isExtinct;
         }
-        if ("isWildType".equals(fieldName)) {
-            return isWildType;
-        }
         if ("backgrounds".equals(fieldName)) {
             return backgrounds;
+        }
+        if ("isWildType".equals(fieldName)) {
+            return isWildType;
         }
         if ("parentalZygocity".equals(fieldName)) {
             return parentalZygocity;
@@ -102,11 +102,11 @@ public class GenotypeShadow implements Genotype, ShadowClass
         if ("primaryIdentifier".equals(fieldName)) {
             return primaryIdentifier;
         }
-        if ("genoHandle".equals(fieldName)) {
-            return genoHandle;
-        }
         if ("genoDisplayName".equals(fieldName)) {
             return genoDisplayName;
+        }
+        if ("genoHandle".equals(fieldName)) {
+            return genoHandle;
         }
         if ("organism".equals(fieldName)) {
             if (organism instanceof ProxyReference) {
@@ -139,11 +139,11 @@ public class GenotypeShadow implements Genotype, ShadowClass
         if ("isExtinct".equals(fieldName)) {
             return isExtinct;
         }
-        if ("isWildType".equals(fieldName)) {
-            return isWildType;
-        }
         if ("backgrounds".equals(fieldName)) {
             return backgrounds;
+        }
+        if ("isWildType".equals(fieldName)) {
+            return isWildType;
         }
         if ("parentalZygocity".equals(fieldName)) {
             return parentalZygocity;
@@ -151,11 +151,11 @@ public class GenotypeShadow implements Genotype, ShadowClass
         if ("primaryIdentifier".equals(fieldName)) {
             return primaryIdentifier;
         }
-        if ("genoHandle".equals(fieldName)) {
-            return genoHandle;
-        }
         if ("genoDisplayName".equals(fieldName)) {
             return genoDisplayName;
+        }
+        if ("genoHandle".equals(fieldName)) {
+            return genoHandle;
         }
         if ("organism".equals(fieldName)) {
             return organism;
@@ -183,18 +183,18 @@ public class GenotypeShadow implements Genotype, ShadowClass
     public void setFieldValue(final String fieldName, final Object value) {
         if ("isExtinct".equals(fieldName)) {
             isExtinct = (java.lang.Boolean) value;
-        } else if ("isWildType".equals(fieldName)) {
-            isWildType = (java.lang.Boolean) value;
         } else if ("backgrounds".equals(fieldName)) {
             backgrounds = (java.lang.String) value;
+        } else if ("isWildType".equals(fieldName)) {
+            isWildType = (java.lang.Boolean) value;
         } else if ("parentalZygocity".equals(fieldName)) {
             parentalZygocity = (java.lang.String) value;
         } else if ("primaryIdentifier".equals(fieldName)) {
             primaryIdentifier = (java.lang.String) value;
-        } else if ("genoHandle".equals(fieldName)) {
-            genoHandle = (java.lang.String) value;
         } else if ("genoDisplayName".equals(fieldName)) {
             genoDisplayName = (java.lang.String) value;
+        } else if ("genoHandle".equals(fieldName)) {
+            genoHandle = (java.lang.String) value;
         } else if ("organism".equals(fieldName)) {
             organism = (org.intermine.model.InterMineObject) value;
         } else if ("genes".equals(fieldName)) {
@@ -219,11 +219,11 @@ public class GenotypeShadow implements Genotype, ShadowClass
         if ("isExtinct".equals(fieldName)) {
             return java.lang.Boolean.class;
         }
-        if ("isWildType".equals(fieldName)) {
-            return java.lang.Boolean.class;
-        }
         if ("backgrounds".equals(fieldName)) {
             return java.lang.String.class;
+        }
+        if ("isWildType".equals(fieldName)) {
+            return java.lang.Boolean.class;
         }
         if ("parentalZygocity".equals(fieldName)) {
             return java.lang.String.class;
@@ -231,10 +231,10 @@ public class GenotypeShadow implements Genotype, ShadowClass
         if ("primaryIdentifier".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("genoHandle".equals(fieldName)) {
+        if ("genoDisplayName".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("genoDisplayName".equals(fieldName)) {
+        if ("genoHandle".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("organism".equals(fieldName)) {
@@ -269,9 +269,6 @@ public class GenotypeShadow implements Genotype, ShadowClass
         if (isExtinct != null) {
             sb.append("$_^aisExtinct$_^").append(isExtinct);
         }
-        if (isWildType != null) {
-            sb.append("$_^aisWildType$_^").append(isWildType);
-        }
         if (backgrounds != null) {
             sb.append("$_^abackgrounds$_^");
             String string = backgrounds;
@@ -286,6 +283,9 @@ public class GenotypeShadow implements Genotype, ShadowClass
                     string = string.substring(delimPosition + 3);
                 }
             }
+        }
+        if (isWildType != null) {
+            sb.append("$_^aisWildType$_^").append(isWildType);
         }
         if (parentalZygocity != null) {
             sb.append("$_^aparentalZygocity$_^");
@@ -317,9 +317,9 @@ public class GenotypeShadow implements Genotype, ShadowClass
                 }
             }
         }
-        if (genoHandle != null) {
-            sb.append("$_^agenoHandle$_^");
-            String string = genoHandle;
+        if (genoDisplayName != null) {
+            sb.append("$_^agenoDisplayName$_^");
+            String string = genoDisplayName;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -332,9 +332,9 @@ public class GenotypeShadow implements Genotype, ShadowClass
                 }
             }
         }
-        if (genoDisplayName != null) {
-            sb.append("$_^agenoDisplayName$_^");
-            String string = genoDisplayName;
+        if (genoHandle != null) {
+            sb.append("$_^agenoHandle$_^");
+            String string = genoHandle;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -369,11 +369,6 @@ public class GenotypeShadow implements Genotype, ShadowClass
                 isExtinct = Boolean.valueOf(notXml[i]);
                 i++;
             }
-            if ((i < notXml.length) && "aisWildType".equals(notXml[i])) {
-                i++;
-                isWildType = Boolean.valueOf(notXml[i]);
-                i++;
-            }
             if ((i < notXml.length) && "abackgrounds".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -383,6 +378,11 @@ public class GenotypeShadow implements Genotype, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 backgrounds = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "aisWildType".equals(notXml[i])) {
+                i++;
+                isWildType = Boolean.valueOf(notXml[i]);
                 i++;
             }
             if ((i < notXml.length) && "aparentalZygocity".equals(notXml[i])) {
@@ -407,17 +407,6 @@ public class GenotypeShadow implements Genotype, ShadowClass
                 primaryIdentifier = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "agenoHandle".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                genoHandle = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "agenoDisplayName".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -427,6 +416,17 @@ public class GenotypeShadow implements Genotype, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 genoDisplayName = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "agenoHandle".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                genoHandle = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) &&"rorganism".equals(notXml[i])) {
