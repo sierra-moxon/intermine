@@ -460,9 +460,9 @@ public class zfin_markersConverter extends BioDirectoryConverter {
                     if (!StringUtils.isEmpty(species)) {
                         probeLibItem.setAttribute("species", species);
                     }
-                    if (!StringUtils.isEmpty(strain)) {
-                        probeLibItem.setReference("strain", getGenotype(strain));
-                    }
+		    // if (!StringUtils.isEmpty(strain)) {
+                    //    probeLibItem.setReference("strain", getGenotype(strain));
+		    // }
                     if (!StringUtils.isEmpty(tissue)) {
                         probeLibItem.setAttribute("tissue", tissue);
                     }
