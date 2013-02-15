@@ -216,7 +216,7 @@
 <class className="org.intermine.model.bio.ExpressionResult">
    <fields>
       <fieldconfig  fieldExpr="gene.symbol"></fieldconfig>
-      <fieldconfig  fieldExpr="superterm.name"></fieldconfig>
+      <!--<fieldconfig  fieldExpr="superterm.name"></fieldconfig>-->
       <fieldconfig  fieldExpr="subterm.name"></fieldconfig>
       <fieldconfig  fieldExpr="startStage.name"></fieldconfig>
       <fieldconfig  fieldExpr="endStage.name"></fieldconfig>
