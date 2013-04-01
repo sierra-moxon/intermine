@@ -91,7 +91,7 @@
             Anatomy annotations and ontology for &lt;i&gt;Danio rerio&lt;/i&gt;.
         </intro-text>
         <tile-name>model/ZFA.jsp</tile-name>
-        <aspect-source name="Zebrafish Information Network" url="http://almost.zfin.org"/>
+        <aspect-source name="Zebrafish Information Network" url="http://zfin.org"/>
     </aspect>
     <aspect name="ZFIN">
         <subtitle>Zebrafish Information Network&lt;br/&gt;data</subtitle>
@@ -101,6 +101,6 @@
             Genes,Genotypes,Alleles,GO Annotation,Phenotype and Expression Data
         </intro-text>
         <tile-name>model/zfin.jsp</tile-name>
-        <aspect-source name="ZFIN" url="http://almost.zfin.org"/>
+        <aspect-source name="ZFIN" url="http://zfin.org"/>
     </aspect>
 </aspects>

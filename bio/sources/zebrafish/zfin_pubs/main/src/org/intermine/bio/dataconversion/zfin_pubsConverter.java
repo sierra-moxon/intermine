@@ -103,9 +103,9 @@ public class zfin_pubsConverter extends BioFileConverter {
             if (!StringUtils.isEmpty(title)) {
                 pub.setAttribute("title", title);
             }
-            if (!StringUtils.isEmpty(pubAbstract)) {
-                pub.setAttribute("pubAbstract", pubAbstract);
-            }
+            //if (!StringUtils.isEmpty(pubAbstract)) {
+            //    pub.setAttribute("pubAbstract", pubAbstract);
+            //}
             if (!StringUtils.isEmpty(pubMedId)) {
                 pub.setAttribute("pubMedId", pubMedId);
                 pub.setAttribute("accessionNumber",pubMedId);
