@@ -4,6 +4,13 @@
   <bags/>
   <queries>
   </queries>
+<template-queries>
+<template name="A_IdentifierSynonym_Object" title="Identifier or synonym -- Database object." comment="">
+  <query name="A_IdentifierSynonym_Object" model="genomic" view="Synonym.subject.primaryIdentifier Synonym.value Synonym.subject.organism.name" longDescription="Find an entry in the database using any identifier or synonym.&quot; comme\ nt=&quot;This is the template that\                                                                                                                                                             the quick search runs.  If the name is changed it also has to be changed for the quick search configuration - Rachel. Removed tags so no longer displayed - just used for quick search now.  Rachel." sortOrder="Synonym.subject.primaryIdentifier asc">
+    <constraint path="Synonym.value" editable="true" op="=" value="timeout"/>
+  </query>
+</template>
+</template-queries>
 <tags>
   <tag name="im:public" objectIdentifier="Gene_Protein" type="template">
   </tag>
