@@ -36,6 +36,7 @@ public class ZfinFeatureMarkerRelationshipsConverter extends BioFileConverter {
 
     private Map<String, Item> features = new HashMap();
     private Map<String, Item> genes = new HashMap();
+    private Map<String, Item> geneps = new HashMap();
     private Map<String, Item> constructs = new HashMap();
     private Set<String> synonyms = new HashSet();
     private Map<String, Item> DNAClones = new HashMap();
@@ -186,8 +187,8 @@ public class ZfinFeatureMarkerRelationshipsConverter extends BioFileConverter {
 
         } else if (primaryIdentifier.substring(0, 9).equals("ZDB-GENE-")) {
             typedItem = getGene(primaryIdentifier);
-            System.out.println(primaryIdentifier);
-
+        } else if (primaryIdentifier.substring(0, 10).equals("ZDB-GENEP-")) {
+            typedItem = getGeneP(primaryIdentifier);
         } else if (primaryIdentifier.substring(0, 8).equals("ZDB-EST-")) {
             typedItem = getRNAClone(primaryIdentifier);
         } else if (primaryIdentifier.substring(0, 8).equals("ZDB-PAC-")) {
@@ -367,6 +368,24 @@ public class ZfinFeatureMarkerRelationshipsConverter extends BioFileConverter {
             item.setAttribute("primaryIdentifier", primaryIdentifier);
             genes.put(primaryIdentifier, item);
              try {
+                store(item);
+            } catch (ObjectStoreException e) {
+                throw new SAXException(e);
+            }
+        }
+        return item;
+    }
+
+
+    private Item getGeneP(String primaryIdentifier)
+	throws SAXException {
+        Item item = geneps.get(primaryIdentifier);
+        if (item == null) {
+            item = createItem("Pseudogene");
+            item.setReference("organism", getOrganism("7955"));
+            item.setAttribute("primaryIdentifier", primaryIdentifier);
+            geneps.put(primaryIdentifier, item);
+	    try {
                 store(item);
             } catch (ObjectStoreException e) {
                 throw new SAXException(e);

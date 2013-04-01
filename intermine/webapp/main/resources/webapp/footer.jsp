@@ -42,9 +42,9 @@
 
 <!-- cam logo and links -->
 <div class="body bottom-footer">
-    <a class="cambridge-logo" href="http://www.cam.ac.uk/" title="University of Cambridge" target="_blank">
+ <!--   <a class="cambridge-logo" href="http://www.cam.ac.uk/" title="University of Cambridge" target="_blank">
         <img src="images/icons/cambridge-footer-logo.png" alt="University of Cambridge logo">
-    </a>
+    </a> -->
 
     <ul class="footer-links">
         <!-- contact us form link -->
@@ -64,7 +64,7 @@
         </c:forEach>
     </ul>
 
-    <!-- mines -->
+    <!-- mines 
     <ul class="footer-links">
         <li><a href="http://www.intermine.org" target="_blank">InterMine</a></li>
         <li><a href="http://www.flymine.org" target="_blank">FlyMine</a></li>
@@ -75,7 +75,7 @@
 
     <p class="footer-copy">&copy; 2002 - 2012 Department of Genetics, University of Cambridge, Downing Street,<br />
         Cambridge CB2 3EH, United Kingdom</p>
-
+-->
     <div style="clear:both"></div>
 </div>
 <!-- /footer.jsp -->

@@ -19,10 +19,6 @@ public interface Protein extends org.intermine.model.bio.BioEntity
     public void proxySequence(final org.intermine.objectstore.proxy.ProxyReference sequence);
     public org.intermine.model.InterMineObject proxGetSequence();
 
-    public java.util.Set<org.intermine.model.bio.Pathway> getPathways();
-    public void setPathways(final java.util.Set<org.intermine.model.bio.Pathway> pathways);
-    public void addPathways(final org.intermine.model.bio.Pathway arg);
-
     public java.util.Set<org.intermine.model.bio.CDS> getcDSs();
     public void setcDSs(final java.util.Set<org.intermine.model.bio.CDS> CDSs);
     public void addcDSs(final org.intermine.model.bio.CDS arg);

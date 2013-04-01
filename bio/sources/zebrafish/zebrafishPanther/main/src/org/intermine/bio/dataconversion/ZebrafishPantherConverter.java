@@ -41,7 +41,7 @@ public class ZebrafishPantherConverter extends BioFileConverter
     private Map<String, Item> codes = new HashMap();
     private Map<String, Item> orthoEvs = new HashMap();
     private static final Logger LOG = Logger.getLogger(ZebrafishPantherConverter.class);
-    protected String organismRefId;
+    //protected String organismRefId;
     /**
      * Constructor
      * @param writer the ItemWriter used to handle the resultant items
@@ -51,9 +51,9 @@ public class ZebrafishPantherConverter extends BioFileConverter
         throws ObjectStoreException{
         super(writer, model, DATA_SOURCE_NAME, DATASET_TITLE);
         Item organism = createItem("Organism");
-        organism.setAttribute("taxonId", "7955");
-        store(organism);
-        organismRefId = organism.getIdentifier();
+	//        organism.setAttribute("taxonId", "7955");
+        //store(organism);
+        //organismRefId = organism.getIdentifier();
     }
 
     public void process(Reader reader) throws Exception {
@@ -89,11 +89,10 @@ public class ZebrafishPantherConverter extends BioFileConverter
             String pantherId = line[8];
             Item ortho = null;
 
-	    System.out.println(geneid1+" "+organism1+" "+organism2);
             if (StringUtils.equals(organism1,"DANRE")){
-
-                Item gene = getGene(geneid1);
-                ortho = getOrtho(geneid2,"IEA","Panther");
+		String id = geneid2+geneid1;
+                Item gene = getGene(geneid1,organism1);
+                ortho = getOrtho(id,"IEA","Panther");
                 Item externalGene = getExternalGene(geneid2, geneid2, organism2, geneid2);
                 ortho.setReference("homologue", externalGene);
                 ortho.setReference("gene",gene);
@@ -105,10 +104,16 @@ public class ZebrafishPantherConverter extends BioFileConverter
                 gene.addToCollection("proteins",zebrafishProtein);
                 externalGene.addToCollection("proteins",orthoProtein);
                 ortho.setAttribute("type",orthoType);
+                String orthoId = ortho.getIdentifier();
+		if (geneid1.equalsIgnoreCase("ZDB-GENE-040426-1729")) {
+                    System.out.println ("here is the record we're looking for: ZDB-GENE-040426-1729 ortho identifier"+orthoId);
+                }
+
             }
             else if (StringUtils.equals(organism2,"DANRE")) {
-                Item gene = getGene(geneid2);
-                ortho = getOrtho(geneid1,"IEA","Panther");
+                String id =geneid1+geneid2;
+		Item gene = getGene(geneid2,organism2);
+                ortho = getOrtho(id,"IEA","Panther");
                 Item externalGene = getExternalGene(geneid1, geneid1, organism1, geneid1);
                 ortho.setReference("homologue", externalGene);
                 ortho.setReference("gene",gene);
@@ -145,14 +150,18 @@ public class ZebrafishPantherConverter extends BioFileConverter
         }
         return item;
     }
-    private Item getGene(String primaryIdentifier)
+    private Item getGene(String primaryIdentifier, String species)
             throws SAXException {
             Item item = genes.get(primaryIdentifier);
             if (item == null) {
                 item = createItem("Gene");
+		item.setReference("organism", getOrganism(getTaxon(species)));
                 item.setAttribute("primaryIdentifier", primaryIdentifier);
                 genes.put(primaryIdentifier, item);
                 try {
+		    if (primaryIdentifier.equalsIgnoreCase("ZDB-GENE-040426-1729")){
+			    System.out.println("here is the store of the record we're looking for:ZDB-GENE-040426-1729");
+			}
                     store(item);
                 }
                 catch (ObjectStoreException e) {
@@ -254,9 +263,12 @@ public class ZebrafishPantherConverter extends BioFileConverter
             item = createItem("Gene");
             if (!StringUtils.isEmpty(orthoName)) {
                 item.setAttribute("name", orthoName);
-            } else {
-                System.out.println(orthoAbbrev);
-            }
+            } else  if (!StringUtils.isEmpty(orthoAbbrev)){
+		item.setAttribute("name", orthoAbbrev);
+	    }
+	    else {
+		System.out.println(orthoAbbrev);
+	    }
             item.setAttribute("symbol", orthoAbbrev);
             item.setAttribute("primaryIdentifier", orthoPrimaryIdentifier);
             item.setReference("organism", getOrganism(getTaxon(orthoSpecies)));

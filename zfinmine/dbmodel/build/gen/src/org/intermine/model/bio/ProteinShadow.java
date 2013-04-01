@@ -39,12 +39,6 @@ public class ProteinShadow implements Protein, ShadowClass
     public void proxySequence(final org.intermine.objectstore.proxy.ProxyReference sequence) { this.sequence = sequence; }
     public org.intermine.model.InterMineObject proxGetSequence() { return sequence; }
 
-    // Col: org.intermine.model.bio.Protein.pathways
-    protected java.util.Set<org.intermine.model.bio.Pathway> pathways = new java.util.HashSet<org.intermine.model.bio.Pathway>();
-    public java.util.Set<org.intermine.model.bio.Pathway> getPathways() { return pathways; }
-    public void setPathways(final java.util.Set<org.intermine.model.bio.Pathway> pathways) { this.pathways = pathways; }
-    public void addPathways(final org.intermine.model.bio.Pathway arg) { pathways.add(arg); }
-
     // Col: org.intermine.model.bio.Protein.CDSs
     protected java.util.Set<org.intermine.model.bio.CDS> CDSs = new java.util.HashSet<org.intermine.model.bio.CDS>();
     public java.util.Set<org.intermine.model.bio.CDS> getcDSs() { return CDSs; }
@@ -160,9 +154,6 @@ public class ProteinShadow implements Protein, ShadowClass
                 return sequence;
             }
         }
-        if ("pathways".equals(fieldName)) {
-            return pathways;
-        }
         if ("CDSs".equals(fieldName)) {
             return CDSs;
         }
@@ -236,9 +227,6 @@ public class ProteinShadow implements Protein, ShadowClass
         if ("sequence".equals(fieldName)) {
             return sequence;
         }
-        if ("pathways".equals(fieldName)) {
-            return pathways;
-        }
         if ("CDSs".equals(fieldName)) {
             return CDSs;
         }
@@ -303,8 +291,6 @@ public class ProteinShadow implements Protein, ShadowClass
             primaryAccession = (java.lang.String) value;
         } else if ("sequence".equals(fieldName)) {
             sequence = (org.intermine.model.InterMineObject) value;
-        } else if ("pathways".equals(fieldName)) {
-            pathways = (java.util.Set) value;
         } else if ("CDSs".equals(fieldName)) {
             CDSs = (java.util.Set) value;
         } else if ("genes".equals(fieldName)) {
@@ -360,9 +346,6 @@ public class ProteinShadow implements Protein, ShadowClass
         }
         if ("sequence".equals(fieldName)) {
             return org.intermine.model.bio.Sequence.class;
-        }
-        if ("pathways".equals(fieldName)) {
-            return java.util.Set.class;
         }
         if ("CDSs".equals(fieldName)) {
             return java.util.Set.class;
@@ -634,7 +617,6 @@ public class ProteinShadow implements Protein, ShadowClass
                 throw new IllegalArgumentException("Unknown field " + notXml[i]);
             }
         }
-        pathways = new ProxyCollection<org.intermine.model.bio.Pathway>(os, this, "pathways", org.intermine.model.bio.Pathway.class);
         CDSs = new ProxyCollection<org.intermine.model.bio.CDS>(os, this, "CDSs", org.intermine.model.bio.CDS.class);
         genes = new ProxyCollection<org.intermine.model.bio.Gene>(os, this, "genes", org.intermine.model.bio.Gene.class);
         transcripts = new ProxyCollection<org.intermine.model.bio.Transcript>(os, this, "transcripts", org.intermine.model.bio.Transcript.class);
@@ -647,9 +629,7 @@ public class ProteinShadow implements Protein, ShadowClass
         crossReferences = new ProxyCollection<org.intermine.model.bio.CrossReference>(os, this, "crossReferences", org.intermine.model.bio.CrossReference.class);
     }
     public void addCollectionElement(final String fieldName, final org.intermine.model.InterMineObject element) {
-        if ("pathways".equals(fieldName)) {
-            pathways.add((org.intermine.model.bio.Pathway) element);
-        } else if ("CDSs".equals(fieldName)) {
+        if ("CDSs".equals(fieldName)) {
             CDSs.add((org.intermine.model.bio.CDS) element);
         } else if ("genes".equals(fieldName)) {
             genes.add((org.intermine.model.bio.Gene) element);
@@ -678,9 +658,6 @@ public class ProteinShadow implements Protein, ShadowClass
         }
     }
     public Class<?> getElementType(final String fieldName) {
-        if ("pathways".equals(fieldName)) {
-            return org.intermine.model.bio.Pathway.class;
-        }
         if ("CDSs".equals(fieldName)) {
             return org.intermine.model.bio.CDS.class;
         }

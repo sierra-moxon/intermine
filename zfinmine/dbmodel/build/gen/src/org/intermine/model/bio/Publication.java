@@ -38,11 +38,11 @@ public interface Publication extends org.intermine.model.InterMineObject
     public java.lang.String getPubMedId();
     public void setPubMedId(final java.lang.String pubMedId);
 
-    public java.lang.String getPubAbstract();
-    public void setPubAbstract(final java.lang.String pubAbstract);
-
     public java.lang.String getPrimaryIdentifier();
     public void setPrimaryIdentifier(final java.lang.String primaryIdentifier);
+
+    public java.lang.String getPubAbstract();
+    public void setPubAbstract(final java.lang.String pubAbstract);
 
     public java.lang.String getAuthorNames();
     public void setAuthorNames(final java.lang.String authorNames);
