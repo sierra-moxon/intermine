@@ -211,6 +211,7 @@
 <class className="org.intermine.model.bio.Homologue">
    <fields>
      <fieldconfig fieldExpr="gene.symbol"></fieldconfig>
+     <fieldconfig fieldExpr="homologue.symbol"></fieldconfig>
    </fields>
  </class>
 <class className="org.intermine.model.bio.ExpressionResult">

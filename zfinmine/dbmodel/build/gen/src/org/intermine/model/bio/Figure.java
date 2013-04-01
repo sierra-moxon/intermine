@@ -2,11 +2,11 @@ package org.intermine.model.bio;
 
 public interface Figure extends org.intermine.model.InterMineObject
 {
-    public java.lang.String getCaption();
-    public void setCaption(final java.lang.String caption);
-
     public java.lang.String getPrimaryIdentifier();
     public void setPrimaryIdentifier(final java.lang.String primaryIdentifier);
+
+    public java.lang.String getCaption();
+    public void setCaption(final java.lang.String caption);
 
     public java.lang.String getLabel();
     public void setLabel(final java.lang.String label);

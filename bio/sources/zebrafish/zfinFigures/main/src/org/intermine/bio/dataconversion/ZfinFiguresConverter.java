@@ -74,9 +74,9 @@ public class ZfinFiguresConverter extends BioFileConverter {
             if (!StringUtils.isEmpty(label)) {
                 fig.setAttribute("label", label);
             }
-            if (!StringUtils.isEmpty(caption)) {
-                fig.setAttribute("caption", caption);
-            }
+            //if (!StringUtils.isEmpty(caption)) {
+            //    fig.setAttribute("caption", caption);
+            //}
             if (!StringUtils.isEmpty(pubPrimaryIdentifier)) {
                 fig.setReference("publication", pub);
             }

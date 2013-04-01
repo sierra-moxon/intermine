@@ -51,15 +51,15 @@ public interface ExpressionResult extends org.intermine.model.InterMineObject
     public void proxyGene(final org.intermine.objectstore.proxy.ProxyReference gene);
     public org.intermine.model.InterMineObject proxGetGene();
 
-    public org.intermine.model.bio.ZFATerm getEndStage();
-    public void setEndStage(final org.intermine.model.bio.ZFATerm endStage);
-    public void proxyEndStage(final org.intermine.objectstore.proxy.ProxyReference endStage);
-    public org.intermine.model.InterMineObject proxGetEndStage();
-
     public org.intermine.model.bio.ZFATerm getAnatomy();
     public void setAnatomy(final org.intermine.model.bio.ZFATerm anatomy);
     public void proxyAnatomy(final org.intermine.objectstore.proxy.ProxyReference anatomy);
     public org.intermine.model.InterMineObject proxGetAnatomy();
+
+    public org.intermine.model.bio.ZFATerm getEndStage();
+    public void setEndStage(final org.intermine.model.bio.ZFATerm endStage);
+    public void proxyEndStage(final org.intermine.objectstore.proxy.ProxyReference endStage);
+    public org.intermine.model.InterMineObject proxGetEndStage();
 
     public java.util.Set<org.intermine.model.bio.Figure> getFigures();
     public void setFigures(final java.util.Set<org.intermine.model.bio.Figure> figures);

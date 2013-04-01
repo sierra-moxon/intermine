@@ -2,11 +2,11 @@ package org.intermine.model.bio;
 
 public interface Gene extends org.intermine.model.bio.SequenceFeature
 {
-    public java.lang.String getBriefDescription();
-    public void setBriefDescription(final java.lang.String briefDescription);
-
     public java.lang.String getType();
     public void setType(final java.lang.String type);
+
+    public java.lang.String getBriefDescription();
+    public void setBriefDescription(final java.lang.String briefDescription);
 
     public java.lang.String getDescription();
     public void setDescription(final java.lang.String description);
@@ -33,13 +33,13 @@ public interface Gene extends org.intermine.model.bio.SequenceFeature
     public void setTranscripts(final java.util.Set<org.intermine.model.bio.Transcript> transcripts);
     public void addTranscripts(final org.intermine.model.bio.Transcript arg);
 
-    public java.util.Set<org.intermine.model.bio.Pathway> getPathways();
-    public void setPathways(final java.util.Set<org.intermine.model.bio.Pathway> pathways);
-    public void addPathways(final org.intermine.model.bio.Pathway arg);
-
     public java.util.Set<org.intermine.model.bio.CDS> getcDSs();
     public void setcDSs(final java.util.Set<org.intermine.model.bio.CDS> CDSs);
     public void addcDSs(final org.intermine.model.bio.CDS arg);
+
+    public java.util.Set<org.intermine.model.bio.Pathway> getPathways();
+    public void setPathways(final java.util.Set<org.intermine.model.bio.Pathway> pathways);
+    public void addPathways(final org.intermine.model.bio.Pathway arg);
 
     public java.util.Set<org.intermine.model.bio.Construct> getCodingSequenceOf();
     public void setCodingSequenceOf(final java.util.Set<org.intermine.model.bio.Construct> codingSequenceOf);
