@@ -15,7 +15,6 @@
 <class className="org.intermine.model.bio.Comment">
    <fields>
       <fieldconfig fieldExpr="type"></fieldconfig>
-      <fieldconfig fieldExpr="text"></fieldconfig>
    </fields>
 </class>
 <class className="org.intermine.model.bio.DataSet">
