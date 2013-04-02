@@ -1,0 +1,5 @@
+<project name="zebrafishChromosome" default="default" basedir=".">
+  <description>build, test, package zebrafishChromosome</description>
+  
+  <import file="../../../../imbuild/source.xml"/>
+</project>
