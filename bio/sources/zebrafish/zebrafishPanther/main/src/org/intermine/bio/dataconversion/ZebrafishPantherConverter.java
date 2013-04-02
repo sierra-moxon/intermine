@@ -92,7 +92,7 @@ public class ZebrafishPantherConverter extends BioFileConverter
             if (StringUtils.equals(organism1,"DANRE")){
 		String id = geneid2+geneid1;
                 Item gene = getGene(geneid1,organism1);
-                ortho = getOrtho(id,"IEA","Panther");
+                ortho = getOrtho(id,"IEA","PantherHomologue");
                 Item externalGene = getExternalGene(geneid2, geneid2, organism2, geneid2);
                 ortho.setReference("homologue", externalGene);
                 ortho.setReference("gene",gene);
@@ -113,7 +113,7 @@ public class ZebrafishPantherConverter extends BioFileConverter
             else if (StringUtils.equals(organism2,"DANRE")) {
                 String id =geneid1+geneid2;
 		Item gene = getGene(geneid2,organism2);
-                ortho = getOrtho(id,"IEA","Panther");
+                ortho = getOrtho(id,"IEA","PantherHomologue");
                 Item externalGene = getExternalGene(geneid1, geneid1, organism1, geneid1);
                 ortho.setReference("homologue", externalGene);
                 ortho.setReference("gene",gene);
