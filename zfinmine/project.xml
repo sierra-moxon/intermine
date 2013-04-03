@@ -101,7 +101,11 @@
             <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_orthos/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-       <source name="zebrafishPanther" type="zebrafishPanther">
+	<source name="zebrafishChromosome" type="zebrafishChromosome">
+	  <property name="src.data.dir" location="/home/intermine/zebrafish/chromosome/"/>
+	  <property name="src.data.dir.includes" value="*.txt"/>
+	</source>
+	<source name="zebrafishPanther" type="zebrafishPanther">
             <property name="src.data.dir" location="/home/intermine/zebrafish/panther/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
        </source>

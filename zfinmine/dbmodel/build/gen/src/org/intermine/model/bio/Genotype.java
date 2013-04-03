@@ -5,11 +5,11 @@ public interface Genotype extends org.intermine.model.InterMineObject
     public java.lang.Boolean getIsExtinct();
     public void setIsExtinct(final java.lang.Boolean isExtinct);
 
-    public java.lang.Boolean getIsWildType();
-    public void setIsWildType(final java.lang.Boolean isWildType);
-
     public java.lang.String getBackgrounds();
     public void setBackgrounds(final java.lang.String backgrounds);
+
+    public java.lang.Boolean getIsWildType();
+    public void setIsWildType(final java.lang.Boolean isWildType);
 
     public java.lang.String getParentalZygocity();
     public void setParentalZygocity(final java.lang.String parentalZygocity);
@@ -17,11 +17,11 @@ public interface Genotype extends org.intermine.model.InterMineObject
     public java.lang.String getPrimaryIdentifier();
     public void setPrimaryIdentifier(final java.lang.String primaryIdentifier);
 
-    public java.lang.String getGenoHandle();
-    public void setGenoHandle(final java.lang.String genoHandle);
-
     public java.lang.String getGenoDisplayName();
     public void setGenoDisplayName(final java.lang.String genoDisplayName);
+
+    public java.lang.String getGenoHandle();
+    public void setGenoHandle(final java.lang.String genoHandle);
 
     public org.intermine.model.bio.Organism getOrganism();
     public void setOrganism(final org.intermine.model.bio.Organism organism);

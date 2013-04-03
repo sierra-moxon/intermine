@@ -141,6 +141,11 @@
         <collection name="homologues" referenced-type="Homologue" reverse-reference="gene"/>
         <collection name="features" referenced-type="SequenceAlteration" reverse-reference="genes"/>
         <collection name="stss" referenced-type="STS" reverse-reference="genes"/>
+	<collection name="chromosomes" referenced-type="Chromosome" reverse-reference="genes"/>
+    </class>
+    <class name="Chromosome" extends="BioEntity" is-interface="true">
+      <attribute name="name" type="java.lang.String"/>
+      <collection name="genes" referenced-type="Gene" reverse-reference="chromosomes"/>
     </class>
     <class name="MorpholinoOligo" is-interface="true" extends="SequenceFeature">
         <attribute name="primaryIdentifier" type="java.lang.String"/>

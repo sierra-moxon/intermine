@@ -2,11 +2,11 @@ package org.intermine.model.bio;
 
 public interface Gene extends org.intermine.model.bio.SequenceFeature
 {
-    public java.lang.String getType();
-    public void setType(final java.lang.String type);
-
     public java.lang.String getBriefDescription();
     public void setBriefDescription(final java.lang.String briefDescription);
+
+    public java.lang.String getType();
+    public void setType(final java.lang.String type);
 
     public java.lang.String getDescription();
     public void setDescription(final java.lang.String description);
@@ -32,6 +32,10 @@ public interface Gene extends org.intermine.model.bio.SequenceFeature
     public java.util.Set<org.intermine.model.bio.Transcript> getTranscripts();
     public void setTranscripts(final java.util.Set<org.intermine.model.bio.Transcript> transcripts);
     public void addTranscripts(final org.intermine.model.bio.Transcript arg);
+
+    public java.util.Set<org.intermine.model.bio.Chromosome> getChromosomes();
+    public void setChromosomes(final java.util.Set<org.intermine.model.bio.Chromosome> chromosomes);
+    public void addChromosomes(final org.intermine.model.bio.Chromosome arg);
 
     public java.util.Set<org.intermine.model.bio.CDS> getcDSs();
     public void setcDSs(final java.util.Set<org.intermine.model.bio.CDS> CDSs);
