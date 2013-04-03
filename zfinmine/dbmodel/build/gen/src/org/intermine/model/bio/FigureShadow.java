@@ -12,15 +12,15 @@ import org.intermine.model.ShadowClass;
 public class FigureShadow implements Figure, ShadowClass
 {
     public static final Class<Figure> shadowOf = Figure.class;
-    // Attr: org.intermine.model.bio.Figure.primaryIdentifier
-    protected java.lang.String primaryIdentifier;
-    public java.lang.String getPrimaryIdentifier() { return primaryIdentifier; }
-    public void setPrimaryIdentifier(final java.lang.String primaryIdentifier) { this.primaryIdentifier = primaryIdentifier; }
-
     // Attr: org.intermine.model.bio.Figure.caption
     protected java.lang.String caption;
     public java.lang.String getCaption() { return caption; }
     public void setCaption(final java.lang.String caption) { this.caption = caption; }
+
+    // Attr: org.intermine.model.bio.Figure.primaryIdentifier
+    protected java.lang.String primaryIdentifier;
+    public java.lang.String getPrimaryIdentifier() { return primaryIdentifier; }
+    public void setPrimaryIdentifier(final java.lang.String primaryIdentifier) { this.primaryIdentifier = primaryIdentifier; }
 
     // Attr: org.intermine.model.bio.Figure.label
     protected java.lang.String label;
@@ -61,11 +61,11 @@ public class FigureShadow implements Figure, ShadowClass
     @Override public int hashCode() { return (id != null) ? id.hashCode() : super.hashCode(); }
     @Override public String toString() { return "Figure [caption=\"" + caption + "\", id=\"" + id + "\", label=\"" + label + "\", primaryIdentifier=\"" + primaryIdentifier + "\", publication=" + (publication == null ? "null" : (publication.getId() == null ? "no id" : publication.getId().toString())) + "]"; }
     public Object getFieldValue(final String fieldName) throws IllegalAccessException {
-        if ("primaryIdentifier".equals(fieldName)) {
-            return primaryIdentifier;
-        }
         if ("caption".equals(fieldName)) {
             return caption;
+        }
+        if ("primaryIdentifier".equals(fieldName)) {
+            return primaryIdentifier;
         }
         if ("label".equals(fieldName)) {
             return label;
@@ -95,11 +95,11 @@ public class FigureShadow implements Figure, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public Object getFieldProxy(final String fieldName) throws IllegalAccessException {
-        if ("primaryIdentifier".equals(fieldName)) {
-            return primaryIdentifier;
-        }
         if ("caption".equals(fieldName)) {
             return caption;
+        }
+        if ("primaryIdentifier".equals(fieldName)) {
+            return primaryIdentifier;
         }
         if ("label".equals(fieldName)) {
             return label;
@@ -125,10 +125,10 @@ public class FigureShadow implements Figure, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public void setFieldValue(final String fieldName, final Object value) {
-        if ("primaryIdentifier".equals(fieldName)) {
-            primaryIdentifier = (java.lang.String) value;
-        } else if ("caption".equals(fieldName)) {
+        if ("caption".equals(fieldName)) {
             caption = (java.lang.String) value;
+        } else if ("primaryIdentifier".equals(fieldName)) {
+            primaryIdentifier = (java.lang.String) value;
         } else if ("label".equals(fieldName)) {
             label = (java.lang.String) value;
         } else if ("publication".equals(fieldName)) {
@@ -150,10 +150,10 @@ public class FigureShadow implements Figure, ShadowClass
         }
     }
     public Class<?> getFieldType(final String fieldName) {
-        if ("primaryIdentifier".equals(fieldName)) {
+        if ("caption".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("caption".equals(fieldName)) {
+        if ("primaryIdentifier".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("label".equals(fieldName)) {
@@ -185,9 +185,9 @@ public class FigureShadow implements Figure, ShadowClass
         }
         StringConstructor sb = new StringConstructor();
         sb.append("$_^org.intermine.model.bio.Figure");
-        if (primaryIdentifier != null) {
-            sb.append("$_^aprimaryIdentifier$_^");
-            String string = primaryIdentifier;
+        if (caption != null) {
+            sb.append("$_^acaption$_^");
+            String string = caption;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -200,9 +200,9 @@ public class FigureShadow implements Figure, ShadowClass
                 }
             }
         }
-        if (caption != null) {
-            sb.append("$_^acaption$_^");
-            String string = caption;
+        if (primaryIdentifier != null) {
+            sb.append("$_^aprimaryIdentifier$_^");
+            String string = primaryIdentifier;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -247,17 +247,6 @@ public class FigureShadow implements Figure, ShadowClass
         }
         for (int i = 2; i < notXml.length;) {
             int startI = i;
-            if ((i < notXml.length) && "aprimaryIdentifier".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                primaryIdentifier = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "acaption".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -267,6 +256,17 @@ public class FigureShadow implements Figure, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 caption = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "aprimaryIdentifier".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                primaryIdentifier = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "alabel".equals(notXml[i])) {

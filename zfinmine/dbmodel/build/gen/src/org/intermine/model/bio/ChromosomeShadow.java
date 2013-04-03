@@ -12,6 +12,12 @@ import org.intermine.model.ShadowClass;
 public class ChromosomeShadow implements Chromosome, ShadowClass
 {
     public static final Class<Chromosome> shadowOf = Chromosome.class;
+    // Col: org.intermine.model.bio.Chromosome.genes
+    protected java.util.Set<org.intermine.model.bio.Gene> genes = new java.util.HashSet<org.intermine.model.bio.Gene>();
+    public java.util.Set<org.intermine.model.bio.Gene> getGenes() { return genes; }
+    public void setGenes(final java.util.Set<org.intermine.model.bio.Gene> genes) { this.genes = genes; }
+    public void addGenes(final org.intermine.model.bio.Gene arg) { genes.add(arg); }
+
     // Attr: org.intermine.model.bio.SequenceFeature.length
     protected java.lang.Integer length;
     public java.lang.Integer getLength() { return length; }
@@ -163,6 +169,9 @@ public class ChromosomeShadow implements Chromosome, ShadowClass
     @Override public int hashCode() { return (id != null) ? id.hashCode() : super.hashCode(); }
     @Override public String toString() { return "Chromosome [chromosome=" + (chromosome == null ? "null" : (chromosome.getId() == null ? "no id" : chromosome.getId().toString())) + ", chromosomeLocation=" + (chromosomeLocation == null ? "null" : (chromosomeLocation.getId() == null ? "no id" : chromosomeLocation.getId().toString())) + ", id=\"" + id + "\", length=\"" + length + "\", name=\"" + name + "\", organism=" + (organism == null ? "null" : (organism.getId() == null ? "no id" : organism.getId().toString())) + ", primaryIdentifier=\"" + primaryIdentifier + "\", score=\"" + score + "\", scoreType=\"" + scoreType + "\", secondaryIdentifier=\"" + secondaryIdentifier + "\", sequence=" + (sequence == null ? "null" : (sequence.getId() == null ? "no id" : sequence.getId().toString())) + ", sequenceOntologyTerm=" + (sequenceOntologyTerm == null ? "null" : (sequenceOntologyTerm.getId() == null ? "no id" : sequenceOntologyTerm.getId().toString())) + ", symbol=\"" + symbol + "\"]"; }
     public Object getFieldValue(final String fieldName) throws IllegalAccessException {
+        if ("genes".equals(fieldName)) {
+            return genes;
+        }
         if ("length".equals(fieldName)) {
             return length;
         }
@@ -264,6 +273,9 @@ public class ChromosomeShadow implements Chromosome, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public Object getFieldProxy(final String fieldName) throws IllegalAccessException {
+        if ("genes".equals(fieldName)) {
+            return genes;
+        }
         if ("length".equals(fieldName)) {
             return length;
         }
@@ -345,7 +357,9 @@ public class ChromosomeShadow implements Chromosome, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public void setFieldValue(final String fieldName, final Object value) {
-        if ("length".equals(fieldName)) {
+        if ("genes".equals(fieldName)) {
+            genes = (java.util.Set) value;
+        } else if ("length".equals(fieldName)) {
             length = (java.lang.Integer) value;
         } else if ("scoreType".equals(fieldName)) {
             scoreType = (java.lang.String) value;
@@ -404,6 +418,9 @@ public class ChromosomeShadow implements Chromosome, ShadowClass
         }
     }
     public Class<?> getFieldType(final String fieldName) {
+        if ("genes".equals(fieldName)) {
+            return java.util.Set.class;
+        }
         if ("length".equals(fieldName)) {
             return java.lang.Integer.class;
         }
@@ -699,6 +716,7 @@ public class ChromosomeShadow implements Chromosome, ShadowClass
                 throw new IllegalArgumentException("Unknown field " + notXml[i]);
             }
         }
+        genes = new ProxyCollection<org.intermine.model.bio.Gene>(os, this, "genes", org.intermine.model.bio.Gene.class);
         presentIn = new ProxyCollection<org.intermine.model.bio.SequenceAlteration>(os, this, "presentIn", org.intermine.model.bio.SequenceAlteration.class);
         labOfOrigin = new ProxyCollection<org.intermine.model.bio.Lab>(os, this, "labOfOrigin", org.intermine.model.bio.Lab.class);
         missingFrom = new ProxyCollection<org.intermine.model.bio.SequenceAlteration>(os, this, "missingFrom", org.intermine.model.bio.SequenceAlteration.class);
@@ -713,7 +731,9 @@ public class ChromosomeShadow implements Chromosome, ShadowClass
         crossReferences = new ProxyCollection<org.intermine.model.bio.CrossReference>(os, this, "crossReferences", org.intermine.model.bio.CrossReference.class);
     }
     public void addCollectionElement(final String fieldName, final org.intermine.model.InterMineObject element) {
-        if ("presentIn".equals(fieldName)) {
+        if ("genes".equals(fieldName)) {
+            genes.add((org.intermine.model.bio.Gene) element);
+        } else if ("presentIn".equals(fieldName)) {
             presentIn.add((org.intermine.model.bio.SequenceAlteration) element);
         } else if ("labOfOrigin".equals(fieldName)) {
             labOfOrigin.add((org.intermine.model.bio.Lab) element);
@@ -746,6 +766,9 @@ public class ChromosomeShadow implements Chromosome, ShadowClass
         }
     }
     public Class<?> getElementType(final String fieldName) {
+        if ("genes".equals(fieldName)) {
+            return org.intermine.model.bio.Gene.class;
+        }
         if ("presentIn".equals(fieldName)) {
             return org.intermine.model.bio.SequenceAlteration.class;
         }

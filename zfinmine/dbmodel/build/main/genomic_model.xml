@@ -29,8 +29,8 @@
 </class>
 <class name="DataSource" is-interface="true">
 	<attribute name="name" type="java.lang.String"/>
-	<attribute name="description" type="java.lang.String"/>
 	<attribute name="url" type="java.lang.String"/>
+	<attribute name="description" type="java.lang.String"/>
 	<collection name="dataSets" referenced-type="DataSet" reverse-reference="dataSource"/>
 </class>
 <class name="SimpleSequenceLengthVariation" extends="Substitution" is-interface="true">
@@ -43,6 +43,35 @@
 	<reference name="subject" referenced-type="BioEntity" reverse-reference="crossReferences"/>
 	<reference name="source" referenced-type="DataSource"/>
 </class>
+<class name="Gene" extends="SequenceFeature" is-interface="true">
+	<attribute name="briefDescription" type="java.lang.String"/>
+	<attribute name="type" type="java.lang.String"/>
+	<attribute name="description" type="java.lang.String"/>
+	<reference name="downstreamIntergenicRegion" referenced-type="IntergenicRegion"/>
+	<reference name="upstreamIntergenicRegion" referenced-type="IntergenicRegion"/>
+	<collection name="cloneArtifacts" referenced-type="Clone" reverse-reference="artifacts"/>
+	<collection name="goAnnotation" referenced-type="GOAnnotation"/>
+	<collection name="transcripts" referenced-type="Transcript" reverse-reference="gene"/>
+	<collection name="chromosomes" referenced-type="Chromosome" reverse-reference="genes"/>
+	<collection name="CDSs" referenced-type="CDS" reverse-reference="gene"/>
+	<collection name="pathways" referenced-type="Pathway" reverse-reference="genes"/>
+	<collection name="codingSequenceOf" referenced-type="Construct" reverse-reference="codingSequences"/>
+	<collection name="encodes" referenced-type="Clone" reverse-reference="genes"/>
+	<collection name="promotes" referenced-type="Construct" reverse-reference="promoters"/>
+	<collection name="flankingRegions" referenced-type="GeneFlankingRegion" reverse-reference="gene"/>
+	<collection name="antibodies" referenced-type="Antibody" reverse-reference="genes"/>
+	<collection name="morpholinos" referenced-type="MorpholinoOligo" reverse-reference="targets"/>
+	<collection name="features" referenced-type="SequenceAlteration" reverse-reference="genes"/>
+	<collection name="expressions" referenced-type="ExpressionResult" reverse-reference="gene"/>
+	<collection name="proteins" referenced-type="Protein" reverse-reference="genes"/>
+	<collection name="UTRs" referenced-type="UTR" reverse-reference="gene"/>
+	<collection name="homologues" referenced-type="Homologue" reverse-reference="gene"/>
+	<collection name="exons" referenced-type="Exon" reverse-reference="gene"/>
+	<collection name="introns" referenced-type="Intron" reverse-reference="genes"/>
+	<collection name="stss" referenced-type="STS" reverse-reference="genes"/>
+	<collection name="genotypes" referenced-type="Genotype" reverse-reference="genes"/>
+	<collection name="snps" referenced-type="SNP" reverse-reference="gene"/>
+</class>
 <class name="Pseudogene" extends="SequenceFeature" is-interface="true">
 	<attribute name="type" type="java.lang.String"/>
 	<attribute name="comments" type="java.lang.String"/>
@@ -54,8 +83,8 @@
 	<attribute name="tissue" type="java.lang.String"/>
 	<attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="species" type="java.lang.String"/>
-	<attribute name="name" type="java.lang.String"/>
 	<attribute name="host" type="java.lang.String"/>
+	<attribute name="name" type="java.lang.String"/>
 	<attribute name="stage" type="java.lang.String"/>
 	<attribute name="restrictionSites" type="java.lang.String"/>
 	<reference name="strain" referenced-type="Genotype"/>
@@ -94,17 +123,17 @@
 <class name="Phenotype" is-interface="true">
 	<attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="tag" type="java.lang.String"/>
-	<reference name="startStage" referenced-type="OntologyTerm" reverse-reference="phenotypesStartStg"/>
-	<reference name="superTerm" referenced-type="OntologyTerm"/>
 	<reference name="relatedSubTerm" referenced-type="OntologyTerm"/>
+	<reference name="superTerm" referenced-type="OntologyTerm"/>
+	<reference name="startStage" referenced-type="OntologyTerm" reverse-reference="phenotypesStartStg"/>
 	<reference name="relatedSuperTerm" referenced-type="OntologyTerm"/>
 	<reference name="phenotypeTerm" referenced-type="PATOTerm" reverse-reference="phenotypes"/>
 	<reference name="subTerm" referenced-type="OntologyTerm"/>
 	<reference name="genotypeEnvironment" referenced-type="GenotypeEnvironment" reverse-reference="phenotypes"/>
 	<reference name="figure" referenced-type="Figure" reverse-reference="phenotypes"/>
 	<reference name="subTerm2" referenced-type="OntologyTerm"/>
-	<reference name="endStage" referenced-type="OntologyTerm" reverse-reference="phenotypesEndStg"/>
 	<reference name="superTerm2" referenced-type="OntologyTerm"/>
+	<reference name="endStage" referenced-type="OntologyTerm" reverse-reference="phenotypesEndStg"/>
 </class>
 <class name="EnvironmentalCondition" is-interface="true">
 	<attribute name="unit" type="java.lang.String"/>
@@ -122,8 +151,8 @@
 <class name="DataSet" is-interface="true">
 	<attribute name="name" type="java.lang.String"/>
 	<attribute name="version" type="java.lang.String"/>
-	<attribute name="description" type="java.lang.String"/>
 	<attribute name="url" type="java.lang.String"/>
+	<attribute name="description" type="java.lang.String"/>
 	<reference name="dataSource" referenced-type="DataSource" reverse-reference="dataSets"/>
 	<collection name="bioEntities" referenced-type="BioEntity" reverse-reference="dataSets"/>
 </class>
@@ -148,8 +177,8 @@
 	<attribute name="comments" type="java.lang.String"/>
 </class>
 <class name="Figure" is-interface="true">
-	<attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="caption" type="java.lang.String"/>
+	<attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="label" type="java.lang.String"/>
 	<reference name="publication" referenced-type="Publication" reverse-reference="figures"/>
 	<collection name="expressionResults" referenced-type="ExpressionResult" reverse-reference="figures"/>
@@ -166,14 +195,14 @@
 </class>
 <class name="Antibody" is-interface="true">
 	<attribute name="symbol" type="java.lang.String"/>
-	<attribute name="type" type="java.lang.String"/>
 	<attribute name="heavyChainIsotype" type="java.lang.String"/>
+	<attribute name="type" type="java.lang.String"/>
 	<attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="name" type="java.lang.String"/>
 	<attribute name="immunogenOrganism" type="java.lang.String"/>
 	<attribute name="lightChainIsotype" type="java.lang.String"/>
-	<attribute name="clonalType" type="java.lang.String"/>
 	<attribute name="hostOrganism" type="java.lang.String"/>
+	<attribute name="clonalType" type="java.lang.String"/>
 	<reference name="organism" referenced-type="Organism"/>
 	<collection name="publications" referenced-type="Publication"/>
 	<collection name="expressions" referenced-type="ExpressionResult" reverse-reference="antibody"/>
@@ -245,8 +274,8 @@
 <class name="EFG" is-interface="true">
 	<attribute name="symbol" type="java.lang.String"/>
 	<attribute name="type" type="java.lang.String"/>
-	<attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="comments" type="java.lang.String"/>
+	<attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="name" type="java.lang.String"/>
 	<reference name="organism" referenced-type="Organism"/>
 	<collection name="publications" referenced-type="Publication"/>
@@ -258,13 +287,13 @@
 <class name="OntologyTerm" is-interface="true">
 	<attribute name="identifier" type="java.lang.String"/>
 	<attribute name="stageStartHour" type="java.lang.String"/>
-	<attribute name="obsolete" type="java.lang.Boolean"/>
 	<attribute name="primaryIdentifier" type="java.lang.String"/>
+	<attribute name="obsolete" type="java.lang.Boolean"/>
 	<attribute name="namespace" type="java.lang.String"/>
 	<attribute name="name" type="java.lang.String"/>
 	<attribute name="stageAbbreviation" type="java.lang.String"/>
-	<attribute name="description" type="java.lang.String"/>
 	<attribute name="stageEndHour" type="java.lang.String"/>
+	<attribute name="description" type="java.lang.String"/>
 	<reference name="ontology" referenced-type="Ontology"/>
 	<reference name="organism" referenced-type="Organism"/>
 	<collection name="synonyms" referenced-type="OntologyTermSynonym"/>
@@ -280,12 +309,12 @@
 </class>
 <class name="Genotype" is-interface="true">
 	<attribute name="isExtinct" type="java.lang.Boolean"/>
-	<attribute name="isWildType" type="java.lang.Boolean"/>
 	<attribute name="backgrounds" type="java.lang.String"/>
+	<attribute name="isWildType" type="java.lang.Boolean"/>
 	<attribute name="parentalZygocity" type="java.lang.String"/>
 	<attribute name="primaryIdentifier" type="java.lang.String"/>
-	<attribute name="genoHandle" type="java.lang.String"/>
 	<attribute name="genoDisplayName" type="java.lang.String"/>
+	<attribute name="genoHandle" type="java.lang.String"/>
 	<reference name="organism" referenced-type="Organism"/>
 	<collection name="genes" referenced-type="Gene" reverse-reference="genotypes"/>
 	<collection name="publications" referenced-type="Publication"/>
@@ -294,6 +323,9 @@
 </class>
 <class name="PATOTerm" extends="OntologyTerm" is-interface="true">
 	<collection name="phenotypes" referenced-type="Phenotype" reverse-reference="phenotypeTerm"/>
+</class>
+<class name="Chromosome" extends="SequenceFeature" is-interface="true">
+	<collection name="genes" referenced-type="Gene" reverse-reference="chromosomes"/>
 </class>
 <class name="Reagent" extends="SequenceFeature" is-interface="true"></class>
 <class name="Synonym" is-interface="true">
@@ -312,8 +344,8 @@
 <class name="Region" is-interface="true">
 	<attribute name="symbol" type="java.lang.String"/>
 	<attribute name="type" type="java.lang.String"/>
-	<attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="comments" type="java.lang.String"/>
+	<attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="name" type="java.lang.String"/>
 	<reference name="organism" referenced-type="Organism"/>
 	<collection name="crossReferences" referenced-type="CrossReference"/>
@@ -322,8 +354,8 @@
 	<collection name="constructs" referenced-type="Construct" reverse-reference="contains"/>
 </class>
 <class name="GeneFlankingRegion" extends="SequenceFeature" is-interface="true">
-	<attribute name="distance" type="java.lang.String"/>
 	<attribute name="includeGene" type="java.lang.Boolean"/>
+	<attribute name="distance" type="java.lang.String"/>
 	<attribute name="direction" type="java.lang.String"/>
 	<reference name="gene" referenced-type="Gene" reverse-reference="flankingRegions"/>
 </class>
@@ -334,44 +366,16 @@
 	<collection name="targets" referenced-type="Gene" reverse-reference="morpholinos"/>
 </class>
 <class name="Organism" is-interface="true">
-	<attribute name="shortName" type="java.lang.String"/>
 	<attribute name="taxonId" type="java.lang.Integer"/>
+	<attribute name="shortName" type="java.lang.String"/>
 	<attribute name="genus" type="java.lang.String"/>
-	<attribute name="commonName" type="java.lang.String"/>
 	<attribute name="species" type="java.lang.String"/>
+	<attribute name="commonName" type="java.lang.String"/>
 	<attribute name="name" type="java.lang.String"/>
 </class>
 <class name="DNAClone" extends="Clone" is-interface="true"></class>
 <class name="PseudogenicTranscript" extends="PseudogenicRegion" is-interface="true">
 	<reference name="pseudogene" referenced-type="Pseudogene" reverse-reference="pseudogenicTranscripts"/>
-</class>
-<class name="Gene" extends="SequenceFeature" is-interface="true">
-	<attribute name="type" type="java.lang.String"/>
-	<attribute name="briefDescription" type="java.lang.String"/>
-	<attribute name="description" type="java.lang.String"/>
-	<reference name="downstreamIntergenicRegion" referenced-type="IntergenicRegion"/>
-	<reference name="upstreamIntergenicRegion" referenced-type="IntergenicRegion"/>
-	<collection name="cloneArtifacts" referenced-type="Clone" reverse-reference="artifacts"/>
-	<collection name="goAnnotation" referenced-type="GOAnnotation"/>
-	<collection name="transcripts" referenced-type="Transcript" reverse-reference="gene"/>
-	<collection name="CDSs" referenced-type="CDS" reverse-reference="gene"/>
-	<collection name="pathways" referenced-type="Pathway" reverse-reference="genes"/>
-	<collection name="codingSequenceOf" referenced-type="Construct" reverse-reference="codingSequences"/>
-	<collection name="encodes" referenced-type="Clone" reverse-reference="genes"/>
-	<collection name="promotes" referenced-type="Construct" reverse-reference="promoters"/>
-	<collection name="flankingRegions" referenced-type="GeneFlankingRegion" reverse-reference="gene"/>
-	<collection name="antibodies" referenced-type="Antibody" reverse-reference="genes"/>
-	<collection name="morpholinos" referenced-type="MorpholinoOligo" reverse-reference="targets"/>
-	<collection name="features" referenced-type="SequenceAlteration" reverse-reference="genes"/>
-	<collection name="expressions" referenced-type="ExpressionResult" reverse-reference="gene"/>
-	<collection name="proteins" referenced-type="Protein" reverse-reference="genes"/>
-	<collection name="UTRs" referenced-type="UTR" reverse-reference="gene"/>
-	<collection name="homologues" referenced-type="Homologue" reverse-reference="gene"/>
-	<collection name="exons" referenced-type="Exon" reverse-reference="gene"/>
-	<collection name="introns" referenced-type="Intron" reverse-reference="genes"/>
-	<collection name="stss" referenced-type="STS" reverse-reference="genes"/>
-	<collection name="genotypes" referenced-type="Genotype" reverse-reference="genes"/>
-	<collection name="snps" referenced-type="SNP" reverse-reference="gene"/>
 </class>
 <class name="STS" extends="Tag" is-interface="true">
 	<attribute name="type" type="java.lang.String"/>
@@ -399,8 +403,8 @@
 	<attribute name="year" type="java.lang.Integer"/>
 	<attribute name="type" type="java.lang.String"/>
 	<attribute name="pubMedId" type="java.lang.String"/>
-	<attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="pubAbstract" type="java.lang.String"/>
+	<attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="authorNames" type="java.lang.String"/>
 	<attribute name="journal" type="java.lang.String"/>
 	<reference name="journal" referenced-type="Journal" reverse-reference="publications"/>
@@ -469,8 +473,8 @@
 	<attribute name="type" type="java.lang.String"/>
 	<attribute name="comments" type="java.lang.String"/>
 	<attribute name="typeStatusDefinition" type="java.lang.String"/>
-	<attribute name="typeDefinition" type="java.lang.String"/>
 	<attribute name="VegaId" type="java.lang.String"/>
+	<attribute name="typeDefinition" type="java.lang.String"/>
 	<reference name="protein" referenced-type="Protein" reverse-reference="transcripts"/>
 	<reference name="pseudogene" referenced-type="Pseudogene"/>
 	<reference name="gene" referenced-type="Gene" reverse-reference="transcripts"/>
@@ -509,7 +513,6 @@
 <class name="SequenceCollection" extends="BioEntity" is-interface="true">
 	<reference name="sequenceOntologyTerm" referenced-type="SOTerm"/>
 </class>
-<class name="Chromosome" extends="SequenceFeature" is-interface="true"></class>
 <class name="Location" is-interface="true">
 	<attribute name="start" type="java.lang.Integer"/>
 	<attribute name="end" type="java.lang.Integer"/>
@@ -531,8 +534,8 @@
 <class name="Marker" is-interface="true">
 	<attribute name="symbol" type="java.lang.String"/>
 	<attribute name="type" type="java.lang.String"/>
-	<attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="comments" type="java.lang.String"/>
+	<attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="name" type="java.lang.String"/>
 	<reference name="organism" referenced-type="Organism"/>
 	<collection name="publications" referenced-type="Publication"/>
@@ -556,25 +559,25 @@
 	<reference name="probe" referenced-type="RNAClone" reverse-reference="expressions"/>
 	<reference name="startStage" referenced-type="ZFATerm"/>
 	<reference name="gene" referenced-type="Gene" reverse-reference="expressions"/>
-	<reference name="anatomy" referenced-type="ZFATerm"/>
 	<reference name="endStage" referenced-type="ZFATerm"/>
+	<reference name="anatomy" referenced-type="ZFATerm"/>
 	<collection name="figures" referenced-type="Figure" reverse-reference="expressionResults"/>
 	<collection name="crossReferences" referenced-type="CrossReference"/>
 </class>
 <class name="Author" is-interface="true">
 	<attribute name="name" type="java.lang.String"/>
-	<attribute name="initials" type="java.lang.String"/>
 	<attribute name="lastName" type="java.lang.String"/>
+	<attribute name="initials" type="java.lang.String"/>
 	<attribute name="firstName" type="java.lang.String"/>
 	<collection name="publications" referenced-type="Publication" reverse-reference="authors"/>
 </class>
 <class name="Clone" extends="Reagent" is-interface="true">
 	<attribute name="insertSize" type="java.lang.String"/>
 	<attribute name="PCR" type="java.lang.String"/>
-	<attribute name="digest" type="java.lang.String"/>
 	<attribute name="ThisseCloneRating" type="java.lang.String"/>
-	<attribute name="polymerase" type="java.lang.String"/>
+	<attribute name="digest" type="java.lang.String"/>
 	<attribute name="cloneSite" type="java.lang.String"/>
+	<attribute name="polymerase" type="java.lang.String"/>
 	<attribute name="type" type="java.lang.String"/>
 	<attribute name="comments" type="java.lang.String"/>
 	<attribute name="sequenceType" type="java.lang.String"/>

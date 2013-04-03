@@ -21,12 +21,12 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
     public java.lang.String getTag() { return tag; }
     public void setTag(final java.lang.String tag) { this.tag = tag; }
 
-    // Ref: org.intermine.model.bio.Phenotype.startStage
-    protected org.intermine.model.InterMineObject startStage;
-    public org.intermine.model.bio.OntologyTerm getStartStage() { if (startStage instanceof org.intermine.objectstore.proxy.ProxyReference) { return ((org.intermine.model.bio.OntologyTerm) ((org.intermine.objectstore.proxy.ProxyReference) startStage).getObject()); }; return (org.intermine.model.bio.OntologyTerm) startStage; }
-    public void setStartStage(final org.intermine.model.bio.OntologyTerm startStage) { this.startStage = startStage; }
-    public void proxyStartStage(final org.intermine.objectstore.proxy.ProxyReference startStage) { this.startStage = startStage; }
-    public org.intermine.model.InterMineObject proxGetStartStage() { return startStage; }
+    // Ref: org.intermine.model.bio.Phenotype.relatedSubTerm
+    protected org.intermine.model.InterMineObject relatedSubTerm;
+    public org.intermine.model.bio.OntologyTerm getRelatedSubTerm() { if (relatedSubTerm instanceof org.intermine.objectstore.proxy.ProxyReference) { return ((org.intermine.model.bio.OntologyTerm) ((org.intermine.objectstore.proxy.ProxyReference) relatedSubTerm).getObject()); }; return (org.intermine.model.bio.OntologyTerm) relatedSubTerm; }
+    public void setRelatedSubTerm(final org.intermine.model.bio.OntologyTerm relatedSubTerm) { this.relatedSubTerm = relatedSubTerm; }
+    public void proxyRelatedSubTerm(final org.intermine.objectstore.proxy.ProxyReference relatedSubTerm) { this.relatedSubTerm = relatedSubTerm; }
+    public org.intermine.model.InterMineObject proxGetRelatedSubTerm() { return relatedSubTerm; }
 
     // Ref: org.intermine.model.bio.Phenotype.superTerm
     protected org.intermine.model.InterMineObject superTerm;
@@ -35,12 +35,12 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
     public void proxySuperTerm(final org.intermine.objectstore.proxy.ProxyReference superTerm) { this.superTerm = superTerm; }
     public org.intermine.model.InterMineObject proxGetSuperTerm() { return superTerm; }
 
-    // Ref: org.intermine.model.bio.Phenotype.relatedSubTerm
-    protected org.intermine.model.InterMineObject relatedSubTerm;
-    public org.intermine.model.bio.OntologyTerm getRelatedSubTerm() { if (relatedSubTerm instanceof org.intermine.objectstore.proxy.ProxyReference) { return ((org.intermine.model.bio.OntologyTerm) ((org.intermine.objectstore.proxy.ProxyReference) relatedSubTerm).getObject()); }; return (org.intermine.model.bio.OntologyTerm) relatedSubTerm; }
-    public void setRelatedSubTerm(final org.intermine.model.bio.OntologyTerm relatedSubTerm) { this.relatedSubTerm = relatedSubTerm; }
-    public void proxyRelatedSubTerm(final org.intermine.objectstore.proxy.ProxyReference relatedSubTerm) { this.relatedSubTerm = relatedSubTerm; }
-    public org.intermine.model.InterMineObject proxGetRelatedSubTerm() { return relatedSubTerm; }
+    // Ref: org.intermine.model.bio.Phenotype.startStage
+    protected org.intermine.model.InterMineObject startStage;
+    public org.intermine.model.bio.OntologyTerm getStartStage() { if (startStage instanceof org.intermine.objectstore.proxy.ProxyReference) { return ((org.intermine.model.bio.OntologyTerm) ((org.intermine.objectstore.proxy.ProxyReference) startStage).getObject()); }; return (org.intermine.model.bio.OntologyTerm) startStage; }
+    public void setStartStage(final org.intermine.model.bio.OntologyTerm startStage) { this.startStage = startStage; }
+    public void proxyStartStage(final org.intermine.objectstore.proxy.ProxyReference startStage) { this.startStage = startStage; }
+    public org.intermine.model.InterMineObject proxGetStartStage() { return startStage; }
 
     // Ref: org.intermine.model.bio.Phenotype.relatedSuperTerm
     protected org.intermine.model.InterMineObject relatedSuperTerm;
@@ -84,19 +84,19 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
     public void proxySubTerm2(final org.intermine.objectstore.proxy.ProxyReference subTerm2) { this.subTerm2 = subTerm2; }
     public org.intermine.model.InterMineObject proxGetSubTerm2() { return subTerm2; }
 
-    // Ref: org.intermine.model.bio.Phenotype.endStage
-    protected org.intermine.model.InterMineObject endStage;
-    public org.intermine.model.bio.OntologyTerm getEndStage() { if (endStage instanceof org.intermine.objectstore.proxy.ProxyReference) { return ((org.intermine.model.bio.OntologyTerm) ((org.intermine.objectstore.proxy.ProxyReference) endStage).getObject()); }; return (org.intermine.model.bio.OntologyTerm) endStage; }
-    public void setEndStage(final org.intermine.model.bio.OntologyTerm endStage) { this.endStage = endStage; }
-    public void proxyEndStage(final org.intermine.objectstore.proxy.ProxyReference endStage) { this.endStage = endStage; }
-    public org.intermine.model.InterMineObject proxGetEndStage() { return endStage; }
-
     // Ref: org.intermine.model.bio.Phenotype.superTerm2
     protected org.intermine.model.InterMineObject superTerm2;
     public org.intermine.model.bio.OntologyTerm getSuperTerm2() { if (superTerm2 instanceof org.intermine.objectstore.proxy.ProxyReference) { return ((org.intermine.model.bio.OntologyTerm) ((org.intermine.objectstore.proxy.ProxyReference) superTerm2).getObject()); }; return (org.intermine.model.bio.OntologyTerm) superTerm2; }
     public void setSuperTerm2(final org.intermine.model.bio.OntologyTerm superTerm2) { this.superTerm2 = superTerm2; }
     public void proxySuperTerm2(final org.intermine.objectstore.proxy.ProxyReference superTerm2) { this.superTerm2 = superTerm2; }
     public org.intermine.model.InterMineObject proxGetSuperTerm2() { return superTerm2; }
+
+    // Ref: org.intermine.model.bio.Phenotype.endStage
+    protected org.intermine.model.InterMineObject endStage;
+    public org.intermine.model.bio.OntologyTerm getEndStage() { if (endStage instanceof org.intermine.objectstore.proxy.ProxyReference) { return ((org.intermine.model.bio.OntologyTerm) ((org.intermine.objectstore.proxy.ProxyReference) endStage).getObject()); }; return (org.intermine.model.bio.OntologyTerm) endStage; }
+    public void setEndStage(final org.intermine.model.bio.OntologyTerm endStage) { this.endStage = endStage; }
+    public void proxyEndStage(final org.intermine.objectstore.proxy.ProxyReference endStage) { this.endStage = endStage; }
+    public org.intermine.model.InterMineObject proxGetEndStage() { return endStage; }
 
     // Attr: org.intermine.model.InterMineObject.id
     protected java.lang.Integer id;
@@ -113,11 +113,11 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
         if ("tag".equals(fieldName)) {
             return tag;
         }
-        if ("startStage".equals(fieldName)) {
-            if (startStage instanceof ProxyReference) {
-                return ((ProxyReference) startStage).getObject();
+        if ("relatedSubTerm".equals(fieldName)) {
+            if (relatedSubTerm instanceof ProxyReference) {
+                return ((ProxyReference) relatedSubTerm).getObject();
             } else {
-                return startStage;
+                return relatedSubTerm;
             }
         }
         if ("superTerm".equals(fieldName)) {
@@ -127,11 +127,11 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
                 return superTerm;
             }
         }
-        if ("relatedSubTerm".equals(fieldName)) {
-            if (relatedSubTerm instanceof ProxyReference) {
-                return ((ProxyReference) relatedSubTerm).getObject();
+        if ("startStage".equals(fieldName)) {
+            if (startStage instanceof ProxyReference) {
+                return ((ProxyReference) startStage).getObject();
             } else {
-                return relatedSubTerm;
+                return startStage;
             }
         }
         if ("relatedSuperTerm".equals(fieldName)) {
@@ -176,18 +176,18 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
                 return subTerm2;
             }
         }
-        if ("endStage".equals(fieldName)) {
-            if (endStage instanceof ProxyReference) {
-                return ((ProxyReference) endStage).getObject();
-            } else {
-                return endStage;
-            }
-        }
         if ("superTerm2".equals(fieldName)) {
             if (superTerm2 instanceof ProxyReference) {
                 return ((ProxyReference) superTerm2).getObject();
             } else {
                 return superTerm2;
+            }
+        }
+        if ("endStage".equals(fieldName)) {
+            if (endStage instanceof ProxyReference) {
+                return ((ProxyReference) endStage).getObject();
+            } else {
+                return endStage;
             }
         }
         if ("id".equals(fieldName)) {
@@ -205,14 +205,14 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
         if ("tag".equals(fieldName)) {
             return tag;
         }
-        if ("startStage".equals(fieldName)) {
-            return startStage;
+        if ("relatedSubTerm".equals(fieldName)) {
+            return relatedSubTerm;
         }
         if ("superTerm".equals(fieldName)) {
             return superTerm;
         }
-        if ("relatedSubTerm".equals(fieldName)) {
-            return relatedSubTerm;
+        if ("startStage".equals(fieldName)) {
+            return startStage;
         }
         if ("relatedSuperTerm".equals(fieldName)) {
             return relatedSuperTerm;
@@ -232,11 +232,11 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
         if ("subTerm2".equals(fieldName)) {
             return subTerm2;
         }
-        if ("endStage".equals(fieldName)) {
-            return endStage;
-        }
         if ("superTerm2".equals(fieldName)) {
             return superTerm2;
+        }
+        if ("endStage".equals(fieldName)) {
+            return endStage;
         }
         if ("id".equals(fieldName)) {
             return id;
@@ -251,12 +251,12 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
             primaryIdentifier = (java.lang.String) value;
         } else if ("tag".equals(fieldName)) {
             tag = (java.lang.String) value;
-        } else if ("startStage".equals(fieldName)) {
-            startStage = (org.intermine.model.InterMineObject) value;
-        } else if ("superTerm".equals(fieldName)) {
-            superTerm = (org.intermine.model.InterMineObject) value;
         } else if ("relatedSubTerm".equals(fieldName)) {
             relatedSubTerm = (org.intermine.model.InterMineObject) value;
+        } else if ("superTerm".equals(fieldName)) {
+            superTerm = (org.intermine.model.InterMineObject) value;
+        } else if ("startStage".equals(fieldName)) {
+            startStage = (org.intermine.model.InterMineObject) value;
         } else if ("relatedSuperTerm".equals(fieldName)) {
             relatedSuperTerm = (org.intermine.model.InterMineObject) value;
         } else if ("phenotypeTerm".equals(fieldName)) {
@@ -269,10 +269,10 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
             figure = (org.intermine.model.InterMineObject) value;
         } else if ("subTerm2".equals(fieldName)) {
             subTerm2 = (org.intermine.model.InterMineObject) value;
-        } else if ("endStage".equals(fieldName)) {
-            endStage = (org.intermine.model.InterMineObject) value;
         } else if ("superTerm2".equals(fieldName)) {
             superTerm2 = (org.intermine.model.InterMineObject) value;
+        } else if ("endStage".equals(fieldName)) {
+            endStage = (org.intermine.model.InterMineObject) value;
         } else if ("id".equals(fieldName)) {
             id = (java.lang.Integer) value;
         } else {
@@ -290,13 +290,13 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
         if ("tag".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("startStage".equals(fieldName)) {
+        if ("relatedSubTerm".equals(fieldName)) {
             return org.intermine.model.bio.OntologyTerm.class;
         }
         if ("superTerm".equals(fieldName)) {
             return org.intermine.model.bio.OntologyTerm.class;
         }
-        if ("relatedSubTerm".equals(fieldName)) {
+        if ("startStage".equals(fieldName)) {
             return org.intermine.model.bio.OntologyTerm.class;
         }
         if ("relatedSuperTerm".equals(fieldName)) {
@@ -317,10 +317,10 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
         if ("subTerm2".equals(fieldName)) {
             return org.intermine.model.bio.OntologyTerm.class;
         }
-        if ("endStage".equals(fieldName)) {
+        if ("superTerm2".equals(fieldName)) {
             return org.intermine.model.bio.OntologyTerm.class;
         }
-        if ("superTerm2".equals(fieldName)) {
+        if ("endStage".equals(fieldName)) {
             return org.intermine.model.bio.OntologyTerm.class;
         }
         if ("id".equals(fieldName)) {
@@ -367,14 +367,14 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
                 }
             }
         }
-        if (startStage != null) {
-            sb.append("$_^rstartStage$_^").append(startStage.getId());
+        if (relatedSubTerm != null) {
+            sb.append("$_^rrelatedSubTerm$_^").append(relatedSubTerm.getId());
         }
         if (superTerm != null) {
             sb.append("$_^rsuperTerm$_^").append(superTerm.getId());
         }
-        if (relatedSubTerm != null) {
-            sb.append("$_^rrelatedSubTerm$_^").append(relatedSubTerm.getId());
+        if (startStage != null) {
+            sb.append("$_^rstartStage$_^").append(startStage.getId());
         }
         if (relatedSuperTerm != null) {
             sb.append("$_^rrelatedSuperTerm$_^").append(relatedSuperTerm.getId());
@@ -394,11 +394,11 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
         if (subTerm2 != null) {
             sb.append("$_^rsubTerm2$_^").append(subTerm2.getId());
         }
-        if (endStage != null) {
-            sb.append("$_^rendStage$_^").append(endStage.getId());
-        }
         if (superTerm2 != null) {
             sb.append("$_^rsuperTerm2$_^").append(superTerm2.getId());
+        }
+        if (endStage != null) {
+            sb.append("$_^rendStage$_^").append(endStage.getId());
         }
         if (id != null) {
             sb.append("$_^aid$_^").append(id);
@@ -436,9 +436,9 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
                 tag = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) &&"rstartStage".equals(notXml[i])) {
+            if ((i < notXml.length) &&"rrelatedSubTerm".equals(notXml[i])) {
                 i++;
-                startStage = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.OntologyTerm.class);
+                relatedSubTerm = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.OntologyTerm.class);
                 i++;
             };
             if ((i < notXml.length) &&"rsuperTerm".equals(notXml[i])) {
@@ -446,9 +446,9 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
                 superTerm = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.OntologyTerm.class);
                 i++;
             };
-            if ((i < notXml.length) &&"rrelatedSubTerm".equals(notXml[i])) {
+            if ((i < notXml.length) &&"rstartStage".equals(notXml[i])) {
                 i++;
-                relatedSubTerm = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.OntologyTerm.class);
+                startStage = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.OntologyTerm.class);
                 i++;
             };
             if ((i < notXml.length) &&"rrelatedSuperTerm".equals(notXml[i])) {
@@ -481,14 +481,14 @@ public class PhenotypeShadow implements Phenotype, ShadowClass
                 subTerm2 = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.OntologyTerm.class);
                 i++;
             };
-            if ((i < notXml.length) &&"rendStage".equals(notXml[i])) {
-                i++;
-                endStage = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.OntologyTerm.class);
-                i++;
-            };
             if ((i < notXml.length) &&"rsuperTerm2".equals(notXml[i])) {
                 i++;
                 superTerm2 = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.OntologyTerm.class);
+                i++;
+            };
+            if ((i < notXml.length) &&"rendStage".equals(notXml[i])) {
+                i++;
+                endStage = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.OntologyTerm.class);
                 i++;
             };
             if ((i < notXml.length) && "aid".equals(notXml[i])) {
