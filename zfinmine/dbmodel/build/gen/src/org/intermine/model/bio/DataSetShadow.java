@@ -22,15 +22,15 @@ public class DataSetShadow implements DataSet, ShadowClass
     public java.lang.String getVersion() { return version; }
     public void setVersion(final java.lang.String version) { this.version = version; }
 
-    // Attr: org.intermine.model.bio.DataSet.description
-    protected java.lang.String description;
-    public java.lang.String getDescription() { return description; }
-    public void setDescription(final java.lang.String description) { this.description = description; }
-
     // Attr: org.intermine.model.bio.DataSet.url
     protected java.lang.String url;
     public java.lang.String getUrl() { return url; }
     public void setUrl(final java.lang.String url) { this.url = url; }
+
+    // Attr: org.intermine.model.bio.DataSet.description
+    protected java.lang.String description;
+    public java.lang.String getDescription() { return description; }
+    public void setDescription(final java.lang.String description) { this.description = description; }
 
     // Ref: org.intermine.model.bio.DataSet.dataSource
     protected org.intermine.model.InterMineObject dataSource;
@@ -60,11 +60,11 @@ public class DataSetShadow implements DataSet, ShadowClass
         if ("version".equals(fieldName)) {
             return version;
         }
-        if ("description".equals(fieldName)) {
-            return description;
-        }
         if ("url".equals(fieldName)) {
             return url;
+        }
+        if ("description".equals(fieldName)) {
+            return description;
         }
         if ("dataSource".equals(fieldName)) {
             if (dataSource instanceof ProxyReference) {
@@ -91,11 +91,11 @@ public class DataSetShadow implements DataSet, ShadowClass
         if ("version".equals(fieldName)) {
             return version;
         }
-        if ("description".equals(fieldName)) {
-            return description;
-        }
         if ("url".equals(fieldName)) {
             return url;
+        }
+        if ("description".equals(fieldName)) {
+            return description;
         }
         if ("dataSource".equals(fieldName)) {
             return dataSource;
@@ -116,10 +116,10 @@ public class DataSetShadow implements DataSet, ShadowClass
             name = (java.lang.String) value;
         } else if ("version".equals(fieldName)) {
             version = (java.lang.String) value;
-        } else if ("description".equals(fieldName)) {
-            description = (java.lang.String) value;
         } else if ("url".equals(fieldName)) {
             url = (java.lang.String) value;
+        } else if ("description".equals(fieldName)) {
+            description = (java.lang.String) value;
         } else if ("dataSource".equals(fieldName)) {
             dataSource = (org.intermine.model.InterMineObject) value;
         } else if ("bioEntities".equals(fieldName)) {
@@ -141,10 +141,10 @@ public class DataSetShadow implements DataSet, ShadowClass
         if ("version".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("description".equals(fieldName)) {
+        if ("url".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("url".equals(fieldName)) {
+        if ("description".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("dataSource".equals(fieldName)) {
@@ -197,9 +197,9 @@ public class DataSetShadow implements DataSet, ShadowClass
                 }
             }
         }
-        if (description != null) {
-            sb.append("$_^adescription$_^");
-            String string = description;
+        if (url != null) {
+            sb.append("$_^aurl$_^");
+            String string = url;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -212,9 +212,9 @@ public class DataSetShadow implements DataSet, ShadowClass
                 }
             }
         }
-        if (url != null) {
-            sb.append("$_^aurl$_^");
-            String string = url;
+        if (description != null) {
+            sb.append("$_^adescription$_^");
+            String string = description;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -266,17 +266,6 @@ public class DataSetShadow implements DataSet, ShadowClass
                 version = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "adescription".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                description = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "aurl".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -286,6 +275,17 @@ public class DataSetShadow implements DataSet, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 url = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "adescription".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                description = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) &&"rdataSource".equals(notXml[i])) {
