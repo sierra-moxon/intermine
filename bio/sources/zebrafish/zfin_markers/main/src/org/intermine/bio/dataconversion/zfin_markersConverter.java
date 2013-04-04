@@ -14,8 +14,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -78,6 +80,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
     private Map<String, Item> ncrnaTscripts= new HashMap();
     private Map<String, Item> polyTscripts = new HashMap();
 
+    private Set<String> synonyms = new HashSet();
     /**
      * Constructor
      *
@@ -736,7 +739,23 @@ public class zfin_markersConverter extends BioDirectoryConverter {
 
     private void addSynonym(Item item, String type, String value)
             throws SAXException {
-        //setSynonym(item.getIdentifier(), type, value);
+        setSynonym(item.getIdentifier(), type, value);
+    }
+
+    private void setSynonym(String subjectRefId, String type, String value)
+        throws SAXException {
+        String key = subjectRefId + type + value;
+        if (!synonyms.contains(key)) {
+            Item synonym = createItem("Synonym");
+            synonym.setAttribute("value", value);
+            synonym.setReference("subject", subjectRefId);
+            synonyms.add(key);
+            try {
+                store(synonym);
+            } catch (ObjectStoreException e) {
+                throw new SAXException(e);
+            }
+        }
     }
 
     private void addProperties(Item item, String primaryIdentifier, String name, String type, String abbrev)

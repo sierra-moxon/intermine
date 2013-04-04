@@ -8,17 +8,17 @@ public interface Clone extends org.intermine.model.bio.Reagent
     public java.lang.String getpCR();
     public void setpCR(final java.lang.String PCR);
 
-    public java.lang.String getthisseCloneRating();
-    public void setthisseCloneRating(final java.lang.String ThisseCloneRating);
-
     public java.lang.String getDigest();
     public void setDigest(final java.lang.String digest);
 
-    public java.lang.String getCloneSite();
-    public void setCloneSite(final java.lang.String cloneSite);
+    public java.lang.String getthisseCloneRating();
+    public void setthisseCloneRating(final java.lang.String ThisseCloneRating);
 
     public java.lang.String getPolymerase();
     public void setPolymerase(final java.lang.String polymerase);
+
+    public java.lang.String getCloneSite();
+    public void setCloneSite(final java.lang.String cloneSite);
 
     public java.lang.String getType();
     public void setType(final java.lang.String type);
