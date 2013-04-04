@@ -11,19 +11,27 @@ package org.intermine.bio.dataconversion;
  */
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.Reader;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import java.util.Set;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.apache.log4j.Logger;
+import org.apache.commons.lang.StringUtils;
 import org.intermine.dataconversion.ItemWriter;
 import org.intermine.metadata.Model;
 import org.intermine.objectstore.ObjectStoreException;
 import org.intermine.util.FormattedTextParser;
 import org.intermine.xml.full.Item;
 import org.xml.sax.SAXException;
+
 
 /**
  * DataConverter to load ZFIN feature identifiers from text files
@@ -34,6 +42,7 @@ public class ZfinFeaturesConverter extends BioFileConverter {
     protected String organismRefId;
     private Map<String, Item> features = new HashMap();
     private Map<String, Item> terms = new HashMap();
+    private Set<String> synonyms = new HashSet();
 
 
     /**
@@ -51,21 +60,29 @@ public class ZfinFeaturesConverter extends BioFileConverter {
 
     public void process(Reader reader) throws Exception {
 
-        File currentFile = getCurrentFile();
+	processFeatures(reader);
 
-        if (currentFile.getName().equals("2features.txt")) {
-            processFeatures(reader);
-        } else {
-            throw new IllegalArgumentException("Unexpected file: " + currentFile.getName());
-        }
+	    try {
+		for (Item feature : features.values()){
+		    
+		    store(feature);
+		}
+	    }
 
+	    catch (ObjectStoreException e) {
+		StringWriter sw = new StringWriter();
+		PrintWriter pw = new PrintWriter(sw);
+		while (e != null) {
+		    e.printStackTrace(pw);
+		}
+		pw.flush();
+		throw new Exception(sw.toString());
+	    }
+
+	
     }
+    
 
-
-    /**
-     * <p/>
-     * {@inheritDoc}
-     */
     public void processFeatures(Reader reader) throws Exception {
 
         Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
@@ -96,18 +113,14 @@ public class ZfinFeaturesConverter extends BioFileConverter {
                     feature.setAttribute("featureId", primaryIdentifier);
                 }
 
-                try {
-                    store(feature);
-                } catch (ObjectStoreException e) {
-                    throw new SAXException(e);
-                }
+		//                try {
+		//  store(feature);
+		// } catch (ObjectStoreException e) {
+		//   throw new SAXException(e);
+                //}
             }
 
         }
-    }
-
-    public void close()
-            throws SAXException {
     }
 
     private Item getTypedItem(String primaryIdentifier, String type) throws SAXException {

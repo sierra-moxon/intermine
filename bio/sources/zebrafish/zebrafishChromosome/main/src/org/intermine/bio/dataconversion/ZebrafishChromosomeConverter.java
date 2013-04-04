@@ -101,6 +101,7 @@ public class ZebrafishChromosomeConverter extends BioFileConverter
         Item item = chromos.get(chromoNumber);
         if (item == null) {
             item = createItem("Chromosome");
+	    item.setAttribute("name", chromoNumber);
             item.setReference("organism", getOrganism("7955"));
             chromos.put(chromoNumber, item);
             try {

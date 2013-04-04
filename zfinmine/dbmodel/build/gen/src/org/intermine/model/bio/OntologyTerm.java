@@ -8,11 +8,11 @@ public interface OntologyTerm extends org.intermine.model.InterMineObject
     public java.lang.String getStageStartHour();
     public void setStageStartHour(final java.lang.String stageStartHour);
 
-    public java.lang.String getPrimaryIdentifier();
-    public void setPrimaryIdentifier(final java.lang.String primaryIdentifier);
-
     public java.lang.Boolean getObsolete();
     public void setObsolete(final java.lang.Boolean obsolete);
+
+    public java.lang.String getPrimaryIdentifier();
+    public void setPrimaryIdentifier(final java.lang.String primaryIdentifier);
 
     public java.lang.String getNamespace();
     public void setNamespace(final java.lang.String namespace);
@@ -23,11 +23,11 @@ public interface OntologyTerm extends org.intermine.model.InterMineObject
     public java.lang.String getStageAbbreviation();
     public void setStageAbbreviation(final java.lang.String stageAbbreviation);
 
-    public java.lang.String getStageEndHour();
-    public void setStageEndHour(final java.lang.String stageEndHour);
-
     public java.lang.String getDescription();
     public void setDescription(final java.lang.String description);
+
+    public java.lang.String getStageEndHour();
+    public void setStageEndHour(final java.lang.String stageEndHour);
 
     public org.intermine.model.bio.Ontology getOntology();
     public void setOntology(final org.intermine.model.bio.Ontology ontology);

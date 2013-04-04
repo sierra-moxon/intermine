@@ -32,15 +32,15 @@ public class TranscriptShadow implements Transcript, ShadowClass
     public java.lang.String getTypeStatusDefinition() { return typeStatusDefinition; }
     public void setTypeStatusDefinition(final java.lang.String typeStatusDefinition) { this.typeStatusDefinition = typeStatusDefinition; }
 
-    // Attr: org.intermine.model.bio.Transcript.VegaId
-    protected java.lang.String VegaId;
-    public java.lang.String getvegaId() { return VegaId; }
-    public void setvegaId(final java.lang.String VegaId) { this.VegaId = VegaId; }
-
     // Attr: org.intermine.model.bio.Transcript.typeDefinition
     protected java.lang.String typeDefinition;
     public java.lang.String getTypeDefinition() { return typeDefinition; }
     public void setTypeDefinition(final java.lang.String typeDefinition) { this.typeDefinition = typeDefinition; }
+
+    // Attr: org.intermine.model.bio.Transcript.VegaId
+    protected java.lang.String VegaId;
+    public java.lang.String getvegaId() { return VegaId; }
+    public void setvegaId(final java.lang.String VegaId) { this.VegaId = VegaId; }
 
     // Ref: org.intermine.model.bio.Transcript.protein
     protected org.intermine.model.InterMineObject protein;
@@ -244,11 +244,11 @@ public class TranscriptShadow implements Transcript, ShadowClass
         if ("typeStatusDefinition".equals(fieldName)) {
             return typeStatusDefinition;
         }
-        if ("VegaId".equals(fieldName)) {
-            return VegaId;
-        }
         if ("typeDefinition".equals(fieldName)) {
             return typeDefinition;
+        }
+        if ("VegaId".equals(fieldName)) {
+            return VegaId;
         }
         if ("protein".equals(fieldName)) {
             if (protein instanceof ProxyReference) {
@@ -393,11 +393,11 @@ public class TranscriptShadow implements Transcript, ShadowClass
         if ("typeStatusDefinition".equals(fieldName)) {
             return typeStatusDefinition;
         }
-        if ("VegaId".equals(fieldName)) {
-            return VegaId;
-        }
         if ("typeDefinition".equals(fieldName)) {
             return typeDefinition;
+        }
+        if ("VegaId".equals(fieldName)) {
+            return VegaId;
         }
         if ("protein".equals(fieldName)) {
             return protein;
@@ -506,10 +506,10 @@ public class TranscriptShadow implements Transcript, ShadowClass
             comments = (java.lang.String) value;
         } else if ("typeStatusDefinition".equals(fieldName)) {
             typeStatusDefinition = (java.lang.String) value;
-        } else if ("VegaId".equals(fieldName)) {
-            VegaId = (java.lang.String) value;
         } else if ("typeDefinition".equals(fieldName)) {
             typeDefinition = (java.lang.String) value;
+        } else if ("VegaId".equals(fieldName)) {
+            VegaId = (java.lang.String) value;
         } else if ("protein".equals(fieldName)) {
             protein = (org.intermine.model.InterMineObject) value;
         } else if ("pseudogene".equals(fieldName)) {
@@ -593,10 +593,10 @@ public class TranscriptShadow implements Transcript, ShadowClass
         if ("typeStatusDefinition".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("VegaId".equals(fieldName)) {
+        if ("typeDefinition".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("typeDefinition".equals(fieldName)) {
+        if ("VegaId".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("protein".equals(fieldName)) {
@@ -763,9 +763,9 @@ public class TranscriptShadow implements Transcript, ShadowClass
                 }
             }
         }
-        if (VegaId != null) {
-            sb.append("$_^aVegaId$_^");
-            String string = VegaId;
+        if (typeDefinition != null) {
+            sb.append("$_^atypeDefinition$_^");
+            String string = typeDefinition;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -778,9 +778,9 @@ public class TranscriptShadow implements Transcript, ShadowClass
                 }
             }
         }
-        if (typeDefinition != null) {
-            sb.append("$_^atypeDefinition$_^");
-            String string = typeDefinition;
+        if (VegaId != null) {
+            sb.append("$_^aVegaId$_^");
+            String string = VegaId;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -956,17 +956,6 @@ public class TranscriptShadow implements Transcript, ShadowClass
                 typeStatusDefinition = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "aVegaId".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                VegaId = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "atypeDefinition".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -976,6 +965,17 @@ public class TranscriptShadow implements Transcript, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 typeDefinition = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "aVegaId".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                VegaId = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) &&"rprotein".equals(notXml[i])) {
