@@ -11,11 +11,11 @@ public interface ProbeLibrary extends org.intermine.model.InterMineObject
     public java.lang.String getSpecies();
     public void setSpecies(final java.lang.String species);
 
-    public java.lang.String getHost();
-    public void setHost(final java.lang.String host);
-
     public java.lang.String getName();
     public void setName(final java.lang.String name);
+
+    public java.lang.String getHost();
+    public void setHost(final java.lang.String host);
 
     public java.lang.String getStage();
     public void setStage(final java.lang.String stage);

@@ -5,11 +5,11 @@ public interface Author extends org.intermine.model.InterMineObject
     public java.lang.String getName();
     public void setName(final java.lang.String name);
 
-    public java.lang.String getLastName();
-    public void setLastName(final java.lang.String lastName);
-
     public java.lang.String getInitials();
     public void setInitials(final java.lang.String initials);
+
+    public java.lang.String getLastName();
+    public void setLastName(final java.lang.String lastName);
 
     public java.lang.String getFirstName();
     public void setFirstName(final java.lang.String firstName);
