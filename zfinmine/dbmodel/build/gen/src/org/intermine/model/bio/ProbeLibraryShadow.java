@@ -26,15 +26,15 @@ public class ProbeLibraryShadow implements ProbeLibrary, ShadowClass
     public java.lang.String getSpecies() { return species; }
     public void setSpecies(final java.lang.String species) { this.species = species; }
 
-    // Attr: org.intermine.model.bio.ProbeLibrary.name
-    protected java.lang.String name;
-    public java.lang.String getName() { return name; }
-    public void setName(final java.lang.String name) { this.name = name; }
-
     // Attr: org.intermine.model.bio.ProbeLibrary.host
     protected java.lang.String host;
     public java.lang.String getHost() { return host; }
     public void setHost(final java.lang.String host) { this.host = host; }
+
+    // Attr: org.intermine.model.bio.ProbeLibrary.name
+    protected java.lang.String name;
+    public java.lang.String getName() { return name; }
+    public void setName(final java.lang.String name) { this.name = name; }
 
     // Attr: org.intermine.model.bio.ProbeLibrary.stage
     protected java.lang.String stage;
@@ -78,11 +78,11 @@ public class ProbeLibraryShadow implements ProbeLibrary, ShadowClass
         if ("species".equals(fieldName)) {
             return species;
         }
-        if ("name".equals(fieldName)) {
-            return name;
-        }
         if ("host".equals(fieldName)) {
             return host;
+        }
+        if ("name".equals(fieldName)) {
+            return name;
         }
         if ("stage".equals(fieldName)) {
             return stage;
@@ -122,11 +122,11 @@ public class ProbeLibraryShadow implements ProbeLibrary, ShadowClass
         if ("species".equals(fieldName)) {
             return species;
         }
-        if ("name".equals(fieldName)) {
-            return name;
-        }
         if ("host".equals(fieldName)) {
             return host;
+        }
+        if ("name".equals(fieldName)) {
+            return name;
         }
         if ("stage".equals(fieldName)) {
             return stage;
@@ -155,10 +155,10 @@ public class ProbeLibraryShadow implements ProbeLibrary, ShadowClass
             primaryIdentifier = (java.lang.String) value;
         } else if ("species".equals(fieldName)) {
             species = (java.lang.String) value;
-        } else if ("name".equals(fieldName)) {
-            name = (java.lang.String) value;
         } else if ("host".equals(fieldName)) {
             host = (java.lang.String) value;
+        } else if ("name".equals(fieldName)) {
+            name = (java.lang.String) value;
         } else if ("stage".equals(fieldName)) {
             stage = (java.lang.String) value;
         } else if ("restrictionSites".equals(fieldName)) {
@@ -187,10 +187,10 @@ public class ProbeLibraryShadow implements ProbeLibrary, ShadowClass
         if ("species".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("name".equals(fieldName)) {
+        if ("host".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("host".equals(fieldName)) {
+        if ("name".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("stage".equals(fieldName)) {
@@ -264,9 +264,9 @@ public class ProbeLibraryShadow implements ProbeLibrary, ShadowClass
                 }
             }
         }
-        if (name != null) {
-            sb.append("$_^aname$_^");
-            String string = name;
+        if (host != null) {
+            sb.append("$_^ahost$_^");
+            String string = host;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -279,9 +279,9 @@ public class ProbeLibraryShadow implements ProbeLibrary, ShadowClass
                 }
             }
         }
-        if (host != null) {
-            sb.append("$_^ahost$_^");
-            String string = host;
+        if (name != null) {
+            sb.append("$_^aname$_^");
+            String string = name;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -377,17 +377,6 @@ public class ProbeLibraryShadow implements ProbeLibrary, ShadowClass
                 species = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "aname".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                name = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "ahost".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -397,6 +386,17 @@ public class ProbeLibraryShadow implements ProbeLibrary, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 host = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "aname".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                name = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "astage".equals(notXml[i])) {

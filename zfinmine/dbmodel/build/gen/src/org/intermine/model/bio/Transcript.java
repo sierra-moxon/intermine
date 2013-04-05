@@ -14,11 +14,11 @@ public interface Transcript extends org.intermine.model.bio.SequenceFeature
     public java.lang.String getTypeStatusDefinition();
     public void setTypeStatusDefinition(final java.lang.String typeStatusDefinition);
 
-    public java.lang.String getTypeDefinition();
-    public void setTypeDefinition(final java.lang.String typeDefinition);
-
     public java.lang.String getvegaId();
     public void setvegaId(final java.lang.String VegaId);
+
+    public java.lang.String getTypeDefinition();
+    public void setTypeDefinition(final java.lang.String typeDefinition);
 
     public org.intermine.model.bio.Protein getProtein();
     public void setProtein(final org.intermine.model.bio.Protein protein);

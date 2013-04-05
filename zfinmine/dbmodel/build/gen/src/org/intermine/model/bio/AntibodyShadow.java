@@ -17,15 +17,15 @@ public class AntibodyShadow implements Antibody, ShadowClass
     public java.lang.String getSymbol() { return symbol; }
     public void setSymbol(final java.lang.String symbol) { this.symbol = symbol; }
 
-    // Attr: org.intermine.model.bio.Antibody.type
-    protected java.lang.String type;
-    public java.lang.String getType() { return type; }
-    public void setType(final java.lang.String type) { this.type = type; }
-
     // Attr: org.intermine.model.bio.Antibody.heavyChainIsotype
     protected java.lang.String heavyChainIsotype;
     public java.lang.String getHeavyChainIsotype() { return heavyChainIsotype; }
     public void setHeavyChainIsotype(final java.lang.String heavyChainIsotype) { this.heavyChainIsotype = heavyChainIsotype; }
+
+    // Attr: org.intermine.model.bio.Antibody.type
+    protected java.lang.String type;
+    public java.lang.String getType() { return type; }
+    public void setType(final java.lang.String type) { this.type = type; }
 
     // Attr: org.intermine.model.bio.Antibody.primaryIdentifier
     protected java.lang.String primaryIdentifier;
@@ -47,15 +47,15 @@ public class AntibodyShadow implements Antibody, ShadowClass
     public java.lang.String getLightChainIsotype() { return lightChainIsotype; }
     public void setLightChainIsotype(final java.lang.String lightChainIsotype) { this.lightChainIsotype = lightChainIsotype; }
 
-    // Attr: org.intermine.model.bio.Antibody.clonalType
-    protected java.lang.String clonalType;
-    public java.lang.String getClonalType() { return clonalType; }
-    public void setClonalType(final java.lang.String clonalType) { this.clonalType = clonalType; }
-
     // Attr: org.intermine.model.bio.Antibody.hostOrganism
     protected java.lang.String hostOrganism;
     public java.lang.String getHostOrganism() { return hostOrganism; }
     public void setHostOrganism(final java.lang.String hostOrganism) { this.hostOrganism = hostOrganism; }
+
+    // Attr: org.intermine.model.bio.Antibody.clonalType
+    protected java.lang.String clonalType;
+    public java.lang.String getClonalType() { return clonalType; }
+    public void setClonalType(final java.lang.String clonalType) { this.clonalType = clonalType; }
 
     // Ref: org.intermine.model.bio.Antibody.organism
     protected org.intermine.model.InterMineObject organism;
@@ -100,11 +100,11 @@ public class AntibodyShadow implements Antibody, ShadowClass
         if ("symbol".equals(fieldName)) {
             return symbol;
         }
-        if ("type".equals(fieldName)) {
-            return type;
-        }
         if ("heavyChainIsotype".equals(fieldName)) {
             return heavyChainIsotype;
+        }
+        if ("type".equals(fieldName)) {
+            return type;
         }
         if ("primaryIdentifier".equals(fieldName)) {
             return primaryIdentifier;
@@ -118,11 +118,11 @@ public class AntibodyShadow implements Antibody, ShadowClass
         if ("lightChainIsotype".equals(fieldName)) {
             return lightChainIsotype;
         }
-        if ("clonalType".equals(fieldName)) {
-            return clonalType;
-        }
         if ("hostOrganism".equals(fieldName)) {
             return hostOrganism;
+        }
+        if ("clonalType".equals(fieldName)) {
+            return clonalType;
         }
         if ("organism".equals(fieldName)) {
             if (organism instanceof ProxyReference) {
@@ -155,11 +155,11 @@ public class AntibodyShadow implements Antibody, ShadowClass
         if ("symbol".equals(fieldName)) {
             return symbol;
         }
-        if ("type".equals(fieldName)) {
-            return type;
-        }
         if ("heavyChainIsotype".equals(fieldName)) {
             return heavyChainIsotype;
+        }
+        if ("type".equals(fieldName)) {
+            return type;
         }
         if ("primaryIdentifier".equals(fieldName)) {
             return primaryIdentifier;
@@ -173,11 +173,11 @@ public class AntibodyShadow implements Antibody, ShadowClass
         if ("lightChainIsotype".equals(fieldName)) {
             return lightChainIsotype;
         }
-        if ("clonalType".equals(fieldName)) {
-            return clonalType;
-        }
         if ("hostOrganism".equals(fieldName)) {
             return hostOrganism;
+        }
+        if ("clonalType".equals(fieldName)) {
+            return clonalType;
         }
         if ("organism".equals(fieldName)) {
             return organism;
@@ -205,10 +205,10 @@ public class AntibodyShadow implements Antibody, ShadowClass
     public void setFieldValue(final String fieldName, final Object value) {
         if ("symbol".equals(fieldName)) {
             symbol = (java.lang.String) value;
-        } else if ("type".equals(fieldName)) {
-            type = (java.lang.String) value;
         } else if ("heavyChainIsotype".equals(fieldName)) {
             heavyChainIsotype = (java.lang.String) value;
+        } else if ("type".equals(fieldName)) {
+            type = (java.lang.String) value;
         } else if ("primaryIdentifier".equals(fieldName)) {
             primaryIdentifier = (java.lang.String) value;
         } else if ("name".equals(fieldName)) {
@@ -217,10 +217,10 @@ public class AntibodyShadow implements Antibody, ShadowClass
             immunogenOrganism = (java.lang.String) value;
         } else if ("lightChainIsotype".equals(fieldName)) {
             lightChainIsotype = (java.lang.String) value;
-        } else if ("clonalType".equals(fieldName)) {
-            clonalType = (java.lang.String) value;
         } else if ("hostOrganism".equals(fieldName)) {
             hostOrganism = (java.lang.String) value;
+        } else if ("clonalType".equals(fieldName)) {
+            clonalType = (java.lang.String) value;
         } else if ("organism".equals(fieldName)) {
             organism = (org.intermine.model.InterMineObject) value;
         } else if ("publications".equals(fieldName)) {
@@ -245,10 +245,10 @@ public class AntibodyShadow implements Antibody, ShadowClass
         if ("symbol".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("type".equals(fieldName)) {
+        if ("heavyChainIsotype".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("heavyChainIsotype".equals(fieldName)) {
+        if ("type".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("primaryIdentifier".equals(fieldName)) {
@@ -263,10 +263,10 @@ public class AntibodyShadow implements Antibody, ShadowClass
         if ("lightChainIsotype".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("clonalType".equals(fieldName)) {
+        if ("hostOrganism".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("hostOrganism".equals(fieldName)) {
+        if ("clonalType".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("organism".equals(fieldName)) {
@@ -313,9 +313,9 @@ public class AntibodyShadow implements Antibody, ShadowClass
                 }
             }
         }
-        if (type != null) {
-            sb.append("$_^atype$_^");
-            String string = type;
+        if (heavyChainIsotype != null) {
+            sb.append("$_^aheavyChainIsotype$_^");
+            String string = heavyChainIsotype;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -328,9 +328,9 @@ public class AntibodyShadow implements Antibody, ShadowClass
                 }
             }
         }
-        if (heavyChainIsotype != null) {
-            sb.append("$_^aheavyChainIsotype$_^");
-            String string = heavyChainIsotype;
+        if (type != null) {
+            sb.append("$_^atype$_^");
+            String string = type;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -403,9 +403,9 @@ public class AntibodyShadow implements Antibody, ShadowClass
                 }
             }
         }
-        if (clonalType != null) {
-            sb.append("$_^aclonalType$_^");
-            String string = clonalType;
+        if (hostOrganism != null) {
+            sb.append("$_^ahostOrganism$_^");
+            String string = hostOrganism;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -418,9 +418,9 @@ public class AntibodyShadow implements Antibody, ShadowClass
                 }
             }
         }
-        if (hostOrganism != null) {
-            sb.append("$_^ahostOrganism$_^");
-            String string = hostOrganism;
+        if (clonalType != null) {
+            sb.append("$_^aclonalType$_^");
+            String string = clonalType;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -461,17 +461,6 @@ public class AntibodyShadow implements Antibody, ShadowClass
                 symbol = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "atype".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                type = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "aheavyChainIsotype".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -481,6 +470,17 @@ public class AntibodyShadow implements Antibody, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 heavyChainIsotype = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "atype".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                type = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "aprimaryIdentifier".equals(notXml[i])) {
@@ -527,17 +527,6 @@ public class AntibodyShadow implements Antibody, ShadowClass
                 lightChainIsotype = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "aclonalType".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                clonalType = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "ahostOrganism".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -547,6 +536,17 @@ public class AntibodyShadow implements Antibody, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 hostOrganism = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "aclonalType".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                clonalType = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) &&"rorganism".equals(notXml[i])) {
