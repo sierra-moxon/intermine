@@ -68,6 +68,10 @@
             <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_fmrels/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
+        <source name="genotypeAliases" type="genotypeAliases">
+          <property name="src.data.dir" location="/home/intermine/zebrafish/genotype_alias"/>
+          <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
 	<source name="zebrafishFeatureAliases" type="zebrafishFeatureAliases">
 	  <property name="src.data.dir" location="/home/intermine/zebrafish/feature_alias"/>
 	  <property name="src.data.dir.includes" value="*.txt"/>

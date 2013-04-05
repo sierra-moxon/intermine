@@ -5,11 +5,11 @@ public interface Antibody extends org.intermine.model.InterMineObject
     public java.lang.String getSymbol();
     public void setSymbol(final java.lang.String symbol);
 
-    public java.lang.String getType();
-    public void setType(final java.lang.String type);
-
     public java.lang.String getHeavyChainIsotype();
     public void setHeavyChainIsotype(final java.lang.String heavyChainIsotype);
+
+    public java.lang.String getType();
+    public void setType(final java.lang.String type);
 
     public java.lang.String getPrimaryIdentifier();
     public void setPrimaryIdentifier(final java.lang.String primaryIdentifier);
@@ -23,11 +23,11 @@ public interface Antibody extends org.intermine.model.InterMineObject
     public java.lang.String getLightChainIsotype();
     public void setLightChainIsotype(final java.lang.String lightChainIsotype);
 
-    public java.lang.String getClonalType();
-    public void setClonalType(final java.lang.String clonalType);
-
     public java.lang.String getHostOrganism();
     public void setHostOrganism(final java.lang.String hostOrganism);
+
+    public java.lang.String getClonalType();
+    public void setClonalType(final java.lang.String clonalType);
 
     public org.intermine.model.bio.Organism getOrganism();
     public void setOrganism(final org.intermine.model.bio.Organism organism);

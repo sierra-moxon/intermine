@@ -1,0 +1,4 @@
+<project name="genotypeAliases-tasks" default="default" basedir=".">
+  <description>build genotypeAliases tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>

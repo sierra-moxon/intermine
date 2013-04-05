@@ -12,15 +12,15 @@ import org.intermine.model.ShadowClass;
 public class GeneFlankingRegionShadow implements GeneFlankingRegion, ShadowClass
 {
     public static final Class<GeneFlankingRegion> shadowOf = GeneFlankingRegion.class;
-    // Attr: org.intermine.model.bio.GeneFlankingRegion.distance
-    protected java.lang.String distance;
-    public java.lang.String getDistance() { return distance; }
-    public void setDistance(final java.lang.String distance) { this.distance = distance; }
-
     // Attr: org.intermine.model.bio.GeneFlankingRegion.includeGene
     protected java.lang.Boolean includeGene;
     public java.lang.Boolean getIncludeGene() { return includeGene; }
     public void setIncludeGene(final java.lang.Boolean includeGene) { this.includeGene = includeGene; }
+
+    // Attr: org.intermine.model.bio.GeneFlankingRegion.distance
+    protected java.lang.String distance;
+    public java.lang.String getDistance() { return distance; }
+    public void setDistance(final java.lang.String distance) { this.distance = distance; }
 
     // Attr: org.intermine.model.bio.GeneFlankingRegion.direction
     protected java.lang.String direction;
@@ -185,11 +185,11 @@ public class GeneFlankingRegionShadow implements GeneFlankingRegion, ShadowClass
     @Override public int hashCode() { return (id != null) ? id.hashCode() : super.hashCode(); }
     @Override public String toString() { return "GeneFlankingRegion [chromosome=" + (chromosome == null ? "null" : (chromosome.getId() == null ? "no id" : chromosome.getId().toString())) + ", chromosomeLocation=" + (chromosomeLocation == null ? "null" : (chromosomeLocation.getId() == null ? "no id" : chromosomeLocation.getId().toString())) + ", direction=\"" + direction + "\", distance=\"" + distance + "\", gene=" + (gene == null ? "null" : (gene.getId() == null ? "no id" : gene.getId().toString())) + ", id=\"" + id + "\", includeGene=\"" + includeGene + "\", length=\"" + length + "\", name=\"" + name + "\", organism=" + (organism == null ? "null" : (organism.getId() == null ? "no id" : organism.getId().toString())) + ", primaryIdentifier=\"" + primaryIdentifier + "\", score=\"" + score + "\", scoreType=\"" + scoreType + "\", secondaryIdentifier=\"" + secondaryIdentifier + "\", sequence=" + (sequence == null ? "null" : (sequence.getId() == null ? "no id" : sequence.getId().toString())) + ", sequenceOntologyTerm=" + (sequenceOntologyTerm == null ? "null" : (sequenceOntologyTerm.getId() == null ? "no id" : sequenceOntologyTerm.getId().toString())) + ", symbol=\"" + symbol + "\"]"; }
     public Object getFieldValue(final String fieldName) throws IllegalAccessException {
-        if ("distance".equals(fieldName)) {
-            return distance;
-        }
         if ("includeGene".equals(fieldName)) {
             return includeGene;
+        }
+        if ("distance".equals(fieldName)) {
+            return distance;
         }
         if ("direction".equals(fieldName)) {
             return direction;
@@ -302,11 +302,11 @@ public class GeneFlankingRegionShadow implements GeneFlankingRegion, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public Object getFieldProxy(final String fieldName) throws IllegalAccessException {
-        if ("distance".equals(fieldName)) {
-            return distance;
-        }
         if ("includeGene".equals(fieldName)) {
             return includeGene;
+        }
+        if ("distance".equals(fieldName)) {
+            return distance;
         }
         if ("direction".equals(fieldName)) {
             return direction;
@@ -395,10 +395,10 @@ public class GeneFlankingRegionShadow implements GeneFlankingRegion, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public void setFieldValue(final String fieldName, final Object value) {
-        if ("distance".equals(fieldName)) {
-            distance = (java.lang.String) value;
-        } else if ("includeGene".equals(fieldName)) {
+        if ("includeGene".equals(fieldName)) {
             includeGene = (java.lang.Boolean) value;
+        } else if ("distance".equals(fieldName)) {
+            distance = (java.lang.String) value;
         } else if ("direction".equals(fieldName)) {
             direction = (java.lang.String) value;
         } else if ("gene".equals(fieldName)) {
@@ -462,11 +462,11 @@ public class GeneFlankingRegionShadow implements GeneFlankingRegion, ShadowClass
         }
     }
     public Class<?> getFieldType(final String fieldName) {
-        if ("distance".equals(fieldName)) {
-            return java.lang.String.class;
-        }
         if ("includeGene".equals(fieldName)) {
             return java.lang.Boolean.class;
+        }
+        if ("distance".equals(fieldName)) {
+            return java.lang.String.class;
         }
         if ("direction".equals(fieldName)) {
             return java.lang.String.class;
@@ -560,6 +560,9 @@ public class GeneFlankingRegionShadow implements GeneFlankingRegion, ShadowClass
         }
         StringConstructor sb = new StringConstructor();
         sb.append("$_^org.intermine.model.bio.GeneFlankingRegion");
+        if (includeGene != null) {
+            sb.append("$_^aincludeGene$_^").append(includeGene);
+        }
         if (distance != null) {
             sb.append("$_^adistance$_^");
             String string = distance;
@@ -574,9 +577,6 @@ public class GeneFlankingRegionShadow implements GeneFlankingRegion, ShadowClass
                     string = string.substring(delimPosition + 3);
                 }
             }
-        }
-        if (includeGene != null) {
-            sb.append("$_^aincludeGene$_^").append(includeGene);
         }
         if (direction != null) {
             sb.append("$_^adirection$_^");
@@ -706,6 +706,11 @@ public class GeneFlankingRegionShadow implements GeneFlankingRegion, ShadowClass
         }
         for (int i = 2; i < notXml.length;) {
             int startI = i;
+            if ((i < notXml.length) && "aincludeGene".equals(notXml[i])) {
+                i++;
+                includeGene = Boolean.valueOf(notXml[i]);
+                i++;
+            }
             if ((i < notXml.length) && "adistance".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -715,11 +720,6 @@ public class GeneFlankingRegionShadow implements GeneFlankingRegion, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 distance = string == null ? notXml[i] : string.toString();
-                i++;
-            }
-            if ((i < notXml.length) && "aincludeGene".equals(notXml[i])) {
-                i++;
-                includeGene = Boolean.valueOf(notXml[i]);
                 i++;
             }
             if ((i < notXml.length) && "adirection".equals(notXml[i])) {
