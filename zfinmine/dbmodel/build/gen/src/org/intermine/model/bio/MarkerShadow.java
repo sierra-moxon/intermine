@@ -22,15 +22,15 @@ public class MarkerShadow implements Marker, ShadowClass
     public java.lang.String getType() { return type; }
     public void setType(final java.lang.String type) { this.type = type; }
 
-    // Attr: org.intermine.model.bio.Marker.primaryIdentifier
-    protected java.lang.String primaryIdentifier;
-    public java.lang.String getPrimaryIdentifier() { return primaryIdentifier; }
-    public void setPrimaryIdentifier(final java.lang.String primaryIdentifier) { this.primaryIdentifier = primaryIdentifier; }
-
     // Attr: org.intermine.model.bio.Marker.comments
     protected java.lang.String comments;
     public java.lang.String getComments() { return comments; }
     public void setComments(final java.lang.String comments) { this.comments = comments; }
+
+    // Attr: org.intermine.model.bio.Marker.primaryIdentifier
+    protected java.lang.String primaryIdentifier;
+    public java.lang.String getPrimaryIdentifier() { return primaryIdentifier; }
+    public void setPrimaryIdentifier(final java.lang.String primaryIdentifier) { this.primaryIdentifier = primaryIdentifier; }
 
     // Attr: org.intermine.model.bio.Marker.name
     protected java.lang.String name;
@@ -83,11 +83,11 @@ public class MarkerShadow implements Marker, ShadowClass
         if ("type".equals(fieldName)) {
             return type;
         }
-        if ("primaryIdentifier".equals(fieldName)) {
-            return primaryIdentifier;
-        }
         if ("comments".equals(fieldName)) {
             return comments;
+        }
+        if ("primaryIdentifier".equals(fieldName)) {
+            return primaryIdentifier;
         }
         if ("name".equals(fieldName)) {
             return name;
@@ -126,11 +126,11 @@ public class MarkerShadow implements Marker, ShadowClass
         if ("type".equals(fieldName)) {
             return type;
         }
-        if ("primaryIdentifier".equals(fieldName)) {
-            return primaryIdentifier;
-        }
         if ("comments".equals(fieldName)) {
             return comments;
+        }
+        if ("primaryIdentifier".equals(fieldName)) {
+            return primaryIdentifier;
         }
         if ("name".equals(fieldName)) {
             return name;
@@ -163,10 +163,10 @@ public class MarkerShadow implements Marker, ShadowClass
             symbol = (java.lang.String) value;
         } else if ("type".equals(fieldName)) {
             type = (java.lang.String) value;
-        } else if ("primaryIdentifier".equals(fieldName)) {
-            primaryIdentifier = (java.lang.String) value;
         } else if ("comments".equals(fieldName)) {
             comments = (java.lang.String) value;
+        } else if ("primaryIdentifier".equals(fieldName)) {
+            primaryIdentifier = (java.lang.String) value;
         } else if ("name".equals(fieldName)) {
             name = (java.lang.String) value;
         } else if ("organism".equals(fieldName)) {
@@ -196,10 +196,10 @@ public class MarkerShadow implements Marker, ShadowClass
         if ("type".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("primaryIdentifier".equals(fieldName)) {
+        if ("comments".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("comments".equals(fieldName)) {
+        if ("primaryIdentifier".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("name".equals(fieldName)) {
@@ -264,9 +264,9 @@ public class MarkerShadow implements Marker, ShadowClass
                 }
             }
         }
-        if (primaryIdentifier != null) {
-            sb.append("$_^aprimaryIdentifier$_^");
-            String string = primaryIdentifier;
+        if (comments != null) {
+            sb.append("$_^acomments$_^");
+            String string = comments;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -279,9 +279,9 @@ public class MarkerShadow implements Marker, ShadowClass
                 }
             }
         }
-        if (comments != null) {
-            sb.append("$_^acomments$_^");
-            String string = comments;
+        if (primaryIdentifier != null) {
+            sb.append("$_^aprimaryIdentifier$_^");
+            String string = primaryIdentifier;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -348,17 +348,6 @@ public class MarkerShadow implements Marker, ShadowClass
                 type = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "aprimaryIdentifier".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                primaryIdentifier = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "acomments".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -368,6 +357,17 @@ public class MarkerShadow implements Marker, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 comments = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "aprimaryIdentifier".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                primaryIdentifier = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "aname".equals(notXml[i])) {

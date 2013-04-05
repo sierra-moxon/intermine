@@ -8,11 +8,11 @@ public interface Region extends org.intermine.model.InterMineObject
     public java.lang.String getType();
     public void setType(final java.lang.String type);
 
-    public java.lang.String getPrimaryIdentifier();
-    public void setPrimaryIdentifier(final java.lang.String primaryIdentifier);
-
     public java.lang.String getComments();
     public void setComments(final java.lang.String comments);
+
+    public java.lang.String getPrimaryIdentifier();
+    public void setPrimaryIdentifier(final java.lang.String primaryIdentifier);
 
     public java.lang.String getName();
     public void setName(final java.lang.String name);
