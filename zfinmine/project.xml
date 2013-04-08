@@ -76,6 +76,10 @@
 	  <property name="src.data.dir" location="/home/intermine/zebrafish/feature_alias"/>
 	  <property name="src.data.dir.includes" value="*.txt"/>
 	</source>
+        <source name="featurePubs" type="featurePubs">
+          <property name="src.data.dir" location="/home/intermine/zebrafish/mutantAttributions"/>
+          <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
 	<source name="flybase-identifiers" type="flybase-identifiers">
 	  <property name="src.data.dir" location="/home/intermine/zebrafish/flybase-identifiers"/>
 	</source>
