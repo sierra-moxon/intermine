@@ -432,6 +432,8 @@
         <collection name="expressions" referenced-type="ExpressionResult"/>
         <collection name="figures" referenced-type="Figure" reverse-reference="publication"/>
         <collection name="environments" referenced-type="Environment" reverse-reference="publication"/>
+	<collection name="bioEntities" referenced-type="BioEntity" reverse-reference="publications" />
+	<collection name="meshTerms" referenced-type="MeshTerm" reverse-reference="publications" />
     </class>
     <class name="Journal" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
