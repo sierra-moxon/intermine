@@ -12,15 +12,15 @@ import org.intermine.model.ShadowClass;
 public class GeneShadow implements Gene, ShadowClass
 {
     public static final Class<Gene> shadowOf = Gene.class;
-    // Attr: org.intermine.model.bio.Gene.briefDescription
-    protected java.lang.String briefDescription;
-    public java.lang.String getBriefDescription() { return briefDescription; }
-    public void setBriefDescription(final java.lang.String briefDescription) { this.briefDescription = briefDescription; }
-
     // Attr: org.intermine.model.bio.Gene.type
     protected java.lang.String type;
     public java.lang.String getType() { return type; }
     public void setType(final java.lang.String type) { this.type = type; }
+
+    // Attr: org.intermine.model.bio.Gene.briefDescription
+    protected java.lang.String briefDescription;
+    public java.lang.String getBriefDescription() { return briefDescription; }
+    public void setBriefDescription(final java.lang.String briefDescription) { this.briefDescription = briefDescription; }
 
     // Attr: org.intermine.model.bio.Gene.description
     protected java.lang.String description;
@@ -324,11 +324,11 @@ public class GeneShadow implements Gene, ShadowClass
     @Override public int hashCode() { return (id != null) ? id.hashCode() : super.hashCode(); }
     @Override public String toString() { return "Gene [briefDescription=\"" + briefDescription + "\", chromosome=" + (chromosome == null ? "null" : (chromosome.getId() == null ? "no id" : chromosome.getId().toString())) + ", chromosomeLocation=" + (chromosomeLocation == null ? "null" : (chromosomeLocation.getId() == null ? "no id" : chromosomeLocation.getId().toString())) + ", description=\"" + description + "\", downstreamIntergenicRegion=" + (downstreamIntergenicRegion == null ? "null" : (downstreamIntergenicRegion.getId() == null ? "no id" : downstreamIntergenicRegion.getId().toString())) + ", id=\"" + id + "\", length=\"" + length + "\", name=\"" + name + "\", organism=" + (organism == null ? "null" : (organism.getId() == null ? "no id" : organism.getId().toString())) + ", primaryIdentifier=\"" + primaryIdentifier + "\", score=\"" + score + "\", scoreType=\"" + scoreType + "\", secondaryIdentifier=\"" + secondaryIdentifier + "\", sequence=" + (sequence == null ? "null" : (sequence.getId() == null ? "no id" : sequence.getId().toString())) + ", sequenceOntologyTerm=" + (sequenceOntologyTerm == null ? "null" : (sequenceOntologyTerm.getId() == null ? "no id" : sequenceOntologyTerm.getId().toString())) + ", symbol=\"" + symbol + "\", type=\"" + type + "\", upstreamIntergenicRegion=" + (upstreamIntergenicRegion == null ? "null" : (upstreamIntergenicRegion.getId() == null ? "no id" : upstreamIntergenicRegion.getId().toString())) + "]"; }
     public Object getFieldValue(final String fieldName) throws IllegalAccessException {
-        if ("briefDescription".equals(fieldName)) {
-            return briefDescription;
-        }
         if ("type".equals(fieldName)) {
             return type;
+        }
+        if ("briefDescription".equals(fieldName)) {
+            return briefDescription;
         }
         if ("description".equals(fieldName)) {
             return description;
@@ -514,11 +514,11 @@ public class GeneShadow implements Gene, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public Object getFieldProxy(final String fieldName) throws IllegalAccessException {
-        if ("briefDescription".equals(fieldName)) {
-            return briefDescription;
-        }
         if ("type".equals(fieldName)) {
             return type;
+        }
+        if ("briefDescription".equals(fieldName)) {
+            return briefDescription;
         }
         if ("description".equals(fieldName)) {
             return description;
@@ -676,10 +676,10 @@ public class GeneShadow implements Gene, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public void setFieldValue(final String fieldName, final Object value) {
-        if ("briefDescription".equals(fieldName)) {
-            briefDescription = (java.lang.String) value;
-        } else if ("type".equals(fieldName)) {
+        if ("type".equals(fieldName)) {
             type = (java.lang.String) value;
+        } else if ("briefDescription".equals(fieldName)) {
+            briefDescription = (java.lang.String) value;
         } else if ("description".equals(fieldName)) {
             description = (java.lang.String) value;
         } else if ("downstreamIntergenicRegion".equals(fieldName)) {
@@ -789,10 +789,10 @@ public class GeneShadow implements Gene, ShadowClass
         }
     }
     public Class<?> getFieldType(final String fieldName) {
-        if ("briefDescription".equals(fieldName)) {
+        if ("type".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("type".equals(fieldName)) {
+        if ("briefDescription".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("description".equals(fieldName)) {
@@ -956,9 +956,9 @@ public class GeneShadow implements Gene, ShadowClass
         }
         StringConstructor sb = new StringConstructor();
         sb.append("$_^org.intermine.model.bio.Gene");
-        if (briefDescription != null) {
-            sb.append("$_^abriefDescription$_^");
-            String string = briefDescription;
+        if (type != null) {
+            sb.append("$_^atype$_^");
+            String string = type;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -971,9 +971,9 @@ public class GeneShadow implements Gene, ShadowClass
                 }
             }
         }
-        if (type != null) {
-            sb.append("$_^atype$_^");
-            String string = type;
+        if (briefDescription != null) {
+            sb.append("$_^abriefDescription$_^");
+            String string = briefDescription;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -1117,17 +1117,6 @@ public class GeneShadow implements Gene, ShadowClass
         }
         for (int i = 2; i < notXml.length;) {
             int startI = i;
-            if ((i < notXml.length) && "abriefDescription".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                briefDescription = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "atype".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -1137,6 +1126,17 @@ public class GeneShadow implements Gene, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 type = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "abriefDescription".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                briefDescription = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "adescription".equals(notXml[i])) {

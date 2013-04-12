@@ -59,6 +59,17 @@ public class ZebrafishPantherConverter extends BioFileConverter
     public void process(Reader reader) throws Exception {
 
         processOrthos(reader);
+
+	try {
+            for (Item gene : genes.values()) {
+                store(gene);
+            }
+        }
+        catch (ObjectStoreException e) {
+            throw new SAXException(e);
+        }
+
+
         try {
             for (Item orth : orthos.values()) {
                 store(orth);
@@ -158,7 +169,7 @@ public class ZebrafishPantherConverter extends BioFileConverter
 		item.setReference("organism", getOrganism(getTaxon(species)));
                 item.setAttribute("primaryIdentifier", primaryIdentifier);
                 genes.put(primaryIdentifier, item);
-                try {
+                /*try {
 		    if (primaryIdentifier.equalsIgnoreCase("ZDB-GENE-040426-1729")){
 			    System.out.println("here is the store of the record we're looking for:ZDB-GENE-040426-1729");
 			}
@@ -166,7 +177,7 @@ public class ZebrafishPantherConverter extends BioFileConverter
                 }
                 catch (ObjectStoreException e) {
                     throw new SAXException(e);
-                }
+		    }*/
             }
             return item;
     }

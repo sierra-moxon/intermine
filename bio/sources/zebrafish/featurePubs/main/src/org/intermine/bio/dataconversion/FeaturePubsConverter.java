@@ -42,7 +42,7 @@ public class FeaturePubsConverter extends BioFileConverter
     private static final String DATA_SOURCE_NAME = "ZFIN";
 
     private static final Logger LOG = Logger.getLogger(FeaturePubsConverter.class);
-    private Set<String> pubs = new HashSet();
+    private Map<String, Item> pubs = new HashMap();
     private Map<String, Item> terms = new HashMap();
 
 
@@ -83,26 +83,29 @@ public class FeaturePubsConverter extends BioFileConverter
 		
 	    if (!StringUtils.isEmpty(dataId) && !StringUtils.isEmpty(pubId) && !StringUtils.isEmpty(featureType) && !StringUtils.isEmpty(type)) {
 		Item feature = getTypedItem(dataId, featureType);
-		String featureId = feature.getIdentifier();
-		setAttribution(featureId, type, pubId);
+	        Item pub = getPub(pubId);
+		feature.addToCollection("publications",pubId);
 	    }
 	}
     }
 
-    private void setAttribution(String subjectRefId, String type, String pubId)
-        throws SAXException {
-        String key = subjectRefId + type + pubId;
-        if (!pubs.contains(key)) {
-            Item pub = createItem("Publication");
-	    pub.setAttribute("primaryIdentifier",pubId);
-            pub.addToCollection("bioEntities", subjectRefId);
-            pubs.add(key);
+
+    private Item getPub(String primaryIdentifier)
+	throws SAXException {
+        Item item = pubs.get(primaryIdentifier);
+        if (item == null) {
+            item = createItem("Publication");
+            item.setAttribute("primaryIdentifier", primaryIdentifier);
+            //item.setReference("organism", getOrganism("Zebrafish"));                                                                                  
+            pubs.put(primaryIdentifier, item);
+
             try {
-                store(pub);
+                store(item);
             } catch (ObjectStoreException e) {
-                throw new SAXException(e);
+		throw new SAXException(e);
             }
-        }
+	}
+        return item;
     }
 
 
