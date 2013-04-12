@@ -28,25 +28,25 @@ public class RNACloneShadow implements RNAClone, ShadowClass
     public java.lang.String getpCR() { return PCR; }
     public void setpCR(final java.lang.String PCR) { this.PCR = PCR; }
 
-    // Attr: org.intermine.model.bio.Clone.ThisseCloneRating
-    protected java.lang.String ThisseCloneRating;
-    public java.lang.String getthisseCloneRating() { return ThisseCloneRating; }
-    public void setthisseCloneRating(final java.lang.String ThisseCloneRating) { this.ThisseCloneRating = ThisseCloneRating; }
-
     // Attr: org.intermine.model.bio.Clone.digest
     protected java.lang.String digest;
     public java.lang.String getDigest() { return digest; }
     public void setDigest(final java.lang.String digest) { this.digest = digest; }
 
-    // Attr: org.intermine.model.bio.Clone.cloneSite
-    protected java.lang.String cloneSite;
-    public java.lang.String getCloneSite() { return cloneSite; }
-    public void setCloneSite(final java.lang.String cloneSite) { this.cloneSite = cloneSite; }
+    // Attr: org.intermine.model.bio.Clone.ThisseCloneRating
+    protected java.lang.String ThisseCloneRating;
+    public java.lang.String getthisseCloneRating() { return ThisseCloneRating; }
+    public void setthisseCloneRating(final java.lang.String ThisseCloneRating) { this.ThisseCloneRating = ThisseCloneRating; }
 
     // Attr: org.intermine.model.bio.Clone.polymerase
     protected java.lang.String polymerase;
     public java.lang.String getPolymerase() { return polymerase; }
     public void setPolymerase(final java.lang.String polymerase) { this.polymerase = polymerase; }
+
+    // Attr: org.intermine.model.bio.Clone.cloneSite
+    protected java.lang.String cloneSite;
+    public java.lang.String getCloneSite() { return cloneSite; }
+    public void setCloneSite(final java.lang.String cloneSite) { this.cloneSite = cloneSite; }
 
     // Attr: org.intermine.model.bio.Clone.type
     protected java.lang.String type;
@@ -270,17 +270,17 @@ public class RNACloneShadow implements RNAClone, ShadowClass
         if ("PCR".equals(fieldName)) {
             return PCR;
         }
-        if ("ThisseCloneRating".equals(fieldName)) {
-            return ThisseCloneRating;
-        }
         if ("digest".equals(fieldName)) {
             return digest;
         }
-        if ("cloneSite".equals(fieldName)) {
-            return cloneSite;
+        if ("ThisseCloneRating".equals(fieldName)) {
+            return ThisseCloneRating;
         }
         if ("polymerase".equals(fieldName)) {
             return polymerase;
+        }
+        if ("cloneSite".equals(fieldName)) {
+            return cloneSite;
         }
         if ("type".equals(fieldName)) {
             return type;
@@ -429,17 +429,17 @@ public class RNACloneShadow implements RNAClone, ShadowClass
         if ("PCR".equals(fieldName)) {
             return PCR;
         }
-        if ("ThisseCloneRating".equals(fieldName)) {
-            return ThisseCloneRating;
-        }
         if ("digest".equals(fieldName)) {
             return digest;
         }
-        if ("cloneSite".equals(fieldName)) {
-            return cloneSite;
+        if ("ThisseCloneRating".equals(fieldName)) {
+            return ThisseCloneRating;
         }
         if ("polymerase".equals(fieldName)) {
             return polymerase;
+        }
+        if ("cloneSite".equals(fieldName)) {
+            return cloneSite;
         }
         if ("type".equals(fieldName)) {
             return type;
@@ -561,14 +561,14 @@ public class RNACloneShadow implements RNAClone, ShadowClass
             insertSize = (java.lang.String) value;
         } else if ("PCR".equals(fieldName)) {
             PCR = (java.lang.String) value;
-        } else if ("ThisseCloneRating".equals(fieldName)) {
-            ThisseCloneRating = (java.lang.String) value;
         } else if ("digest".equals(fieldName)) {
             digest = (java.lang.String) value;
-        } else if ("cloneSite".equals(fieldName)) {
-            cloneSite = (java.lang.String) value;
+        } else if ("ThisseCloneRating".equals(fieldName)) {
+            ThisseCloneRating = (java.lang.String) value;
         } else if ("polymerase".equals(fieldName)) {
             polymerase = (java.lang.String) value;
+        } else if ("cloneSite".equals(fieldName)) {
+            cloneSite = (java.lang.String) value;
         } else if ("type".equals(fieldName)) {
             type = (java.lang.String) value;
         } else if ("comments".equals(fieldName)) {
@@ -659,16 +659,16 @@ public class RNACloneShadow implements RNAClone, ShadowClass
         if ("PCR".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("ThisseCloneRating".equals(fieldName)) {
-            return java.lang.String.class;
-        }
         if ("digest".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("cloneSite".equals(fieldName)) {
+        if ("ThisseCloneRating".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("polymerase".equals(fieldName)) {
+            return java.lang.String.class;
+        }
+        if ("cloneSite".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("type".equals(fieldName)) {
@@ -820,21 +820,6 @@ public class RNACloneShadow implements RNAClone, ShadowClass
                 }
             }
         }
-        if (ThisseCloneRating != null) {
-            sb.append("$_^aThisseCloneRating$_^");
-            String string = ThisseCloneRating;
-            while (string != null) {
-                int delimPosition = string.indexOf("$_^");
-                if (delimPosition == -1) {
-                    sb.append(string);
-                    string = null;
-                } else {
-                    sb.append(string.substring(0, delimPosition + 3));
-                    sb.append("d");
-                    string = string.substring(delimPosition + 3);
-                }
-            }
-        }
         if (digest != null) {
             sb.append("$_^adigest$_^");
             String string = digest;
@@ -850,9 +835,9 @@ public class RNACloneShadow implements RNAClone, ShadowClass
                 }
             }
         }
-        if (cloneSite != null) {
-            sb.append("$_^acloneSite$_^");
-            String string = cloneSite;
+        if (ThisseCloneRating != null) {
+            sb.append("$_^aThisseCloneRating$_^");
+            String string = ThisseCloneRating;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -868,6 +853,21 @@ public class RNACloneShadow implements RNAClone, ShadowClass
         if (polymerase != null) {
             sb.append("$_^apolymerase$_^");
             String string = polymerase;
+            while (string != null) {
+                int delimPosition = string.indexOf("$_^");
+                if (delimPosition == -1) {
+                    sb.append(string);
+                    string = null;
+                } else {
+                    sb.append(string.substring(0, delimPosition + 3));
+                    sb.append("d");
+                    string = string.substring(delimPosition + 3);
+                }
+            }
+        }
+        if (cloneSite != null) {
+            sb.append("$_^acloneSite$_^");
+            String string = cloneSite;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -1090,17 +1090,6 @@ public class RNACloneShadow implements RNAClone, ShadowClass
                 PCR = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "aThisseCloneRating".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                ThisseCloneRating = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "adigest".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -1112,7 +1101,7 @@ public class RNACloneShadow implements RNAClone, ShadowClass
                 digest = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "acloneSite".equals(notXml[i])) {
+            if ((i < notXml.length) && "aThisseCloneRating".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
                 while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
@@ -1120,7 +1109,7 @@ public class RNACloneShadow implements RNAClone, ShadowClass
                     i++;
                     string.append("$_^").append(notXml[i].substring(1));
                 }
-                cloneSite = string == null ? notXml[i] : string.toString();
+                ThisseCloneRating = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "apolymerase".equals(notXml[i])) {
@@ -1132,6 +1121,17 @@ public class RNACloneShadow implements RNAClone, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 polymerase = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "acloneSite".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                cloneSite = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "atype".equals(notXml[i])) {

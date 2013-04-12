@@ -16,15 +16,15 @@ public class DataSourceShadow implements DataSource, ShadowClass
     public java.lang.String getName() { return name; }
     public void setName(final java.lang.String name) { this.name = name; }
 
-    // Attr: org.intermine.model.bio.DataSource.url
-    protected java.lang.String url;
-    public java.lang.String getUrl() { return url; }
-    public void setUrl(final java.lang.String url) { this.url = url; }
-
     // Attr: org.intermine.model.bio.DataSource.description
     protected java.lang.String description;
     public java.lang.String getDescription() { return description; }
     public void setDescription(final java.lang.String description) { this.description = description; }
+
+    // Attr: org.intermine.model.bio.DataSource.url
+    protected java.lang.String url;
+    public java.lang.String getUrl() { return url; }
+    public void setUrl(final java.lang.String url) { this.url = url; }
 
     // Col: org.intermine.model.bio.DataSource.dataSets
     protected java.util.Set<org.intermine.model.bio.DataSet> dataSets = new java.util.HashSet<org.intermine.model.bio.DataSet>();
@@ -44,11 +44,11 @@ public class DataSourceShadow implements DataSource, ShadowClass
         if ("name".equals(fieldName)) {
             return name;
         }
-        if ("url".equals(fieldName)) {
-            return url;
-        }
         if ("description".equals(fieldName)) {
             return description;
+        }
+        if ("url".equals(fieldName)) {
+            return url;
         }
         if ("dataSets".equals(fieldName)) {
             return dataSets;
@@ -65,11 +65,11 @@ public class DataSourceShadow implements DataSource, ShadowClass
         if ("name".equals(fieldName)) {
             return name;
         }
-        if ("url".equals(fieldName)) {
-            return url;
-        }
         if ("description".equals(fieldName)) {
             return description;
+        }
+        if ("url".equals(fieldName)) {
+            return url;
         }
         if ("dataSets".equals(fieldName)) {
             return dataSets;
@@ -85,10 +85,10 @@ public class DataSourceShadow implements DataSource, ShadowClass
     public void setFieldValue(final String fieldName, final Object value) {
         if ("name".equals(fieldName)) {
             name = (java.lang.String) value;
-        } else if ("url".equals(fieldName)) {
-            url = (java.lang.String) value;
         } else if ("description".equals(fieldName)) {
             description = (java.lang.String) value;
+        } else if ("url".equals(fieldName)) {
+            url = (java.lang.String) value;
         } else if ("dataSets".equals(fieldName)) {
             dataSets = (java.util.Set) value;
         } else if ("id".equals(fieldName)) {
@@ -105,10 +105,10 @@ public class DataSourceShadow implements DataSource, ShadowClass
         if ("name".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("url".equals(fieldName)) {
+        if ("description".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("description".equals(fieldName)) {
+        if ("url".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("dataSets".equals(fieldName)) {
@@ -143,9 +143,9 @@ public class DataSourceShadow implements DataSource, ShadowClass
                 }
             }
         }
-        if (url != null) {
-            sb.append("$_^aurl$_^");
-            String string = url;
+        if (description != null) {
+            sb.append("$_^adescription$_^");
+            String string = description;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -158,9 +158,9 @@ public class DataSourceShadow implements DataSource, ShadowClass
                 }
             }
         }
-        if (description != null) {
-            sb.append("$_^adescription$_^");
-            String string = description;
+        if (url != null) {
+            sb.append("$_^aurl$_^");
+            String string = url;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -198,17 +198,6 @@ public class DataSourceShadow implements DataSource, ShadowClass
                 name = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "aurl".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                url = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "adescription".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -218,6 +207,17 @@ public class DataSourceShadow implements DataSource, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 description = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "aurl".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                url = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "aid".equals(notXml[i])) {
