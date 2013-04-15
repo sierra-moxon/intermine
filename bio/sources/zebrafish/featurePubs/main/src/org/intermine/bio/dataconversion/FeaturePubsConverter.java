@@ -111,7 +111,7 @@ public class FeaturePubsConverter extends BioFileConverter
 
 
     private Item getTypedItem(String primaryIdentifier, String type) throws SAXException {
-        Item typedItem = getFeature(primaryIdentifier,"SequenceAlteration");
+        Item typedItem ;
 
         if (type.equals("INSERTION")) {
             typedItem = getFeature(primaryIdentifier,"Insertion");
@@ -136,6 +136,9 @@ public class FeaturePubsConverter extends BioFileConverter
         } else if (type.equals("TRANSGENIC_UNSPECIFIED")) {
             typedItem = getFeature(primaryIdentifier,"TransgenicInsertion");
 	}
+	else {
+	    typedItem = getFeature(primaryIdentifier,"SequenceAlteration");
+	}
 
         return typedItem;
     }
@@ -153,21 +156,7 @@ public class FeaturePubsConverter extends BioFileConverter
                 throw new SAXException(e);
             }
         }
-        else {
-            if (item.getClassName().equals("SequenceAlteration")) {
-                terms.remove(item);
-                item = createItem(soTermName);
-                item.setReference("organism", getOrganism("7955"));
-                item.setAttribute("primaryIdentifier", primaryIdentifier);
-                terms.put(primaryIdentifier, item);
-                try{
-                    store(item);
-                } catch (ObjectStoreException e) {
-                    throw new SAXException(e);             
-		}
 
-            }
-        }
         return item;
     }
     

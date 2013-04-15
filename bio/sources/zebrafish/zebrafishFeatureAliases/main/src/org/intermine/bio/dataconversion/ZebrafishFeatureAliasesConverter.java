@@ -49,7 +49,7 @@ public class ZebrafishFeatureAliasesConverter extends BioFileConverter
     private static final Logger LOG = Logger.getLogger(ZebrafishFeatureAliasesConverter.class);
     protected String organismRefId;
 
-    private Set<String> synonyms = new HashSet();
+    private Map<String, Item> synonyms = new HashMap();
     private Map<String, Item> terms = new HashMap();    
     private static final String DATASET_TITLE = "Feature Aliases";
     private static final String DATA_SOURCE_NAME = "ZFIN";
@@ -70,7 +70,19 @@ public class ZebrafishFeatureAliasesConverter extends BioFileConverter
      */
     public void process(Reader reader) throws Exception {
 	    processAliases(reader);	
+	    
+	    /*   try {
+		for (Item term : terms.values()) {
+		    store(term);
+		}
+		for (Item syn : synonyms.values()){
+		    store(syn);
+		}
 
+	    } catch (ObjectStoreException e) {                                                                                             
+		throw new SAXException(e);                                   
+		} */     
+	    
     }
 
 
@@ -97,34 +109,36 @@ public class ZebrafishFeatureAliasesConverter extends BioFileConverter
                     aliasType = "name";
                 }
 		String featureId = itemAlias.getIdentifier();
-                setSynonym(featureId, aliasType, alias);
+                Item syn = setSynonym(featureId, aliasType, alias);
 
-		setSynonym(featureId, "accession", dataPrimaryIdentifier);
+		Item syn2 = setSynonym(featureId, "accession", dataPrimaryIdentifier);
 	    }
             
         }
     }
 
-    private void setSynonym(String subjectRefId, String type, String value)
+    private Item setSynonym(String subjectRefId, String type, String value)
         throws SAXException {
 	String key = subjectRefId + type + value;
-	if (!synonyms.contains(key)) {
-	    Item synonym = createItem("Synonym");
-            synonym.setAttribute("value", value);
-            synonym.setReference("subject", subjectRefId);
-            synonyms.add(key);
-            try {
-                store(synonym);
+	Item item = synonyms.get(key);
+	if (item == null) {
+	    item = createItem("Synonym");
+            item.setAttribute("value", value);
+            item.setReference("subject", subjectRefId);
+            synonyms.put(key, item);
+	    try {
+                store(item);
             } catch (ObjectStoreException e) {
-                throw new SAXException(e);
+		throw new SAXException(e);
             }
         }
+	return item;
     }
 
 
 
     private Item getTypedItem(String primaryIdentifier, String type) throws SAXException {
-        Item typedItem = getFeature(primaryIdentifier,"SequenceAlteration");
+        Item typedItem;
 
         if (type.equals("INSERTION")) {
             typedItem = getFeature(primaryIdentifier,"Insertion");
@@ -149,7 +163,9 @@ public class ZebrafishFeatureAliasesConverter extends BioFileConverter
         } else if (type.equals("TRANSGENIC_UNSPECIFIED")) {
             typedItem = getFeature(primaryIdentifier,"TransgenicInsertion");
         }
-
+	else {
+	    typedItem = getFeature(primaryIdentifier,"SequenceAlteration");
+	}
         return typedItem;
     }
     
@@ -161,26 +177,26 @@ public class ZebrafishFeatureAliasesConverter extends BioFileConverter
             item.setAttribute("primaryIdentifier", primaryIdentifier);
             terms.put(primaryIdentifier, item);
 	    try{
-		store(item);
+	    	store(item);
 	    } catch (ObjectStoreException e) {
-		throw new SAXException(e);
+	    	throw new SAXException(e);
 	    }
 	}
-        else {
+	/*        else {
             if (item.getClassName().equals("SequenceAlteration")) {
                 terms.remove(item);
                 item = createItem(soTermName);
                 item.setReference("organism", getOrganism("7955"));
                 item.setAttribute("primaryIdentifier", primaryIdentifier);
                 terms.put(primaryIdentifier, item);
-		try{
-		    store(item);
-		} catch (ObjectStoreException e) {
-		    throw new SAXException(e);
-		}
+		//	try{
+		//   store(item);
+		//} catch (ObjectStoreException e) {
+		//    throw new SAXException(e);
+		//}
 		
 	    }
-	}
+	    }*/
         return item;
     }
 
