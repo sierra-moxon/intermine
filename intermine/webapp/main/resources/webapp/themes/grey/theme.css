@@ -39,9 +39,10 @@ div#header p {
 /*.title a:link{
     color:#FFF;}
 */
-#topnav {
+
+/*#topnav {
     background-color: #000;
-}
+}*/
 
 #pagecontent {
   border-left:1px solid #000;

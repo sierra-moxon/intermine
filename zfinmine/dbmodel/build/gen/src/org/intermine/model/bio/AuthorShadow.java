@@ -16,15 +16,15 @@ public class AuthorShadow implements Author, ShadowClass
     public java.lang.String getName() { return name; }
     public void setName(final java.lang.String name) { this.name = name; }
 
-    // Attr: org.intermine.model.bio.Author.initials
-    protected java.lang.String initials;
-    public java.lang.String getInitials() { return initials; }
-    public void setInitials(final java.lang.String initials) { this.initials = initials; }
-
     // Attr: org.intermine.model.bio.Author.lastName
     protected java.lang.String lastName;
     public java.lang.String getLastName() { return lastName; }
     public void setLastName(final java.lang.String lastName) { this.lastName = lastName; }
+
+    // Attr: org.intermine.model.bio.Author.initials
+    protected java.lang.String initials;
+    public java.lang.String getInitials() { return initials; }
+    public void setInitials(final java.lang.String initials) { this.initials = initials; }
 
     // Attr: org.intermine.model.bio.Author.firstName
     protected java.lang.String firstName;
@@ -49,11 +49,11 @@ public class AuthorShadow implements Author, ShadowClass
         if ("name".equals(fieldName)) {
             return name;
         }
-        if ("initials".equals(fieldName)) {
-            return initials;
-        }
         if ("lastName".equals(fieldName)) {
             return lastName;
+        }
+        if ("initials".equals(fieldName)) {
+            return initials;
         }
         if ("firstName".equals(fieldName)) {
             return firstName;
@@ -73,11 +73,11 @@ public class AuthorShadow implements Author, ShadowClass
         if ("name".equals(fieldName)) {
             return name;
         }
-        if ("initials".equals(fieldName)) {
-            return initials;
-        }
         if ("lastName".equals(fieldName)) {
             return lastName;
+        }
+        if ("initials".equals(fieldName)) {
+            return initials;
         }
         if ("firstName".equals(fieldName)) {
             return firstName;
@@ -96,10 +96,10 @@ public class AuthorShadow implements Author, ShadowClass
     public void setFieldValue(final String fieldName, final Object value) {
         if ("name".equals(fieldName)) {
             name = (java.lang.String) value;
-        } else if ("initials".equals(fieldName)) {
-            initials = (java.lang.String) value;
         } else if ("lastName".equals(fieldName)) {
             lastName = (java.lang.String) value;
+        } else if ("initials".equals(fieldName)) {
+            initials = (java.lang.String) value;
         } else if ("firstName".equals(fieldName)) {
             firstName = (java.lang.String) value;
         } else if ("publications".equals(fieldName)) {
@@ -118,10 +118,10 @@ public class AuthorShadow implements Author, ShadowClass
         if ("name".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("initials".equals(fieldName)) {
+        if ("lastName".equals(fieldName)) {
             return java.lang.String.class;
         }
-        if ("lastName".equals(fieldName)) {
+        if ("initials".equals(fieldName)) {
             return java.lang.String.class;
         }
         if ("firstName".equals(fieldName)) {
@@ -159,9 +159,9 @@ public class AuthorShadow implements Author, ShadowClass
                 }
             }
         }
-        if (initials != null) {
-            sb.append("$_^ainitials$_^");
-            String string = initials;
+        if (lastName != null) {
+            sb.append("$_^alastName$_^");
+            String string = lastName;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -174,9 +174,9 @@ public class AuthorShadow implements Author, ShadowClass
                 }
             }
         }
-        if (lastName != null) {
-            sb.append("$_^alastName$_^");
-            String string = lastName;
+        if (initials != null) {
+            sb.append("$_^ainitials$_^");
+            String string = initials;
             while (string != null) {
                 int delimPosition = string.indexOf("$_^");
                 if (delimPosition == -1) {
@@ -229,17 +229,6 @@ public class AuthorShadow implements Author, ShadowClass
                 name = string == null ? notXml[i] : string.toString();
                 i++;
             }
-            if ((i < notXml.length) && "ainitials".equals(notXml[i])) {
-                i++;
-                StringBuilder string = null;
-                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
-                    if (string == null) string = new StringBuilder(notXml[i]);
-                    i++;
-                    string.append("$_^").append(notXml[i].substring(1));
-                }
-                initials = string == null ? notXml[i] : string.toString();
-                i++;
-            }
             if ((i < notXml.length) && "alastName".equals(notXml[i])) {
                 i++;
                 StringBuilder string = null;
@@ -249,6 +238,17 @@ public class AuthorShadow implements Author, ShadowClass
                     string.append("$_^").append(notXml[i].substring(1));
                 }
                 lastName = string == null ? notXml[i] : string.toString();
+                i++;
+            }
+            if ((i < notXml.length) && "ainitials".equals(notXml[i])) {
+                i++;
+                StringBuilder string = null;
+                while ((i + 1 < notXml.length) && (notXml[i + 1].charAt(0) == 'd')) {
+                    if (string == null) string = new StringBuilder(notXml[i]);
+                    i++;
+                    string.append("$_^").append(notXml[i].substring(1));
+                }
+                initials = string == null ? notXml[i] : string.toString();
                 i++;
             }
             if ((i < notXml.length) && "afirstName".equals(notXml[i])) {

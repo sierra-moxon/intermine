@@ -158,7 +158,7 @@
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/../../zebrafishmine/out" />
+    <output url="file://E:/zebrafishmine/out" />
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="" />
@@ -167,33 +167,33 @@
   <component name="libraryTable">
     <library name="intermine-integrate">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../intermine/integrate/main/dist/intermine-integrate.jar!/" />
-        <root url="jar://$PROJECT_DIR$/../../intermine/integrate/model/fulldata/dist/fulldata.jar!/" />
+        <root url="jar://E:/intermine/integrate/main/dist/intermine-integrate.jar!/" />
+        <root url="jar://E:/intermine/integrate/model/fulldata/dist/fulldata.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
     </library>
     <library name="intermine-integrate-test">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../intermine/integrate/test/dist/intermine-integrate-test.jar!/" />
-        <root url="file://$PROJECT_DIR$/../../intermine/objectstore/test/lib" />
+        <root url="jar://E:/intermine/integrate/test/dist/intermine-integrate-test.jar!/" />
+        <root url="file://E:/intermine/objectstore/test/lib" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
-      <jarDirectory url="file://$PROJECT_DIR$/../../intermine/objectstore/test/lib" recursive="false" />
+      <jarDirectory url="file://E:/intermine/objectstore/test/lib" recursive="false" />
     </library>
     <library name="lib">
       <CLASSES>
-        <root url="file://$PROJECT_DIR$/../../lib" />
-        <root url="file://$PROJECT_DIR$/../../lib" />
+        <root url="file://E:/lib" />
+        <root url="file://E:/lib" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="file://$PROJECT_DIR$/../../lib" />
-        <root url="file://$PROJECT_DIR$/../../lib" />
+        <root url="file://E:/lib" />
+        <root url="file://E:/lib" />
       </SOURCES>
-      <jarDirectory url="file://$PROJECT_DIR$/../../lib" recursive="false" />
-      <jarDirectory url="file://$PROJECT_DIR$/../../lib" recursive="false" type="SOURCES" />
+      <jarDirectory url="file://E:/lib" recursive="false" />
+      <jarDirectory url="file://E:/lib" recursive="false" type="SOURCES" />
     </library>
   </component>
 </project>
