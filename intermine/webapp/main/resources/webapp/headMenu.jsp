@@ -32,12 +32,14 @@
           </c:otherwise>
         </c:choose>
       </c:forEach>
+<p>
+    <p id="version"><fmt:message key="header.version"/> <c:out value="${WEB_PROPERTIES['project.releaseVersion']}" escapeXml="false"/></span>
     </div>
+
   </c:if>
   <div id="header">
     <a href="${WEB_PROPERTIES['project.sitePrefix']}" alt="Home" rel="NOFOLLOW"><img id="logo" src="model/images/logo.png" width="45px" height="43px" alt="Logo" /></a>
     <h1><html:link href="${WEB_PROPERTIES['project.sitePrefix']}/"><c:out value="${WEB_PROPERTIES['project.title']}" escapeXml="false"/></html:link></h1>
-    <p id="version"><fmt:message key="header.version"/> <c:out value="${WEB_PROPERTIES['project.releaseVersion']}" escapeXml="false"/></span>
     <p><c:out value="${WEB_PROPERTIES['project.subTitle']}" escapeXml="false"/></p>
   </div>
 
@@ -88,6 +90,7 @@
         </a>
       </li>
     </ul>
+<!--
   <ul id="loginbar">
         <li><a href="#" onclick="showContactForm();return false;"><fmt:message key="feedback.link"/></a></li>
         <c:if test="${PROFILE.loggedIn}">
@@ -119,7 +122,7 @@
             </li>
         </c:if>
         <li class="last"><im:login/></li>
-    </ul>
+    </ul> -->
   </div>
 
   <!-- Logged in section -->

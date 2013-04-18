@@ -46,7 +46,7 @@
         <img src="images/icons/cambridge-footer-logo.png" alt="University of Cambridge logo">
     </a> -->
 
-    <ul class="footer-links">
+    <!--<ul class="footer-links">
         <!-- contact us form link -->
         <li><a href="#" onclick="showContactForm();return false;">Contact Us</a></li>
         <c:set value="${WEB_PROPERTIES['header.links']}" var="headerLinks"/>
@@ -62,7 +62,7 @@
                 </c:otherwise>
             </c:choose>
         </c:forEach>
-    </ul>
+    </ul> -->
 
     <!-- mines 
     <ul class="footer-links">
