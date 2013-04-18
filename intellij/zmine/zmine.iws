@@ -102,16 +102,27 @@
       <file leaf-file-name="ZfinExpressionConverterTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/test/src/org/intermine/bio/dataconversion/ZfinExpressionConverterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="23" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0">
+            <state line="5" column="29" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Publication.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Publication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="70" column="48" selection-start="3069" selection-end="3069" vertical-scroll-proportion="0.33286715">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZfinOrthologuesConverter.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ZfinOrthologuesConverter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfinOrthologues/main/src/org/intermine/bio/dataconversion/ZfinOrthologuesConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="7" selection-start="800" selection-end="800" vertical-scroll-proportion="0.33286715">
+            <state line="29" column="22" selection-start="792" selection-end="792" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -479,7 +490,9 @@
     <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/test/src/org/intermine/bio/dataconversion/ZfinExpressionConverterTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="55" selection-start="892" selection-end="892" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -514,16 +527,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/test/src/org/intermine/bio/dataconversion/ZfinExpressionConverterTest.java">
+    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfinOrthologues/main/src/org/intermine/bio/dataconversion/ZfinOrthologuesConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="23" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0">
+        <state line="29" column="22" selection-start="792" selection-end="792" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfinOrthologues/main/src/org/intermine/bio/dataconversion/ZfinOrthologuesConverter.java">
+    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/test/src/org/intermine/bio/dataconversion/ZfinExpressionConverterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="7" selection-start="800" selection-end="800" vertical-scroll-proportion="0.33286715">
+        <state line="5" column="29" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Publication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="48" selection-start="3069" selection-end="3069" vertical-scroll-proportion="0.33286715">
           <folding />
         </state>
       </provider>
