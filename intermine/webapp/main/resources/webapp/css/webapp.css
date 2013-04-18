@@ -143,13 +143,13 @@ p#version {
     position: absolute;
     top: 0;
     right: 0;
-    color: #FFF;
+    color: #000;
     font: 0.7em Arial, sans-serif;
     white-space: nowrap;
 }
 
 #topnav a:link, #topnav a:visited, #topnav {
-    color: #FFF;
+    color: #000;
 }
 
 #logo {
