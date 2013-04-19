@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af31b092-8855-4363-ad0e-941e4c95465c" name="Default" comment="" />
+    <list default="true" id="af31b092-8855-4363-ad0e-941e4c95465c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../.gitignore" afterPath="$PROJECT_DIR$/../../.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../zfinmine/project.xml" afterPath="$PROJECT_DIR$/../../zfinmine/project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zmine.ipr" afterPath="$PROJECT_DIR$/zmine.ipr" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zmine.iws" afterPath="$PROJECT_DIR$/zmine.iws" />
+    </list>
     <ignored path="zmine.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="$PROJECT_DIR$/../../../intermine-trunk/bio/sources/zebrafish/zfin_expression/test/src/org/intermine/bio/dataconversion/ZfinExpressionConverterTest.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366299539471" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../intermine-trunk/zfinmine/project.xml" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366299811264" ignored="false" />
+    <file path="/a.dummy" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366327327118" ignored="false" />
+    <file path="/zfinGenotypes_additions.xml" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366302479925" ignored="false" />
+    <file path="/Dummy.txt" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366311805017" ignored="false" />
+    <file path="/fragment.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366327001623" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../ogon/server_apps/data_transfer/LoadOntology/updateDefinitionReferences.sql" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366313999729" ignored="false" />
+    <file path="/updateDefinitionReferences.sql" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366313226965" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../ogon/home/WEB-INF/templates/ontology-loader-new-relationships.ftl" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366317090919" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../ogon/home/WEB-INF/tags/termDefinitionReference.tag" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366314129608" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../ogon/home/WEB-INF/tags/markerRelationshipsLight.tag" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366315078592" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../ogon/source/org/zfin/marker/presentation/MarkerRelationshipPresentation.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366315276016" ignored="false" />
+    <file path="/MarkerRelationshipPresentation.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366315266184" ignored="false" />
+    <file path="/ontology-loader-delete-relationships.ftl" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366317085973" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../ogon/home/WEB-INF/templates/ontology-loader-delete-relationships.ftl" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366317086942" ignored="false" />
+    <file path="/ontology-loader-new-relationships.ftl" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366317090919" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../ogon/server_apps/data_transfer/LoadOntology/handleRelationshipsAndStages.sql" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366317435236" ignored="false" />
+    <file path="/handleRelationshipsAndStages.sql" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366317434421" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../ogon/source/org/zfin/ontology/datatransfer/service/LoadOntology.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366386637380" ignored="false" />
+    <file path="/LoadOntology.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366386010782" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../Curation/anatomy.obo" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366327537819" ignored="false" />
+    <file path="/OntologyRepository.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366318202719" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../ogon/source/org/zfin/ontology/repository/OntologyRepository.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366318210070" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../ogon/source/org/zfin/ontology/repository/HibernateOntologyRepository.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366318257536" ignored="false" />
+    <file path="/HibernateOntologyRepository.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366318254850" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../ogon/test/org/zfin/ontology/repository/OntologyRepositoryTest.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366327156849" ignored="false" />
+    <file path="/OntologyRepositoryTest.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366318291534" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../ogon/test/log4j.xml" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366386689122" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../ogon/server_apps/data_transfer/LoadOntology/logs/query.log" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1366386663171" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +88,10 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+<<<<<<< HEAD
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+=======
+>>>>>>> merge
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint url="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/test/src/org/intermine/bio/dataconversion/ZfinExpressionConverterTest.java" line="44" class="org.intermine.bio.dataconversion.ZfinExpressionConverterTest" package="org.intermine.bio.dataconversion">
         <option name="ENABLED" value="true" />
@@ -72,6 +109,10 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </line_breakpoints>
+<<<<<<< HEAD
+=======
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+>>>>>>> merge
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -81,6 +122,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
       <file leaf-file-name="web.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/web.properties">
           <provider selected="true" editor-type-id="text-editor">
@@ -117,50 +159,55 @@
 =======
       <file leaf-file-name="default.intermine.webapp.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../zfinmine/default.intermine.webapp.properties">
+=======
+      <file leaf-file-name="FishConverter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/fish/main/src/org/intermine/bio/dataconversion/FishConverter.java">
+>>>>>>> merge
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="20" column="23" selection-start="582" selection-end="582" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="project.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/project.properties">
+      <file leaf-file-name="ZfinExpressionConverter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/main/src/org/intermine/bio/dataconversion/ZfinExpressionConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="170" column="35" selection-start="6319" selection-end="6319" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webconfig-model.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/webapp/WEB-INF/webconfig-model.xml">
+      <file leaf-file-name="ZfinExpressionConverterTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/test/src/org/intermine/bio/dataconversion/ZfinExpressionConverterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="5" column="29" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classDescriptions.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/webapp/WEB-INF/classDescriptions.properties">
+      <file leaf-file-name="project.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../zfinmine/project.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="134" column="76" selection-start="7574" selection-end="7574" vertical-scroll-proportion="0.29044464">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webconfig-model.xml.orig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/webapp/WEB-INF/webconfig-model.xml.orig">
+      <file leaf-file-name="zfinGenotypes_additions.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfinGenotypes/zfinGenotypes_additions.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="57" column="43" selection-start="3402" selection-end="3402" vertical-scroll-proportion="0.0">
               <folding />
 >>>>>>> Made changes to layout of home page
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="Publication.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Publication.java">
@@ -172,11 +219,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="15" column="26" selection-start="645" selection-end="645" vertical-scroll-proportion="0.0">
 >>>>>>> Made changes to layout of home page
+=======
+      <file leaf-file-name="Genotype.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Genotype.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="25" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
+>>>>>>> merge
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="ZfinOrthologuesConverter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfinOrthologues/main/src/org/intermine/bio/dataconversion/ZfinOrthologuesConverter.java">
@@ -185,18 +239,26 @@
 =======
       <file leaf-file-name="intermine.properties" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/main/intermine.properties">
+=======
+      <file leaf-file-name="zfin_markersConverter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_markers/main/src/org/intermine/bio/dataconversion/zfin_markersConverter.java">
+>>>>>>> merge
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="8" selection-start="2943" selection-end="2943" vertical-scroll-proportion="0.3448276">
+            <state line="1305" column="39" selection-start="51213" selection-end="51213" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zfin.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/webapp/model/zfin.jsp">
+      <file leaf-file-name="ZfinOrthologuesConverter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfinOrthologues/main/src/org/intermine/bio/dataconversion/ZfinOrthologuesConverter.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="7" column="6" selection-start="230" selection-end="230" vertical-scroll-proportion="-4.576923">
 >>>>>>> Made changes to layout of home page
+=======
+            <state line="29" column="22" selection-start="792" selection-end="792" vertical-scroll-proportion="0.0">
+>>>>>>> merge
               <folding />
             </state>
           </provider>
@@ -209,15 +271,28 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../../zfinmine/webapp/resources/model.properties" />
-        <option value="$PROJECT_DIR$/../../zfinmine/webapp/resources/web.properties" />
+        <option value="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Publication.java" />
+        <option value="$PROJECT_DIR$/../../bio/sources/zebrafish/zebrafishChromosome/zebrafishChromosome_additions.xml" />
+        <option value="$PROJECT_DIR$/../../bio/sources/zebrafish/zfinGenotypes/zfinGenotypes_additions.xml" />
+        <option value="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Gene.java" />
+        <option value="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Genotype.java" />
+        <option value="$PROJECT_DIR$/../../zfinmine/project.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <option name="x" value="824" />
     <option name="y" value="22" />
@@ -229,16 +304,20 @@
     <option name="width" value="1296" />
     <option name="height" value="1000" />
 >>>>>>> Made changes to layout of home page
+=======
+    <option name="x" value="1043" />
+    <option name="y" value="41" />
+    <option name="width" value="1423" />
+    <option name="height" value="1228" />
+>>>>>>> merge
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <OptionsSetting value="true" id="Undo Check Out" />
-    <OptionsSetting value="true" id="Get Latest Version" />
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
@@ -258,6 +337,17 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
 <<<<<<< HEAD
@@ -292,111 +382,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="zfinmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zfinmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zfinmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zfinmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zfinmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="integrate" />
+              <option name="myItemId" value="zebrafish" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -413,6 +399,95 @@
               <option name="myItemId" value="zebrafish" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zfinGenotypes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zmine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zmine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zebrafish" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zfin_markers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zmine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zmine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zebrafish" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zfin_markers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zmine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zmine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zebrafish" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zfin_markers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataconversion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zmine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zmine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zebrafish" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+<<<<<<< HEAD
           </PATH>
         </subPane>
       </pane>
@@ -447,6 +522,11 @@
               <option name="myItemId" value="zmine" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
 >>>>>>> Made changes to layout of home page
+=======
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zebrafishChromosome" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+>>>>>>> merge
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -457,6 +537,8 @@
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/zmine.ipr" />
@@ -466,8 +548,11 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="JUnit.ZfinExpressionConverterTest">
     <configuration default="false" name="ZfinExpressionConverterTest.testProcess" type="JUnit" factoryName="JUnit" temporary="true">
@@ -515,6 +600,22 @@
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
       <method />
+<<<<<<< HEAD
+=======
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+>>>>>>> merge
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -543,6 +644,7 @@
       <properties />
       <listeners />
       <method />
+<<<<<<< HEAD
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
@@ -556,6 +658,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method />
+=======
+>>>>>>> merge
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -622,8 +726,8 @@
       <method />
     </configuration>
     <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.ZfinExpressionConverterTest.testProcess" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ZfinExpressionConverterTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.ZfinExpressionConverterTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ZfinExpressionConverterTest.testProcess" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -641,6 +745,7 @@
   </component>
   <component name="ToolWindowManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <frame x="824" y="22" width="1423" height="1228" extended-state="0" />
     <editor active="true" />
     <layout>
@@ -649,16 +754,23 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
 =======
     <frame x="-1269" y="11" width="1296" height="1000" extended-state="0" />
+=======
+    <frame x="1043" y="41" width="1423" height="1228" extended-state="0" />
+>>>>>>> merge
     <editor active="true" />
     <layout>
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3297619" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 >>>>>>> Made changes to layout of home page
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+>>>>>>> merge
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39927733" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -666,30 +778,46 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32942238" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
 =======
 >>>>>>> Made changes to layout of home page
+=======
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+>>>>>>> merge
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24981844" sideWeight="0.67057765" order="0" side_tool="false" content_ui="combo" />
 =======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24918832" sideWeight="0.6702381" order="0" side_tool="false" content_ui="combo" />
 >>>>>>> Made changes to layout of home page
+=======
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24981844" sideWeight="0.67057765" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> merge
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971996" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 =======
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971996" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
 >>>>>>> Made changes to layout of home page
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32942238" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942238" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+>>>>>>> merge
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -753,34 +881,35 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/main/src/org/intermine/bio/dataconversion/ZfinExpressionConverter.java">
+    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfinOrthologues/project.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="35" selection-start="6319" selection-end="6319" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/model.properties">
+    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Publication.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
 =======
         <state line="5" column="69" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0">
 >>>>>>> Made changes to layout of home page
+=======
+        <state line="70" column="48" selection-start="3069" selection-end="3069" vertical-scroll-proportion="0.0">
+>>>>>>> merge
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/tiles-defs-model.xml">
+    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/BioEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="2" column="17" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0433526">
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/test/src/org/intermine/bio/dataconversion/ZfinExpressionConverterTest.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -794,20 +923,30 @@
     <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/main/src/org/intermine/bio/dataconversion/ZfinExpressionConverter.java">
 =======
     <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/struts-config-model.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ZFATerm.java">
+>>>>>>> merge
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="2" column="17" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0433526">
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/struts-config-form-model.xml">
 >>>>>>> Made changes to layout of home page
       <provider selected="true" editor-type-id="text-editor">
         <state line="170" column="35" selection-start="6319" selection-end="6319" vertical-scroll-proportion="0.0">
+=======
+    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Gene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="74" selection-start="2319" selection-end="2319" vertical-scroll-proportion="0.42600897">
+>>>>>>> merge
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/fish/main/src/org/intermine/bio/dataconversion/FishConverter.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -817,49 +956,65 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
 >>>>>>> Made changes to layout of home page
+=======
+    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Construct.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="74" selection-start="3136" selection-end="3136" vertical-scroll-proportion="0.6980568">
+>>>>>>> merge
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/test/resources/2xpatres.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
 =======
     <entry file="file://$PROJECT_DIR$/../../zfinmine/default.intermine.webapp.properties">
+=======
+    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Chromosome.java">
+>>>>>>> merge
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="6" column="17" selection-start="279" selection-end="279" vertical-scroll-proportion="0.1300578">
           <folding />
         </state>
 >>>>>>> Made changes to layout of home page
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/webapp/WEB-INF/webconfig-model.xml">
+    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zebrafishChromosome/zebrafishChromosome_additions.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+=======
+        <state line="7" column="64" selection-start="303" selection-end="303" vertical-scroll-proportion="0.15463917">
+          <folding />
+        </state>
+>>>>>>> merge
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/webapp/WEB-INF/classDescriptions.properties">
+    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/fish/main/src/org/intermine/bio/dataconversion/FishConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="20" column="23" selection-start="582" selection-end="582" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/webapp/WEB-INF/webconfig-model.xml.orig">
+    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/main/src/org/intermine/bio/dataconversion/ZfinExpressionConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="170" column="35" selection-start="6319" selection-end="6319" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../zfinmine/integrate/project.properties">
+    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/test/src/org/intermine/bio/dataconversion/ZfinExpressionConverterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="26" selection-start="645" selection-end="645" vertical-scroll-proportion="0.0">
+        <state line="5" column="29" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfinOrthologues/main/src/org/intermine/bio/dataconversion/ZfinOrthologuesConverter.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -876,36 +1031,39 @@
           </folding>
 =======
     <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/webapp/model/zfin.jsp">
+=======
+    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfinGenotypes/zfinGenotypes_additions.xml">
+>>>>>>> merge
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="6" selection-start="230" selection-end="230" vertical-scroll-proportion="-4.576923">
+        <state line="57" column="43" selection-start="3402" selection-end="3402" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/project.properties">
+    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Genotype.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="7" column="25" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/webapp/WEB-INF/aspects.xml">
+    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfinOrthologues/main/src/org/intermine/bio/dataconversion/ZfinOrthologuesConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="95" selection-start="4693" selection-end="4693" vertical-scroll-proportion="0.0">
+        <state line="29" column="22" selection-start="792" selection-end="792" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../zfinmine/webapp/resources/web.properties">
+    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_markers/main/src/org/intermine/bio/dataconversion/zfin_markersConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="22" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0">
+        <state line="1305" column="39" selection-start="51213" selection-end="51213" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/main/intermine.properties">
+    <entry file="file://$PROJECT_DIR$/../../zfinmine/project.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="8" selection-start="2943" selection-end="2943" vertical-scroll-proportion="0.3448276">
+        <state line="134" column="76" selection-start="7574" selection-end="7574" vertical-scroll-proportion="0.29044464">
           <folding />
 >>>>>>> Made changes to layout of home page
         </state>
@@ -918,94 +1076,6 @@
         </state>
       </provider>
     </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>backbone</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.6 - org</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>zmine</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.6 - org</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>intermine-integrate</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
 

@@ -8,7 +8,7 @@
     <property name="default.intermine.properties.file" location="../default.intermine.integrate.properties"/>
     <sources>
 <!--      <source name="reactome" type="biopax">
-	<property name="src.data.dir" location="/home/intermine/zebrafish/reactome"/>
+	<property name="src.data.dir" location="../data-sources/reactome"/>
 	<property name="biopax.organisms" value="7227 7955 9606"/>
 	<property name="biopax.datasourcename" value="Reactome"/>
 	<property name="biopax.datasetname" value="Reactome data set"/>
@@ -18,112 +18,112 @@
             <property name="src.data.file" location="../../bio/sources/so/so.obo"/>
        </source>
         <source name="go" type="go">
-            <property name="src.data.file" location="/home/intermine/zebrafish/go/gene_ontology.obo"/>
+            <property name="src.data.file" location="../data-sources/go/gene_ontology.obo"/>
         </source>
        <source name="zfin_pato" type="zfin_pato">
-            <property name="src.data.file" location="/home/intermine/zebrafish/zfin_pato/quality.obo"/>
+            <property name="src.data.file" location="../data-sources/zfin_pato/quality.obo"/>
        </source>
         <source name="zfin_anatomy" type="zfin_anatomy">
-            <property name="src.data.file" location="/home/intermine/zebrafish/zfin_anatomy/zebrafish_anatomy.obo"/>
+            <property name="src.data.file" location="../data-sources/zfin_anatomy/zebrafish_anatomy.obo"/>
         </source>
 <!--        <source name="zfinSpatial" type="zfinSpatial">
-            <property name="src.data.file" location="/home/intermine/zebrafish/zfinSpatial/spatial.obo"/>
+            <property name="src.data.file" location="../data-sources/zfinSpatial/spatial.obo"/>
         </source> -->
         <source name="zfinJournals" type="zfinJournals">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_journals/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_journals/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
         <source name="zfin_pubs" type="zfin_pubs">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_pubs/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_pubs/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
 	<source name="zfin_stages" type="zfin_stages">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_stages/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_stages/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source> 
         <source name="zfin_markers" type="zfin_markers">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_markers/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_markers/"/>
         </source>
         <source name="zfinGenotypes" type="zfinGenotypes">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_genotypes/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_genotypes/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
 <!--        <source name="zfinExperiments" type="zfinExperiments">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_experiments/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_experiments/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
         <source name="zfin_genoenvs" type="zfin_genoenvs">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_genoenvs/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_genoenvs/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source> -->
         <source name="zfin_genofeats" type="zfin_genofeats">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_genofeats/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_genofeats/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
         <source name="zfin_features" type="zfin_features">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_features/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_features/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
         <source name="zfinFeatureMarkerRelationships" type="zfinFeatureMarkerRelationships">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_fmrels/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_fmrels/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
         <source name="genotypeAliases" type="genotypeAliases">
-          <property name="src.data.dir" location="/home/intermine/zebrafish/genotype_alias"/>
+          <property name="src.data.dir" location="../data-sources/genotype_alias"/>
           <property name="src.data.dir.includes" value="*.txt"/>
         </source>
 	<source name="zebrafishFeatureAliases" type="zebrafishFeatureAliases">
-	  <property name="src.data.dir" location="/home/intermine/zebrafish/feature_alias"/>
+	  <property name="src.data.dir" location="../data-sources/feature_alias"/>
 	  <property name="src.data.dir.includes" value="*.txt"/>
 	</source>
         <source name="featurePubs" type="featurePubs">
-          <property name="src.data.dir" location="/home/intermine/zebrafish/mutantAttributions"/>
+          <property name="src.data.dir" location="../data-sources/mutantAttributions"/>
           <property name="src.data.dir.includes" value="*.txt"/>
         </source>
 	<source name="flybase-identifiers" type="flybase-identifiers">
-	  <property name="src.data.dir" location="/home/intermine/zebrafish/flybase-identifiers"/>
+	  <property name="src.data.dir" location="../data-sources/flybase-identifiers"/>
 	</source>
 <!--	<source name="wormbase-identifiers" type="wormbase-identifiers">
-	  <property name="src.data.dir" location="/home/intermine/zebrafish/worm-identifiers"/>
+	  <property name="src.data.dir" location="../data-sources/worm-identifiers"/>
 	</source>-->
 	<source name="mgi-identifiers" type="mgi-identifiers">
-	  <property name="src.data.dir" location="/home/intermine/zebrafish/mgi-identifiers"/>
+	  <property name="src.data.dir" location="../data-sources/mgi-identifiers"/>
 	</source>
         <source name="zfinFigures" type="zfinFigures">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_figures/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_figures/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
 <!--        <source name="zfin_phenotypes" type="zfin_phenotypes">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_phenotypes/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_phenotypes/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source> -->
         <source name="fish" type="fish">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/fish/"/>
+            <property name="src.data.dir" location="../data-sources/fish/"/>
         </source>
 <!--        <source name="zfin_expression" type="zfin_expression" dump="true">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_expression/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_expression/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source> -->
        <source name="go-annotation" type="go-annotation">
-            <property name="ontologyfile" location="/home/intermine/zebrafish/go-annotation/gene_ontology.obo"/>
-            <property name="src.data.dir" location="/home/intermine/zebrafish/go-annotation/"/>
+            <property name="ontologyfile" location="../data-sources/go-annotation/gene_ontology.obo"/>
+            <property name="src.data.dir" location="../data-sources/go-annotation/"/>
             <property name="src.data.dir.includes" value="gene_association*"/>
        </source>
         <source name="zfinOrthologues" type="zfinOrthologues">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/zfin_orthos/"/>
+            <property name="src.data.dir" location="../data-sources/zfin_orthos/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
 	<source name="zebrafishChromosome" type="zebrafishChromosome">
-	  <property name="src.data.dir" location="/home/intermine/zebrafish/chromosome/"/>
+	  <property name="src.data.dir" location="../data-sources/chromosome/"/>
 	  <property name="src.data.dir.includes" value="*.txt"/>
 	</source>
 	<source name="zebrafishPanther" type="zebrafishPanther">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/panther/"/>
+            <property name="src.data.dir" location="../data-sources/panther/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
        </source>
         <!--   <source name="uniprot-zebrafish" type="uniprot">
        <property name="uniprot.organisms" value="7955"/>
-       <property name="src.data.dir" location="/home/intermine/zebrafish/uniprot/"/>
+       <property name="src.data.dir" location="../data-sources/uniprot/"/>
      </source>
      <source name="zfinSequence" type="zfinSequence">
        <property name="gff3.taxonId" value="7955"/>
@@ -131,7 +131,7 @@
        <property name="gff3.dataSourceName" value="ZFIN"/>
        <property name="gff3.seqClsName" value="Chromosome"/>
        <property name="gff3.dataSetTitle" value="ZFIN Danio rerio genome"/>
-       <property name="src.data.dir" location="/home/intermine/zebrafish/zfinSequence"/>
+       <property name="src.data.dir" location="../data-sources/zfinSequence"/>
      </source>
      <source name="zebrafish-chromosome-fasta" type="fasta" dump="true">
        <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
@@ -139,24 +139,24 @@
        <property name="fasta.dataSetTitle" value="ZfinDB chromosome sequence"/>
        <property name="fasta.taxonId" value="7955"/>
        <property name="fasta.includes" value="DRE*.fasta"/>
-       <property name="src.data.dir" location="/home/intermine/zebrafish/genome"/>
+       <property name="src.data.dir" location="../data-sources/genome"/>
      </source>   -->
 <!--
         <source name="kegg" type="kegg">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/kegg"/>
+            <property name="src.data.dir" location="../data-sources/kegg"/>
             <property name="taxonId" value="7955"/>
         </source> -->
 <!--   <source name="update-publications" type="update-publications">
      <property name="src.data.file" location="build/publications.xml"/>
    </source>-->   
    <source name="labs" type="labs">
-            <property name="src.data.dir" location="/home/intermine/zebrafish/lab/"/>
+            <property name="src.data.dir" location="../data-sources/lab/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
    </source><!--
        <source name="treefam" type="treefam">
-          <property name="src.data.dir" location="/home/intermine/zebrafish/treefam"/>
+          <property name="src.data.dir" location="../data-sources/treefam"/>
           <property name="src.data.dir.includes" value="ortholog.txt.table"/>
-          <property name="geneFile" value="/home/intermine/zebrafish/treefam/genes.txt.table"/>
+          <property name="geneFile" value="../data-sources/treefam/genes.txt.table"/>
           <property name="treefam.organisms" value="7955"/> 
           <property name="treefam.homologues" value="9606 10090 10116 7955 6239 7165 4932"/> 
        </source>-->
