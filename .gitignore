@@ -197,3 +197,5 @@ malariamine/
 nbproject/
 nb-build.xml
 .idea/
+
+.DS_Store
