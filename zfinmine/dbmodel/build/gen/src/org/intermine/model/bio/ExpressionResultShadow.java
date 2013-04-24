@@ -83,19 +83,19 @@ public class ExpressionResultShadow implements ExpressionResult, ShadowClass
     public void proxyGene(final org.intermine.objectstore.proxy.ProxyReference gene) { this.gene = gene; }
     public org.intermine.model.InterMineObject proxGetGene() { return gene; }
 
-    // Ref: org.intermine.model.bio.ExpressionResult.endStage
-    protected org.intermine.model.InterMineObject endStage;
-    public org.intermine.model.bio.ZFATerm getEndStage() { if (endStage instanceof org.intermine.objectstore.proxy.ProxyReference) { return ((org.intermine.model.bio.ZFATerm) ((org.intermine.objectstore.proxy.ProxyReference) endStage).getObject()); }; return (org.intermine.model.bio.ZFATerm) endStage; }
-    public void setEndStage(final org.intermine.model.bio.ZFATerm endStage) { this.endStage = endStage; }
-    public void proxyEndStage(final org.intermine.objectstore.proxy.ProxyReference endStage) { this.endStage = endStage; }
-    public org.intermine.model.InterMineObject proxGetEndStage() { return endStage; }
-
     // Ref: org.intermine.model.bio.ExpressionResult.anatomy
     protected org.intermine.model.InterMineObject anatomy;
     public org.intermine.model.bio.ZFATerm getAnatomy() { if (anatomy instanceof org.intermine.objectstore.proxy.ProxyReference) { return ((org.intermine.model.bio.ZFATerm) ((org.intermine.objectstore.proxy.ProxyReference) anatomy).getObject()); }; return (org.intermine.model.bio.ZFATerm) anatomy; }
     public void setAnatomy(final org.intermine.model.bio.ZFATerm anatomy) { this.anatomy = anatomy; }
     public void proxyAnatomy(final org.intermine.objectstore.proxy.ProxyReference anatomy) { this.anatomy = anatomy; }
     public org.intermine.model.InterMineObject proxGetAnatomy() { return anatomy; }
+
+    // Ref: org.intermine.model.bio.ExpressionResult.endStage
+    protected org.intermine.model.InterMineObject endStage;
+    public org.intermine.model.bio.ZFATerm getEndStage() { if (endStage instanceof org.intermine.objectstore.proxy.ProxyReference) { return ((org.intermine.model.bio.ZFATerm) ((org.intermine.objectstore.proxy.ProxyReference) endStage).getObject()); }; return (org.intermine.model.bio.ZFATerm) endStage; }
+    public void setEndStage(final org.intermine.model.bio.ZFATerm endStage) { this.endStage = endStage; }
+    public void proxyEndStage(final org.intermine.objectstore.proxy.ProxyReference endStage) { this.endStage = endStage; }
+    public org.intermine.model.InterMineObject proxGetEndStage() { return endStage; }
 
     // Col: org.intermine.model.bio.ExpressionResult.figures
     protected java.util.Set<org.intermine.model.bio.Figure> figures = new java.util.HashSet<org.intermine.model.bio.Figure>();
@@ -183,18 +183,18 @@ public class ExpressionResultShadow implements ExpressionResult, ShadowClass
                 return gene;
             }
         }
-        if ("endStage".equals(fieldName)) {
-            if (endStage instanceof ProxyReference) {
-                return ((ProxyReference) endStage).getObject();
-            } else {
-                return endStage;
-            }
-        }
         if ("anatomy".equals(fieldName)) {
             if (anatomy instanceof ProxyReference) {
                 return ((ProxyReference) anatomy).getObject();
             } else {
                 return anatomy;
+            }
+        }
+        if ("endStage".equals(fieldName)) {
+            if (endStage instanceof ProxyReference) {
+                return ((ProxyReference) endStage).getObject();
+            } else {
+                return endStage;
             }
         }
         if ("figures".equals(fieldName)) {
@@ -245,11 +245,11 @@ public class ExpressionResultShadow implements ExpressionResult, ShadowClass
         if ("gene".equals(fieldName)) {
             return gene;
         }
-        if ("endStage".equals(fieldName)) {
-            return endStage;
-        }
         if ("anatomy".equals(fieldName)) {
             return anatomy;
+        }
+        if ("endStage".equals(fieldName)) {
+            return endStage;
         }
         if ("figures".equals(fieldName)) {
             return figures;
@@ -288,10 +288,10 @@ public class ExpressionResultShadow implements ExpressionResult, ShadowClass
             startStage = (org.intermine.model.InterMineObject) value;
         } else if ("gene".equals(fieldName)) {
             gene = (org.intermine.model.InterMineObject) value;
-        } else if ("endStage".equals(fieldName)) {
-            endStage = (org.intermine.model.InterMineObject) value;
         } else if ("anatomy".equals(fieldName)) {
             anatomy = (org.intermine.model.InterMineObject) value;
+        } else if ("endStage".equals(fieldName)) {
+            endStage = (org.intermine.model.InterMineObject) value;
         } else if ("figures".equals(fieldName)) {
             figures = (java.util.Set) value;
         } else if ("crossReferences".equals(fieldName)) {
@@ -340,10 +340,10 @@ public class ExpressionResultShadow implements ExpressionResult, ShadowClass
         if ("gene".equals(fieldName)) {
             return org.intermine.model.bio.Gene.class;
         }
-        if ("endStage".equals(fieldName)) {
+        if ("anatomy".equals(fieldName)) {
             return org.intermine.model.bio.ZFATerm.class;
         }
-        if ("anatomy".equals(fieldName)) {
+        if ("endStage".equals(fieldName)) {
             return org.intermine.model.bio.ZFATerm.class;
         }
         if ("figures".equals(fieldName)) {
@@ -435,11 +435,11 @@ public class ExpressionResultShadow implements ExpressionResult, ShadowClass
         if (gene != null) {
             sb.append("$_^rgene$_^").append(gene.getId());
         }
-        if (endStage != null) {
-            sb.append("$_^rendStage$_^").append(endStage.getId());
-        }
         if (anatomy != null) {
             sb.append("$_^ranatomy$_^").append(anatomy.getId());
+        }
+        if (endStage != null) {
+            sb.append("$_^rendStage$_^").append(endStage.getId());
         }
         if (id != null) {
             sb.append("$_^aid$_^").append(id);
@@ -528,14 +528,14 @@ public class ExpressionResultShadow implements ExpressionResult, ShadowClass
                 gene = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.Gene.class);
                 i++;
             };
-            if ((i < notXml.length) &&"rendStage".equals(notXml[i])) {
-                i++;
-                endStage = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.ZFATerm.class);
-                i++;
-            };
             if ((i < notXml.length) &&"ranatomy".equals(notXml[i])) {
                 i++;
                 anatomy = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.ZFATerm.class);
+                i++;
+            };
+            if ((i < notXml.length) &&"rendStage".equals(notXml[i])) {
+                i++;
+                endStage = new ProxyReference(os, Integer.valueOf(notXml[i]), org.intermine.model.bio.ZFATerm.class);
                 i++;
             };
             if ((i < notXml.length) && "aid".equals(notXml[i])) {
