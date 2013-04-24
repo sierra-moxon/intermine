@@ -2,11 +2,11 @@ package org.intermine.model.bio;
 
 public interface Gene extends org.intermine.model.bio.SequenceFeature
 {
-    public java.lang.String getBriefDescription();
-    public void setBriefDescription(final java.lang.String briefDescription);
-
     public java.lang.String getType();
     public void setType(final java.lang.String type);
+
+    public java.lang.String getBriefDescription();
+    public void setBriefDescription(final java.lang.String briefDescription);
 
     public java.lang.String getDescription();
     public void setDescription(final java.lang.String description);
