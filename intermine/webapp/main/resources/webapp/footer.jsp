@@ -35,7 +35,7 @@
         <!-- powered -->
         <p>Powered by</p>
         <a target="new" href="http://intermine.org" title="InterMine">
-            <img src="images/icons/intermine-footer-logo.png" alt="InterMine logo" />
+            <img src="images/icons/intermine-footer-logo.png" alt="InterMine logo" height="10" />
         </a>
     </div>
 </div>
@@ -46,23 +46,6 @@
         <img src="images/icons/cambridge-footer-logo.png" alt="University of Cambridge logo">
     </a> -->
 
-    <!--<ul class="footer-links">
-        <!-- contact us form link -->
-        <li><a href="#" onclick="showContactForm();return false;">Contact Us</a></li>
-        <c:set value="${WEB_PROPERTIES['header.links']}" var="headerLinks"/>
-        <!-- web properties -->
-        <c:forEach var="entry" items="${headerLinks}" varStatus="status">
-            <c:set value="header.links.${entry}" var="linkProp"/>
-            <c:choose>
-                <c:when test="${!empty WEB_PROPERTIES[linkProp]}">
-                    <li><a href="${WEB_PROPERTIES[linkProp]}">${entry}</a></li>
-                </c:when>
-                <c:otherwise>
-                    <li><a href="${WEB_PROPERTIES['project.sitePrefix']}/${entry}.shtml">${entry}</a></li>
-                </c:otherwise>
-            </c:choose>
-        </c:forEach>
-    </ul> -->
 
     <!-- mines 
     <ul class="footer-links">
