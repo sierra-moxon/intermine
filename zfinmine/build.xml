@@ -1,0 +1,24 @@
+<project name="deploy-webapp" default="deploy" basedir=".">
+
+    <description>deploy the web application</description>
+
+    <target name="deploy">
+        <ant antfile="webapp/build.xml" target="default" inheritAll="false"/>
+    </target>
+
+    <property name="dist.webapp" value="webapp/dist"/>
+    <property name="tomcat.webapp" value="${dist.webapp}/tomcat-webapp"/>
+
+    <target name="copy-to-tomcat">
+        <delete includeemptydirs="true" quiet="true">
+            <fileset dir="${tomcat.webapp}" includes="**/*"/>
+        </delete>
+        <mkdir dir="${tomcat.webapp}"/>
+        <copy file="${dist.webapp}/zfinmine-webapp.war" tofile="${tomcat.webapp}/${release}-zebrafishmine.war"/>
+    </target>
+
+    <target name="hh">
+        <echo message="${release}"/>
+    </target>
+</project>
+
