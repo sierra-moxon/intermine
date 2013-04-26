@@ -167,6 +167,7 @@ div#menucontainer {
     clear: both;
     padding-left: 10px;
     width: 1000px;
+    background-color: #066;
 }
 
 ul#nav {
@@ -174,6 +175,7 @@ ul#nav {
     clear: both;
     margin-left: 10px;
     margin-bottom: 0px;
+    background-color: #066;
 }
 
 ul#nav a {
