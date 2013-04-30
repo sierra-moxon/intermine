@@ -59,12 +59,6 @@ public class GeneShadow implements Gene, ShadowClass
     public void setTranscripts(final java.util.Set<org.intermine.model.bio.Transcript> transcripts) { this.transcripts = transcripts; }
     public void addTranscripts(final org.intermine.model.bio.Transcript arg) { transcripts.add(arg); }
 
-    // Col: org.intermine.model.bio.Gene.chromosomes
-    protected java.util.Set<org.intermine.model.bio.Chromosome> chromosomes = new java.util.HashSet<org.intermine.model.bio.Chromosome>();
-    public java.util.Set<org.intermine.model.bio.Chromosome> getChromosomes() { return chromosomes; }
-    public void setChromosomes(final java.util.Set<org.intermine.model.bio.Chromosome> chromosomes) { this.chromosomes = chromosomes; }
-    public void addChromosomes(final org.intermine.model.bio.Chromosome arg) { chromosomes.add(arg); }
-
     // Col: org.intermine.model.bio.Gene.CDSs
     protected java.util.Set<org.intermine.model.bio.CDS> CDSs = new java.util.HashSet<org.intermine.model.bio.CDS>();
     public java.util.Set<org.intermine.model.bio.CDS> getcDSs() { return CDSs; }
@@ -356,9 +350,6 @@ public class GeneShadow implements Gene, ShadowClass
         if ("transcripts".equals(fieldName)) {
             return transcripts;
         }
-        if ("chromosomes".equals(fieldName)) {
-            return chromosomes;
-        }
         if ("CDSs".equals(fieldName)) {
             return CDSs;
         }
@@ -538,9 +529,6 @@ public class GeneShadow implements Gene, ShadowClass
         if ("transcripts".equals(fieldName)) {
             return transcripts;
         }
-        if ("chromosomes".equals(fieldName)) {
-            return chromosomes;
-        }
         if ("CDSs".equals(fieldName)) {
             return CDSs;
         }
@@ -692,8 +680,6 @@ public class GeneShadow implements Gene, ShadowClass
             goAnnotation = (java.util.Set) value;
         } else if ("transcripts".equals(fieldName)) {
             transcripts = (java.util.Set) value;
-        } else if ("chromosomes".equals(fieldName)) {
-            chromosomes = (java.util.Set) value;
         } else if ("CDSs".equals(fieldName)) {
             CDSs = (java.util.Set) value;
         } else if ("pathways".equals(fieldName)) {
@@ -811,9 +797,6 @@ public class GeneShadow implements Gene, ShadowClass
             return java.util.Set.class;
         }
         if ("transcripts".equals(fieldName)) {
-            return java.util.Set.class;
-        }
-        if ("chromosomes".equals(fieldName)) {
             return java.util.Set.class;
         }
         if ("CDSs".equals(fieldName)) {
@@ -1262,7 +1245,6 @@ public class GeneShadow implements Gene, ShadowClass
         cloneArtifacts = new ProxyCollection<org.intermine.model.bio.Clone>(os, this, "cloneArtifacts", org.intermine.model.bio.Clone.class);
         goAnnotation = new ProxyCollection<org.intermine.model.bio.GOAnnotation>(os, this, "goAnnotation", org.intermine.model.bio.GOAnnotation.class);
         transcripts = new ProxyCollection<org.intermine.model.bio.Transcript>(os, this, "transcripts", org.intermine.model.bio.Transcript.class);
-        chromosomes = new ProxyCollection<org.intermine.model.bio.Chromosome>(os, this, "chromosomes", org.intermine.model.bio.Chromosome.class);
         CDSs = new ProxyCollection<org.intermine.model.bio.CDS>(os, this, "CDSs", org.intermine.model.bio.CDS.class);
         pathways = new ProxyCollection<org.intermine.model.bio.Pathway>(os, this, "pathways", org.intermine.model.bio.Pathway.class);
         codingSequenceOf = new ProxyCollection<org.intermine.model.bio.Construct>(os, this, "codingSequenceOf", org.intermine.model.bio.Construct.class);
@@ -1301,8 +1283,6 @@ public class GeneShadow implements Gene, ShadowClass
             goAnnotation.add((org.intermine.model.bio.GOAnnotation) element);
         } else if ("transcripts".equals(fieldName)) {
             transcripts.add((org.intermine.model.bio.Transcript) element);
-        } else if ("chromosomes".equals(fieldName)) {
-            chromosomes.add((org.intermine.model.bio.Chromosome) element);
         } else if ("CDSs".equals(fieldName)) {
             CDSs.add((org.intermine.model.bio.CDS) element);
         } else if ("pathways".equals(fieldName)) {
@@ -1380,9 +1360,6 @@ public class GeneShadow implements Gene, ShadowClass
         }
         if ("transcripts".equals(fieldName)) {
             return org.intermine.model.bio.Transcript.class;
-        }
-        if ("chromosomes".equals(fieldName)) {
-            return org.intermine.model.bio.Chromosome.class;
         }
         if ("CDSs".equals(fieldName)) {
             return org.intermine.model.bio.CDS.class;
