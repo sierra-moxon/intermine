@@ -43,35 +43,6 @@
 	<reference name="subject" referenced-type="BioEntity" reverse-reference="crossReferences"/>
 	<reference name="source" referenced-type="DataSource"/>
 </class>
-<class name="Gene" extends="SequenceFeature" is-interface="true">
-	<attribute name="type" type="java.lang.String"/>
-	<attribute name="briefDescription" type="java.lang.String"/>
-	<attribute name="description" type="java.lang.String"/>
-	<reference name="downstreamIntergenicRegion" referenced-type="IntergenicRegion"/>
-	<reference name="upstreamIntergenicRegion" referenced-type="IntergenicRegion"/>
-	<collection name="cloneArtifacts" referenced-type="Clone" reverse-reference="artifacts"/>
-	<collection name="goAnnotation" referenced-type="GOAnnotation"/>
-	<collection name="transcripts" referenced-type="Transcript" reverse-reference="gene"/>
-	<collection name="chromosomes" referenced-type="Chromosome" reverse-reference="genes"/>
-	<collection name="CDSs" referenced-type="CDS" reverse-reference="gene"/>
-	<collection name="pathways" referenced-type="Pathway" reverse-reference="genes"/>
-	<collection name="codingSequenceOf" referenced-type="Construct" reverse-reference="codingSequences"/>
-	<collection name="encodes" referenced-type="Clone" reverse-reference="genes"/>
-	<collection name="promotes" referenced-type="Construct" reverse-reference="promoters"/>
-	<collection name="flankingRegions" referenced-type="GeneFlankingRegion" reverse-reference="gene"/>
-	<collection name="antibodies" referenced-type="Antibody" reverse-reference="genes"/>
-	<collection name="morpholinos" referenced-type="MorpholinoOligo" reverse-reference="targets"/>
-	<collection name="features" referenced-type="SequenceAlteration" reverse-reference="genes"/>
-	<collection name="expressions" referenced-type="ExpressionResult" reverse-reference="gene"/>
-	<collection name="proteins" referenced-type="Protein" reverse-reference="genes"/>
-	<collection name="UTRs" referenced-type="UTR" reverse-reference="gene"/>
-	<collection name="homologues" referenced-type="Homologue" reverse-reference="gene"/>
-	<collection name="exons" referenced-type="Exon" reverse-reference="gene"/>
-	<collection name="introns" referenced-type="Intron" reverse-reference="genes"/>
-	<collection name="stss" referenced-type="STS" reverse-reference="genes"/>
-	<collection name="genotypes" referenced-type="Genotype" reverse-reference="genes"/>
-	<collection name="snps" referenced-type="SNP" reverse-reference="gene"/>
-</class>
 <class name="Pseudogene" extends="SequenceFeature" is-interface="true">
 	<attribute name="type" type="java.lang.String"/>
 	<attribute name="comments" type="java.lang.String"/>
@@ -324,9 +295,6 @@
 <class name="PATOTerm" extends="OntologyTerm" is-interface="true">
 	<collection name="phenotypes" referenced-type="Phenotype" reverse-reference="phenotypeTerm"/>
 </class>
-<class name="Chromosome" extends="SequenceFeature" is-interface="true">
-	<collection name="genes" referenced-type="Gene" reverse-reference="chromosomes"/>
-</class>
 <class name="Reagent" extends="SequenceFeature" is-interface="true"></class>
 <class name="Synonym" is-interface="true">
 	<attribute name="value" type="java.lang.String"/>
@@ -376,6 +344,34 @@
 <class name="DNAClone" extends="Clone" is-interface="true"></class>
 <class name="PseudogenicTranscript" extends="PseudogenicRegion" is-interface="true">
 	<reference name="pseudogene" referenced-type="Pseudogene" reverse-reference="pseudogenicTranscripts"/>
+</class>
+<class name="Gene" extends="SequenceFeature" is-interface="true">
+	<attribute name="type" type="java.lang.String"/>
+	<attribute name="briefDescription" type="java.lang.String"/>
+	<attribute name="description" type="java.lang.String"/>
+	<reference name="downstreamIntergenicRegion" referenced-type="IntergenicRegion"/>
+	<reference name="upstreamIntergenicRegion" referenced-type="IntergenicRegion"/>
+	<collection name="cloneArtifacts" referenced-type="Clone" reverse-reference="artifacts"/>
+	<collection name="goAnnotation" referenced-type="GOAnnotation"/>
+	<collection name="transcripts" referenced-type="Transcript" reverse-reference="gene"/>
+	<collection name="CDSs" referenced-type="CDS" reverse-reference="gene"/>
+	<collection name="pathways" referenced-type="Pathway" reverse-reference="genes"/>
+	<collection name="codingSequenceOf" referenced-type="Construct" reverse-reference="codingSequences"/>
+	<collection name="encodes" referenced-type="Clone" reverse-reference="genes"/>
+	<collection name="promotes" referenced-type="Construct" reverse-reference="promoters"/>
+	<collection name="flankingRegions" referenced-type="GeneFlankingRegion" reverse-reference="gene"/>
+	<collection name="antibodies" referenced-type="Antibody" reverse-reference="genes"/>
+	<collection name="morpholinos" referenced-type="MorpholinoOligo" reverse-reference="targets"/>
+	<collection name="features" referenced-type="SequenceAlteration" reverse-reference="genes"/>
+	<collection name="expressions" referenced-type="ExpressionResult" reverse-reference="gene"/>
+	<collection name="proteins" referenced-type="Protein" reverse-reference="genes"/>
+	<collection name="UTRs" referenced-type="UTR" reverse-reference="gene"/>
+	<collection name="homologues" referenced-type="Homologue" reverse-reference="gene"/>
+	<collection name="exons" referenced-type="Exon" reverse-reference="gene"/>
+	<collection name="introns" referenced-type="Intron" reverse-reference="genes"/>
+	<collection name="stss" referenced-type="STS" reverse-reference="genes"/>
+	<collection name="genotypes" referenced-type="Genotype" reverse-reference="genes"/>
+	<collection name="snps" referenced-type="SNP" reverse-reference="gene"/>
 </class>
 <class name="STS" extends="Tag" is-interface="true">
 	<attribute name="type" type="java.lang.String"/>
@@ -513,6 +509,7 @@
 <class name="SequenceCollection" extends="BioEntity" is-interface="true">
 	<reference name="sequenceOntologyTerm" referenced-type="SOTerm"/>
 </class>
+<class name="Chromosome" extends="SequenceFeature" is-interface="true"></class>
 <class name="Location" is-interface="true">
 	<attribute name="start" type="java.lang.Integer"/>
 	<attribute name="end" type="java.lang.Integer"/>
