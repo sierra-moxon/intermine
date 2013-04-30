@@ -75,16 +75,6 @@
             <unique-column name="id"/>
         </unique>
     </table>
-    <table name="DataSource">
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="name" type="LONGVARCHAR"/>
-        <column name="url" type="LONGVARCHAR"/>
-        <column name="description" type="LONGVARCHAR"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="DataSource_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
     <table name="SimpleSequenceLengthVariation">
         <column name="secondaryIdentifier" type="LONGVARCHAR"/>
         <column name="symbol" type="LONGVARCHAR"/>
@@ -434,6 +424,16 @@
             <unique-column name="id"/>
         </unique>
     </table>
+    <table name="DataSource">
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="name" type="LONGVARCHAR"/>
+        <column name="url" type="LONGVARCHAR"/>
+        <column name="description" type="LONGVARCHAR"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="DataSource_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
     <table name="GOTerm">
         <column name="identifier" type="LONGVARCHAR"/>
         <column name="stageStartHour" type="LONGVARCHAR"/>
@@ -650,24 +650,6 @@
         <column name="organismId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="EFG_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table name="OntologyTerm">
-        <column name="identifier" type="LONGVARCHAR"/>
-        <column name="stageStartHour" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
-        <column name="obsolete" type="BIT"/>
-        <column name="namespace" type="LONGVARCHAR"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="name" type="LONGVARCHAR"/>
-        <column name="stageAbbreviation" type="LONGVARCHAR"/>
-        <column name="stageEndHour" type="LONGVARCHAR"/>
-        <column name="description" type="LONGVARCHAR"/>
-        <column name="ontologyId" type="INTEGER"/>
-        <column name="organismId" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="OntologyTerm_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -1057,6 +1039,24 @@
             <unique-column name="id"/>
         </unique>
     </table>
+    <table name="OntologyTerm">
+        <column name="identifier" type="LONGVARCHAR"/>
+        <column name="stageStartHour" type="LONGVARCHAR"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="obsolete" type="BIT"/>
+        <column name="namespace" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="name" type="LONGVARCHAR"/>
+        <column name="stageAbbreviation" type="LONGVARCHAR"/>
+        <column name="stageEndHour" type="LONGVARCHAR"/>
+        <column name="description" type="LONGVARCHAR"/>
+        <column name="ontologyId" type="INTEGER"/>
+        <column name="organismId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="OntologyTerm_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
     <table name="RNAClone">
         <column name="secondaryIdentifier" type="LONGVARCHAR"/>
         <column name="digest" type="LONGVARCHAR"/>
@@ -1085,6 +1085,24 @@
         <column name="sequenceOntologyTermId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="RNAClone_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
+    <table name="ZFATerm">
+        <column name="identifier" type="LONGVARCHAR"/>
+        <column name="stageStartHour" type="LONGVARCHAR"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="obsolete" type="BIT"/>
+        <column name="namespace" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="name" type="LONGVARCHAR"/>
+        <column name="stageAbbreviation" type="LONGVARCHAR"/>
+        <column name="stageEndHour" type="LONGVARCHAR"/>
+        <column name="description" type="LONGVARCHAR"/>
+        <column name="ontologyId" type="INTEGER"/>
+        <column name="organismId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="ZFATerm_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -1141,24 +1159,6 @@
         <column name="sequenceOntologyTermId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="PseudogenicRegion_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table name="ZFATerm">
-        <column name="identifier" type="LONGVARCHAR"/>
-        <column name="stageStartHour" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
-        <column name="obsolete" type="BIT"/>
-        <column name="namespace" type="LONGVARCHAR"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="name" type="LONGVARCHAR"/>
-        <column name="stageAbbreviation" type="LONGVARCHAR"/>
-        <column name="stageEndHour" type="LONGVARCHAR"/>
-        <column name="description" type="LONGVARCHAR"/>
-        <column name="ontologyId" type="INTEGER"/>
-        <column name="organismId" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="ZFATerm_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -1361,6 +1361,10 @@
         <column name="Publication" type="INTEGER" required="true"/>
         <column name="Transcripts" type="INTEGER" required="true"/>
     </table>
+    <table name="OntologyTermRelations">
+        <column name="OntologyTerm" type="INTEGER" required="true"/>
+        <column name="Relations" type="INTEGER" required="true"/>
+    </table>
     <table name="OntologyAnnotationPublications">
         <column name="OntologyAnnotation" type="INTEGER" required="true"/>
         <column name="Publications" type="INTEGER" required="true"/>
@@ -1373,17 +1377,13 @@
         <column name="Genotype" type="INTEGER" required="true"/>
         <column name="Publications" type="INTEGER" required="true"/>
     </table>
-    <table name="OntologyTermRelations">
+    <table name="DataSetsOntologyTerm">
         <column name="OntologyTerm" type="INTEGER" required="true"/>
-        <column name="Relations" type="INTEGER" required="true"/>
+        <column name="DataSets" type="INTEGER" required="true"/>
     </table>
     <table name="AuthorsPublications">
         <column name="Publications" type="INTEGER" required="true"/>
         <column name="Authors" type="INTEGER" required="true"/>
-    </table>
-    <table name="DataSetsOntologyTerm">
-        <column name="OntologyTerm" type="INTEGER" required="true"/>
-        <column name="DataSets" type="INTEGER" required="true"/>
     </table>
     <table name="PromotesTranscript">
         <column name="Transcript" type="INTEGER" required="true"/>
@@ -1397,13 +1397,13 @@
         <column name="Publication" type="INTEGER" required="true"/>
         <column name="Antibodies" type="INTEGER" required="true"/>
     </table>
-    <table name="PublicationsRegion">
-        <column name="Region" type="INTEGER" required="true"/>
-        <column name="Publications" type="INTEGER" required="true"/>
-    </table>
     <table name="PromotersPromotes">
         <column name="Promoters" type="INTEGER" required="true"/>
         <column name="Promotes" type="INTEGER" required="true"/>
+    </table>
+    <table name="PublicationsRegion">
+        <column name="Region" type="INTEGER" required="true"/>
+        <column name="Publications" type="INTEGER" required="true"/>
     </table>
     <table name="LabOfOriginLines">
         <column name="Lines" type="INTEGER" required="true"/>
@@ -1444,6 +1444,10 @@
     <table name="ExpressionResultsEndOntologyTerm">
         <column name="OntologyTerm" type="INTEGER" required="true"/>
         <column name="ExpressionResultsEnd" type="INTEGER" required="true"/>
+    </table>
+    <table name="DataSourcePublications">
+        <column name="DataSource" type="INTEGER" required="true"/>
+        <column name="Publications" type="INTEGER" required="true"/>
     </table>
     <table name="MarkerPublications">
         <column name="Marker" type="INTEGER" required="true"/>
@@ -1553,10 +1557,6 @@
         <column name="Constructs" type="INTEGER" required="true"/>
         <column name="EFGs" type="INTEGER" required="true"/>
     </table>
-    <table name="CrossReferencesZFATerm">
-        <column name="ZFATerm" type="INTEGER" required="true"/>
-        <column name="CrossReferences" type="INTEGER" required="true"/>
-    </table>
     <table name="InnocuousAllelesInnocuousConstructs">
         <column name="InnocuousAlleles" type="INTEGER" required="true"/>
         <column name="InnocuousConstructs" type="INTEGER" required="true"/>
@@ -1637,13 +1637,17 @@
         <column name="OrthologueEvidence" type="INTEGER" required="true"/>
         <column name="Publications" type="INTEGER" required="true"/>
     </table>
-    <table name="AntibodyCrossReferences">
-        <column name="Antibody" type="INTEGER" required="true"/>
+    <table name="CrossReferencesOntologyTerm">
+        <column name="OntologyTerm" type="INTEGER" required="true"/>
         <column name="CrossReferences" type="INTEGER" required="true"/>
     </table>
     <table name="OntologyTermParents">
         <column name="OntologyTerm" type="INTEGER" required="true"/>
         <column name="Parents" type="INTEGER" required="true"/>
+    </table>
+    <table name="AntibodyCrossReferences">
+        <column name="Antibody" type="INTEGER" required="true"/>
+        <column name="CrossReferences" type="INTEGER" required="true"/>
     </table>
     <table name="PublicationSTSs">
         <column name="Publication" type="INTEGER" required="true"/>

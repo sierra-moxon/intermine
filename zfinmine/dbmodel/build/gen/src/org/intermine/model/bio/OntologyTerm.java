@@ -79,4 +79,8 @@ public interface OntologyTerm extends org.intermine.model.InterMineObject
     public void setExpressionResultsStart(final java.util.Set<org.intermine.model.bio.ExpressionResult> expressionResultsStart);
     public void addExpressionResultsStart(final org.intermine.model.bio.ExpressionResult arg);
 
+    public java.util.Set<org.intermine.model.bio.OntologyTerm> getCrossReferences();
+    public void setCrossReferences(final java.util.Set<org.intermine.model.bio.OntologyTerm> crossReferences);
+    public void addCrossReferences(final org.intermine.model.bio.OntologyTerm arg);
+
 }
