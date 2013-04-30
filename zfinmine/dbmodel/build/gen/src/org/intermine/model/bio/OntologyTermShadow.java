@@ -131,6 +131,12 @@ public class OntologyTermShadow implements OntologyTerm, ShadowClass
     public void setExpressionResultsStart(final java.util.Set<org.intermine.model.bio.ExpressionResult> expressionResultsStart) { this.expressionResultsStart = expressionResultsStart; }
     public void addExpressionResultsStart(final org.intermine.model.bio.ExpressionResult arg) { expressionResultsStart.add(arg); }
 
+    // Col: org.intermine.model.bio.OntologyTerm.crossReferences
+    protected java.util.Set<org.intermine.model.bio.OntologyTerm> crossReferences = new java.util.HashSet<org.intermine.model.bio.OntologyTerm>();
+    public java.util.Set<org.intermine.model.bio.OntologyTerm> getCrossReferences() { return crossReferences; }
+    public void setCrossReferences(final java.util.Set<org.intermine.model.bio.OntologyTerm> crossReferences) { this.crossReferences = crossReferences; }
+    public void addCrossReferences(final org.intermine.model.bio.OntologyTerm arg) { crossReferences.add(arg); }
+
     // Attr: org.intermine.model.InterMineObject.id
     protected java.lang.Integer id;
     public java.lang.Integer getId() { return id; }
@@ -211,6 +217,9 @@ public class OntologyTermShadow implements OntologyTerm, ShadowClass
         if ("expressionResultsStart".equals(fieldName)) {
             return expressionResultsStart;
         }
+        if ("crossReferences".equals(fieldName)) {
+            return crossReferences;
+        }
         if ("id".equals(fieldName)) {
             return id;
         }
@@ -283,6 +292,9 @@ public class OntologyTermShadow implements OntologyTerm, ShadowClass
         if ("expressionResultsStart".equals(fieldName)) {
             return expressionResultsStart;
         }
+        if ("crossReferences".equals(fieldName)) {
+            return crossReferences;
+        }
         if ("id".equals(fieldName)) {
             return id;
         }
@@ -334,6 +346,8 @@ public class OntologyTermShadow implements OntologyTerm, ShadowClass
             dataSets = (java.util.Set) value;
         } else if ("expressionResultsStart".equals(fieldName)) {
             expressionResultsStart = (java.util.Set) value;
+        } else if ("crossReferences".equals(fieldName)) {
+            crossReferences = (java.util.Set) value;
         } else if ("id".equals(fieldName)) {
             id = (java.lang.Integer) value;
         } else {
@@ -406,6 +420,9 @@ public class OntologyTermShadow implements OntologyTerm, ShadowClass
             return java.util.Set.class;
         }
         if ("expressionResultsStart".equals(fieldName)) {
+            return java.util.Set.class;
+        }
+        if ("crossReferences".equals(fieldName)) {
             return java.util.Set.class;
         }
         if ("id".equals(fieldName)) {
@@ -687,6 +704,7 @@ public class OntologyTermShadow implements OntologyTerm, ShadowClass
         parents = new ProxyCollection<org.intermine.model.bio.OntologyTerm>(os, this, "parents", org.intermine.model.bio.OntologyTerm.class);
         dataSets = new ProxyCollection<org.intermine.model.bio.DataSet>(os, this, "dataSets", org.intermine.model.bio.DataSet.class);
         expressionResultsStart = new ProxyCollection<org.intermine.model.bio.ExpressionResult>(os, this, "expressionResultsStart", org.intermine.model.bio.ExpressionResult.class);
+        crossReferences = new ProxyCollection<org.intermine.model.bio.OntologyTerm>(os, this, "crossReferences", org.intermine.model.bio.OntologyTerm.class);
     }
     public void addCollectionElement(final String fieldName, final org.intermine.model.InterMineObject element) {
         if ("synonyms".equals(fieldName)) {
@@ -709,6 +727,8 @@ public class OntologyTermShadow implements OntologyTerm, ShadowClass
             dataSets.add((org.intermine.model.bio.DataSet) element);
         } else if ("expressionResultsStart".equals(fieldName)) {
             expressionResultsStart.add((org.intermine.model.bio.ExpressionResult) element);
+        } else if ("crossReferences".equals(fieldName)) {
+            crossReferences.add((org.intermine.model.bio.OntologyTerm) element);
         } else {
             if (!org.intermine.model.bio.OntologyTerm.class.equals(getClass())) {
                 TypeUtil.addCollectionElement(this, fieldName, element);
@@ -747,6 +767,9 @@ public class OntologyTermShadow implements OntologyTerm, ShadowClass
         }
         if ("expressionResultsStart".equals(fieldName)) {
             return org.intermine.model.bio.ExpressionResult.class;
+        }
+        if ("crossReferences".equals(fieldName)) {
+            return org.intermine.model.bio.OntologyTerm.class;
         }
         if (!org.intermine.model.bio.OntologyTerm.class.equals(getClass())) {
             return TypeUtil.getElementType(org.intermine.model.bio.OntologyTerm.class, fieldName);

@@ -12,12 +12,6 @@ import org.intermine.model.ShadowClass;
 public class ZFATermShadow implements ZFATerm, ShadowClass
 {
     public static final Class<ZFATerm> shadowOf = ZFATerm.class;
-    // Col: org.intermine.model.bio.ZFATerm.crossReferences
-    protected java.util.Set<org.intermine.model.bio.CrossReference> crossReferences = new java.util.HashSet<org.intermine.model.bio.CrossReference>();
-    public java.util.Set<org.intermine.model.bio.CrossReference> getCrossReferences() { return crossReferences; }
-    public void setCrossReferences(final java.util.Set<org.intermine.model.bio.CrossReference> crossReferences) { this.crossReferences = crossReferences; }
-    public void addCrossReferences(final org.intermine.model.bio.CrossReference arg) { crossReferences.add(arg); }
-
     // Attr: org.intermine.model.bio.OntologyTerm.identifier
     protected java.lang.String identifier;
     public java.lang.String getIdentifier() { return identifier; }
@@ -137,6 +131,12 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
     public void setExpressionResultsStart(final java.util.Set<org.intermine.model.bio.ExpressionResult> expressionResultsStart) { this.expressionResultsStart = expressionResultsStart; }
     public void addExpressionResultsStart(final org.intermine.model.bio.ExpressionResult arg) { expressionResultsStart.add(arg); }
 
+    // Col: org.intermine.model.bio.OntologyTerm.crossReferences
+    protected java.util.Set<org.intermine.model.bio.OntologyTerm> crossReferences = new java.util.HashSet<org.intermine.model.bio.OntologyTerm>();
+    public java.util.Set<org.intermine.model.bio.OntologyTerm> getCrossReferences() { return crossReferences; }
+    public void setCrossReferences(final java.util.Set<org.intermine.model.bio.OntologyTerm> crossReferences) { this.crossReferences = crossReferences; }
+    public void addCrossReferences(final org.intermine.model.bio.OntologyTerm arg) { crossReferences.add(arg); }
+
     // Attr: org.intermine.model.InterMineObject.id
     protected java.lang.Integer id;
     public java.lang.Integer getId() { return id; }
@@ -146,9 +146,6 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
     @Override public int hashCode() { return (id != null) ? id.hashCode() : super.hashCode(); }
     @Override public String toString() { return "ZFATerm [description=\"" + description + "\", id=\"" + id + "\", identifier=\"" + identifier + "\", name=\"" + name + "\", namespace=\"" + namespace + "\", obsolete=\"" + obsolete + "\", ontology=" + (ontology == null ? "null" : (ontology.getId() == null ? "no id" : ontology.getId().toString())) + ", organism=" + (organism == null ? "null" : (organism.getId() == null ? "no id" : organism.getId().toString())) + ", primaryIdentifier=\"" + primaryIdentifier + "\", stageAbbreviation=\"" + stageAbbreviation + "\", stageEndHour=\"" + stageEndHour + "\", stageStartHour=\"" + stageStartHour + "\"]"; }
     public Object getFieldValue(final String fieldName) throws IllegalAccessException {
-        if ("crossReferences".equals(fieldName)) {
-            return crossReferences;
-        }
         if ("identifier".equals(fieldName)) {
             return identifier;
         }
@@ -220,6 +217,9 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
         if ("expressionResultsStart".equals(fieldName)) {
             return expressionResultsStart;
         }
+        if ("crossReferences".equals(fieldName)) {
+            return crossReferences;
+        }
         if ("id".equals(fieldName)) {
             return id;
         }
@@ -229,9 +229,6 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public Object getFieldProxy(final String fieldName) throws IllegalAccessException {
-        if ("crossReferences".equals(fieldName)) {
-            return crossReferences;
-        }
         if ("identifier".equals(fieldName)) {
             return identifier;
         }
@@ -295,6 +292,9 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
         if ("expressionResultsStart".equals(fieldName)) {
             return expressionResultsStart;
         }
+        if ("crossReferences".equals(fieldName)) {
+            return crossReferences;
+        }
         if ("id".equals(fieldName)) {
             return id;
         }
@@ -304,9 +304,7 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
         throw new IllegalArgumentException("Unknown field " + fieldName);
     }
     public void setFieldValue(final String fieldName, final Object value) {
-        if ("crossReferences".equals(fieldName)) {
-            crossReferences = (java.util.Set) value;
-        } else if ("identifier".equals(fieldName)) {
+        if ("identifier".equals(fieldName)) {
             identifier = (java.lang.String) value;
         } else if ("stageStartHour".equals(fieldName)) {
             stageStartHour = (java.lang.String) value;
@@ -348,6 +346,8 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
             dataSets = (java.util.Set) value;
         } else if ("expressionResultsStart".equals(fieldName)) {
             expressionResultsStart = (java.util.Set) value;
+        } else if ("crossReferences".equals(fieldName)) {
+            crossReferences = (java.util.Set) value;
         } else if ("id".equals(fieldName)) {
             id = (java.lang.Integer) value;
         } else {
@@ -359,9 +359,6 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
         }
     }
     public Class<?> getFieldType(final String fieldName) {
-        if ("crossReferences".equals(fieldName)) {
-            return java.util.Set.class;
-        }
         if ("identifier".equals(fieldName)) {
             return java.lang.String.class;
         }
@@ -423,6 +420,9 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
             return java.util.Set.class;
         }
         if ("expressionResultsStart".equals(fieldName)) {
+            return java.util.Set.class;
+        }
+        if ("crossReferences".equals(fieldName)) {
             return java.util.Set.class;
         }
         if ("id".equals(fieldName)) {
@@ -694,7 +694,6 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
                 throw new IllegalArgumentException("Unknown field " + notXml[i]);
             }
         }
-        crossReferences = new ProxyCollection<org.intermine.model.bio.CrossReference>(os, this, "crossReferences", org.intermine.model.bio.CrossReference.class);
         synonyms = new ProxyCollection<org.intermine.model.bio.OntologyTermSynonym>(os, this, "synonyms", org.intermine.model.bio.OntologyTermSynonym.class);
         expressionResultsEnd = new ProxyCollection<org.intermine.model.bio.ExpressionResult>(os, this, "expressionResultsEnd", org.intermine.model.bio.ExpressionResult.class);
         ontologyAnnotations = new ProxyCollection<org.intermine.model.bio.OntologyAnnotation>(os, this, "ontologyAnnotations", org.intermine.model.bio.OntologyAnnotation.class);
@@ -705,11 +704,10 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
         parents = new ProxyCollection<org.intermine.model.bio.OntologyTerm>(os, this, "parents", org.intermine.model.bio.OntologyTerm.class);
         dataSets = new ProxyCollection<org.intermine.model.bio.DataSet>(os, this, "dataSets", org.intermine.model.bio.DataSet.class);
         expressionResultsStart = new ProxyCollection<org.intermine.model.bio.ExpressionResult>(os, this, "expressionResultsStart", org.intermine.model.bio.ExpressionResult.class);
+        crossReferences = new ProxyCollection<org.intermine.model.bio.OntologyTerm>(os, this, "crossReferences", org.intermine.model.bio.OntologyTerm.class);
     }
     public void addCollectionElement(final String fieldName, final org.intermine.model.InterMineObject element) {
-        if ("crossReferences".equals(fieldName)) {
-            crossReferences.add((org.intermine.model.bio.CrossReference) element);
-        } else if ("synonyms".equals(fieldName)) {
+        if ("synonyms".equals(fieldName)) {
             synonyms.add((org.intermine.model.bio.OntologyTermSynonym) element);
         } else if ("expressionResultsEnd".equals(fieldName)) {
             expressionResultsEnd.add((org.intermine.model.bio.ExpressionResult) element);
@@ -729,6 +727,8 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
             dataSets.add((org.intermine.model.bio.DataSet) element);
         } else if ("expressionResultsStart".equals(fieldName)) {
             expressionResultsStart.add((org.intermine.model.bio.ExpressionResult) element);
+        } else if ("crossReferences".equals(fieldName)) {
+            crossReferences.add((org.intermine.model.bio.OntologyTerm) element);
         } else {
             if (!org.intermine.model.bio.ZFATerm.class.equals(getClass())) {
                 TypeUtil.addCollectionElement(this, fieldName, element);
@@ -738,9 +738,6 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
         }
     }
     public Class<?> getElementType(final String fieldName) {
-        if ("crossReferences".equals(fieldName)) {
-            return org.intermine.model.bio.CrossReference.class;
-        }
         if ("synonyms".equals(fieldName)) {
             return org.intermine.model.bio.OntologyTermSynonym.class;
         }
@@ -770,6 +767,9 @@ public class ZFATermShadow implements ZFATerm, ShadowClass
         }
         if ("expressionResultsStart".equals(fieldName)) {
             return org.intermine.model.bio.ExpressionResult.class;
+        }
+        if ("crossReferences".equals(fieldName)) {
+            return org.intermine.model.bio.OntologyTerm.class;
         }
         if (!org.intermine.model.bio.ZFATerm.class.equals(getClass())) {
             return TypeUtil.getElementType(org.intermine.model.bio.ZFATerm.class, fieldName);
