@@ -26,6 +26,12 @@ public class DataSourceShadow implements DataSource, ShadowClass
     public java.lang.String getUrl() { return url; }
     public void setUrl(final java.lang.String url) { this.url = url; }
 
+    // Col: org.intermine.model.bio.DataSource.publications
+    protected java.util.Set<org.intermine.model.bio.Publication> publications = new java.util.HashSet<org.intermine.model.bio.Publication>();
+    public java.util.Set<org.intermine.model.bio.Publication> getPublications() { return publications; }
+    public void setPublications(final java.util.Set<org.intermine.model.bio.Publication> publications) { this.publications = publications; }
+    public void addPublications(final org.intermine.model.bio.Publication arg) { publications.add(arg); }
+
     // Col: org.intermine.model.bio.DataSource.dataSets
     protected java.util.Set<org.intermine.model.bio.DataSet> dataSets = new java.util.HashSet<org.intermine.model.bio.DataSet>();
     public java.util.Set<org.intermine.model.bio.DataSet> getDataSets() { return dataSets; }
@@ -50,6 +56,9 @@ public class DataSourceShadow implements DataSource, ShadowClass
         if ("url".equals(fieldName)) {
             return url;
         }
+        if ("publications".equals(fieldName)) {
+            return publications;
+        }
         if ("dataSets".equals(fieldName)) {
             return dataSets;
         }
@@ -71,6 +80,9 @@ public class DataSourceShadow implements DataSource, ShadowClass
         if ("url".equals(fieldName)) {
             return url;
         }
+        if ("publications".equals(fieldName)) {
+            return publications;
+        }
         if ("dataSets".equals(fieldName)) {
             return dataSets;
         }
@@ -89,6 +101,8 @@ public class DataSourceShadow implements DataSource, ShadowClass
             description = (java.lang.String) value;
         } else if ("url".equals(fieldName)) {
             url = (java.lang.String) value;
+        } else if ("publications".equals(fieldName)) {
+            publications = (java.util.Set) value;
         } else if ("dataSets".equals(fieldName)) {
             dataSets = (java.util.Set) value;
         } else if ("id".equals(fieldName)) {
@@ -110,6 +124,9 @@ public class DataSourceShadow implements DataSource, ShadowClass
         }
         if ("url".equals(fieldName)) {
             return java.lang.String.class;
+        }
+        if ("publications".equals(fieldName)) {
+            return java.util.Set.class;
         }
         if ("dataSets".equals(fieldName)) {
             return java.util.Set.class;
@@ -229,10 +246,13 @@ public class DataSourceShadow implements DataSource, ShadowClass
                 throw new IllegalArgumentException("Unknown field " + notXml[i]);
             }
         }
+        publications = new ProxyCollection<org.intermine.model.bio.Publication>(os, this, "publications", org.intermine.model.bio.Publication.class);
         dataSets = new ProxyCollection<org.intermine.model.bio.DataSet>(os, this, "dataSets", org.intermine.model.bio.DataSet.class);
     }
     public void addCollectionElement(final String fieldName, final org.intermine.model.InterMineObject element) {
-        if ("dataSets".equals(fieldName)) {
+        if ("publications".equals(fieldName)) {
+            publications.add((org.intermine.model.bio.Publication) element);
+        } else if ("dataSets".equals(fieldName)) {
             dataSets.add((org.intermine.model.bio.DataSet) element);
         } else {
             if (!org.intermine.model.bio.DataSource.class.equals(getClass())) {
@@ -243,6 +263,9 @@ public class DataSourceShadow implements DataSource, ShadowClass
         }
     }
     public Class<?> getElementType(final String fieldName) {
+        if ("publications".equals(fieldName)) {
+            return org.intermine.model.bio.Publication.class;
+        }
         if ("dataSets".equals(fieldName)) {
             return org.intermine.model.bio.DataSet.class;
         }

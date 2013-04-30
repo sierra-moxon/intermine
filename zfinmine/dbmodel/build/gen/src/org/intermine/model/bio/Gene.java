@@ -33,6 +33,10 @@ public interface Gene extends org.intermine.model.bio.SequenceFeature
     public void setTranscripts(final java.util.Set<org.intermine.model.bio.Transcript> transcripts);
     public void addTranscripts(final org.intermine.model.bio.Transcript arg);
 
+    public java.util.Set<org.intermine.model.bio.Chromosome> getChromosomes();
+    public void setChromosomes(final java.util.Set<org.intermine.model.bio.Chromosome> chromosomes);
+    public void addChromosomes(final org.intermine.model.bio.Chromosome arg);
+
     public java.util.Set<org.intermine.model.bio.CDS> getcDSs();
     public void setcDSs(final java.util.Set<org.intermine.model.bio.CDS> CDSs);
     public void addcDSs(final org.intermine.model.bio.CDS arg);
