@@ -93,7 +93,7 @@ table td {
 }
 
 li {
-    margin-left: 30px;
+   /* margin-left: 30px;*/
 }
 
 /* =HEADER TOP
@@ -102,6 +102,8 @@ li {
     width: 100%;
     margin: 0;
     padding: 0;
+    color: #000;
+    background: #c0cac0;
 }
 
 #header {
@@ -110,6 +112,7 @@ li {
     margin: 0;
     height: 50px;
     font-size: 12px;
+    background: #c0cac0;
 }
 
 #header h1, #header h1 a:link, #header h1 a:visited {
@@ -118,12 +121,13 @@ li {
     margin-top: 5px;
     color: #FFF;
     font-size: 1.4em;
-    font-weight: bold;
+    /*font-weight: bold;*/
     float: left;
+    background: #c0cac0;
 }
 
 #header p {
-    margin: 20px 0 0 5px;;
+    /*margin: 20px 0 0 5px;;*/
     color: white;
     font-size: 1em;
     font-weight: normal;
@@ -164,8 +168,10 @@ tbody#summary_table td {
 /* =MENU
  --------------------------*/
 div#menucontainer {
+    margin: 0;
+    padding-left:0px;
     clear: both;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
     width: 1000px;
     background-color: #066;
 }
@@ -173,9 +179,9 @@ div#menucontainer {
 ul#nav {
     font-size: 12px;
     clear: both;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
     margin-bottom: 0px;
-    background-color: #066;
+    background-color: #000;
 }
 
 ul#nav a {
@@ -192,7 +198,7 @@ ul#nav, ul#nav li {
 
 ul#nav li {
     float: left;
-    margin: 0px 1px 0px 0px;
+    /*margin: 0px 1px 0px 0px;*/
 }
 
 ul#loginbar, ul#loginbar li {
@@ -311,6 +317,7 @@ ul#submenulist li span {
     /*background: url('../theme/blue_grad.png') repeat-x bottom #F5F0FF;*/
     margin: 0;
     clear: both;
+    background-color: #c0cac0;
 }
 
 #pagecontent {
@@ -859,7 +866,7 @@ input#submitClassSelect {
 
 /* bagBuild.jsp create a new list table */
 table#buildbaglist {
-    width: 90%;
+    width: 500px;
     margin-bottom: 10px;
 }
 
@@ -871,7 +878,7 @@ table#buildbaglist td {
 
 table#buildbaglist td.label {
     padding-right: 14px;
-    width: 25%;
+    width: auto;
 }
 
 table#buildbaglist td label {
@@ -1546,12 +1553,7 @@ div.collection-table.column-border-by-2 table tbody tr td.left-column-border { b
 div.collection-table.column-border-by-2 table tbody tr td:nth-child(2n+3) { border-left-width:1px; border-left-style:solid; }
 /* collection table on results pages */
 div.collection-table.nowrap table tbody td { white-space:nowrap; }
-div.collection-table.nomargin {margin-bottom:0;}
-div.results .im-query-display {
-  width: 98%;
-  margin-left: auto;
-  margin-right: auto;
-}
+div.collection-table.nomargin { margin-bottom:0; }
 div.collection-table table thead th div.column-name { display:inline-block; } /* columnName.tag */
 div.collection-table table thead th div.column-name em { font-size:9px; display:block; } /* columnName.tag */
 div.collection-table table thead th img { margin-left:2px; } /* column description info image */
@@ -1586,8 +1588,6 @@ div.template h3 img { vertical-align:middle; }
 div.template div.right { display:inline; float:right; }
 div.template h3 div.favorites { display:inline; }
 div.template h3 div.favorites img { vertical-align:middle; margin-bottom:2px; }
-.template .count { margin-left: 1em; margin-right: 1em; }
-.template h3.no-results { opacity: 0.5; }
 /* togglers */
 div.collection-table div.toggle,
 div.collection-of-collections div.toggle,
