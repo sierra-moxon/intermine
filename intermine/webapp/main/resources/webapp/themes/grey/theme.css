@@ -1,8 +1,9 @@
 html, body {
-    color: #000000;background-color: #c0cac0;}
+    /*color: #c0cac0;background-color: #c0cac0;}*/
+    background-color: #c0cac0;}
 
 a {
-    color:  #c0cac0;}
+    color:#c0cac0;}
 
 body {
   background:#c0cac0 url('top_gradient.png') repeat-x;
@@ -34,7 +35,8 @@ div#header p {
   clear:both;
   padding: 5px;
   text-align: left; font-weight: normal; font-size: 14px; font-weight: bold;
-  background: #eee;}
+  background: #eee;
+}
 
 /*.title a:link{
     color:#FFF;}
@@ -57,8 +59,8 @@ div#header p {
 --------------------------*/
 
 .plainbox {
-    border:1px solid #000;
-  background:#000;
+  border:1px solid #000;
+  background:#FFF;
   padding:10px;}
 
 .gradientbox {
@@ -71,25 +73,31 @@ div#header p {
 --------------------------*/
 
 ul#nav a{
-  text-decoration:none; color:#066; font-weight:bold;	background-image:url('corner_t_r.png'); background-repeat: no-repeat;	background-position: right top;	color:white;}
+  text-decoration:none; color:#066; font-weight:bold;color:white; width:100px;}
+  /*text-decoration:none; color:#066; font-weight:bold;	background-image:url('corner_t_r.png'); background-repeat: no-repeat;	background-position: right to; color:white*/
 
 ul#nav a:hover,ul#nav li#mymine a:hover{
   color:#333;}
 
 ul#nav li#mymine a{
-  color:#000;background:url('corner_my_t_r.png') no-repeat top right;}
+ /* color:#000;background:url('corner_my_t_r.png') no-repeat top right;}*/
+  color:#000;}
 
 ul#nav li.activelink a{
-  color:white;background:#066 url('corner_act_t_r.png') no-repeat top right;}
+  /*color:white;background:#066 url('corner_act_t_r.png') no-repeat top right;}*/
+
+  color:white;background:#066;}
 
 ul#nav li#mymine {
-  background:#D2CEBF url('corner_my_t_l.png') no-repeat;}
+  /*background:#D2CEBF url('corner_my_t_l.png') no-repeat;}*/
+  background:#D2CEBF;}
 
 ul#nav li.activelink {
-  background:#000 url('corner_act_t_l.png') no-repeat;}
+  /*background:#000 url('corner_act_t_l.png') no-repeat;}*/
+  background:#000;}
 
 ul#submenulist li#subactive_bag {height:37px;
-  font-weight:bold;color:#FFF;background:url('submenu_indent.png') no-repeat bottom center;}
+  font-weight:bold;color:#000;background:url('submenu_indent.png') no-repeat bottom center;}
 
 ul#submenulist li#subactive_mymine {
   font-weight:bold;color:#CCC;background:url('submenu_my.png') no-repeat bottom center;}
@@ -97,25 +105,26 @@ ul#submenulist li#subactive_mymine {
 ul#submenulist li#subactive_mymine span { color:#000 !important; }
 
 ul#nav li{
-  text-align: center;background:#9E9E9E url('corner_t_l.png') no-repeat;}
+  /*text-align: center;background:#9E9E9E url('corner_t_l.png') no-repeat;}*/
+  text-align: center;background:#9E9E9E;}
 
 .submenu{
   background:#066;
-  border-left:1px solid #066;
-  border-right:1px solid #066;}
+  border-left:1px solid #000;
+  border-right:1px solid #000;}
 
 .submenu_mymine{
   background:#D2CEBF;}
 
 ul#submenulist li a {
-  color:#066;text-decoration: none;font-weight: bold;}
+  color:#000;text-decoration: none;font-weight: bold;}
 
 ul#submenulist li a:hover {
   color:#FFF;text-decoration: underline;font-weight: bold;}
 
 ul#submenulist li.myminebagstabtitle a, ul#submenulist li.myminehistorytabtitle a, ul#submenulist li.myminesavedqueriestabtitle a,
 ul#submenulist li.myminesavedtemplatestabtitle a, ul#submenulist li.myminepasswordtabtitle a, ul#submenulist li.myminetrackstabtitle a,
-ul#submenulist li.mymineapikeytabtitle a { color:#066; }
+ul#submenulist li.mymineapikeytabtitle a { color:#000; }
 
 /* =MEGATILE SEARCH
 --------------------------*/
@@ -170,6 +179,9 @@ div#filter_tool_bar {
 .widget {
     max-height:400px;width: 450px;padding:15px;
     text-align: center; background-color: #D2CEBF;}
+
+.widget p {
+  font-size:10px;	}
 
 .widget_slide {
   margin-top:10px; max-height:350px;
@@ -246,7 +258,7 @@ div.heading.results #tool_bar_div { float:left; background:transparent !importan
 div.heading.results #tool_bar_div li { border:1px solid #D2D2D2; background:#EEEEEE; margin-right:10px; padding:4px; font-weight:normal; }
 
 /* submenu form on mymine */
-#submenu.submenu_mymine #submenudiv #quicksearch form { color:##066 !important; }
+#submenu.submenu_mymine #submenudiv #quicksearch form { color:##000 !important; }
 
 ul#submenulist li div { border-left-color:#7A7A7A; }
 
