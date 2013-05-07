@@ -17,5 +17,14 @@
         <copy file="${dist.webapp}/zfinmine-webapp.war" tofile="${tomcat.webapp}/${release}-zebrafishmine.war"/>
     </target>
 
+<target name="restart-tomcat">
+  <exec executable="sudo">
+    <arg value="-u"/>
+    <arg value="intermine"/>
+    <arg value="/etc/init.d/tomcat6"/>
+    <arg value="restart" />
+  </exec>
+</target>
+
 </project>
 
