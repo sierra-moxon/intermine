@@ -1,6 +1,5 @@
 html, body {
-    /*color: #c0cac0;background-color: #c0cac0;}*/
-    background-color: #c0cac0;}
+    color: #c0cac0;background-color: #c0cac0;}
 
 a {
     color:#c0cac0;}
@@ -73,31 +72,25 @@ div#header p {
 --------------------------*/
 
 ul#nav a{
-  text-decoration:none; color:#066; font-weight:bold;color:white; width:100px;}
-  /*text-decoration:none; color:#066; font-weight:bold;	background-image:url('corner_t_r.png'); background-repeat: no-repeat;	background-position: right to; color:white*/
+  text-decoration:none; color: #066; font-weight:bold;	color:white;}
 
 ul#nav a:hover,ul#nav li#mymine a:hover{
   color:#333;}
 
 ul#nav li#mymine a{
- /* color:#000;background:url('corner_my_t_r.png') no-repeat top right;}*/
   color:#000;}
 
 ul#nav li.activelink a{
-  /*color:white;background:#066 url('corner_act_t_r.png') no-repeat top right;}*/
-
-  color:white;background:#066;}
+  color:white; }
 
 ul#nav li#mymine {
-  /*background:#D2CEBF url('corner_my_t_l.png') no-repeat;}*/
   background:#D2CEBF;}
 
 ul#nav li.activelink {
-  /*background:#000 url('corner_act_t_l.png') no-repeat;}*/
-  background:#000;}
+  background:#066 ;}
 
-ul#submenulist li#subactive_bag {height:37px;
-  font-weight:bold;color:#000;background:url('submenu_indent.png') no-repeat bottom center;}
+ul#submenulist li#subactive_bag, ul#submenulist li#subactive_api {height:37px;
+  font-weight:bold;color:#FFF;background:url('submenu_indent.png') no-repeat bottom center;}
 
 ul#submenulist li#subactive_mymine {
   font-weight:bold;color:#CCC;background:url('submenu_my.png') no-repeat bottom center;}
@@ -105,19 +98,18 @@ ul#submenulist li#subactive_mymine {
 ul#submenulist li#subactive_mymine span { color:#000 !important; }
 
 ul#nav li{
-  /*text-align: center;background:#9E9E9E url('corner_t_l.png') no-repeat;}*/
-  text-align: center;background:#9E9E9E;}
+  text-align: center;background:#9E9E9E ;}
 
 .submenu{
   background:#066;
-  border-left:1px solid #000;
-  border-right:1px solid #000;}
+  border-left:1px solid #066;
+  border-right:1px solid #066;}
 
 .submenu_mymine{
   background:#D2CEBF;}
 
 ul#submenulist li a {
-  color:#000;text-decoration: none;font-weight: bold;}
+  color:#FFF;text-decoration: none;font-weight: bold;}
 
 ul#submenulist li a:hover {
   color:#FFF;text-decoration: underline;font-weight: bold;}
@@ -130,18 +122,18 @@ ul#submenulist li.mymineapikeytabtitle a { color:#000; }
 --------------------------*/
 
 div.filterBar {
-    background:#000;color:white;}
+    background:#9E9E9E;color:white;}
 
 div#filter_tool_bar {
     background-color:#FFF;
-    border-right:1px solid #000;
-    border-left:1px solid #000;
-    border-bottom:1px solid #000;
+    border-right:1px solid #9E9E9E;
+    border-left:1px solid #9E9E9E;
+    border-bottom:1px solid #9E9E9E;
 }
 
 .imbox {
     padding:5px 5px 10px 5px; border-top:solid 1px #888; border-bottom:solid 1px #888; height:1.2em;
-    font-size:0.8em; background:#000; color:white;}
+    font-size:0.8em; background:#9E9E9E; color:white;}
 
 
 /* =TOOLBOX RESULTS
