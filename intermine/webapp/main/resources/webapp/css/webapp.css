@@ -74,7 +74,7 @@ pre {
 
 /* =H */
 h1, h2, h3, h1 a, h1 a:visited, label {
-    color: #5C0075;
+    color: #066;
 }
 
 /* =IMG */
@@ -100,9 +100,9 @@ li {
  --------------------------*/
 #headercontainer {
     width: 100%;
-    margin: 0;
-    padding: 0;
-    color: #000;
+    margin: 0px;
+    padding: 0px;
+    color: #c0cac0;
     background: #c0cac0;
 }
 
@@ -241,7 +241,9 @@ div#quicksearch {
     padding: 0px;
     margin: 0;
     height: 36px;
-    color: #CCC;
+    color: #c0cac0;
+    background: #c0cac0;
+    /*color: #CCC;*/
     font-size: 12px;
 }
 
@@ -250,7 +252,7 @@ div#quicksearch {
     width: 1000px;
     white-space: nowrap;
     padding: 0px;
-    margin: 0;
+    margin: 0px;
     height: 36px;
     color: #EEE;
     font-size: 12px;
@@ -363,7 +365,8 @@ ul#submenulist li span {
 .pageDesc {
     padding: 10px;
     margin: 0 15px 15px 15px;
-    background-color: #eee;
+    /*background-color: #eee;*/
+    background-color: #c0cac0;
     vertical-align: middle;
     text-align: left;
 }
