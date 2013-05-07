@@ -10,6 +10,7 @@
     <property name="tomcat.webapp" value="${dist.webapp}/tomcat-webapp"/>
 
     <target name="deploy" depends="build">
+        <antcall target="add-zfin-properties"/>
         <delete includeemptydirs="true" quiet="true">
             <fileset dir="${tomcat.webapp}" includes="**/*"/>
         </delete>
@@ -24,6 +25,12 @@
     <arg value="/etc/init.d/tomcat6"/>
     <arg value="restart" />
   </exec>
+</target>
+
+<target name="add-zfin-properties" >
+	<zip destfile="${dist.webapp}/zfinmine-webapp.war" update="true">
+		<zipfileset dir="webapp/resources" includes="zfin.properties" fullpath="WEB-INF/zfin.web.properties"/> 
+	</zip>
 </target>
 
 </project>
