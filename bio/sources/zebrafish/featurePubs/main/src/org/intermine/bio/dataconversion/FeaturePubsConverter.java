@@ -64,7 +64,19 @@ public class FeaturePubsConverter extends BioFileConverter
 
 	processPubs(reader);
 
+	try{
+
+	    //for (Item item : pubs.values()){
+	    //	store(item);
+	    //}
+	    for (Item item : terms.values()){
+		store(item);                                                                                                                
+	    }
+	}catch (ObjectStoreException e) {                                                                                             
+	    throw new SAXException(e);                                           
+	}
     }
+
 
     public void processPubs(Reader reader) throws Exception {
 
@@ -81,13 +93,17 @@ public class FeaturePubsConverter extends BioFileConverter
 	    String type = line[3];
 	    String featureType = line[4];
 		
-	    if (!StringUtils.isEmpty(dataId) && !StringUtils.isEmpty(pubId) && !StringUtils.isEmpty(featureType) && !StringUtils.isEmpty(type)) {
-		Item feature = getTypedItem(dataId, featureType);
-	        Item pub = getPub(pubId);
-		feature.addToCollection("publications",pubId);
+	    if (!StringUtils.isEmpty(pubId)){
+		Item pub = getPub(pubId);
+	    
+		if (!StringUtils.isEmpty(dataId)){
+		    Item feature = getTypedItem(dataId, featureType);
+		    feature.addToCollection("publications",pub);
+		}
 	    }
 	}
     }
+ 
 
 
     private Item getPub(String primaryIdentifier)
@@ -100,9 +116,9 @@ public class FeaturePubsConverter extends BioFileConverter
             pubs.put(primaryIdentifier, item);
 
             try {
-                store(item);
+	       store(item);
             } catch (ObjectStoreException e) {
-		throw new SAXException(e);
+	    		throw new SAXException(e);
             }
 	}
         return item;
@@ -150,11 +166,11 @@ public class FeaturePubsConverter extends BioFileConverter
             item.setReference("organism", getOrganism("7955"));
             item.setAttribute("primaryIdentifier", primaryIdentifier);
             terms.put(primaryIdentifier, item);
-            try{
-                store(item);
-            } catch (ObjectStoreException e) {
-                throw new SAXException(e);
-            }
+            //try{
+            //    store(item);
+            //} catch (ObjectStoreException e) {
+            //    throw new SAXException(e);
+	    // }
         }
 
         return item;
