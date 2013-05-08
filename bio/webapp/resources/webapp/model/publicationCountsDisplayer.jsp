@@ -41,7 +41,7 @@
           <td><c:out value="${pub.firstAuthor}"/></td>
           <td><c:out value="${pub.year}"/></td>
           <td><c:out value="${pub.journal}"/></td>
-          <td><html:link href="/${WEB_PROPERTIES['webapp.path']}/report.do?id=${pub.id}"><c:out value="${pub.title}"/></html:link></td>
+          <td><html:link href="${WEB_PROPERTIES['webapp.path']}/report.do?id=${pub.id}"><c:out value="${pub.title}"/></html:link></td>
           <td><c:out value="${total}"/></td>
         </tr>
       </c:forEach>

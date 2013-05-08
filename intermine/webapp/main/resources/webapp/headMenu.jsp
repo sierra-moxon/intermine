@@ -48,44 +48,44 @@
   <div id="menucontainer">
     <ul id="nav">
       <li id="home" <c:if test="${tab == 'begin'}">class="activelink"</c:if>>
-        <a href="/${WEB_PROPERTIES['webapp.path']}/begin.do">
+        <a href="${WEB_PROPERTIES['webapp.path']}/begin.do">
           <fmt:message key="menu.begin"/>
         </a>
       </li>
       <li id="templates"  <c:if test="${tab == 'templates'}">class="activelink"</c:if>>
-         <a href="/${WEB_PROPERTIES['webapp.path']}/templates.do">
+         <a href="${WEB_PROPERTIES['webapp.path']}/templates.do">
           <fmt:message key="menu.templates"/>
         </a>
       </li>
       <li id="bags" <c:if test="${tab == 'bag'}">class="activelink"</c:if>>
-        <a href="/${WEB_PROPERTIES['webapp.path']}/bag.do">
+        <a href="${WEB_PROPERTIES['webapp.path']}/bag.do">
           <fmt:message key="menu.bag"/>
         </a>
       </li>
       <li id="query" <c:if test="${tab == 'customQuery'}">class="activelink"</c:if>>
-        <a href="/${WEB_PROPERTIES['webapp.path']}/customQuery.do">
+        <a href="${WEB_PROPERTIES['webapp.path']}/customQuery.do">
           <fmt:message key="menu.customQuery"/>&nbsp;
         </a>
       </li>
       <c:if test="${WEB_PROPERTIES['genomicRegionSearch.display'] == 'true'}">
           <li id="genomicRegionSearch" <c:if test="${tab == 'genomicRegionSearch'}">class="activelink"</c:if>>
-            <a href="/${WEB_PROPERTIES['webapp.path']}/genomicRegionSearch.do">
+            <a href="${WEB_PROPERTIES['webapp.path']}/genomicRegionSearch.do">
               <fmt:message key="menu.genomicRegionSearch"/>
             </a>
           </li>
       </c:if>
     <!--  <li id="category" <c:if test="${tab == 'dataCategories'}">class="activelink"</c:if>>
-        <a href="/${WEB_PROPERTIES['webapp.path']}/dataCategories.do">
+        <a href="${WEB_PROPERTIES['webapp.path']}/dataCategories.do">
           <fmt:message key="menu.dataCategories"/>
         </a>
       </li> -->
       <li id="api"  <c:if test="${tab == 'api'}">class="activelink"</c:if>>
-        <a href="/${WEB_PROPERTIES['webapp.path']}/api.do">
+        <a href="${WEB_PROPERTIES['webapp.path']}/api.do">
           <fmt:message key="menu.api"/>
         </a>
       </li>
       <li id="mymine"  <c:if test="${tab == 'mymine'}">class="activelink"</c:if>>
-        <a href="/${WEB_PROPERTIES['webapp.path']}/mymine.do">
+        <a href="${WEB_PROPERTIES['webapp.path']}/mymine.do">
           <span><fmt:message key="menu.mymine"/></span>
         </a>
       </li>
@@ -207,7 +207,7 @@
         >
         <%-- close li --%>
                 <div>
-                <a href="/${WEB_PROPERTIES['webapp.path']}/${tab}.do?subtab=${tabArray[2]}">
+                <a href="${WEB_PROPERTIES['webapp.path']}/${tab}.do?subtab=${tabArray[2]}">
                   <fmt:message key="${tabArray[1]}"/>
                 </a>
                 </div>
