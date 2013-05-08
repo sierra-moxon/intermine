@@ -354,7 +354,7 @@ input.submit {
 
         <div class="resultTableContainer">
         <c:if test="${!empty searchFacetValues['Category']}">
-          <form action="/${WEB_PROPERTIES['webapp.path']}/saveFromIdsToBag.do" id="saveFromIdsToBagForm" method="POST">
+          <form action="${WEB_PROPERTIES['webapp.path']}/saveFromIdsToBag.do" id="saveFromIdsToBagForm" method="POST">
             <input type="hidden" id="type" name="type" value="${searchFacetValues['Category']}" /> 
             <input type="hidden" id="ids" name="ids" value="" />
             <input type="hidden" id="allChecked" name="allChecked" value="false" />
@@ -407,7 +407,7 @@ input.submit {
     <c:set var="extlink" value="class='extlink' target='_blank'" />
   </c:when>
   <c:otherwise>
-    <c:set var="detailsLink" value="/${WEB_PROPERTIES['webapp.path']}/report.do?id=${searchResult.id}&amp;trail=${param.trail}|${searchResult.id}" scope="request" />
+    <c:set var="detailsLink" value="${WEB_PROPERTIES['webapp.path']}/report.do?id=${searchResult.id}&amp;trail=${param.trail}|${searchResult.id}" scope="request" />
   </c:otherwise>
 </c:choose>
                   
