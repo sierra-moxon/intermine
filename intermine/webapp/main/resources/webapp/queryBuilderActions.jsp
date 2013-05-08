@@ -44,7 +44,7 @@
         <%-- permalink handlers --%>
         jQuery('#permalink a').click(function(e) {
           jQuery.ajax({
-            url: "/${WEB_PROPERTIES['webapp.path']}/exportQuery.do?as=link&serviceFormat=tab",
+            url: "${WEB_PROPERTIES['webapp.path']}/exportQuery.do?as=link&serviceFormat=tab",
             data: jQuery('#templateForm').serialize(),
             success: function(data) {
               jQuery('#permalink div.popup').show().find('input').val(data).select();
@@ -61,17 +61,17 @@
 
     </td>
     <td>
-      <a href="/${WEB_PROPERTIES['webapp.path']}/wsCodeGen.do?method=perl&source=pathQuery" target="_blank">Perl</a>
+      <a href="${WEB_PROPERTIES['webapp.path']}/wsCodeGen.do?method=perl&source=pathQuery" target="_blank">Perl</a>
       <span>|</span>
-      <a href="/${WEB_PROPERTIES['webapp.path']}/wsCodeGen.do?method=python&source=pathQuery" target="_blank">Python</a>
+      <a href="${WEB_PROPERTIES['webapp.path']}/wsCodeGen.do?method=python&source=pathQuery" target="_blank">Python</a>
       <span>|</span>
-      <a href="/${WEB_PROPERTIES['webapp.path']}/wsCodeGen.do?method=ruby&source=pathQuery" target="_blank">Ruby</a>
+      <a href="${WEB_PROPERTIES['webapp.path']}/wsCodeGen.do?method=ruby&source=pathQuery" target="_blank">Ruby</a>
       <span>|</span>
-      <a href="/${WEB_PROPERTIES['webapp.path']}/wsCodeGen.do?method=java&source=pathQuery" target="_blank">Java</a>
-      <a href="/${WEB_PROPERTIES['webapp.path']}/api.do" target="_blank"><span>[help]</span></a>
+      <a href="${WEB_PROPERTIES['webapp.path']}/wsCodeGen.do?method=java&source=pathQuery" target="_blank">Java</a>
+      <a href="${WEB_PROPERTIES['webapp.path']}/api.do" target="_blank"><span>[help]</span></a>
     </td>
     <td>
-    <a href="/${WEB_PROPERTIES['webapp.path']}/exportQuery.do?as=xml" title="Export this query as XML"><fmt:message key="query.export.as"/></a>
+    <a href="${WEB_PROPERTIES['webapp.path']}/exportQuery.do?as=xml" title="Export this query as XML"><fmt:message key="query.export.as"/></a>
     </td>
   </tr>
 </table>
