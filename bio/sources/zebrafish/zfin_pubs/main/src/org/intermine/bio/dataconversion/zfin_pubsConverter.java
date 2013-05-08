@@ -99,7 +99,8 @@ public class zfin_pubsConverter extends BioFileConverter {
 
             if (!StringUtils.isEmpty(authorNames)) {
                 pub.setAttribute("authorNames", authorNames);
-            }
+		pub.setAttribute("firstAuthor", authorNames);
+	    }
             if (!StringUtils.isEmpty(title)) {
                 pub.setAttribute("title", title);
             }
