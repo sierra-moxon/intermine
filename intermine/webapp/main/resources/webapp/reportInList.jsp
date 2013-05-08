@@ -19,7 +19,7 @@
 <div>
   <c:choose>
    <c:when test="${bagsWithId.count == 0}">
-      This <c:out value="${object.type}"/> isn't in any lists. <html:link href="/${WEB_PROPERTIES['webapp.path']}/bag.do?subtab=upload">Upload a list</html:link>.
+      This <c:out value="${object.type}"/> isn't in any lists. <html:link href="${WEB_PROPERTIES['webapp.path']}/bag.do?subtab=upload">Upload a list</html:link>.
     </c:when>
     <c:when test="${bagsWithId.count == 1}">
       This <c:out value="${object.type}"/> is in one list:

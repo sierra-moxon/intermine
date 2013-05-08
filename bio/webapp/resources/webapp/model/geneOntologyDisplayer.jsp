@@ -38,7 +38,7 @@
 			              <tr>
 			                <td>
 			                  <c:set var="term" value="${entry.key}" />
-			                  <html:link href="/${WEB_PROPERTIES['webapp.path']}/report.do?id=${term.id}" title="${term.description}">
+			                  <html:link href="${WEB_PROPERTIES['webapp.path']}/report.do?id=${term.id}" title="${term.description}">
 			                  <c:out value="${term.name}"/>
 			                  </html:link>&nbsp;<im:helplink text="${term.description}"/>
 			                </td>

@@ -24,7 +24,7 @@
   </c:when>
   <c:otherwise>
     <c:set var="detailsLink"
-      value="/${WEB_PROPERTIES['webapp.path']}/report.do?id=${resultElement.id}&amp;trail=${param.trail}|${resultElement.id}"
+      value="${WEB_PROPERTIES['webapp.path']}/report.do?id=${resultElement.id}&amp;trail=${param.trail}|${resultElement.id}"
       scope="request" />
   </c:otherwise>
 </c:choose>

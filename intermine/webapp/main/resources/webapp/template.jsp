@@ -416,7 +416,7 @@
           <a href="javascript:codeGenTemplate('ruby');">Ruby</a>
           <span>|</span>
           <a href="javascript:codeGenTemplate('java');">Java</a>
-          <a href="/${WEB_PROPERTIES['webapp.path']}/api.do" target="_blank"><span>[help]</span></a>
+          <a href="${WEB_PROPERTIES['webapp.path']}/api.do" target="_blank"><span>[help]</span></a>
         </c:when>
         <c:otherwise>
           <a href="javascript:;">Perl</a>
@@ -424,7 +424,7 @@
           <a href="javascript:;">Python</a>
           <span>|</span>
           <a href="javascript:;">Java</a>
-          <a href="/${WEB_PROPERTIES['webapp.path']}/api.do" target="_blank"><span>[help]</span></a>
+          <a href="${WEB_PROPERTIES['webapp.path']}/api.do" target="_blank"><span>[help]</span></a>
         </c:otherwise>
       </c:choose>
     </td>
