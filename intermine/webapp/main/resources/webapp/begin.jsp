@@ -348,14 +348,16 @@
                         // build table row
                         row = '<tr>' + '<td class="date">' + '<a target="new" href="' + feedLink + '">' + feedDate.getDate()
                         + '<br /><span>' + months[feedDate.getMonth()] + '</span></a></td>'
-                        + '<td><a target="new" href="' + feedLink + '">' + feedTitle + '</a><br/>' + feedDescription + '</td>'
+                        //+ '<td><a target="new" href="' + feedLink + '">' + feedTitle + '</a><br/>' + feedDescription + '</td>'
+                        + '<td><a target="new" href="' + feedLink + '">' + feedTitle + '</a><br/>'  + '</td>'
                         + '</tr>';
                     } else {
                         feedLink = items[i].getElementsByTagName("link")[0].firstChild.nodeValue
 
                         // build table row
                         row = '<tr>'
-                        + '<td><a target="new" href="' + feedLink + '">' + feedTitle + '</a><br/>' + feedDescription + '</td>'
+                        //+ '<td><a target="new" href="' + feedLink + '">' + feedTitle + '</a><br/>' + feedDescription + '</td>'
+                        + '<td><a target="new" href="' + feedLink + '">' + feedTitle + '</a><br/>'  + '</td>'
                         + '</tr>';
                     }
 
