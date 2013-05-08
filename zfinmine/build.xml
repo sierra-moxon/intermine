@@ -2,6 +2,22 @@
 
     <description>deploy the web application</description>
 
+    <!-- load environment variables-->
+    <property environment="env"/>
+
+    <!-- load properties file with release variable in it -->
+    <loadproperties>
+        <file file="${env.HOME}/.intermine/zfinmine.properties"/>
+    </loadproperties>
+
+    <!-- from the file above -->
+    <property name="release" value="${release}" />
+
+    <!-- load users intermine.properties file -->
+    <loadproperties>
+        <file file="${env.HOME}/.intermine/zfinmine.properties.${release}"/>
+    </loadproperties>
+
     <target name="build">
         <ant antfile="webapp/build.xml" target="default" inheritAll="false"/>
     </target>
@@ -9,7 +25,7 @@
     <property name="dist.webapp" value="webapp/dist"/>
     <property name="tomcat.webapp" value="${dist.webapp}/tomcat-webapp"/>
 
-    <target name="deploy" depends="build">
+    <target name="deploy" depends="start-message,build">
         <antcall target="add-zfin-properties"/>
         <delete includeemptydirs="true" quiet="true">
             <fileset dir="${tomcat.webapp}" includes="**/*"/>
@@ -18,20 +34,35 @@
         <copy file="${dist.webapp}/zfinmine-webapp.war" tofile="${tomcat.webapp}/${release}-zebrafishmine.war"/>
     </target>
 
-<target name="restart-tomcat">
-  <exec executable="sudo">
-    <arg value="-u"/>
-    <arg value="intermine"/>
-    <arg value="/etc/init.d/tomcat6"/>
-    <arg value="restart" />
-  </exec>
-</target>
+    <target name="restart-tomcat">
+        <exec executable="sudo">
+            <arg value="-u"/>
+            <arg value="intermine"/>
+            <arg value="/etc/init.d/tomcat6"/>
+            <arg value="restart"/>
+        </exec>
+    </target>
 
-<target name="add-zfin-properties" >
-	<zip destfile="${dist.webapp}/zfinmine-webapp.war" update="true">
-		<zipfileset dir="webapp/resources" includes="zfin.properties" fullpath="WEB-INF/zfin.web.properties"/> 
-	</zip>
-</target>
+    <target name="add-zfin-properties">
+        <zip destfile="${dist.webapp}/zfinmine-webapp.war" update="true">
+            <zipfileset dir="webapp/resources" includes="zfin.properties" fullpath="WEB-INF/zfin.web.properties"/>
+        </zip>
+    </target>
+
+    <target name="start-message">
+        <echo message="Start deploying release: ${release}"/>
+    </target>
+
+    <target name="replace-variables">
+        <copy todir="${dist.webapp}/">
+            <fileset file="webapp/src/log4j.properties"/>
+            <filterset>
+                <filter token="EMAIL" value="${tomcat.email.list}"/>
+            </filterset>
+        </copy>
+    </target>
+
+
 
 </project>
 
