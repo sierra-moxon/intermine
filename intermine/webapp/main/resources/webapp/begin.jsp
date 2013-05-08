@@ -36,7 +36,7 @@
 				          case "${WEB_PROPERTIES['begin.searchBox.example']}":
 				          case "":
 				            // if placeholder text or no text in place, take us to the index
-				            jQuery(location).attr('href', "/${WEB_PROPERTIES['webapp.path']}/keywordSearchResults.do?searchBag=");
+				            jQuery(location).attr('href', "${WEB_PROPERTIES['webapp.path']}/keywordSearchResults.do?searchBag=");
 				            return false;
 				        }
 				    }					
@@ -420,7 +420,7 @@
     $('#mainSearchButton').click(function() {
       // if placeholder text in place, take us elsewhere
       if ($("#actionsInput").val() == placeholder) {
-        $(location).attr('href', "/${WEB_PROPERTIES['webapp.path']}/keywordSearchResults.do?searchBag=");
+        $(location).attr('href', "${WEB_PROPERTIES['webapp.path']}/keywordSearchResults.do?searchBag=");
         return false;
       }
     });

@@ -104,7 +104,7 @@ jQuery(document).ready(function() {
 
 if ((typeof intermine != 'undefined') && (intermine.Service != null)) {
     // Set up the service, if required.
-    var root = window.location.protocol + "//" + window.location.host + "/${WEB_PROPERTIES['webapp.path']}";
+    var root = window.location.protocol + "//" + window.location.host + "${WEB_PROPERTIES['webapp.path']}";
     $SERVICE = new intermine.Service({
         "root": root,
         "token": "${PROFILE.dayToken}",

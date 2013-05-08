@@ -32,7 +32,7 @@ style="width:150px;color:#666;font-style:italic;font-size:1em" type="text" id="q
         case "${ids}":
         case "":
           // if placeholder text or no text in place, take us to the index
-          jQuery(location).attr('href', "/${WEB_PROPERTIES['webapp.path']}/keywordSearchResults.do?searchBag=");
+          jQuery(location).attr('href', "${WEB_PROPERTIES['webapp.path']}/keywordSearchResults.do?searchBag=");
           return false;
       }
     }
