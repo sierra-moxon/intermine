@@ -65,7 +65,7 @@
         <h3 class="openid"><fmt:message key="login.openid"/></h3>
         <c:forEach var="provider" items="${OPENID_PROVIDERS}">
           <a class="<c:out value="${fn:toLowerCase(provider)}"/>"
-          href="/${WEB_PROPERTIES['webapp.path']}/openid?provider=${provider}"></a>
+          href="${WEB_PROPERTIES['webapp.path']}/openid?provider=${provider}"></a>
         </c:forEach>
       </c:if>
     </div>
