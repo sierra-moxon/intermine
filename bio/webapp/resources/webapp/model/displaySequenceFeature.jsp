@@ -8,7 +8,7 @@
 <tiles:importAttribute name="singleLine" ignore="true"/>
 <tiles:importAttribute name="alternate" ignore="true"/>
 
- <c:set var="detailsLink" value="/${WEB_PROPERTIES['webapp.path']}/report.do?id="/>
+ <c:set var="detailsLink" value="${WEB_PROPERTIES['webapp.path']}/report.do?id="/>
 
 <c:if test="${!empty singleLine}">
   <c:set var="wrapStyle" value="white-space: nowrap;"/>

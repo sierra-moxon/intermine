@@ -28,7 +28,7 @@
         <c:set var="pathway" value="${entry.key}" />
         <c:set var="total" value="${entry.value}" />
         <tr <c:if test="${status.count > 10}">style="display:none"</c:if>>
-          <td><html:link href="/${WEB_PROPERTIES['webapp.path']}/report.do?id=${pathway.id}"><c:out value="${pathway.name}"/></html:link></td>
+          <td><html:link href="${WEB_PROPERTIES['webapp.path']}/report.do?id=${pathway.id}"><c:out value="${pathway.name}"/></html:link></td>
           <td><html:link action="/collectionDetails?id=${pathway.id}&amp;field=genes"><c:out value="${total}"/></html:link></td>
         </tr>
       </c:forEach>
