@@ -86,13 +86,13 @@ public class zfin_pubsConverter extends BioFileConverter {
             String primaryIdentifier = line[0];
             String authorNames = line[1];
             String title = line[2];
-            String pubAbstract = line[3];
-            String pubMedId = line[4];
-            String type = line[5];
-            String journal = line[6];
-            String doi = line[7];
-            String volume = line[8];
-            String pages = line[9];
+            String pubMedId = line[3];
+            String type = line[4];
+            String journal = line[5];
+            String doi = line[6];
+            String volume = line[7];
+            String pages = line[8];
+	    String pubdate = line[9];
 
 
             Item pub = getPub(primaryIdentifier);
@@ -104,9 +104,9 @@ public class zfin_pubsConverter extends BioFileConverter {
             if (!StringUtils.isEmpty(title)) {
                 pub.setAttribute("title", title);
             }
-            //if (!StringUtils.isEmpty(pubAbstract)) {
-            //    pub.setAttribute("pubAbstract", pubAbstract);
-            //}
+            if (!StringUtils.isEmpty(pubdate)) {
+                pub.setAttribute("year", pubdate);
+            }
             if (!StringUtils.isEmpty(pubMedId)) {
                 pub.setAttribute("pubMedId", pubMedId);
                 pub.setAttribute("accessionNumber",pubMedId);
