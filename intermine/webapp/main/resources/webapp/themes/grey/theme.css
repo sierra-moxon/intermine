@@ -1,20 +1,18 @@
 html, body {
     color: #c0cac0;background-color: #c0cac0;}
 
-a {
-    color:#c0cac0;}
 
 body {
   background:#c0cac0 url('top_gradient.png') repeat-x;
 }
 
-h1, h2, h3, h1 a, h1 a:visited, label {
+/*h1, h2, h3, h1 a, h1 a:visited, label {
     color:#333;
-}
-h1 a:hover,h1 a:visited:hover  {
+}*/
+/*h1 a:hover,h1 a:visited:hover  {
     color:#333;
     text-decoration: underline;
-}
+}*/
 
 
 /* =HEADER
@@ -27,9 +25,9 @@ div#header p {
     color:#000;
 }
 
-/*div.title h1 {
+div.title h1 {
     color: #000;}
-*/
+
 .box .title {
   clear:both;
   padding: 5px;
@@ -37,9 +35,9 @@ div#header p {
   background: #eee;
 }
 
-/*.title a:link{
+.title a:link{
     color:#FFF;}
-*/
+
 
 /*#topnav {
     background-color: #000;
@@ -95,7 +93,7 @@ ul#submenulist li#subactive_bag, ul#submenulist li#subactive_api {height:37px;
 ul#submenulist li#subactive_mymine {
   font-weight:bold;color:#CCC;background:url('submenu_my.png') no-repeat bottom center;}
 
-ul#submenulist li#subactive_mymine span { color:#000 !important; }
+/*ul#submenulist li#subactive_mymine span { color:#000 !important; }*/
 
 ul#nav li{
   text-align: center;background:#9E9E9E ;}
@@ -114,9 +112,9 @@ ul#submenulist li a {
 ul#submenulist li a:hover {
   color:#FFF;text-decoration: underline;font-weight: bold;}
 
-/*ul#submenulist li.myminebagstabtitle a, ul#submenulist li.myminehistorytabtitle a, ul#submenulist li.myminesavedqueriestabtitle a,
+ul#submenulist li.myminebagstabtitle a, ul#submenulist li.myminehistorytabtitle a, ul#submenulist li.myminesavedqueriestabtitle a,
 ul#submenulist li.myminesavedtemplatestabtitle a, ul#submenulist li.myminepasswordtabtitle a, ul#submenulist li.myminetrackstabtitle a,
-ul#submenulist li.mymineapikeytabtitle a { color:#000; }*/
+ul#submenulist li.mymineapikeytabtitle a { color:#000; }
 
 /* =MEGATILE SEARCH
 --------------------------*/
@@ -249,10 +247,12 @@ div.heading.results h1 { color:#4D5154; font-size:22px; margin-bottom:10px; }
 div.heading.results #tool_bar_div { float:left; background:transparent !important; }
 div.heading.results #tool_bar_div li { border:1px solid #D2D2D2; background:#EEEEEE; margin-right:10px; padding:4px; font-weight:normal; }
 
-/* submenu form on mymine */
-#submenu.submenu_mymine #submenudiv #quicksearch form { color:##000 !important; }
+/* submenu form on mymine
+#submenu.submenu_mymine #submenudiv #quicksearch form { color:##000 !important; }*/
 
-ul#submenulist li div { border-left-color:#7A7A7A; }
+ul#submenulist li div { border-left-color:#066; }
+/* login bar */
+ul#loginbar li { border-right-color:#066; }
 
 /* homepage (begin.css) */
 #search-bochs div.inner h3 { background:#000; }
@@ -281,7 +281,7 @@ ul#submenulist li div { border-left-color:#7A7A7A; }
 #pagecontentcontainer.bagUploadConfirm-page #additionalMatches { background:#FFF; }
 
 /* report page */
-#pagecontentcontainer.report-page #header_wrap { background-color:#EBEBEB; }
+#pagecontentcontainer.report-page #header_wrap { background-color:#c0cac0; }
 #pagecontentcontainer.report-page #object_header h1.title span { color:#004499; }
 #pagecontentcontainer.report-page #object_header div.box h3 { background:#F0E3F7; }
 #pagecontentcontainer.report-page #object_header div.list.box span { color:#004499; }
@@ -317,12 +317,12 @@ div.inline-list a:hover,
 div.inline-list a:visited { color:#004499; }
 div.inline-list h3 { background:#EBEBEB; border-top-color:#004499; color:#004499; text-shadow:1px 1px 1px #FFF; }
 div.inline-list.gray h3,
-div.inline-list.grey h3 { background:#F6F5F7; border-top-color:#6E6E6E; color:#ABABAB; }
+div.inline-list.grey h3 { background:#F6F5F7; border-top-color:#6E6E6E; color:#000; }
 div.inline-list div.right a,
 div.inline-list div.right a:hover,
 div.inline-list div.right a:visited { color:#004499; }
 /* collection tables */
-div.collection-table h3 { background:#EBEBEB; border-top-color:#004499; color:#004499; text-shadow:1px 1px 1px #FFF; }
+div.collection-table h3 { background:#EBEBEB; border-top-color:#004499; color:#000; text-shadow:1px 1px 1px #FFF; }
 div.collection-table div.right a,
 div.collection-table div.right a:hover,
 div.collection-table div.right a:visited { color:#004499; }

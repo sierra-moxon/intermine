@@ -572,7 +572,7 @@ html, body {
 #templates div.content {
     background: #FFF url("../themes/purple/homepage/bochs-bottom-grad.png") repeat-x bottom;
     bottom: 1px solid #dfdfdf;
-    padding: 14px;
+    padding: 20px;
     padding-bottom: 0;
 }
 
@@ -670,7 +670,7 @@ html, body {
     margin-top: 5px;
 }
 
-#low #api ul a {
+#low #api ul li {
     color: #535353;
     font-size: 13px;
     text-decoration: underline;
@@ -752,7 +752,7 @@ html, body {
 #lists {
 	border-top: 1px solid #EFEFEF;
 	background: url("../themes/purple/homepage/bochs-bottom-grad.png") repeat-x bottom;
-	padding: 14px 14px 0 14px;
+	padding: 14px 20px 0 14px;
 	margin-bottom: 10px;
 }
 
