@@ -26,7 +26,17 @@
      |    ${build.dir}
      |
    -->
-  
+
+    <!-- load environment variables-->
+    <property environment="env"/>
+
+    <!-- load properties file with release variable in it -->
+    <loadproperties>
+        <file file="${env.HOME}/.intermine/zfinmine.properties"/>
+    </loadproperties>
+
+    <!-- from the file above -->
+    <property name="release" value="${release}" />
   <target name="-check-task-availability">
     <available property="antlib-os-available" resource="org/intermine/task/antlib-os.xml" classpathref="task.class.path"/>
     <available property="antlib-int-available" resource="org/intermine/task/antlib-int.xml" classpathref="task.class.path"/>
@@ -35,11 +45,13 @@
   
   <target name="-set-release-suffix-exists" if="release">
     <property name="release-suffix" value=".${release}"/>
+      <echo message="Set release-suffix: ${release}"/>
   </target>
 
   <target name="-set-release-suffix-not-exists" unless="release">
     <!-- default to no suffix -->
     <property name="release-suffix" value=""/>
+      <echo message="Set release-suffix: ${release}"/>
   </target>
 
   <target name="-set-release-suffix" 
