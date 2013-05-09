@@ -252,9 +252,9 @@
                 cache="${build.dir}/depend.cache">
           <classpath refid="@{dependpath}"/>
         </depend>
-          <echo message="Directory: @{destdir}" />
           <mkdir dir="@{srcdir}" />
-        <javac srcdir="@{srcdir}" destdir="@{destdir}" debug="@{debug}" compiler="${javac.compiler}"
+          <mkdir dir="@{srcdir}../resources" /> 
+       <javac srcdir="@{srcdir}" destdir="@{destdir}" debug="@{debug}" compiler="${javac.compiler}"
            source="${javac.source}" target="${javac.target}"
            includeantruntime="false">
           <classpath refid="@{classpath}"/>
