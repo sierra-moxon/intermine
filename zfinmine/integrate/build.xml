@@ -7,6 +7,17 @@
 
   <import file="../../imbuild/integrate.xml"/>
 
+ <!-- load environment variables-->
+    <property environment="env"/>
+
+    <!-- load properties file with release variable in it -->
+    <loadproperties>
+        <file file="${env.HOME}/.intermine/zfinmine.properties"/>
+    </loadproperties>
+
+    <!-- from the file above -->
+    <property name="release" value="${release}" />
+
   <target name="test" depends="init, -init-deps">
       <ant inheritAll="false" antfile="../../sources/uniprot/build.xml" target="retrieve">
         <property name="intermine.properties.file" value="${intermine.properties.file}"/>
