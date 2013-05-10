@@ -183,11 +183,6 @@
       <displayer src="attributeLinkDisplayer.tile"></displayer>
    </bagdisplayers>-->
 </class>
-<class className="org.intermine.model.bio.Feature">
-   <fields>
-      <fieldconfig fieldExpr="featureName"></fieldconfig>
-      <fieldconfig fieldExpr="featureAbbrev"></fieldconfig>
-   </fields>
 </class>
 <class className="org.intermine.model.bio.Genotype">
    <fields>
@@ -202,7 +197,7 @@
      <fieldconfig fieldExpr="publisher"></fieldconfig>
    </fields>
  </class>
-<class className="org.intermine.model.bio.Morpholino">
+<class className="org.intermine.model.bio.MorpholinoOligo">
    <fields>
      <fieldconfig fieldExpr="symbol"></fieldconfig>
    </fields>
