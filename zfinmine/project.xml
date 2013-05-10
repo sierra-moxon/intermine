@@ -76,6 +76,10 @@
 	  <property name="src.data.dir" location="../data-sources/feature_alias"/>
 	  <property name="src.data.dir.includes" value="*.txt"/>
 	</source>
+        <source name="genotypePubs" type="genotypePubs">
+          <property name="src.data.dir" location="../data-sources/genotypePubs"/>
+          <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
         <source name="featurePubs" type="featurePubs">
           <property name="src.data.dir" location="../data-sources/mutantAttributions"/>
           <property name="src.data.dir.includes" value="*.txt"/>
