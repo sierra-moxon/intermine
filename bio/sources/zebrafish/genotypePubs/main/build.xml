@@ -1,0 +1,4 @@
+<project name="genotypePubs-tasks" default="default" basedir=".">
+  <description>build genotypePubs tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>
