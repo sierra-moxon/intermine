@@ -179,15 +179,6 @@
       <fieldconfig showInResults="true" fieldExpr="name"></fieldconfig>
       <fieldconfig fieldExpr="symbol"></fieldconfig>
    </fields>
-  <!-- <bagdisplayers>
-      <displayer src="attributeLinkDisplayer.tile"></displayer>
-   </bagdisplayers>-->
-</class>
-<class className="org.intermine.model.bio.Feature">
-   <fields>
-      <fieldconfig fieldExpr="featureName"></fieldconfig>
-      <fieldconfig fieldExpr="featureAbbrev"></fieldconfig>
-   </fields>
 </class>
 <class className="org.intermine.model.bio.Genotype">
    <fields>
@@ -202,7 +193,7 @@
      <fieldconfig fieldExpr="publisher"></fieldconfig>
    </fields>
  </class>
-<class className="org.intermine.model.bio.Morpholino">
+<class className="org.intermine.model.bio.MorpholinoOligo">
    <fields>
      <fieldconfig fieldExpr="symbol"></fieldconfig>
    </fields>
@@ -216,7 +207,6 @@
 <class className="org.intermine.model.bio.ExpressionResult">
    <fields>
       <fieldconfig  fieldExpr="gene.symbol"></fieldconfig>
-      <!--<fieldconfig  fieldExpr="superterm.name"></fieldconfig>-->
       <fieldconfig  fieldExpr="subterm.name"></fieldconfig>
       <fieldconfig  fieldExpr="startStage.name"></fieldconfig>
       <fieldconfig  fieldExpr="endStage.name"></fieldconfig>
@@ -263,19 +253,15 @@
 <class className="org.intermine.model.bio.GenotypeEnvironment">
    <fields>
       <fieldconfig  fieldExpr="genotype.genoDisplayName"></fieldconfig>
- <!--     <fieldconfig  fieldExpr="environment.conditions.conditionName"></fieldconfig>
-      <fieldconfig  fieldExpr="environment.conditions.conditionGroup"></fieldconfig>
-      <fieldconfig  fieldExpr="environment.conditions.morpholino.symbol"></fieldconfig>-->
    </fields>
 </class>
-<!-- exporters -->
-  <tableExportConfig id="sequenceExporter" actionPath="/exportAction?type=sequenceExporter"
-                     className="org.intermine.bio.web.export.SequenceHttpExporter"/>
-  <tableExportConfig id="gff3Exporter" actionPath="/exportAction?type=gff3Exporter"
-                     className="org.intermine.bio.web.export.GFF3HttpExporter"/>
+<tableExportConfig id="sequenceExporter" actionPath="/exportAction?type=sequenceExporter"
+                   className="org.intermine.bio.web.export.SequenceHttpExporter"/>
+<tableExportConfig id="gff3Exporter" actionPath="/exportAction?type=gff3Exporter"
+                   className="org.intermine.bio.web.export.GFF3HttpExporter"/>
 
 <widgets>
-<enrichmentwidgetdisplayer id="go_enrichment"
+<!--<enrichmentwidgetdisplayer id="go_enrichment"
 			   title="Gene Ontology Enrichment"
 			   description="Terms enriched for genes in this list."
 			   label="GO Term"
@@ -286,59 +272,17 @@
 			   views="secondaryIdentifier,symbol,primaryIdentifier,organism.name"
 			   externalLink="http://amigo.geneontology.org/cgi-bin/amigo/term_details?term="
 			   enrichIdentifier="goAnnotation.ontologyTerm.parents.identifier"/>
-<!--
-<enrichmentwidgetdisplayer id="uniprot_keywords"
-			       title="UniProt Keywords"
-			                                        description="UniProt keywords enriched for proteins in this list."
-			                                        label="Keyword"
-			                                        startClass="Protein"
-			                                        startClassDisplay="primaryIdentifier"
-			                                        enrich="keywords.name"
-			                                        constraints="organism.name=[list]"
-			                                        typeClass="org.intermine.model.bio.Protein"
-			                                        views="primaryIdentifier, primaryAccession, organism.name"/>
-
--->
-<!--<bagtabledisplayer id="orthologues" title="Orthologues" pathStrings="Gene.homologues[type=orthologue].homologue.organism"
-		                            description="Counts of orthologues in other organisms for the genes in this list."
-		                            displayFields="name"
-		                            exportField="primaryIdentifier"
-		                            typeClass="org.intermine.model.bio.Gene"
-		                            columnTitle="Orthologues"
-		                            views="secondaryIdentifier, symbol, organism.shortName,
-                                  homologues.homologue.primaryIdentifier,
-                                  homologues.homologue.symbol,
-                                  homologues.homologue.organism.shortName,
-                                 homologues.type"/>-->
-
- <enrichmentwidgetdisplayer id="publication_enrichment"
-                                 title="Publication Enrichment"
-                                 description="Publications enriched for genes in this list."
-                                 label="Publication"
-                                 startClass="Gene"
-                                 startClassDisplay="primaryIdentifier"
-                                 enrich="publications.title"
-                                 enrichIdentifier="publications.pubMedId"
-                                 constraints="organism.name=[list],primaryIdentifier != null"
-                                 typeClass="Gene"
-				 views="secondaryIdentifier,symbol,primaryIdentifier"
-                                 externalLink="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids="/>
+<enrichmentwidgetdisplayer id="publication_enrichment"
+                           title="Publication Enrichment"
+                           description="Publications enriched for genes in this list."
+                           label="Publication"
+                           startClass="Gene"
+                           startClassDisplay="primaryIdentifier"
+                           enrich="publications.title"
+                           enrichIdentifier="publications.pubMedId"
+                           constraints="organism.name=[list],primaryIdentifier != null"
+                           typeClass="Gene"
+			   views="secondaryIdentifier,symbol,primaryIdentifier"
+                           externalLink="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids="/>-->
 </widgets>
-<!--
-  <widgets>
-    <enrichmentwidgetdisplayer id="go_enrichment" 
-			       title="Gene Ontology Enrichment"
-                               label="GO Term" 
-                               filters="biological_process,cellular_component,molecular_function"
-                               filterLabel="Ontology" 
-			       startClass="Gene" 
-			       startClassDisplay="symbol" 
-			       enrich="goAnnotation.ontologyTerm.parents.name" 
-			       enrichIdentifier="goAnnotation.ontologyTerm.parents.identifier"
-			       constraints="goAnnotation.ontologyTerm.parents.namespace=[Ontology],organism.name=[list],
-			                    primaryIdentifier != null, goAnnotation.qualifier = null"
-			       typeClass="org.intermine.model.bio.Gene" 
-			       views="secondaryIdentifier,symbol,primaryIdentifier" 
-			       externalLink="" />
-  </widgets> -->  
 </webconfig>
