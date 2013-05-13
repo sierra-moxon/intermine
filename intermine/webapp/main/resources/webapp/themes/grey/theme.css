@@ -91,7 +91,7 @@ ul#submenulist li#subactive_bag, ul#submenulist li#subactive_api {height:37px;
   font-weight:bold;color:#FFF;background:url('submenu_indent.png') no-repeat bottom center;}
 
 ul#submenulist li#subactive_mymine {
-  font-weight:bold;color:#CCC;background:url('submenu_my.png') no-repeat bottom center;}
+  font-weight:bold;color:#000;background:url('submenu_my.png') no-repeat bottom center;}
 
 /*ul#submenulist li#subactive_mymine span { color:#000 !important; }*/
 
@@ -107,10 +107,10 @@ ul#nav li{
   background:#D2CEBF;}
 
 ul#submenulist li a {
-  color:#FFF;text-decoration: none;font-weight: bold;}
+  color:#000;text-decoration: none;font-weight: bold;}
 
 ul#submenulist li a:hover {
-  color:#FFF;text-decoration: underline;font-weight: bold;}
+  color:#000;text-decoration: underline;font-weight: bold;}
 
 ul#submenulist li.myminebagstabtitle a, ul#submenulist li.myminehistorytabtitle a, ul#submenulist li.myminesavedqueriestabtitle a,
 ul#submenulist li.myminesavedtemplatestabtitle a, ul#submenulist li.myminepasswordtabtitle a, ul#submenulist li.myminetrackstabtitle a,
