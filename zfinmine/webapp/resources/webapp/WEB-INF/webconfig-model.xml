@@ -261,7 +261,7 @@
                    className="org.intermine.bio.web.export.GFF3HttpExporter"/>
 
 <widgets>
-<!--<enrichmentwidgetdisplayer id="go_enrichment"
+<enrichmentwidgetdisplayer id="go_enrichment"
 			   title="Gene Ontology Enrichment"
 			   description="Terms enriched for genes in this list."
 			   label="GO Term"
@@ -283,6 +283,6 @@
                            constraints="organism.name=[list],primaryIdentifier != null"
                            typeClass="Gene"
 			   views="secondaryIdentifier,symbol,primaryIdentifier"
-                           externalLink="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids="/>-->
+                           externalLink="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids="/>
 </widgets>
 </webconfig>
