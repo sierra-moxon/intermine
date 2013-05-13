@@ -1055,16 +1055,19 @@ ul#submenulist li.first, ul#submenulist li a, ul#submenulist li.first a { /*bord
 ul#submenulist li.myminebagstabtitle a, ul#submenulist li.myminebagstabtitle span {
     background: url('../images/icons/lists-16.png') no-repeat 6px;
     padding-left: 26px;
+    color:#000;
 }
 
 ul#submenulist li.myminesavedqueriestabtitle a, ul#submenulist li.myminesavedqueriestabtitle span {
     background: url('../images/icons/queries-16.png') no-repeat 6px;
     padding-left: 26px;
+    color:#000;
 }
 
 ul#submenulist li.myminesavedtemplatestabtitle a, ul#submenulist li.myminesavedtemplatestabtitle span {
     background: url('../images/icons/templates-16.png') no-repeat 6px;
     padding-left: 26px;
+    color:#000;
 }
 
 /* lists analysis (bagDetails.do) */
