@@ -41,11 +41,11 @@
   </form-beans>
   <!-- ========== Exceptions Configuration ================================ -->
   <global-exceptions>
-    <exception type="java.lang.Exception" path="error.page" key="exception.message" handler="org.intermine.web.struts.InterMineExceptionHandler"/>
+    <exception type="java.lang.Exception" path="/error.page" key="exception.message" handler="org.intermine.web.struts.InterMineExceptionHandler"/>
   </global-exceptions>
   <!-- ========== Global Forward Definitions ============================== -->
   <global-forwards>
-    <forward name="error" path="error.page"/>
+    <forward name="error" path="/error.page"/>
   </global-forwards>
   <!-- ========== Action Mapping Definitions ============================== -->
   <action-mappings>
@@ -210,7 +210,7 @@
     </action>
     <action path="/pollQuery" type="org.intermine.web.struts.PollQueryAction">
       <!-- some kind of error in the action to do with session state or the request -->
-      <forward name="error" path="error.page"/>
+      <forward name="error" path="/error.page"/>
       <!-- problem running query -->
       <forward name="failure" redirect="true" path="/query.do"/>
       <!-- implicitly cancelled by user -->
@@ -222,11 +222,11 @@
     </action>
     <action path="/pollTemplateQuery" type="org.intermine.web.struts.PollQueryAction">
       <!-- some kind of error in the action to do with session state or the request -->
-      <forward name="error" path="error.page"/>
+      <forward name="error" path="/error.page"/>
       <!-- problem running query -->
-      <forward name="failure" path="error.page"/>
+      <forward name="failure" path="/error.page"/>
       <!-- implicitly cancelled by user -->
-      <forward name="cancelled" path="error.page"/>
+      <forward name="cancelled" path="/error.page"/>
       <!-- forward to results page -->
       <forward name="results" redirect="true" path="/results.do"/>
       <!-- continue waiting -->
@@ -234,11 +234,11 @@
     </action>
     <action path="/pollBrowseQuery" type="org.intermine.web.struts.PollQueryAction" parameter="followSingleResult">
       <!-- some kind of error in the action to do with session state or the request -->
-      <forward name="error" path="error.page"/>
+      <forward name="error" path="/error.page"/>
       <!-- problem running query -->
-      <forward name="failure" path="error.page"/>
+      <forward name="failure" path="/error.page"/>
       <!-- implicitly cancelled by user -->
-      <forward name="cancelled" path="error.page"/>
+      <forward name="cancelled" path="/error.page"/>
       <!-- forward to results page -->
       <forward name="results" redirect="true" path="/results.do"/>
       <!-- continue waiting -->
@@ -389,7 +389,7 @@
       <forward name="results" redirect="true" path="/results.do"/>
     </action>
     <action path="/portal" type="org.intermine.web.struts.PortalQueryAction">
-      <forward name="failure" path="error.page"/>
+      <forward name="failure" path="/error.page"/>
       <forward name="report" path="/report.do"/>
       <forward name="bagDetails" path="/bagDetails.do"/>
       <forward name="waiting" redirect="true" path="/pollBrowseQuery.do"/>
