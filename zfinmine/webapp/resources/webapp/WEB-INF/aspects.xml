@@ -21,7 +21,7 @@
         <tile-name>model/proteins.jsp</tile-name>
         <aspect-source name="UniProt" url="http://www.uniprot.org"/>
     </aspect>
-    <aspect name="Gene Ontology">
+<!--    <aspect name="Gene Ontology">
         <subtitle></subtitle>
         <icon-image>model/images/geneOntology.png</icon-image>
         <large-image>model/images/geneOntology.png</large-image>
@@ -72,7 +72,7 @@
         </intro-text>
         <tile-name>model/zfin.jsp</tile-name>
         <aspect-source name="ZFIN" url="http://zfin.org"/>
-    </aspect>
+    </aspect> -->
     <aspect name="Publications">
         <subtitle></subtitle>
         <icon-image>model/images/logo.png</icon-image>
@@ -83,7 +83,37 @@
         <tile-name>model/zfin.jsp</tile-name>
         <aspect-source name="ZFIN" url="http://zfin.org"/>
     </aspect>
-    <aspect name="Zebrafish Anatomy Ontology">
+        <aspect name="Reagents">
+        <subtitle></subtitle>
+        <icon-image>model/images/logo.png</icon-image>
+        <large-image>model/images/logo.png</large-image>
+        <intro-text>
+            &lt;i&gt;Danio rerio&lt;/i&gt; Reagents.
+        </intro-text>
+        <tile-name>model/zfin.jsp</tile-name>
+        <aspect-source name="ZFIN" url="http://zfin.org"/>
+    </aspect>
+    <aspect name="Ontology">
+        <subtitle></subtitle>
+        <icon-image>model/images/logo.png</icon-image>
+        <large-image>model/images/logo.png</large-image>
+        <intro-text>
+           Ontologies.
+        </intro-text>
+        <tile-name>model/zfin.jsp</tile-name>
+        <aspect-source name="ZFIN" url="http://zfin.org"/>
+    </aspect>
+    <aspect name="Fish">
+        <subtitle></subtitle>
+        <icon-image>model/images/logo.png</icon-image>
+        <large-image>model/images/logo.png</large-image>
+        <intro-text>
+            &lt;i&gt;Danio rerio&lt;/i&gt; Fish.
+        </intro-text>
+        <tile-name>model/zfin.jsp</tile-name>
+        <aspect-source name="ZFIN" url="http://zfin.org"/>
+    </aspect>
+<!--    <aspect name="Zebrafish Anatomy Ontology">
         <subtitle></subtitle>
         <icon-image>model/images/logo.png</icon-image>
         <large-image>model/images/logo.png</large-image>
@@ -102,5 +132,5 @@
         </intro-text>
         <tile-name>model/zfin.jsp</tile-name>
         <aspect-source name="ZFIN" url="http://zfin.org"/>
-    </aspect>
+    </aspect> -->
 </aspects>
