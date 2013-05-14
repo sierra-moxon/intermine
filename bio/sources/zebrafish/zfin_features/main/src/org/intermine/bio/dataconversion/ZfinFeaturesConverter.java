@@ -63,7 +63,7 @@ public class ZfinFeaturesConverter extends BioFileConverter {
 	processFeatures(reader);
 
 	    try {
-		for (Item feature : features.values()){
+		for (Item feature : terms.values()){
 		    
 		    store(feature);
 		}
@@ -124,7 +124,7 @@ public class ZfinFeaturesConverter extends BioFileConverter {
     }
 
     private Item getTypedItem(String primaryIdentifier, String type) throws SAXException {
-        Item typedItem = getFeature(primaryIdentifier,"SequenceAlteration");
+        Item typedItem = null;
 
         if (type.equals("INSERTION")) {
             typedItem = getFeature(primaryIdentifier,"Insertion");
@@ -161,16 +161,7 @@ public class ZfinFeaturesConverter extends BioFileConverter {
             item.setAttribute("primaryIdentifier", primaryIdentifier);
             terms.put(primaryIdentifier, item);
         }
-        else {
-            if (item.getClassName().equals("SequenceAlteration")) {
-                terms.remove(item);
-                item = createItem(soTermName);
-                item.setReference("organism", getOrganism("7955"));
-                item.setAttribute("primaryIdentifier", primaryIdentifier);
-                terms.put(primaryIdentifier, item);
 
-            }
-        }
         return item;
     }
 
