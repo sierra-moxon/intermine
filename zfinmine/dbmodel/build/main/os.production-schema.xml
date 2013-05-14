@@ -131,30 +131,6 @@
             <unique-column name="id"/>
         </unique>
     </table>
-    <table name="Gene">
-        <column name="secondaryIdentifier" type="LONGVARCHAR"/>
-        <column name="symbol" type="LONGVARCHAR"/>
-        <column name="type" type="LONGVARCHAR"/>
-        <column name="briefDescription" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
-        <column name="length" type="INTEGER"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="name" type="LONGVARCHAR"/>
-        <column name="scoreType" type="LONGVARCHAR"/>
-        <column name="score" type="DOUBLE"/>
-        <column name="description" type="LONGVARCHAR"/>
-        <column name="chromosomeId" type="INTEGER"/>
-        <column name="chromosomeLocationId" type="INTEGER"/>
-        <column name="organismId" type="INTEGER"/>
-        <column name="downstreamIntergenicRegionId" type="INTEGER"/>
-        <column name="upstreamIntergenicRegionId" type="INTEGER"/>
-        <column name="sequenceId" type="INTEGER"/>
-        <column name="sequenceOntologyTermId" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="Gene_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
     <table name="Pseudogene">
         <column name="secondaryIdentifier" type="LONGVARCHAR"/>
         <column name="symbol" type="LONGVARCHAR"/>
@@ -212,6 +188,30 @@
         <column name="geneId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="UTR_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
+    <table name="Gene">
+        <column name="secondaryIdentifier" type="LONGVARCHAR"/>
+        <column name="symbol" type="LONGVARCHAR"/>
+        <column name="type" type="LONGVARCHAR"/>
+        <column name="briefDescription" type="LONGVARCHAR"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="length" type="INTEGER"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="name" type="LONGVARCHAR"/>
+        <column name="scoreType" type="LONGVARCHAR"/>
+        <column name="score" type="DOUBLE"/>
+        <column name="description" type="LONGVARCHAR"/>
+        <column name="chromosomeId" type="INTEGER"/>
+        <column name="chromosomeLocationId" type="INTEGER"/>
+        <column name="organismId" type="INTEGER"/>
+        <column name="downstreamIntergenicRegionId" type="INTEGER"/>
+        <column name="upstreamIntergenicRegionId" type="INTEGER"/>
+        <column name="sequenceId" type="INTEGER"/>
+        <column name="sequenceOntologyTermId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="Gene_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -1303,6 +1303,15 @@
             <unique-column name="id"/>
         </unique>
     </table>
+    <table name="OmimPhenotype">
+        <column name="disease" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="phenotypeLinkId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="OmimPhenotype_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
     <table name="ChromosomalDeletion">
         <column name="secondaryIdentifier" type="LONGVARCHAR"/>
         <column name="symbol" type="LONGVARCHAR"/>
@@ -1341,17 +1350,17 @@
         <column name="SequenceVariant" type="INTEGER" required="true"/>
         <column name="Genes" type="INTEGER" required="true"/>
     </table>
-    <table name="InsertionAllelesInsertionConstructs">
-        <column name="InsertionAlleles" type="INTEGER" required="true"/>
-        <column name="InsertionConstructs" type="INTEGER" required="true"/>
+    <table name="GenesPathways">
+        <column name="Genes" type="INTEGER" required="true"/>
+        <column name="Pathways" type="INTEGER" required="true"/>
     </table>
     <table name="ArtifactsCloneArtifacts">
         <column name="Artifacts" type="INTEGER" required="true"/>
         <column name="CloneArtifacts" type="INTEGER" required="true"/>
     </table>
-    <table name="GenesPathways">
-        <column name="Genes" type="INTEGER" required="true"/>
-        <column name="Pathways" type="INTEGER" required="true"/>
+    <table name="InsertionAllelesInsertionConstructs">
+        <column name="InsertionAlleles" type="INTEGER" required="true"/>
+        <column name="InsertionConstructs" type="INTEGER" required="true"/>
     </table>
     <table name="MorpholinosTargets">
         <column name="Targets" type="INTEGER" required="true"/>
@@ -1420,6 +1429,10 @@
     <table name="OntologyTermSynonyms">
         <column name="OntologyTerm" type="INTEGER" required="true"/>
         <column name="Synonyms" type="INTEGER" required="true"/>
+    </table>
+    <table name="GenesGenotypes">
+        <column name="Genotypes" type="INTEGER" required="true"/>
+        <column name="Genes" type="INTEGER" required="true"/>
     </table>
     <table name="DataSetsSynonym">
         <column name="Synonym" type="INTEGER" required="true"/>
@@ -1500,10 +1513,6 @@
     <table name="EFGPublications">
         <column name="EFG" type="INTEGER" required="true"/>
         <column name="Publications" type="INTEGER" required="true"/>
-    </table>
-    <table name="GenesGenotypes">
-        <column name="Genes" type="INTEGER" required="true"/>
-        <column name="Genotypes" type="INTEGER" required="true"/>
     </table>
     <table name="FishGenes">
         <column name="Fish" type="INTEGER" required="true"/>
@@ -1617,17 +1626,21 @@
         <column name="MarkersMissing" type="INTEGER" required="true"/>
         <column name="MissingFrom" type="INTEGER" required="true"/>
     </table>
-    <table name="EncodesPseudogene">
-        <column name="Pseudogene" type="INTEGER" required="true"/>
-        <column name="Encodes" type="INTEGER" required="true"/>
-    </table>
     <table name="PhenotypicAllelesPhenotypicConstructs">
         <column name="PhenotypicAlleles" type="INTEGER" required="true"/>
         <column name="PhenotypicConstructs" type="INTEGER" required="true"/>
     </table>
+    <table name="EncodesPseudogene">
+        <column name="Pseudogene" type="INTEGER" required="true"/>
+        <column name="Encodes" type="INTEGER" required="true"/>
+    </table>
     <table name="MeshTermsPublications">
         <column name="MeshTerms" type="INTEGER" required="true"/>
         <column name="Publications" type="INTEGER" required="true"/>
+    </table>
+    <table name="GenesOmimPhenotypes">
+        <column name="Genes" type="INTEGER" required="true"/>
+        <column name="OmimPhenotypes" type="INTEGER" required="true"/>
     </table>
     <table name="EncodesGenes">
         <column name="Genes" type="INTEGER" required="true"/>

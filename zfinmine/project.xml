@@ -125,58 +125,27 @@
             <property name="src.data.dir" location="../data-sources/panther/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
        </source>
-        <!--   <source name="uniprot-zebrafish" type="uniprot">
-       <property name="uniprot.organisms" value="7955"/>
-       <property name="src.data.dir" location="../data-sources/uniprot/"/>
-     </source>
-     <source name="zfinSequence" type="zfinSequence">
-       <property name="gff3.taxonId" value="7955"/>
-       <property name="gff3.seqDataSourceName" value="ZFIN"/>
-       <property name="gff3.dataSourceName" value="ZFIN"/>
-       <property name="gff3.seqClsName" value="Chromosome"/>
-       <property name="gff3.dataSetTitle" value="ZFIN Danio rerio genome"/>
-       <property name="src.data.dir" location="../data-sources/zfinSequence"/>
-     </source>
-     <source name="zebrafish-chromosome-fasta" type="fasta" dump="true">
-       <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
-       <property name="fasta.dataSourceName" value="ZfinDB"/>
-       <property name="fasta.dataSetTitle" value="ZfinDB chromosome sequence"/>
-       <property name="fasta.taxonId" value="7955"/>
-       <property name="fasta.includes" value="DRE*.fasta"/>
-       <property name="src.data.dir" location="../data-sources/genome"/>
-     </source>   -->
-<!--
-        <source name="kegg" type="kegg">
-            <property name="src.data.dir" location="../data-sources/kegg"/>
-            <property name="taxonId" value="7955"/>
-        </source> -->
-<!--   <source name="update-publications" type="update-publications">
-     <property name="src.data.file" location="build/publications.xml"/>
-   </source>-->   
-   <source name="labs" type="labs">
-            <property name="src.data.dir" location="../data-sources/lab/"/>
-            <property name="src.data.dir.includes" value="*.txt"/>
-   </source><!--
-       <source name="treefam" type="treefam">
-          <property name="src.data.dir" location="../data-sources/treefam"/>
-          <property name="src.data.dir.includes" value="ortholog.txt.table"/>
-          <property name="geneFile" value="../data-sources/treefam/genes.txt.table"/>
-          <property name="treefam.organisms" value="7955"/> 
-          <property name="treefam.homologues" value="9606 10090 10116 7955 6239 7165 4932"/> 
-       </source>-->
-        <source name="entrez-organism" type="entrez-organism">
-            <property name="src.data.file" location="build/organisms.xml"/>
+	<source name="omimPhenotypes" type="omimPhenotypes">
+          <property name="src.data.dir" location="../data-sources/omimPhenotypes/"/>
+          <property name="src.data.dir.includes" value="*.txt"/>
+	</source>
+	<source name="labs" type="labs">
+	  <property name="src.data.dir" location="../data-sources/lab/"/>
+          <property name="src.data.dir.includes" value="*.txt"/>
+	</source>
+	<source name="entrez-organism" type="entrez-organism">
+          <property name="src.data.file" location="build/organisms.xml"/>
         </source> 
     </sources>
     <post-processing>
-        <post-process name="create-references"/>
-	<!--<post-process name="transfer-sequences-located-sequence-feature"/>-->
-        <!-- this runs the postprocessing steps in all sources -->
-        <post-process name="do-sources"/>
-	<post-process name="create-search-index"/>
-        <post-process name="summarise-objectstore"/>
-        <post-process name="create-autocomplete-index"/>
-        <post-process name="create-attribute-indexes"/>
+      <post-process name="create-references"/>
+      <!--<post-process name="transfer-sequences-located-sequence-feature"/>-->
+      <!-- this runs the postprocessing steps in all sources -->
+      <post-process name="do-sources"/>
+      <post-process name="create-search-index"/>
+      <post-process name="summarise-objectstore"/>
+      <post-process name="create-autocomplete-index"/>
+      <post-process name="create-attribute-indexes"/>
     </post-processing>
 </project>
 
