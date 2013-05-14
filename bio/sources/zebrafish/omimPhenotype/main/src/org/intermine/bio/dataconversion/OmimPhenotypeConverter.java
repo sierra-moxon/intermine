@@ -39,8 +39,6 @@ import org.xml.sax.SAXException;
 public class OmimPhenotypeConverter extends BioFileConverter
 {
     //
-    private static final Logger LOG = Logger.getLogger(zfin_markersConverter.class);
-
     private Map<String, Item> genes = new HashMap();
     private Map<String, Item> linkDbs = new HashMap();
     private Map<String, Item> omimphenos = new HashMap();
@@ -101,8 +99,9 @@ public class OmimPhenotypeConverter extends BioFileConverter
 	    
 	    Item linkDb = getLinkDb("OmimPhenotype","http://zfin.org","phenotype for human disease.");
      
+	    Item gene = null;
 	    if (!StringUtils.isEmpty(geneId)) {
-                Item gene = getGene(geneId);
+                gene = getGene(geneId);
             }
 	    if (!StringUtils.isEmpty(name)){
 		Item omimPheno = getOmimPheno(name);
@@ -111,7 +110,7 @@ public class OmimPhenotypeConverter extends BioFileConverter
 		    crossRef.setReference("source",linkDb);
 		    omimPheno.setReference("phenotypeLink",crossRef);
 		}
-		gene.addToCollection("omimPhenotypes",omimPhenotype);
+		gene.addToCollection("omimPhenotypes",omimPheno);
 	    }
 	    
         }
@@ -122,7 +121,6 @@ public class OmimPhenotypeConverter extends BioFileConverter
         Item item = omimphenos.get(name);
         if (item == null) {
             item = createItem("OmimPhenotype");
-            item.setReference("organism", getOrganism("7955"));
             omimphenos.put(name, item);
         }
         return item;
@@ -156,9 +154,9 @@ public class OmimPhenotypeConverter extends BioFileConverter
         Item item = linkDbs.get(name);
         if (item == null) {
             item = createItem("DataSource");
-                item.setAttribute("name",name);
-            item.setAttribute("url",url);
-            item.setAttribute("description",description);
+	    item.setAttribute("name",name);
+	    item.setAttribute("url",url);
+	    item.setAttribute("description",description);
             linkDbs.put(name, item);
             try {
                 store(item);
@@ -167,10 +165,10 @@ public class OmimPhenotypeConverter extends BioFileConverter
             }
         }
         return item;
-    }
+  }
 
 
 
 
-    }
 }
+
