@@ -192,6 +192,21 @@
             <unique-column name="id"/>
         </unique>
     </table>
+    <table name="Genotype">
+        <column name="isExtinct" type="BIT"/>
+        <column name="isWildType" type="BIT"/>
+        <column name="backgrounds" type="LONGVARCHAR"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="parentalGenotype" type="LONGVARCHAR"/>
+        <column name="genoHandle" type="LONGVARCHAR"/>
+        <column name="genoDisplayName" type="LONGVARCHAR"/>
+        <column name="organismId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="Genotype_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
     <table name="UTR">
         <column name="id" type="INTEGER" required="true"/>
         <column name="geneId" type="INTEGER"/>
@@ -650,21 +665,6 @@
         <column name="organismId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="EFG_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table name="Genotype">
-        <column name="isExtinct" type="BIT"/>
-        <column name="isWildType" type="BIT"/>
-        <column name="backgrounds" type="LONGVARCHAR"/>
-        <column name="parentalZygocity" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="genoHandle" type="LONGVARCHAR"/>
-        <column name="genoDisplayName" type="LONGVARCHAR"/>
-        <column name="organismId" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="Genotype_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -1477,10 +1477,6 @@
         <column name="Fish" type="INTEGER" required="true"/>
         <column name="Affectors" type="INTEGER" required="true"/>
     </table>
-    <table name="FeaturesGenotypes">
-        <column name="Features" type="INTEGER" required="true"/>
-        <column name="Genotypes" type="INTEGER" required="true"/>
-    </table>
     <table name="FishPhenotypes">
         <column name="Fish" type="INTEGER" required="true"/>
         <column name="Phenotypes" type="INTEGER" required="true"/>
@@ -1556,6 +1552,10 @@
     <table name="ConstructsEFGs">
         <column name="Constructs" type="INTEGER" required="true"/>
         <column name="EFGs" type="INTEGER" required="true"/>
+    </table>
+    <table name="FeaturesGenotypes">
+        <column name="Genotypes" type="INTEGER" required="true"/>
+        <column name="Features" type="INTEGER" required="true"/>
     </table>
     <table name="InnocuousAllelesInnocuousConstructs">
         <column name="InnocuousAlleles" type="INTEGER" required="true"/>
