@@ -35,6 +35,11 @@
         <attribute name="type" type="java.lang.String"/>
         <collection name="genotypes" referenced-type="Genotype" reverse-reference="features"></collection>
     </class>-->
+    <class name="OmimPhenotype" is-interface="true">
+      <collection name="genes" referenced-type="Gene" reverse-reference="omimPhenotypes"/>
+      <reference name="phenotypeLink" referenced-type="CrossReference"/>
+      <attribute name="disease" type="java.lang.String"/>
+    </class>
     <class name="CrossReference" is-interface="true">
         <attribute name="linkType" type="java.lang.String"/> 
     </class>
@@ -142,6 +147,7 @@
         <collection name="features" referenced-type="SequenceAlteration" reverse-reference="genes"/>
         <collection name="stss" referenced-type="STS" reverse-reference="genes"/>
 	<collection name="chromosomes" referenced-type="Chromosome" reverse-reference="genes"/>
+	<collection name="omimPhenotypes" referenced-type="OmimPhenotype" reverse-reference="genes"/>
     </class>
     <class name="Chromosome" extends="BioEntity" is-interface="true">
       <attribute name="name" type="java.lang.String"/>
