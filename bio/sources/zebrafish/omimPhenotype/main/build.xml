@@ -1,0 +1,4 @@
+<project name="omimPhenotype-tasks" default="default" basedir=".">
+  <description>build omimPhenotype tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>
