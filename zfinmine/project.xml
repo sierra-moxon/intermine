@@ -125,8 +125,8 @@
             <property name="src.data.dir" location="../data-sources/panther/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
        </source>
-	<source name="omimPhenotypes" type="omimPhenotypes">
-          <property name="src.data.dir" location="../data-sources/omimPhenotypes/"/>
+	<source name="omimPhenotype" type="omimPhenotype">
+          <property name="src.data.dir" location="../data-sources/omimPhenotype/"/>
           <property name="src.data.dir.includes" value="*.txt"/>
 	</source>
 	<source name="labs" type="labs">
