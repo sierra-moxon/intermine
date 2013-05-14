@@ -14,7 +14,7 @@
         <attribute name="primaryIdentifier" type="java.lang.String"/>
         <attribute name="genoDisplayName" type="java.lang.String"/>
         <attribute name="genoHandle" type="java.lang.String"/>
-        <attribute name="parentalZygocity" type="java.lang.String"/>
+        <attribute name="parentalGenotype" type="java.lang.String"/>
         <collection name="features" referenced-type="SequenceAlteration" reverse-reference="genotypes"/>
         <collection name="genes" referenced-type="Gene" reverse-reference="genotypes"/>
         <collection name="genotypeEnvironments" referenced-type="GenotypeEnvironment" reverse-reference="genotype"/>
