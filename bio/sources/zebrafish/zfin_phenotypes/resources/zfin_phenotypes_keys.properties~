@@ -1,8 +1,0 @@
-GenotypeEnvironment=key_primaryIdentifier
-ZFATerm.key_identifier=identifier
-GOTerm.key_identifier=identifier
-PATOTerm.key_identifier=identifier
-Figure=key_primaryIdentifier
-Publication=key_primaryIdentifier
-Phenotype=key_primaryIdentifier
-Organism=key_taxonid

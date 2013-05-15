@@ -1,4 +1,0 @@
-<project name="zfinExperiments-tasks" default="default" basedir=".">
-  <description>build zfinExperiments tasks</description>
-  <import file="../../../../imbuild/library.xml"/> 
-</project>
