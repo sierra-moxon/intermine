@@ -82,15 +82,15 @@ public class ZfinGenotypesConverter extends BioFileConverter {
             String isWildType = line[6];
             String isExtinct = line[7];
 
-            String parentalZygocity = line[10];
+            String parentalGenotype = line[10];
             String genoBackgrounds = line[11];
 
             Item genotype = getGenotype(primaryIdentifier);
 
-            if (!StringUtils.isEmpty(parentalZygocity)) {
+            if (!StringUtils.isEmpty(genoDisplayName)) {
                 genotype.setAttribute("genoDisplayName", genoDisplayName);
             }
-            if (!StringUtils.isEmpty(parentalZygocity)) {
+            if (!StringUtils.isEmpty(genoHandle)) {
                 genotype.setAttribute("genoHandle", genoHandle);
             }
             if (!StringUtils.isEmpty(isWildType)) {
@@ -107,10 +107,10 @@ public class ZfinGenotypesConverter extends BioFileConverter {
             if (!StringUtils.isEmpty(genoDisplayName)) {
                 genotype.setAttribute("genoDisplayName", genoDisplayName);
             }
-            if (!StringUtils.isEmpty(parentalZygocity)) {
-                genotype.setAttribute("parentalZygocity", parentalZygocity);
+            if (!StringUtils.isEmpty(parentalGenotype)) {
+                genotype.setAttribute("parentalGenotype", parentalGenotype);
             }
-            if (!StringUtils.isEmpty(parentalZygocity)) {
+            if (!StringUtils.isEmpty(genoBackgrounds)) {
                 genotype.setAttribute("backgrounds", genoBackgrounds);
             }
 
