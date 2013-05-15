@@ -60,7 +60,6 @@
    </longdisplayers>-->
    <fields>
       <fieldconfig fieldExpr="primaryIdentifier"></fieldconfig>
-      <fieldconfig fieldExpr="secondaryIdentifier"></fieldconfig>
       <fieldconfig fieldExpr="symbol"></fieldconfig>
       <fieldconfig fieldExpr="name"></fieldconfig>
       <fieldconfig fieldExpr="organism.shortName"></fieldconfig>
@@ -143,6 +142,7 @@
       <fieldconfig fieldExpr="volume"></fieldconfig>
       <fieldconfig fieldExpr="pages"></fieldconfig>
       <fieldconfig fieldExpr="pubMedId"></fieldconfig>
+      <fieldconfig fieldExpr="primaryIdentifier"></fieldconfig>
    </fields>
 </class>
 
@@ -179,7 +179,7 @@
    <fields>
       <fieldconfig  fieldExpr="genoDisplayName"></fieldconfig>
       <fieldconfig  fieldExpr="backgrounds"></fieldconfig>
-      <fieldconfig  fieldExpr="parentalZygocity"></fieldconfig>
+      <fieldconfig  fieldExpr="parentalGenotype"></fieldconfig>
    </fields>
 </class>
 <class className="org.intermine.model.bio.Journal">
@@ -190,8 +190,9 @@
  </class>
 <class className="org.intermine.model.bio.MorpholinoOligo">
    <fields>
-     <fieldconfig fieldExpr="symbol"></fieldconfig>
-   </fields>
+     <fieldconfig fieldExpr="primaryIdentifier"></fieldconfig>
+     <fieldconfig fieldExpr="symbol"></fieldconfig> 
+  </fields>
  </class>
 <class className="org.intermine.model.bio.Homologue">
    <fields>
