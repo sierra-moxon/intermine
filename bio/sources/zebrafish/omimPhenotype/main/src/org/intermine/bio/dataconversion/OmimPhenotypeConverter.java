@@ -67,14 +67,14 @@ public class OmimPhenotypeConverter extends BioFileConverter
 
 	try {
 
-	    for (Item item : links.values()){
-                store(item);
+	    for (Item link : links.values()){
+                store(link);
             }
-	    for (Item item : omimphenos.values()){
-		store(item);
+	    for (Item omimpheno : omimphenos.values()){
+		store(omimpheno);
 	    }
-	    for (Item item : genes.values()){
-		store(item);
+	    for (Item gene : genes.values()){
+		store(gene);
 	    }
 
         } catch (ObjectStoreException e) {
@@ -121,6 +121,7 @@ public class OmimPhenotypeConverter extends BioFileConverter
         Item item = omimphenos.get(name);
         if (item == null) {
             item = createItem("OmimPhenotype");
+	    item.setAttribute("disease",name);
             omimphenos.put(name, item);
         }
         return item;
@@ -131,6 +132,7 @@ public class OmimPhenotypeConverter extends BioFileConverter
         Item item = genes.get(primaryIdentifier);
         if (item == null) {
             item = createItem("Gene");
+	    item.setAttribute("primaryIdentifier",primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             genes.put(primaryIdentifier, item);
         }
