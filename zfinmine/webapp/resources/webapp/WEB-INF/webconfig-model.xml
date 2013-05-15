@@ -143,6 +143,7 @@
       <fieldconfig fieldExpr="volume"></fieldconfig>
       <fieldconfig fieldExpr="pages"></fieldconfig>
       <fieldconfig fieldExpr="pubMedId"></fieldconfig>
+      <fieldconfig fieldExpr="primaryIdentifier"></fieldconfig>
    </fields>
 </class>
 
@@ -179,7 +180,7 @@
    <fields>
       <fieldconfig  fieldExpr="genoDisplayName"></fieldconfig>
       <fieldconfig  fieldExpr="backgrounds"></fieldconfig>
-      <fieldconfig  fieldExpr="parentalZygocity"></fieldconfig>
+      <fieldconfig  fieldExpr="parentalGenotype"></fieldconfig>
    </fields>
 </class>
 <class className="org.intermine.model.bio.Journal">
