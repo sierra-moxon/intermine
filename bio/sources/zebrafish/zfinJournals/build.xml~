@@ -1,5 +1,0 @@
-<project name="zfinJournals" default="default" basedir=".">
-  <description>build, test, package zfinJournals</description>
-  
-  <import file="../../../imbuild/source.xml"/>
-</project>
