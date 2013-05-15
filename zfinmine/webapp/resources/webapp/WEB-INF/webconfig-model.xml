@@ -60,7 +60,6 @@
    </longdisplayers>-->
    <fields>
       <fieldconfig fieldExpr="primaryIdentifier"></fieldconfig>
-      <fieldconfig fieldExpr="secondaryIdentifier"></fieldconfig>
       <fieldconfig fieldExpr="symbol"></fieldconfig>
       <fieldconfig fieldExpr="name"></fieldconfig>
       <fieldconfig fieldExpr="organism.shortName"></fieldconfig>
@@ -191,8 +190,9 @@
  </class>
 <class className="org.intermine.model.bio.MorpholinoOligo">
    <fields>
-     <fieldconfig fieldExpr="symbol"></fieldconfig>
-   </fields>
+     <fieldconfig fieldExpr="primaryIdentifier"></fieldconfig>
+     <fieldconfig fieldExpr="symbol"></fieldconfig> 
+  </fields>
  </class>
 <class className="org.intermine.model.bio.Homologue">
    <fields>
