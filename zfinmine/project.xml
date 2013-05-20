@@ -104,10 +104,10 @@
         <source name="fish" type="fish">
             <property name="src.data.dir" location="../data-sources/fish/"/>
         </source>
-<!--        <source name="zfin_expression" type="zfin_expression" dump="true">
+        <source name="zfin_expression" type="zfin_expression" dump="true">
             <property name="src.data.dir" location="../data-sources/zfin_expression/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
-        </source> -->
+        </source> 
        <source name="go-annotation" type="go-annotation">
             <property name="ontologyfile" location="../data-sources/go-annotation/gene_ontology.obo"/>
             <property name="src.data.dir" location="../data-sources/go-annotation/"/>
