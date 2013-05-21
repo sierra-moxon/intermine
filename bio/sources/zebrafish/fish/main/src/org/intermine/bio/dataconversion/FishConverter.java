@@ -27,7 +27,7 @@ import org.xml.sax.SAXException;
 
 /**
  * 
- * @author
+ * @author Sierra
  */
 public class FishConverter extends BioDirectoryConverter{
     //
