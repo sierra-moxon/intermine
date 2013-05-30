@@ -30,10 +30,10 @@
 	  <property name="src.data.file" location="../data-sources/uberon/uberon.obo"/>
 	</source>
 	<source name="medic" type="medic">
-	  <property name="src.data.file" location="/data-sources/medic/MEDIC-MGI.obo"/>
+	  <property name="src.data.file" location="../data-sources/medic/MEDIC-MGI.obo"/>
 	</source>
 	<source name="mpath" type="mpath">
-          <property name="src.data.file" location="/data-sources/mpath/mpath.obo"/>
+          <property name="src.data.file" location="../data-sources/mpath/mpath.obo"/>
         </source>
 <!--        <source name="zfinSpatial" type="zfinSpatial">
             <property name="src.data.file" location="../data-sources/zfinSpatial/spatial.obo"/>
