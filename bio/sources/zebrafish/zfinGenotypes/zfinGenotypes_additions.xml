@@ -206,7 +206,8 @@
         <attribute name="comments" type="java.lang.String"/>
         <reference name="organism" referenced-type="Organism"/>
         <!--<collection name="publications" referenced-type="Publication"/>-->
-        <attribute name="type" type="java.lang.String"/>
+        
+	<attribute name="type" type="java.lang.String"/>
         <reference name="gene" referenced-type="Gene" reverse-reference="snps"/>
         <!--<collection name="externalLinks" referenced-type="ExternalLink"/>-->
     </class>
