@@ -17,7 +17,7 @@
         <attribute name="parentalGenotype" type="java.lang.String"/>
         <collection name="features" referenced-type="SequenceAlteration" reverse-reference="genotypes"/>
         <collection name="genes" referenced-type="Gene" reverse-reference="genotypes"/>
-        <collection name="genotypeEnvironments" referenced-type="GenotypeEnvironment" reverse-reference="genotype"/>
+        <collection name="phenotypes" referenced-type="Phenotype" reverse-reference="genotype"/>
         <attribute name="backgrounds" type="java.lang.String"/>
         <attribute name="isWildType" type="java.lang.Boolean"/>
         <attribute name="isExtinct" type="java.lang.Boolean"/>
@@ -312,9 +312,9 @@
     </class>
     <class name="GenotypeEnvironment" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
-        <reference name="genotype" referenced-type="Genotype" reverse-reference="genotypeEnvironments"/>
-        <reference name="environment" referenced-type="Environment" reverse-reference="genotypeEnvironments"/>
-        <collection name="phenotypes" referenced-type="Phenotype" reverse-reference="genotypeEnvironment"/>
+        <reference name="genotype" referenced-type="Genotype"/>
+        <reference name="environment" referenced-type="Environment"/>
+        <collection name="phenotypes" referenced-type="Phenotype"/>
         <collection name="expressions" referenced-type="ExpressionResult" reverse-reference="genotypeEnvironment"/>
     </class>
     <class name="Environment" is-interface="true">
@@ -322,7 +322,8 @@
         <attribute name="name" type="java.lang.String"/>
         <reference name="publication" referenced-type="Publication" reverse-reference="environments"/>
         <collection name="conditions" referenced-type="EnvironmentalCondition" reverse-reference="environment"/>
-        <collection name="genotypeEnvironments" referenced-type="GenotypeEnvironment" reverse-reference="environment"/>
+<!--        <collection name="genotypeEnvironments" referenced-type="GenotypeEnvironment" reverse-reference="environment"/>-->
+        <collection name="phenotypes" referenced-type="Phenotype" reverse-reference="environment"/>
     </class>
     <class name="EnvironmentalCondition" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
@@ -335,7 +336,8 @@
     </class>
     <class name="Phenotype" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
-        <reference name="genotypeEnvironment" referenced-type="GenotypeEnvironment" reverse-reference="phenotypes"/>
+	<reference name="genotype" referenced-type="Genotype" reverse-reference="phenotypes"/>
+        <reference name="environment" referenced-type="Environment" reverse-reference="phenotypes"/>
         <reference name="startStage" referenced-type="OntologyTerm" reverse-reference="phenotypesStartStg"/>
         <reference name="endStage" referenced-type="OntologyTerm" reverse-reference="phenotypesEndStg"/>
         <reference name="superTerm" referenced-type="OntologyTerm"/>

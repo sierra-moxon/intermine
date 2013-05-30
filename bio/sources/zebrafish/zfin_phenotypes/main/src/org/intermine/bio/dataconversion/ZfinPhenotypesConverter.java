@@ -106,10 +106,11 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
 
             Item apato = getPheno(phenosId);
 
-            if (!StringUtils.isEmpty(genoxId)) {
+	    /*            if (!StringUtils.isEmpty(genoxId)) {
+
                 Item genox = getGenotypeEnvironment(genoxId);
                 apato.setReference("genotypeEnvironment", genox);
-            }
+		}*/
             if (!StringUtils.isEmpty(supertermId)) {
                 Item superTerm = getTerm(supertermId);
                 apato.setReference("superTerm", superTerm);
