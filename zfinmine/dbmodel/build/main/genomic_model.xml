@@ -358,6 +358,7 @@
 <class name="PseudogenicTranscript" extends="PseudogenicRegion" is-interface="true">
 	<reference name="pseudogene" referenced-type="Pseudogene" reverse-reference="pseudogenicTranscripts"/>
 </class>
+<class name="MPATHTerm" extends="OntologyTerm" is-interface="true"></class>
 <class name="STS" extends="Tag" is-interface="true">
 	<attribute name="type" type="java.lang.String"/>
 	<attribute name="comments" type="java.lang.String"/>
