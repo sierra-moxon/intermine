@@ -295,7 +295,7 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
 	    env.setAttribute("primaryIdentifier", primaryIdentifier);
             environments.put(primaryIdentifier, env);
             try {
-                store(environments);
+                store(env);
             } catch (ObjectStoreException e) {
                 throw new SAXException(e);
             }
