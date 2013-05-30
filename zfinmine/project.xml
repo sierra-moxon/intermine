@@ -106,10 +106,10 @@
             <property name="src.data.dir" location="../data-sources/zfin_figures/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-<!--        <source name="zfin_phenotypes" type="zfin_phenotypes">
+       <source name="zfin_phenotypes" type="zfin_phenotypes">
             <property name="src.data.dir" location="../data-sources/zfin_phenotypes/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
-        </source> -->
+        </source>
         <source name="fish" type="fish">
             <property name="src.data.dir" location="../data-sources/fish/"/>
         </source>
