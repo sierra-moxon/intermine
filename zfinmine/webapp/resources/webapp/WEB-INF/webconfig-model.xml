@@ -208,8 +208,8 @@
       <fieldconfig  fieldExpr="assay"></fieldconfig>
       <fieldconfig  fieldExpr="probe.symbol"></fieldconfig>
       <fieldconfig  fieldExpr="antibody.symbol"></fieldconfig>
-      <fieldconfig  fieldExpr="genotype.name"></fieldconfig>
-      <fieldconfig  fieldExpr="experiment.primaryIdentifier"></fieldconfig>
+      <fieldconfig  fieldExpr="genotype.genoDisplayName"></fieldconfig>
+      <fieldconfig  fieldExpr="environment.primaryIdentifier"></fieldconfig>
    </fields>
 </class>
 <class className="org.intermine.model.bio.Figure">
@@ -227,8 +227,8 @@
       <fieldconfig  fieldExpr="subTerm.name"></fieldconfig>
       <fieldconfig  fieldExpr="phenotypeTerm.name"></fieldconfig>
       <fieldconfig  fieldExpr="tag"></fieldconfig>
-      <fieldconfig  fieldExpr="genotype.name"></fieldconfig>
-      <fieldconfig  fieldExpr="experiment.primaryIdentifier"></fieldconfig>
+      <fieldconfig  fieldExpr="environment.primaryIdentifier"></fieldconfig>
+      <fieldconfig  fieldExpr="genotype.genoDisplayName"></fieldconfig>
    </fields>
 </class>
 <class className="org.intermine.model.bio.EnvironmentalCondition">
