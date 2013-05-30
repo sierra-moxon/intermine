@@ -113,6 +113,7 @@
 	<reference name="gene" referenced-type="Gene" reverse-reference="CDSs"/>
 	<reference name="protein" referenced-type="Protein" reverse-reference="CDSs"/>
 </class>
+<class name="MEDICTerm" extends="OntologyTerm" is-interface="true"></class>
 <class name="Deletion" extends="SequenceAlteration" is-interface="true">
 	<reference name="chromosomalDeletion" referenced-type="ChromosomalDeletion" reverse-reference="deletions"/>
 </class>
@@ -475,8 +476,8 @@
 	<reference name="organism" referenced-type="Organism"/>
 	<collection name="synonyms" referenced-type="OntologyTermSynonym"/>
 	<collection name="expressionResultsEnd" referenced-type="ExpressionResult"/>
-	<collection name="ontologyAnnotations" referenced-type="OntologyAnnotation" reverse-reference="ontologyTerm"/>
 	<collection name="relations" referenced-type="OntologyRelation"/>
+	<collection name="ontologyAnnotations" referenced-type="OntologyAnnotation" reverse-reference="ontologyTerm"/>
 	<collection name="expressionResultSubterms" referenced-type="ExpressionResult"/>
 	<collection name="phenotypesStartStg" referenced-type="Phenotype" reverse-reference="startStage"/>
 	<collection name="phenotypesEndStg" referenced-type="Phenotype" reverse-reference="endStage"/>
