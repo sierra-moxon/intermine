@@ -30,7 +30,7 @@
 	  <property name="src.data.file" location="../data-sources/uberon/uberon.obo"/>
 	</source>
 	<source name="medic" type="medic">
-	  <property name="src.data.file" location="../data-sources/medic/MEDIC-MGI.obo"/>
+	  <property name="src.data.file" location="../data-sources/medic/medic.obo"/>
 	</source>
 	<source name="mpath" type="mpath">
           <property name="src.data.file" location="../data-sources/mpath/mpath.obo"/>
