@@ -26,6 +26,12 @@
         <source name="zfin_anatomy" type="zfin_anatomy">
             <property name="src.data.file" location="../data-sources/zfin_anatomy/zebrafish_anatomy.obo"/>
         </source>
+	<source name="uberon" type="uberon">
+	  <property name="src.data.file" location="../data-sources/uberon/uberon.obo"/>
+	</source>
+	<source name="medic" type="medic">
+	  <property name="src.data.file" location="/data-sources/medic/MEDIC-MGI.obo"/>
+	</source>
 <!--        <source name="zfinSpatial" type="zfinSpatial">
             <property name="src.data.file" location="../data-sources/zfinSpatial/spatial.obo"/>
         </source> -->
