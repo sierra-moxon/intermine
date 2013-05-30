@@ -388,8 +388,8 @@
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="version" type="LONGVARCHAR"/>
-        <column name="description" type="LONGVARCHAR"/>
         <column name="url" type="LONGVARCHAR"/>
+        <column name="description" type="LONGVARCHAR"/>
         <column name="dataSourceId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="DataSet_pkey">
@@ -460,8 +460,8 @@
     <table name="DataSource">
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
-        <column name="description" type="LONGVARCHAR"/>
         <column name="url" type="LONGVARCHAR"/>
+        <column name="description" type="LONGVARCHAR"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="DataSource_pkey">
             <unique-column name="id"/>
@@ -704,6 +704,24 @@
             <unique-column name="id"/>
         </unique>
     </table>
+    <table name="AnatomyTerm">
+        <column name="identifier" type="LONGVARCHAR"/>
+        <column name="stageStartHour" type="LONGVARCHAR"/>
+        <column name="obsolete" type="BIT"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="namespace" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="name" type="LONGVARCHAR"/>
+        <column name="stageAbbreviation" type="LONGVARCHAR"/>
+        <column name="description" type="LONGVARCHAR"/>
+        <column name="stageEndHour" type="LONGVARCHAR"/>
+        <column name="ontologyId" type="INTEGER"/>
+        <column name="organismId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="AnatomyTerm_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
     <table name="Chromosome">
         <column name="secondaryIdentifier" type="LONGVARCHAR"/>
         <column name="symbol" type="LONGVARCHAR"/>
@@ -806,8 +824,8 @@
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="scoreType" type="LONGVARCHAR"/>
-        <column name="distance" type="LONGVARCHAR"/>
         <column name="includeGene" type="BIT"/>
+        <column name="distance" type="LONGVARCHAR"/>
         <column name="direction" type="LONGVARCHAR"/>
         <column name="score" type="DOUBLE"/>
         <column name="chromosomeId" type="INTEGER"/>
@@ -843,11 +861,11 @@
         </unique>
     </table>
     <table name="Organism">
-        <column name="shortName" type="LONGVARCHAR"/>
         <column name="taxonId" type="INTEGER"/>
+        <column name="shortName" type="LONGVARCHAR"/>
         <column name="genus" type="LONGVARCHAR"/>
-        <column name="commonName" type="LONGVARCHAR"/>
         <column name="species" type="LONGVARCHAR"/>
+        <column name="commonName" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="class" type="LONGVARCHAR"/>
@@ -1273,8 +1291,8 @@
     <table name="Author">
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
-        <column name="initials" type="LONGVARCHAR"/>
         <column name="lastName" type="LONGVARCHAR"/>
+        <column name="initials" type="LONGVARCHAR"/>
         <column name="firstName" type="LONGVARCHAR"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="Author_pkey">
