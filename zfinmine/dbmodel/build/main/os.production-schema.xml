@@ -157,8 +157,8 @@
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="species" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
-        <column name="intermine_host" type="LONGVARCHAR"/>
         <column name="name" type="LONGVARCHAR"/>
+        <column name="intermine_host" type="LONGVARCHAR"/>
         <column name="stage" type="LONGVARCHAR"/>
         <column name="restrictionSites" type="LONGVARCHAR"/>
         <column name="strainId" type="INTEGER"/>
@@ -170,13 +170,13 @@
     </table>
     <table name="Genotype">
         <column name="isExtinct" type="BIT"/>
-        <column name="backgrounds" type="LONGVARCHAR"/>
         <column name="isWildType" type="BIT"/>
+        <column name="backgrounds" type="LONGVARCHAR"/>
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="parentalGenotype" type="LONGVARCHAR"/>
-        <column name="genoDisplayName" type="LONGVARCHAR"/>
         <column name="genoHandle" type="LONGVARCHAR"/>
+        <column name="genoDisplayName" type="LONGVARCHAR"/>
         <column name="organismId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="Genotype_pkey">
@@ -194,8 +194,8 @@
     <table name="Gene">
         <column name="secondaryIdentifier" type="LONGVARCHAR"/>
         <column name="symbol" type="LONGVARCHAR"/>
-        <column name="briefDescription" type="LONGVARCHAR"/>
         <column name="type" type="LONGVARCHAR"/>
+        <column name="briefDescription" type="LONGVARCHAR"/>
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="length" type="INTEGER"/>
         <column name="id" type="INTEGER" required="true"/>
@@ -325,17 +325,17 @@
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="tag" type="LONGVARCHAR"/>
-        <column name="relatedSubTermId" type="INTEGER"/>
-        <column name="superTermId" type="INTEGER"/>
         <column name="startStageId" type="INTEGER"/>
+        <column name="superTermId" type="INTEGER"/>
+        <column name="relatedSubTermId" type="INTEGER"/>
         <column name="relatedSuperTermId" type="INTEGER"/>
         <column name="phenotypeTermId" type="INTEGER"/>
         <column name="subTermId" type="INTEGER"/>
         <column name="genotypeEnvironmentId" type="INTEGER"/>
         <column name="figureId" type="INTEGER"/>
         <column name="subTerm2Id" type="INTEGER"/>
-        <column name="superTerm2Id" type="INTEGER"/>
         <column name="endStageId" type="INTEGER"/>
+        <column name="superTerm2Id" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="Phenotype_pkey">
             <unique-column name="id"/>
@@ -370,8 +370,8 @@
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="version" type="LONGVARCHAR"/>
-        <column name="url" type="LONGVARCHAR"/>
         <column name="description" type="LONGVARCHAR"/>
+        <column name="url" type="LONGVARCHAR"/>
         <column name="dataSourceId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="DataSet_pkey">
@@ -429,8 +429,8 @@
         </unique>
     </table>
     <table name="Figure">
-        <column name="caption" type="LONGVARCHAR"/>
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="caption" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="label" type="LONGVARCHAR"/>
         <column name="publicationId" type="INTEGER"/>
@@ -442,8 +442,8 @@
     <table name="DataSource">
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
-        <column name="url" type="LONGVARCHAR"/>
         <column name="description" type="LONGVARCHAR"/>
+        <column name="url" type="LONGVARCHAR"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="DataSource_pkey">
             <unique-column name="id"/>
@@ -452,14 +452,14 @@
     <table name="GOTerm">
         <column name="identifier" type="LONGVARCHAR"/>
         <column name="stageStartHour" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="obsolete" type="BIT"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="namespace" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="stageAbbreviation" type="LONGVARCHAR"/>
-        <column name="stageEndHour" type="LONGVARCHAR"/>
         <column name="description" type="LONGVARCHAR"/>
+        <column name="stageEndHour" type="LONGVARCHAR"/>
         <column name="ontologyId" type="INTEGER"/>
         <column name="organismId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
@@ -479,15 +479,15 @@
     </table>
     <table name="Antibody">
         <column name="symbol" type="LONGVARCHAR"/>
-        <column name="heavyChainIsotype" type="LONGVARCHAR"/>
         <column name="type" type="LONGVARCHAR"/>
+        <column name="heavyChainIsotype" type="LONGVARCHAR"/>
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="immunogenOrganism" type="LONGVARCHAR"/>
         <column name="lightChainIsotype" type="LONGVARCHAR"/>
-        <column name="hostOrganism" type="LONGVARCHAR"/>
         <column name="clonalType" type="LONGVARCHAR"/>
+        <column name="hostOrganism" type="LONGVARCHAR"/>
         <column name="organismId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="Antibody_pkey">
@@ -549,14 +549,14 @@
     <table name="SOTerm">
         <column name="identifier" type="LONGVARCHAR"/>
         <column name="stageStartHour" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="obsolete" type="BIT"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="namespace" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="stageAbbreviation" type="LONGVARCHAR"/>
-        <column name="stageEndHour" type="LONGVARCHAR"/>
         <column name="description" type="LONGVARCHAR"/>
+        <column name="stageEndHour" type="LONGVARCHAR"/>
         <column name="ontologyId" type="INTEGER"/>
         <column name="organismId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
@@ -658,8 +658,8 @@
     <table name="EFG">
         <column name="symbol" type="LONGVARCHAR"/>
         <column name="type" type="LONGVARCHAR"/>
-        <column name="comments" type="LONGVARCHAR"/>
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="comments" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="organismId" type="INTEGER"/>
@@ -671,14 +671,14 @@
     <table name="PATOTerm">
         <column name="identifier" type="LONGVARCHAR"/>
         <column name="stageStartHour" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="obsolete" type="BIT"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="namespace" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="stageAbbreviation" type="LONGVARCHAR"/>
-        <column name="stageEndHour" type="LONGVARCHAR"/>
         <column name="description" type="LONGVARCHAR"/>
+        <column name="stageEndHour" type="LONGVARCHAR"/>
         <column name="ontologyId" type="INTEGER"/>
         <column name="organismId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
@@ -770,8 +770,8 @@
     <table name="Region">
         <column name="symbol" type="LONGVARCHAR"/>
         <column name="type" type="LONGVARCHAR"/>
-        <column name="comments" type="LONGVARCHAR"/>
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="comments" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="organismId" type="INTEGER"/>
@@ -788,8 +788,8 @@
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="scoreType" type="LONGVARCHAR"/>
-        <column name="includeGene" type="BIT"/>
         <column name="distance" type="LONGVARCHAR"/>
+        <column name="includeGene" type="BIT"/>
         <column name="direction" type="LONGVARCHAR"/>
         <column name="score" type="DOUBLE"/>
         <column name="chromosomeId" type="INTEGER"/>
@@ -825,11 +825,11 @@
         </unique>
     </table>
     <table name="Organism">
-        <column name="taxonId" type="INTEGER"/>
         <column name="shortName" type="LONGVARCHAR"/>
+        <column name="taxonId" type="INTEGER"/>
         <column name="genus" type="LONGVARCHAR"/>
-        <column name="species" type="LONGVARCHAR"/>
         <column name="commonName" type="LONGVARCHAR"/>
+        <column name="species" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="class" type="LONGVARCHAR"/>
@@ -840,8 +840,8 @@
     <table name="DNAClone">
         <column name="secondaryIdentifier" type="LONGVARCHAR"/>
         <column name="digest" type="LONGVARCHAR"/>
-        <column name="polymerase" type="LONGVARCHAR"/>
         <column name="cloneSite" type="LONGVARCHAR"/>
+        <column name="polymerase" type="LONGVARCHAR"/>
         <column name="length" type="INTEGER"/>
         <column name="sequenceType" type="LONGVARCHAR"/>
         <column name="scoreType" type="LONGVARCHAR"/>
@@ -938,8 +938,8 @@
         <column name="intermine_year" type="INTEGER"/>
         <column name="type" type="LONGVARCHAR"/>
         <column name="pubMedId" type="LONGVARCHAR"/>
-        <column name="pubAbstract" type="LONGVARCHAR"/>
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="pubAbstract" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="authorNames" type="LONGVARCHAR"/>
         <column name="journalId" type="INTEGER"/>
@@ -1042,14 +1042,14 @@
     <table name="OntologyTerm">
         <column name="identifier" type="LONGVARCHAR"/>
         <column name="stageStartHour" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="obsolete" type="BIT"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="namespace" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="stageAbbreviation" type="LONGVARCHAR"/>
-        <column name="stageEndHour" type="LONGVARCHAR"/>
         <column name="description" type="LONGVARCHAR"/>
+        <column name="stageEndHour" type="LONGVARCHAR"/>
         <column name="ontologyId" type="INTEGER"/>
         <column name="organismId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
@@ -1060,8 +1060,8 @@
     <table name="RNAClone">
         <column name="secondaryIdentifier" type="LONGVARCHAR"/>
         <column name="digest" type="LONGVARCHAR"/>
-        <column name="polymerase" type="LONGVARCHAR"/>
         <column name="cloneSite" type="LONGVARCHAR"/>
+        <column name="polymerase" type="LONGVARCHAR"/>
         <column name="length" type="INTEGER"/>
         <column name="sequenceType" type="LONGVARCHAR"/>
         <column name="scoreType" type="LONGVARCHAR"/>
@@ -1091,14 +1091,14 @@
     <table name="ZFATerm">
         <column name="identifier" type="LONGVARCHAR"/>
         <column name="stageStartHour" type="LONGVARCHAR"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="obsolete" type="BIT"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
         <column name="namespace" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="stageAbbreviation" type="LONGVARCHAR"/>
-        <column name="stageEndHour" type="LONGVARCHAR"/>
         <column name="description" type="LONGVARCHAR"/>
+        <column name="stageEndHour" type="LONGVARCHAR"/>
         <column name="ontologyId" type="INTEGER"/>
         <column name="organismId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
@@ -1213,8 +1213,8 @@
     <table name="Marker">
         <column name="symbol" type="LONGVARCHAR"/>
         <column name="type" type="LONGVARCHAR"/>
-        <column name="comments" type="LONGVARCHAR"/>
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="comments" type="LONGVARCHAR"/>
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
         <column name="organismId" type="INTEGER"/>
@@ -1245,8 +1245,8 @@
         <column name="probeId" type="INTEGER"/>
         <column name="startStageId" type="INTEGER"/>
         <column name="geneId" type="INTEGER"/>
-        <column name="endStageId" type="INTEGER"/>
         <column name="anatomyId" type="INTEGER"/>
+        <column name="endStageId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="ExpressionResult_pkey">
             <unique-column name="id"/>
@@ -1255,8 +1255,8 @@
     <table name="Author">
         <column name="id" type="INTEGER" required="true"/>
         <column name="name" type="LONGVARCHAR"/>
-        <column name="lastName" type="LONGVARCHAR"/>
         <column name="initials" type="LONGVARCHAR"/>
+        <column name="lastName" type="LONGVARCHAR"/>
         <column name="firstName" type="LONGVARCHAR"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="Author_pkey">
@@ -1266,8 +1266,8 @@
     <table name="Clone">
         <column name="secondaryIdentifier" type="LONGVARCHAR"/>
         <column name="digest" type="LONGVARCHAR"/>
-        <column name="polymerase" type="LONGVARCHAR"/>
         <column name="cloneSite" type="LONGVARCHAR"/>
+        <column name="polymerase" type="LONGVARCHAR"/>
         <column name="length" type="INTEGER"/>
         <column name="sequenceType" type="LONGVARCHAR"/>
         <column name="scoreType" type="LONGVARCHAR"/>
