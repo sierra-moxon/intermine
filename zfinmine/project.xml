@@ -35,9 +35,9 @@
 	<source name="mpath" type="mpath">
           <property name="src.data.file" location="../data-sources/mpath/mpath.obo"/>
         </source>
-<!--        <source name="zfinSpatial" type="zfinSpatial">
+        <source name="zfinSpatial" type="zfinSpatial">
             <property name="src.data.file" location="../data-sources/zfinSpatial/spatial.obo"/>
-        </source> -->
+        </source>
         <source name="zfinJournals" type="zfinJournals">
             <property name="src.data.dir" location="../data-sources/zfin_journals/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
@@ -57,7 +57,7 @@
             <property name="src.data.dir" location="../data-sources/zfin_genotypes/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-<!--        <source name="zfinExperiments" type="zfinExperiments">
+        <source name="zfinExperiments" type="zfinExperiments">
             <property name="src.data.dir" location="../data-sources/zfin_experiments/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
