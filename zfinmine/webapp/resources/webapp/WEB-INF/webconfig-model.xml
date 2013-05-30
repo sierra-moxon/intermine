@@ -198,7 +198,7 @@
      <fieldconfig fieldExpr="homologue.symbol"></fieldconfig>
    </fields>
  </class>
-<class className="org.intermine.model.bio.ExpressionResult">
+<class className="org.intermine.model.bio.Expression">
    <fields>
       <fieldconfig  fieldExpr="gene.symbol"></fieldconfig>
       <fieldconfig  fieldExpr="subterm.name"></fieldconfig>
@@ -208,6 +208,8 @@
       <fieldconfig  fieldExpr="assay"></fieldconfig>
       <fieldconfig  fieldExpr="probe.symbol"></fieldconfig>
       <fieldconfig  fieldExpr="antibody.symbol"></fieldconfig>
+      <fieldconfig  fieldExpr="genotype.name"></fieldconfig>
+      <fieldconfig  fieldExpr="experiment.primaryIdentifier"></fieldconfig>
    </fields>
 </class>
 <class className="org.intermine.model.bio.Figure">
@@ -225,6 +227,8 @@
       <fieldconfig  fieldExpr="subTerm.name"></fieldconfig>
       <fieldconfig  fieldExpr="phenotypeTerm.name"></fieldconfig>
       <fieldconfig  fieldExpr="tag"></fieldconfig>
+      <fieldconfig  fieldExpr="genotype.name"></fieldconfig>
+      <fieldconfig  fieldExpr="experiment.primaryIdentifier"></fieldconfig>
    </fields>
 </class>
 <class className="org.intermine.model.bio.EnvironmentalCondition">
@@ -245,9 +249,6 @@
    </fields>
 </class>
 <class className="org.intermine.model.bio.GenotypeEnvironment">
-   <fields>
-      <fieldconfig  fieldExpr="genotype.genoDisplayName"></fieldconfig>
-   </fields>
 </class>
 <tableExportConfig id="sequenceExporter" actionPath="/exportAction?type=sequenceExporter"
                    className="org.intermine.bio.web.export.SequenceHttpExporter"/>
