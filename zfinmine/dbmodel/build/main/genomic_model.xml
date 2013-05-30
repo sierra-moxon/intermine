@@ -161,8 +161,8 @@
 <class name="DataSet" is-interface="true">
 	<attribute name="name" type="java.lang.String"/>
 	<attribute name="version" type="java.lang.String"/>
-	<attribute name="url" type="java.lang.String"/>
 	<attribute name="description" type="java.lang.String"/>
+	<attribute name="url" type="java.lang.String"/>
 	<reference name="dataSource" referenced-type="DataSource" reverse-reference="dataSets"/>
 	<collection name="bioEntities" referenced-type="BioEntity" reverse-reference="dataSets"/>
 </class>
@@ -197,8 +197,8 @@
 </class>
 <class name="DataSource" is-interface="true">
 	<attribute name="name" type="java.lang.String"/>
-	<attribute name="url" type="java.lang.String"/>
 	<attribute name="description" type="java.lang.String"/>
+	<attribute name="url" type="java.lang.String"/>
 	<collection name="publications" referenced-type="Publication"/>
 	<collection name="dataSets" referenced-type="DataSet" reverse-reference="dataSource"/>
 </class>
@@ -304,6 +304,7 @@
 <class name="PATOTerm" extends="OntologyTerm" is-interface="true">
 	<collection name="phenotypes" referenced-type="Phenotype" reverse-reference="phenotypeTerm"/>
 </class>
+<class name="AnatomyTerm" extends="OntologyTerm" is-interface="true"></class>
 <class name="Chromosome" extends="SequenceFeature" is-interface="true">
 	<collection name="genes" referenced-type="Gene" reverse-reference="chromosomes"/>
 </class>
@@ -334,8 +335,8 @@
 	<collection name="constructs" referenced-type="Construct" reverse-reference="contains"/>
 </class>
 <class name="GeneFlankingRegion" extends="SequenceFeature" is-interface="true">
-	<attribute name="includeGene" type="java.lang.Boolean"/>
 	<attribute name="distance" type="java.lang.String"/>
+	<attribute name="includeGene" type="java.lang.Boolean"/>
 	<attribute name="direction" type="java.lang.String"/>
 	<reference name="gene" referenced-type="Gene" reverse-reference="flankingRegions"/>
 </class>
@@ -346,11 +347,11 @@
 	<collection name="targets" referenced-type="Gene" reverse-reference="morpholinos"/>
 </class>
 <class name="Organism" is-interface="true">
-	<attribute name="taxonId" type="java.lang.Integer"/>
 	<attribute name="shortName" type="java.lang.String"/>
+	<attribute name="taxonId" type="java.lang.Integer"/>
 	<attribute name="genus" type="java.lang.String"/>
-	<attribute name="species" type="java.lang.String"/>
 	<attribute name="commonName" type="java.lang.String"/>
+	<attribute name="species" type="java.lang.String"/>
 	<attribute name="name" type="java.lang.String"/>
 </class>
 <class name="DNAClone" extends="Clone" is-interface="true"></class>
@@ -568,8 +569,8 @@
 </class>
 <class name="Author" is-interface="true">
 	<attribute name="name" type="java.lang.String"/>
-	<attribute name="lastName" type="java.lang.String"/>
 	<attribute name="initials" type="java.lang.String"/>
+	<attribute name="lastName" type="java.lang.String"/>
 	<attribute name="firstName" type="java.lang.String"/>
 	<collection name="publications" referenced-type="Publication" reverse-reference="authors"/>
 </class>
