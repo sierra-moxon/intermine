@@ -38,8 +38,8 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
     private Map<String, Item> phenos = new HashMap();
     private Map<String, Item> figures = new HashMap();
     private Map<String, Item> terms = new HashMap();
-    private Map<String, Item> genotypeEnvironments = new HashMap();
-
+    private Map<String, Item> genotypes = new HashMap();
+    private Map<String, Item> environments = new HashMap();
     /**
      * Constructor
      *
@@ -98,17 +98,26 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
             String subtermId = line[3];
             String superterm2Id = line [4];
             String subterm2Id = line[5];
-            String startStgId = line[6];
-            String endStgId = line[7];
-            String figId = line[8];
-            String tag = line[9];
-            String qualityId = line[10];
+            String startStgId = line[7];
+            String endStgId = line[8];
+            String figId = line[9];
+            String tag = line[10];
+            String qualityId = line[6];
+	    String genoId = line[11];
+	    String expId = line[12];
 
             Item apato = getPheno(phenosId);
+	    
+	    if (!StringUtils.isEmpty(genoId)) {
 
-            if (!StringUtils.isEmpty(genoxId)) {
-                Item genox = getGenotypeEnvironment(genoxId);
-                apato.setReference("genotypeEnvironment", genox);
+		Item geno = getGeno(genoId);
+                apato.setReference("genotype", geno);
+	    }
+
+            if (!StringUtils.isEmpty(expId)) {
+
+                Item exp = getEnv(expId);
+                apato.setReference("environment", exp);
             }
             if (!StringUtils.isEmpty(supertermId)) {
                 Item superTerm = getTerm(supertermId);
@@ -261,13 +270,13 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
         return item;
     }
 
-    private Item getGenotypeEnvironment(String primaryIdentifier)
+    private Item getGeno(String primaryIdentifier)
             throws SAXException {
-        Item genox2 = genotypeEnvironments.get(primaryIdentifier);
+        Item genox2 = genotypes.get(primaryIdentifier);
         if (genox2 == null) {
-            genox2 = createItem("GenotypeEnvironment");
+            genox2 = createItem("Genotype");
             genox2.setAttribute("primaryIdentifier", primaryIdentifier);
-            genotypeEnvironments.put(primaryIdentifier, genox2);
+            genotypes.put(primaryIdentifier, genox2);
             try {
                 store(genox2);
             } catch (ObjectStoreException e) {
@@ -277,6 +286,24 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
         }
         return genox2;
     }
+
+    private Item getEnv(String primaryIdentifier)
+	throws SAXException {
+        Item env = environments.get(primaryIdentifier);
+	if (env == null) {
+            env = createItem("Environment");
+	    env.setAttribute("primaryIdentifier", primaryIdentifier);
+            environments.put(primaryIdentifier, env);
+            try {
+                store(env);
+            } catch (ObjectStoreException e) {
+                throw new SAXException(e);
+            }
+
+        }
+        return env;
+    }
+
 
     private Item getPheno(String primaryIdentifier)
             throws SAXException {

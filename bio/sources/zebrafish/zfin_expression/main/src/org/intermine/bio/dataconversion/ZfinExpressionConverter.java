@@ -40,7 +40,8 @@ public class ZfinExpressionConverter extends BioFileConverter {
     private Map<String, Item> figures = new HashMap();
     private Map<String, Item> terms = new HashMap();
     private Map<String, Item> anatomies = new HashMap();
-    private Map<String, Item> genotypeEnvironments = new HashMap();
+    private Map<String, Item> genotypes = new HashMap();
+    private Map<String, Item> environments = new HashMap();
     private Map<String, Item> publications = new HashMap();
     //private Map<String, Item> assays = new HashMap();
     private Set<String> synonyms = new HashSet();
@@ -79,7 +80,7 @@ public class ZfinExpressionConverter extends BioFileConverter {
         } catch (ObjectStoreException e) {
                 throw new SAXException(e);
             }
-    }
+   } 
 
 
     public void processXpatRes(Reader reader) throws Exception {
@@ -111,6 +112,8 @@ public class ZfinExpressionConverter extends BioFileConverter {
             String figId = line[21];
             //xaptfig_xpatres_id 22
             String subtermId = line[23];
+	    String genoId = line[24];
+	    String expId = line[25];
 
             Item result = getResult(xpatresId);
 
@@ -128,8 +131,11 @@ public class ZfinExpressionConverter extends BioFileConverter {
                 result.setReference("probe", getEST(estId));
             }
 
-            if (!StringUtils.isEmpty(genoxId)) {
-                result.setReference("genotypeEnvironment", getGenotypeEnvironment(genoxId));
+            if (!StringUtils.isEmpty(genoId)) {
+                result.setReference("genotype", getGeno(genoId));
+            }
+	    if (!StringUtils.isEmpty(expId)) {
+                result.setReference("environment", getEnv(expId));
             }
             if (!StringUtils.isEmpty(expressionAssay)) {
                 result.setAttribute("assay", expressionAssay);
@@ -249,7 +255,7 @@ public class ZfinExpressionConverter extends BioFileConverter {
             throws SAXException {
         Item item = results.get(primaryIdentifier);
         if (item == null) {
-            item = createItem("ExpressionResult");
+            item = createItem("Expression");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
 //item.setReference("organism", organismRefId);
             results.put(primaryIdentifier, item);
@@ -294,13 +300,13 @@ public class ZfinExpressionConverter extends BioFileConverter {
     }
 
 
-    private Item getGenotypeEnvironment(String primaryIdentifier)
-            throws SAXException {
-        Item genox2 = genotypeEnvironments.get(primaryIdentifier);
+    private Item getGeno(String primaryIdentifier)
+	throws SAXException {
+        Item genox2 = genotypes.get(primaryIdentifier);
         if (genox2 == null) {
-            genox2 = createItem("GenotypeEnvironment");
+            genox2 = createItem("Genotype");
             genox2.setAttribute("primaryIdentifier", primaryIdentifier);
-            genotypeEnvironments.put(primaryIdentifier, genox2);
+            genotypes.put(primaryIdentifier, genox2);
             try {
                 store(genox2);
             } catch (ObjectStoreException e) {
@@ -309,6 +315,23 @@ public class ZfinExpressionConverter extends BioFileConverter {
 
         }
         return genox2;
+    }
+
+    private Item getEnv(String primaryIdentifier)
+	throws SAXException {
+        Item env = environments.get(primaryIdentifier);
+        if (env == null) {
+            env = createItem("Environment");
+            env.setAttribute("primaryIdentifier", primaryIdentifier);
+            environments.put(primaryIdentifier, env);
+            try {
+                store(env);
+            } catch (ObjectStoreException e) {
+                throw new SAXException(e);
+            }
+
+        }
+        return env;
     }
 
     private Item getGene(String primaryIdentifier)

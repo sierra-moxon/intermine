@@ -11,7 +11,7 @@
 <attribute name="title" value="ZFIN Curated Expression Data Set"/>
 <reference name="dataSource" ref_id="0_1"/>
 </item>
-<item id="3_1" class="ExpressionResult">
+<item id="3_1" class="Expression">
 <attribute name="assay" value="mRNA in situ hybridization"/>
 <attribute name="expressionFound" value="t"/>
 <attribute name="primaryIdentifier" value="ZDB-XPATRES-050630-200"/>

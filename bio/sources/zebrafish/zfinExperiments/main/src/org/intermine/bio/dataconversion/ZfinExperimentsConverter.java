@@ -77,10 +77,9 @@ public class ZfinExperimentsConverter extends BioFileConverter {
             String envUnit = line[5];
             String envConditionName = line[6];
             String envConditionGroup = line[7];
-            String envName = line[8];
 
-            Item environment = getEnv(envPrimaryIdentifier, envName);
-            Item environmentCondition = getEnvCond(envcondPrimaryIdentifier, envPrimaryIdentifier);
+            Item environment = getEnv(envPrimaryIdentifier);
+            Item environmentCondition = getEnvCond(envcondPrimaryIdentifier);
 
             if (!StringUtils.isEmpty(envValue)) {
                 environmentCondition.setAttribute("value", envValue);
@@ -130,7 +129,7 @@ public class ZfinExperimentsConverter extends BioFileConverter {
         return item;
     }
 
-    private Item getEnvCond(String evncondPrimaryIdentifier, String envPrimaryIdentifer)
+    private Item getEnvCond(String evncondPrimaryIdentifier)
             throws SAXException {
         Item item = envConds.get(evncondPrimaryIdentifier);
         if (item == null) {
@@ -142,7 +141,7 @@ public class ZfinExperimentsConverter extends BioFileConverter {
         return item;
     }
 
-    private Item getEnv(String primaryIdentifier, String name)
+    private Item getEnv(String primaryIdentifier)
             throws SAXException {
         Item item = envs.get(primaryIdentifier);
         if (item == null) {
