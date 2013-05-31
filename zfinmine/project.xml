@@ -20,7 +20,7 @@
         <source name="go" type="go">
             <property name="src.data.file" location="../data-sources/go/gene_ontology.obo"/>
         </source>
-       <source name="pato" type="zfin_pato">
+       <source name="pato" type="pato">
             <property name="src.data.file" location="../data-sources/zfin_pato/quality.obo"/>
        </source>
         <source name="zfin_anatomy" type="zfin_anatomy">
