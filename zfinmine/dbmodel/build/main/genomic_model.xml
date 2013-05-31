@@ -81,22 +81,6 @@
 <class name="UTR" is-interface="true">
 	<reference name="gene" referenced-type="Gene" reverse-reference="UTRs"/>
 </class>
-<class name="Phenotype" is-interface="true">
-	<attribute name="primaryIdentifier" type="java.lang.String"/>
-	<attribute name="tag" type="java.lang.String"/>
-	<reference name="relatedSubTerm" referenced-type="OntologyTerm"/>
-	<reference name="superTerm" referenced-type="OntologyTerm"/>
-	<reference name="startStage" referenced-type="OntologyTerm" reverse-reference="phenotypesStartStg"/>
-	<reference name="environment" referenced-type="Environment" reverse-reference="phenotypes"/>
-	<reference name="relatedSuperTerm" referenced-type="OntologyTerm"/>
-	<reference name="genotype" referenced-type="Genotype" reverse-reference="phenotypes"/>
-	<reference name="phenotypeTerm" referenced-type="PATOTerm" reverse-reference="phenotypes"/>
-	<reference name="subTerm" referenced-type="OntologyTerm"/>
-	<reference name="figure" referenced-type="Figure" reverse-reference="phenotypes"/>
-	<reference name="subTerm2" referenced-type="OntologyTerm"/>
-	<reference name="superTerm2" referenced-type="OntologyTerm"/>
-	<reference name="endStage" referenced-type="OntologyTerm" reverse-reference="phenotypesEndStg"/>
-</class>
 <class name="Journal" is-interface="true">
 	<attribute name="abbrev" type="java.lang.String"/>
 	<attribute name="primaryIdentifier" type="java.lang.String"/>
@@ -306,9 +290,23 @@
 	<collection name="dataSets" referenced-type="DataSet"/>
 	<collection name="crossReferences" referenced-type="OntologyTerm"/>
 </class>
-<class name="PATOTerm" extends="OntologyTerm" is-interface="true">
-	<collection name="phenotypes" referenced-type="Phenotype" reverse-reference="phenotypeTerm"/>
+<class name="Phenotype" is-interface="true">
+	<attribute name="primaryIdentifier" type="java.lang.String"/>
+	<attribute name="tag" type="java.lang.String"/>
+	<reference name="relatedSubTerm" referenced-type="OntologyTerm"/>
+	<reference name="superTerm" referenced-type="OntologyTerm"/>
+	<reference name="startStage" referenced-type="OntologyTerm" reverse-reference="phenotypesStartStg"/>
+	<reference name="environment" referenced-type="Environment" reverse-reference="phenotypes"/>
+	<reference name="relatedSuperTerm" referenced-type="OntologyTerm"/>
+	<reference name="genotype" referenced-type="Genotype" reverse-reference="phenotypes"/>
+	<reference name="subTerm" referenced-type="OntologyTerm"/>
+	<reference name="phenotypeTerm" referenced-type="PATOTerm"/>
+	<reference name="figure" referenced-type="Figure" reverse-reference="phenotypes"/>
+	<reference name="subTerm2" referenced-type="OntologyTerm"/>
+	<reference name="superTerm2" referenced-type="OntologyTerm"/>
+	<reference name="endStage" referenced-type="OntologyTerm" reverse-reference="phenotypesEndStg"/>
 </class>
+<class name="ZFATerm" extends="AnatomyTerm" is-interface="true"></class>
 <class name="AnatomyTerm" extends="OntologyTerm" is-interface="true"></class>
 <class name="Chromosome" extends="SequenceFeature" is-interface="true">
 	<collection name="genes" referenced-type="Gene" reverse-reference="chromosomes"/>
@@ -458,7 +456,6 @@
 	<collection name="clones" referenced-type="Clone" reverse-reference="transcripts"/>
 </class>
 <class name="SPATIALTerm" extends="OntologyTerm" is-interface="true"></class>
-<class name="ZFATerm" extends="OntologyTerm" is-interface="true"></class>
 <class name="Protein" extends="BioEntity" is-interface="true">
 	<attribute name="molecularWeight" type="java.lang.Integer"/>
 	<attribute name="md5checksum" type="java.lang.String"/>
@@ -484,6 +481,7 @@
 <class name="SequenceCollection" extends="BioEntity" is-interface="true">
 	<reference name="sequenceOntologyTerm" referenced-type="SOTerm"/>
 </class>
+<class name="PATOTerm" extends="OntologyTerm" is-interface="true"></class>
 <class name="Location" is-interface="true">
 	<attribute name="start" type="java.lang.Integer"/>
 	<attribute name="end" type="java.lang.Integer"/>

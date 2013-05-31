@@ -159,41 +159,6 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
         }
     }
 
- /*   public void processApatoFig(Reader reader) throws Exception, SAXException {
-        Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
-
-        while (lineIter.hasNext()) {
-            String[] line = (String[]) lineIter.next();
-
-            String apatoId = line[0];
-            String apatofigId = line[1];
-
-            if (!StringUtils.isEmpty(apatoId) && !StringUtils.isEmpty(apatofigId)) {
-                Item apato = getApato(apatoId);
-                Item fig = getFigure(apatofigId);
-
-                apato.addToCollection("figures", fig);
-
-            }
-        }
-    }
-
-    private Item getPub(String primaryIdentifier)
-            throws SAXException {
-        Item item = publications.get(primaryIdentifier);
-        if (item == null) {
-            item = createItem("Publication");
-            item.setAttribute("primaryIdentifier", primaryIdentifier);
-            publications.put(primaryIdentifier, item);
-            try {
-                store(item);
-            } catch (ObjectStoreException e) {
-                throw new SAXException(e);
-            }
-        }
-        return item;
-    }   */
-
     private Item getQTerm(String identifier)
             throws SAXException {
         Item item = terms.get(identifier);

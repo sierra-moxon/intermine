@@ -201,27 +201,6 @@
             <unique-column name="id"/>
         </unique>
     </table>
-    <table name="Phenotype">
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="tag" type="LONGVARCHAR"/>
-        <column name="environmentId" type="INTEGER"/>
-        <column name="startStageId" type="INTEGER"/>
-        <column name="superTermId" type="INTEGER"/>
-        <column name="relatedSubTermId" type="INTEGER"/>
-        <column name="genotypeId" type="INTEGER"/>
-        <column name="relatedSuperTermId" type="INTEGER"/>
-        <column name="phenotypeTermId" type="INTEGER"/>
-        <column name="subTermId" type="INTEGER"/>
-        <column name="figureId" type="INTEGER"/>
-        <column name="subTerm2Id" type="INTEGER"/>
-        <column name="endStageId" type="INTEGER"/>
-        <column name="superTerm2Id" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="Phenotype_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
     <table name="Journal">
         <column name="abbrev" type="LONGVARCHAR"/>
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
@@ -681,7 +660,28 @@
             <unique-column name="id"/>
         </unique>
     </table>
-    <table name="PATOTerm">
+    <table name="Phenotype">
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="tag" type="LONGVARCHAR"/>
+        <column name="environmentId" type="INTEGER"/>
+        <column name="startStageId" type="INTEGER"/>
+        <column name="superTermId" type="INTEGER"/>
+        <column name="relatedSubTermId" type="INTEGER"/>
+        <column name="genotypeId" type="INTEGER"/>
+        <column name="relatedSuperTermId" type="INTEGER"/>
+        <column name="subTermId" type="INTEGER"/>
+        <column name="phenotypeTermId" type="INTEGER"/>
+        <column name="figureId" type="INTEGER"/>
+        <column name="subTerm2Id" type="INTEGER"/>
+        <column name="endStageId" type="INTEGER"/>
+        <column name="superTerm2Id" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="Phenotype_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
+    <table name="ZFATerm">
         <column name="identifier" type="LONGVARCHAR"/>
         <column name="stageStartHour" type="LONGVARCHAR"/>
         <column name="obsolete" type="BIT"/>
@@ -695,7 +695,7 @@
         <column name="ontologyId" type="INTEGER"/>
         <column name="organismId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
-        <unique name="PATOTerm_pkey">
+        <unique name="ZFATerm_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
@@ -1138,24 +1138,6 @@
             <unique-column name="id"/>
         </unique>
     </table>
-    <table name="ZFATerm">
-        <column name="identifier" type="LONGVARCHAR"/>
-        <column name="stageStartHour" type="LONGVARCHAR"/>
-        <column name="obsolete" type="BIT"/>
-        <column name="primaryIdentifier" type="LONGVARCHAR"/>
-        <column name="namespace" type="LONGVARCHAR"/>
-        <column name="id" type="INTEGER" required="true"/>
-        <column name="name" type="LONGVARCHAR"/>
-        <column name="stageAbbreviation" type="LONGVARCHAR"/>
-        <column name="description" type="LONGVARCHAR"/>
-        <column name="stageEndHour" type="LONGVARCHAR"/>
-        <column name="ontologyId" type="INTEGER"/>
-        <column name="organismId" type="INTEGER"/>
-        <column name="class" type="LONGVARCHAR"/>
-        <unique name="ZFATerm_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
     <table name="Protein">
         <column name="secondaryIdentifier" type="LONGVARCHAR"/>
         <column name="molecularWeight" type="INTEGER"/>
@@ -1234,6 +1216,24 @@
         <column name="sequenceOntologyTermId" type="INTEGER"/>
         <column name="class" type="LONGVARCHAR"/>
         <unique name="SequenceCollection_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
+    <table name="PATOTerm">
+        <column name="identifier" type="LONGVARCHAR"/>
+        <column name="stageStartHour" type="LONGVARCHAR"/>
+        <column name="obsolete" type="BIT"/>
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="namespace" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="name" type="LONGVARCHAR"/>
+        <column name="stageAbbreviation" type="LONGVARCHAR"/>
+        <column name="description" type="LONGVARCHAR"/>
+        <column name="stageEndHour" type="LONGVARCHAR"/>
+        <column name="ontologyId" type="INTEGER"/>
+        <column name="organismId" type="INTEGER"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="PATOTerm_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
