@@ -53,6 +53,9 @@
         <source name="zfin_markers" type="zfin_markers">
             <property name="src.data.dir" location="../data-sources/zfin_markers/"/>
         </source>
+	<source name="markerSequence" type="markerSequence">
+	  <property name="src.data.dir" location="../data-sources/markerSequences/"/>
+	</source>
         <source name="zfinGenotypes" type="zfinGenotypes">
             <property name="src.data.dir" location="../data-sources/zfin_genotypes/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
