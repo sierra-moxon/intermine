@@ -177,6 +177,17 @@
             <unique-column name="id"/>
         </unique>
     </table>
+    <table name="Person">
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="lastName" type="LONGVARCHAR"/>
+        <column name="firstName" type="LONGVARCHAR"/>
+        <column name="url" type="LONGVARCHAR"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="Person_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
     <table name="ProbeLibrary">
         <column name="tissue" type="LONGVARCHAR"/>
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
@@ -1487,6 +1498,10 @@
     <table name="PromotersPromotes">
         <column name="Promoters" type="INTEGER" required="true"/>
         <column name="Promotes" type="INTEGER" required="true"/>
+    </table>
+    <table name="LabsPerson">
+        <column name="Person" type="INTEGER" required="true"/>
+        <column name="Labs" type="INTEGER" required="true"/>
     </table>
     <table name="LabOfOriginLines">
         <column name="Lines" type="INTEGER" required="true"/>
