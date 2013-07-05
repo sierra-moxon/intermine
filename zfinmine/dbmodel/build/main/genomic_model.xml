@@ -67,6 +67,13 @@
 	<collection name="encodes" referenced-type="Clone"/>
 	<collection name="pseudogenicTranscripts" referenced-type="PseudogenicTranscript" reverse-reference="pseudogene"/>
 </class>
+<class name="Person" is-interface="true">
+	<attribute name="primaryIdentifier" type="java.lang.String"/>
+	<attribute name="lastName" type="java.lang.String"/>
+	<attribute name="firstName" type="java.lang.String"/>
+	<attribute name="url" type="java.lang.String"/>
+	<collection name="labs" referenced-type="Lab"/>
+</class>
 <class name="ProbeLibrary" is-interface="true">
 	<attribute name="tissue" type="java.lang.String"/>
 	<attribute name="primaryIdentifier" type="java.lang.String"/>
