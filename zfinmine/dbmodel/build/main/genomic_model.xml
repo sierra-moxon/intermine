@@ -16,20 +16,6 @@
 	<collection name="phenotypes" referenced-type="Phenotype" reverse-reference="environment"/>
 	<collection name="expressions" referenced-type="Expression"/>
 </class>
-<class name="SequenceFeature" extends="BioEntity" is-interface="true">
-	<attribute name="length" type="java.lang.Integer"/>
-	<attribute name="scoreType" type="java.lang.String"/>
-	<attribute name="score" type="java.lang.Double"/>
-	<reference name="chromosome" referenced-type="Chromosome"/>
-	<reference name="chromosomeLocation" referenced-type="Location"/>
-	<reference name="sequence" referenced-type="Sequence"/>
-	<reference name="sequenceOntologyTerm" referenced-type="SOTerm"/>
-	<collection name="presentIn" referenced-type="SequenceAlteration" reverse-reference="markersPresent"/>
-	<collection name="labOfOrigin" referenced-type="Lab" reverse-reference="lines"/>
-	<collection name="missingFrom" referenced-type="SequenceAlteration" reverse-reference="markersMissing"/>
-	<collection name="movedIn" referenced-type="SequenceAlteration" reverse-reference="markersMoved"/>
-	<collection name="overlappingFeatures" referenced-type="SequenceFeature"/>
-</class>
 <class name="DatabaseReference" is-interface="true">
 	<attribute name="identifier" type="java.lang.String"/>
 	<reference name="subject" referenced-type="Publication" reverse-reference="crossReferences"/>
@@ -83,6 +69,16 @@
 	<attribute name="stage" type="java.lang.String"/>
 	<attribute name="restrictionSites" type="java.lang.String"/>
 	<reference name="strain" referenced-type="Genotype"/>
+	<reference name="organism" referenced-type="Organism"/>
+</class>
+<class name="Sequence" is-interface="true">
+	<attribute name="md5checksum" type="java.lang.String"/>
+	<attribute name="identifier" type="java.lang.String"/>
+	<attribute name="variation" type="java.lang.String"/>
+	<attribute name="length" type="int"/>
+	<attribute name="residues" type="org.intermine.objectstore.query.ClobAccess"/>
+	<attribute name="offsetStart" type="java.lang.String"/>
+	<attribute name="offsetEnd" type="java.lang.String"/>
 	<reference name="organism" referenced-type="Organism"/>
 </class>
 <class name="UTR" is-interface="true">
@@ -162,8 +158,8 @@
 <class name="DataSet" is-interface="true">
 	<attribute name="name" type="java.lang.String"/>
 	<attribute name="version" type="java.lang.String"/>
-	<attribute name="url" type="java.lang.String"/>
 	<attribute name="description" type="java.lang.String"/>
+	<attribute name="url" type="java.lang.String"/>
 	<reference name="dataSource" referenced-type="DataSource" reverse-reference="dataSets"/>
 	<collection name="bioEntities" referenced-type="BioEntity" reverse-reference="dataSets"/>
 </class>
@@ -174,14 +170,24 @@
 	<collection name="phenotypes" referenced-type="Phenotype"/>
 	<collection name="expressions" referenced-type="Expression"/>
 </class>
-<class name="Sequence" is-interface="true">
-	<attribute name="md5checksum" type="java.lang.String"/>
-	<attribute name="length" type="int"/>
-	<attribute name="residues" type="org.intermine.objectstore.query.ClobAccess"/>
-</class>
 <class name="OntologyTermSynonym" is-interface="true">
 	<attribute name="type" type="java.lang.String"/>
 	<attribute name="name" type="java.lang.String"/>
+</class>
+<class name="SequenceFeature" extends="BioEntity" is-interface="true">
+	<attribute name="length" type="java.lang.Integer"/>
+	<attribute name="scoreType" type="java.lang.String"/>
+	<attribute name="score" type="java.lang.Double"/>
+	<reference name="chromosome" referenced-type="Chromosome"/>
+	<reference name="chromosomeLocation" referenced-type="Location"/>
+	<reference name="sequence" referenced-type="Sequence"/>
+	<reference name="sequenceOntologyTerm" referenced-type="SOTerm"/>
+	<collection name="sequences" referenced-type="Sequence"/>
+	<collection name="presentIn" referenced-type="SequenceAlteration" reverse-reference="markersPresent"/>
+	<collection name="labOfOrigin" referenced-type="Lab" reverse-reference="lines"/>
+	<collection name="missingFrom" referenced-type="SequenceAlteration" reverse-reference="markersMissing"/>
+	<collection name="movedIn" referenced-type="SequenceAlteration" reverse-reference="markersMoved"/>
+	<collection name="overlappingFeatures" referenced-type="SequenceFeature"/>
 </class>
 <class name="RAPD" extends="Reagent" is-interface="true">
 	<attribute name="type" type="java.lang.String"/>
@@ -189,8 +195,8 @@
 </class>
 <class name="DataSource" is-interface="true">
 	<attribute name="name" type="java.lang.String"/>
-	<attribute name="url" type="java.lang.String"/>
 	<attribute name="description" type="java.lang.String"/>
+	<attribute name="url" type="java.lang.String"/>
 	<collection name="publications" referenced-type="Publication"/>
 	<collection name="dataSets" referenced-type="DataSet" reverse-reference="dataSource"/>
 </class>
@@ -345,8 +351,8 @@
 	<collection name="constructs" referenced-type="Construct" reverse-reference="contains"/>
 </class>
 <class name="GeneFlankingRegion" extends="SequenceFeature" is-interface="true">
-	<attribute name="includeGene" type="java.lang.Boolean"/>
 	<attribute name="distance" type="java.lang.String"/>
+	<attribute name="includeGene" type="java.lang.Boolean"/>
 	<attribute name="direction" type="java.lang.String"/>
 	<reference name="gene" referenced-type="Gene" reverse-reference="flankingRegions"/>
 </class>
@@ -357,11 +363,11 @@
 	<collection name="targets" referenced-type="Gene" reverse-reference="morpholinos"/>
 </class>
 <class name="Organism" is-interface="true">
-	<attribute name="taxonId" type="java.lang.Integer"/>
 	<attribute name="shortName" type="java.lang.String"/>
+	<attribute name="taxonId" type="java.lang.Integer"/>
 	<attribute name="genus" type="java.lang.String"/>
-	<attribute name="species" type="java.lang.String"/>
 	<attribute name="commonName" type="java.lang.String"/>
+	<attribute name="species" type="java.lang.String"/>
 	<attribute name="name" type="java.lang.String"/>
 </class>
 <class name="Figure" is-interface="true">
@@ -580,8 +586,8 @@
 </class>
 <class name="Author" is-interface="true">
 	<attribute name="name" type="java.lang.String"/>
-	<attribute name="lastName" type="java.lang.String"/>
 	<attribute name="initials" type="java.lang.String"/>
+	<attribute name="lastName" type="java.lang.String"/>
 	<attribute name="firstName" type="java.lang.String"/>
 	<collection name="publications" referenced-type="Publication" reverse-reference="authors"/>
 </class>
