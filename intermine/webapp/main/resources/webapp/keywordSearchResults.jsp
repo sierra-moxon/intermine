@@ -53,7 +53,7 @@
                     Use <i>OR</i> to search for either of two terms (e.g. <i>fish OR danio</i>) or quotation marks to search for phrases  (e.g. <i>"dna binding"</i>).
                 </li>
                 <li>
-                    <strong>Boolean search syntax</strong> is supported: e.g. <i>fgf*</i> for partial matches or <i>aaaafish AND NOT embryo</i> to exclude a term
+                    <strong>Boolean search syntax</strong> is supported: e.g. <i>fgf*</i> for partial matches or <i>fish AND NOT embryo</i> to exclude a term
                 </li>
             </ul>
           </c:when>
