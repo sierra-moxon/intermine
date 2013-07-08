@@ -31,6 +31,7 @@
         <attribute name="isExtinct" type="java.lang.Boolean"/>
         <reference name="organism" referenced-type="Organism"/>
         <collection name="publications" referenced-type="Publication"/>
+	<collection name="sources" referenced-type="Lab" reverse-referenced="genotypes"/>
     </class>
     <class name="Intron" is-interface="true" extends="SequenceFeature">
     </class>
@@ -425,6 +426,7 @@
       <attribute name="information" type="java.lang.String"/>
       <attribute name="contactPerson" type="java.lang.String"/>-->
       <collection name="lines" referenced-type="SequenceFeature" reverse-reference="labOfOrigin"/>
+      <collection name="genotypes" referenced-type="Genotype" reverse-reference="sources"/>
     </class>
     <class name="Publication" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
