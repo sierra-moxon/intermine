@@ -56,6 +56,13 @@
 	<source name="markerSequence" type="markerSequence">
 	  <property name="src.data.dir" location="../data-sources/markerSequences/"/>
 	</source>
+	<source name="trimZfinClone" type="gff">
+	  <property name="gff3.taxonid" value="7955"/>
+	  <property name="gff3.dataSourceName" value="ZFIN"/>
+	  <property name="gff3.seqClsName" value="Clone"/>
+	  <property name="gff3.dataSetTitle" value="ZFIN trim clone"/>
+	  <property name="src.data.dir" location="/tmp/*.gff3"/>
+	</source>
         <source name="zfinGenotypes" type="zfinGenotypes">
             <property name="src.data.dir" location="../data-sources/zfin_genotypes/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
