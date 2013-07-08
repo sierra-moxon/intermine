@@ -62,6 +62,19 @@
         <echo message="Start deploying release: ${environment}"/>
     </target>
 
+    <target name="clean-db">
+        <ant antfile="dbmodel/build.xml" target="clean" inheritAll="false"/>
+        <ant antfile="dbmodel/build.xml" target="build-db" inheritAll="false"/>
+    </target>
+
+    <target name="load">
+        <ant antfile="integrate/build.xml" target="default" inheritAll="false"/>
+    </target>
+
+    <target name="postprocess">
+        <ant antfile="postprocess/build.xml" target="default" inheritAll="false"/>
+    </target>
+
     <target name="replace-variables">
         <copy todir="${dist.webapp}/">
             <fileset file="webapp/src/log4j.properties"/>
