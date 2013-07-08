@@ -1,4 +1,3 @@
-
 <project type="bio">
     <property name="target.model" value="genomic"/>
     <property name="source.location" location="../bio/sources/"/>
@@ -7,33 +6,37 @@
     <property name="intermine.properties.file" value="zfinmine.properties"/>
     <property name="default.intermine.properties.file" location="../default.intermine.integrate.properties"/>
     <sources>
-<!--      <source name="reactome" type="biopax">
-	<property name="src.data.dir" location="../data-sources/reactome"/>
-	<property name="biopax.organisms" value="7227 7955 9606"/>
-	<property name="biopax.datasourcename" value="Reactome"/>
-	<property name="biopax.datasetname" value="Reactome data set"/>
-	<property name="biopax.curated" value="false"/>
-      </source> -->
-       <source name="so" type="so">
+        <!--      <source name="reactome" type="biopax">
+            <property name="src.data.dir" location="../data-sources/reactome"/>
+            <property name="biopax.organisms" value="7227 7955 9606"/>
+            <property name="biopax.datasourcename" value="Reactome"/>
+            <property name="biopax.datasetname" value="Reactome data set"/>
+            <property name="biopax.curated" value="false"/>
+              </source> -->
+        <source name="so" type="so">
             <property name="src.data.file" location="../../bio/sources/so/so.obo"/>
-       </source>
+        </source>
         <source name="go" type="go">
             <property name="src.data.file" location="../data-sources/go/gene_ontology.obo"/>
         </source>
+<<<<<<< Updated upstream
        <source name="pato" type="pato">
+=======
+        <source name="zfin_pato" type="zfin_pato">
+>>>>>>> Stashed changes
             <property name="src.data.file" location="../data-sources/zfin_pato/quality.obo"/>
-       </source>
+        </source>
         <source name="zfin_anatomy" type="zfin_anatomy">
             <property name="src.data.file" location="../data-sources/zfin_anatomy/zebrafish_anatomy.obo"/>
         </source>
-	<source name="uberon" type="uberon">
-	  <property name="src.data.file" location="../data-sources/uberon/uberon.obo"/>
-	</source>
-	<source name="medic" type="medic">
-	  <property name="src.data.file" location="../data-sources/medic/medic.obo"/>
-	</source>
-	<source name="mpath" type="mpath">
-          <property name="src.data.file" location="../data-sources/mpath/mpath.obo"/>
+        <source name="uberon" type="uberon">
+            <property name="src.data.file" location="../data-sources/uberon/uberon.obo"/>
+        </source>
+        <source name="medic" type="medic">
+            <property name="src.data.file" location="../data-sources/medic/medic.obo"/>
+        </source>
+        <source name="mpath" type="mpath">
+            <property name="src.data.file" location="../data-sources/mpath/mpath.obo"/>
         </source>
         <source name="zfinSpatial" type="zfinSpatial">
             <property name="src.data.file" location="../data-sources/zfinSpatial/spatial.obo"/>
@@ -46,10 +49,10 @@
             <property name="src.data.dir" location="../data-sources/zfin_pubs/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-	<source name="zfin_stages" type="zfin_stages">
+        <source name="zfin_stages" type="zfin_stages">
             <property name="src.data.dir" location="../data-sources/zfin_stages/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
-        </source> 
+        </source>
         <source name="zfin_markers" type="zfin_markers">
             <property name="src.data.dir" location="../data-sources/zfin_markers/"/>
         </source>
@@ -74,7 +77,8 @@
         <source name="zfin_genoenvs" type="zfin_genoenvs">
             <property name="src.data.dir" location="../data-sources/zfin_genoenvs/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
-        </source> -->
+        </source>
+        -->
         <source name="zfin_genofeats" type="zfin_genofeats">
             <property name="src.data.dir" location="../data-sources/zfin_genofeats/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
@@ -88,35 +92,35 @@
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
         <source name="genotypeAliases" type="genotypeAliases">
-          <property name="src.data.dir" location="../data-sources/genotype_alias"/>
-          <property name="src.data.dir.includes" value="*.txt"/>
+            <property name="src.data.dir" location="../data-sources/genotype_alias"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-	<source name="zebrafishFeatureAliases" type="zebrafishFeatureAliases">
-	  <property name="src.data.dir" location="../data-sources/feature_alias"/>
-	  <property name="src.data.dir.includes" value="*.txt"/>
-	</source>
+        <source name="zebrafishFeatureAliases" type="zebrafishFeatureAliases">
+            <property name="src.data.dir" location="../data-sources/feature_alias"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
         <source name="genotypePubs" type="genotypePubs">
-          <property name="src.data.dir" location="../data-sources/genotypePubs"/>
-          <property name="src.data.dir.includes" value="*.txt"/>
+            <property name="src.data.dir" location="../data-sources/genotypePubs"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
         </source>
         <source name="featurePubs" type="featurePubs">
-          <property name="src.data.dir" location="../data-sources/mutantAttributions"/>
-          <property name="src.data.dir.includes" value="*.txt"/>
+            <property name="src.data.dir" location="../data-sources/mutantAttributions"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-	<source name="flybase-identifiers" type="flybase-identifiers">
-	  <property name="src.data.dir" location="../data-sources/flybase-identifiers"/>
-	</source>
-<!--	<source name="wormbase-identifiers" type="wormbase-identifiers">
-	  <property name="src.data.dir" location="../data-sources/worm-identifiers"/>
-	</source>-->
-	<source name="mgi-identifiers" type="mgi-identifiers">
-	  <property name="src.data.dir" location="../data-sources/mgi-identifiers"/>
-	</source>
+        <source name="flybase-identifiers" type="flybase-identifiers">
+            <property name="src.data.dir" location="../data-sources/flybase-identifiers"/>
+        </source>
+        <!--	<source name="wormbase-identifiers" type="wormbase-identifiers">
+              <property name="src.data.dir" location="../data-sources/worm-identifiers"/>
+            </source>-->
+        <source name="mgi-identifiers" type="mgi-identifiers">
+            <property name="src.data.dir" location="../data-sources/mgi-identifiers"/>
+        </source>
         <source name="zfinFigures" type="zfinFigures">
             <property name="src.data.dir" location="../data-sources/zfin_figures/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-       <source name="zfin_phenotypes" type="zfin_phenotypes">
+        <source name="zfin_phenotypes" type="zfin_phenotypes">
             <property name="src.data.dir" location="../data-sources/zfin_phenotypes/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
@@ -127,44 +131,48 @@
             <property name="src.data.dir" location="../data-sources/zfin_expression/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-       <source name="go-annotation" type="go-annotation">
+        <source name="go-annotation" type="go-annotation">
             <property name="ontologyfile" location="../data-sources/go-annotation/gene_ontology.obo"/>
             <property name="src.data.dir" location="../data-sources/go-annotation/"/>
             <property name="src.data.dir.includes" value="gene_association*"/>
-       </source>
+        </source>
         <source name="zfinOrthologues" type="zfinOrthologues">
             <property name="src.data.dir" location="../data-sources/zfin_orthos/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-	<source name="zebrafishChromosome" type="zebrafishChromosome">
-	  <property name="src.data.dir" location="../data-sources/chromosome/"/>
-	  <property name="src.data.dir.includes" value="*.txt"/>
-	</source>
-	<source name="zebrafishPanther" type="zebrafishPanther">
+        <source name="zebrafishChromosome" type="zebrafishChromosome">
+            <property name="src.data.dir" location="../data-sources/chromosome/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <source name="zebrafishPanther" type="zebrafishPanther">
             <property name="src.data.dir" location="../data-sources/panther/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
-       </source>
-	<source name="omimPhenotype" type="omimPhenotype">
-          <property name="src.data.dir" location="../data-sources/omimPhenotype/"/>
-          <property name="src.data.dir.includes" value="*.txt"/>
-	</source>
-	<source name="labs" type="labs">
-	  <property name="src.data.dir" location="../data-sources/lab/"/>
-          <property name="src.data.dir.includes" value="*.txt"/>
-	</source>
-	<source name="entrez-organism" type="entrez-organism">
-          <property name="src.data.file" location="build/organisms.xml"/>
-        </source> 
+        </source>
+        <source name="omimPhenotype" type="omimPhenotype">
+            <property name="src.data.dir" location="../data-sources/omimPhenotype/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <source name="labs" type="labs">
+            <property name="src.data.dir" location="../data-sources/lab/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <source name="entrez-organism" type="entrez-organism">
+            <property name="src.data.file" location="build/organisms.xml"/>
+        </source>
+        <source name="people" type="people">
+            <property name="src.data.dir" location="../data-sources/people/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
     </sources>
     <post-processing>
-      <post-process name="create-references"/>
-      <!--<post-process name="transfer-sequences-located-sequence-feature"/>-->
-      <!-- this runs the postprocessing steps in all sources -->
-      <post-process name="do-sources"/>
-      <post-process name="create-search-index"/>
-      <post-process name="summarise-objectstore"/>
-      <post-process name="create-autocomplete-index"/>
-      <post-process name="create-attribute-indexes"/>
+        <post-process name="create-references"/>
+        <!--<post-process name="transfer-sequences-located-sequence-feature"/>-->
+        <!-- this runs the postprocessing steps in all sources -->
+        <post-process name="do-sources"/>
+        <post-process name="create-search-index"/>
+        <post-process name="summarise-objectstore"/>
+        <post-process name="create-autocomplete-index"/>
+        <post-process name="create-attribute-indexes"/>
     </post-processing>
 </project>
 
