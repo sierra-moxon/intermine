@@ -19,11 +19,7 @@
         <source name="go" type="go">
             <property name="src.data.file" location="../data-sources/go/gene_ontology.obo"/>
         </source>
-<<<<<<< Updated upstream
        <source name="pato" type="pato">
-=======
-        <source name="zfin_pato" type="zfin_pato">
->>>>>>> Stashed changes
             <property name="src.data.file" location="../data-sources/zfin_pato/quality.obo"/>
         </source>
         <source name="zfin_anatomy" type="zfin_anatomy">
