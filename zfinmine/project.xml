@@ -20,7 +20,7 @@
             <property name="src.data.file" location="../data-sources/go/gene_ontology.obo"/>
         </source>
        <source name="pato" type="pato">
-            <property name="src.data.file" location="../data-sources/zfin_pato/quality.obo"/>
+         <property name="src.data.file" location="../data-sources/zfin_pato/quality.obo"/>
         </source>
         <source name="zfin_anatomy" type="zfin_anatomy">
             <property name="src.data.file" location="../data-sources/zfin_anatomy/zebrafish_anatomy.obo"/>
@@ -54,6 +54,13 @@
         </source>
 	<source name="markerSequence" type="markerSequence">
 	  <property name="src.data.dir" location="../data-sources/markerSequences/"/>
+	</source>
+	<source name="trimZfinClone" type="gff">
+	  <property name="gff3.taxonid" value="7955"/>
+	  <property name="gff3.dataSourceName" value="ZFIN"/>
+	  <property name="gff3.seqClsName" value="Clone"/>
+	  <property name="gff3.dataSetTitle" value="ZFIN trim clone"/>
+	  <property name="src.data.dir" location="/tmp/*.gff3"/>
 	</source>
         <source name="zfinGenotypes" type="zfinGenotypes">
             <property name="src.data.dir" location="../data-sources/zfin_genotypes/"/>
