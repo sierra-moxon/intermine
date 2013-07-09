@@ -22,16 +22,16 @@ import org.intermine.objectstore.ObjectStoreException;
 import org.intermine.util.FormattedTextParser;
 import org.intermine.xml.full.Item;
 import org.xml.sax.SAXException;
+import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
 
 
 /**
  * @author Sierra
  * @author Christian
  */
-public class LabsConverter extends BioDirectoryConverter {
+public class LabsConverter extends ZfinDirectoryConverter {
     //
     private static final String DATASET_TITLE = "Labs";
-    private static final String DATA_SOURCE_NAME = "ZFIN";
     protected String organismRefId;
     private Map<String, Item> labs = new HashMap<String, Item>(900);
 
@@ -55,7 +55,6 @@ public class LabsConverter extends BioDirectoryConverter {
             throw new RuntimeException("error reading labFile", err);
         }
 
-/*
         try {
             for (Item lab : labs.values()) {
                 store(lab);
@@ -67,32 +66,26 @@ public class LabsConverter extends BioDirectoryConverter {
             pw.flush();
             throw new Exception(sw.toString());
         }
-*/
     }
 
     public void processLabs(Reader reader) throws Exception {
         Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
         while (lineIter.hasNext()) {
             String[] line = (String[]) lineIter.next();
-            if (line.length < 4) {
+            if (line.length < 3) {
                 throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
             }
             String primaryIdentifier = line[0];
             String name = line[1];
-            String information = line[2];
-            String contactPerson = line[3];
+            String contactPerson = line[2];
             System.out.println("Lab ID: " + primaryIdentifier);
             System.out.println("Lab name: " + name);
-            System.out.println("Lab: info" + information);
             System.out.println("Lab: contactPerson" + contactPerson);
             Item lab;
             if (!StringUtils.isEmpty(primaryIdentifier)) {
                 lab = getLab(primaryIdentifier);
                 if (!StringUtils.isEmpty(name)) {
                     lab.setAttribute("name", name);
-                }
-                if (!StringUtils.isEmpty(information)) {
-                    lab.setAttribute("information", information);
                 }
                 if (!StringUtils.isEmpty(contactPerson)) {
                     lab.setAttribute("contactPerson", contactPerson);
