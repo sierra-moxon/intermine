@@ -462,7 +462,7 @@ input.submit {
                   <%-- print each field configured for this object --%>
                   <c:when test="${!empty fieldConfig && !empty fieldConfig.displayer}">
                     <c:set var="fieldPathString" value="${searchResult.type}.${fieldConfig.fieldExpr}"/>
-                    <c:set var="fieldLabel" value="${imf:formatFieldStr(fieldPathString, INTERMINE_API, WEBCONFIG)}"/>
+                    <c:set var="fieldLabel" value="${imf:formatFieldChain(fieldPathString, INTERMINE_API, WEBCONFIG)}"/>
                         
                     <td class="objectFieldName"><c:out value="${fieldLabel}" />:</td>
 
@@ -476,7 +476,7 @@ input.submit {
 
                   <c:when test="${!empty fieldConfig && !empty fieldConfig.fieldExpr}">
                     <c:set var="fieldPathString" value="${searchResult.type}.${fieldConfig.fieldExpr}"/>
-                    <c:set var="fieldLabel" value="${imf:formatFieldStr(fieldPathString, INTERMINE_API, WEBCONFIG)}"/>
+                    <c:set var="fieldLabel" value="${imf:formatFieldChain(fieldPathString, INTERMINE_API, WEBCONFIG)}"/>
                     <c:set var="outVal"
                       value="${searchResult.fieldValues[fieldConfig.fieldExpr]}" />
                     <c:if test="${!empty outVal}">
