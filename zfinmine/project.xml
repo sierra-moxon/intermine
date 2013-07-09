@@ -149,17 +149,9 @@
 	  <property name="src.data.dir" location="../data-sources/company/"/>
           <property name="src.data.dir.includes" value="*.txt"/>
 	</source>
-	<source name="entrez-organism" type="entrez-organism">
-          <property name="src.data.file" location="build/organisms.xml"/>
-        </source> 
         <source name="entrez-organism" type="entrez-organism">
             <property name="src.data.file" location="build/organisms.xml"/>
         </source>
-        <source name="people" type="people">
-            <property name="src.data.dir" location="../data-sources/people/"/>
-            <property name="src.data.dir.includes" value="*.txt"/>
-        </source>
->>>>>>> a94f31c844dfc58882820448cc0faa8c6be5a58a
     </sources>
     <post-processing>
         <post-process name="create-references"/>
