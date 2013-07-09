@@ -426,6 +426,12 @@
       <attribute name="contactPerson" type="java.lang.String"/>-->
       <collection name="lines" referenced-type="SequenceFeature" reverse-reference="labOfOrigin"/>
     </class>
+    <class name ="Company" is-interface="true">
+      <attribute name="primaryIdentifier" type="java.lang.String"/>
+      <attribute name="name" type="java.lang.String"/>
+      <attribute name="information" type="java.lang.String"/>
+      <attribute name="contactPerson" type="java.lang.String"/>-->
+    </class>
     <class name="Publication" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
         <attribute name="authorNames" type="java.lang.String"/>
