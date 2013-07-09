@@ -158,6 +158,17 @@
             <unique-column name="id"/>
         </unique>
     </table>
+    <table name="Person">
+        <column name="primaryIdentifier" type="LONGVARCHAR"/>
+        <column name="id" type="INTEGER" required="true"/>
+        <column name="lastName" type="LONGVARCHAR"/>
+        <column name="firstName" type="LONGVARCHAR"/>
+        <column name="url" type="LONGVARCHAR"/>
+        <column name="class" type="LONGVARCHAR"/>
+        <unique name="Person_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
     <table name="ProbeLibrary">
         <column name="tissue" type="LONGVARCHAR"/>
         <column name="primaryIdentifier" type="LONGVARCHAR"/>
@@ -1429,6 +1440,10 @@
         <column name="SequenceVariant" type="INTEGER" required="true"/>
         <column name="Genes" type="INTEGER" required="true"/>
     </table>
+    <table name="GenesPathways">
+        <column name="Genes" type="INTEGER" required="true"/>
+        <column name="Pathways" type="INTEGER" required="true"/>
+    </table>
     <table name="InsertionAllelesInsertionConstructs">
         <column name="InsertionAlleles" type="INTEGER" required="true"/>
         <column name="InsertionConstructs" type="INTEGER" required="true"/>
@@ -1436,10 +1451,6 @@
     <table name="ArtifactsCloneArtifacts">
         <column name="Artifacts" type="INTEGER" required="true"/>
         <column name="CloneArtifacts" type="INTEGER" required="true"/>
-    </table>
-    <table name="GenesPathways">
-        <column name="Genes" type="INTEGER" required="true"/>
-        <column name="Pathways" type="INTEGER" required="true"/>
     </table>
     <table name="MorpholinosTargets">
         <column name="Targets" type="INTEGER" required="true"/>
@@ -1492,6 +1503,10 @@
     <table name="PromotersPromotes">
         <column name="Promoters" type="INTEGER" required="true"/>
         <column name="Promotes" type="INTEGER" required="true"/>
+    </table>
+    <table name="LabsPerson">
+        <column name="Person" type="INTEGER" required="true"/>
+        <column name="Labs" type="INTEGER" required="true"/>
     </table>
     <table name="LabOfOriginLines">
         <column name="Lines" type="INTEGER" required="true"/>
@@ -1709,10 +1724,6 @@
         <column name="CodingSequences" type="INTEGER" required="true"/>
         <column name="CodingSequenceOf" type="INTEGER" required="true"/>
     </table>
-    <table name="MarkersMovedMovedIn">
-        <column name="MovedIn" type="INTEGER" required="true"/>
-        <column name="MarkersMoved" type="INTEGER" required="true"/>
-    </table>
     <table name="PhenotypicAllelesPhenotypicConstructs">
         <column name="PhenotypicAlleles" type="INTEGER" required="true"/>
         <column name="PhenotypicConstructs" type="INTEGER" required="true"/>
@@ -1720,6 +1731,10 @@
     <table name="EncodesPseudogene">
         <column name="Pseudogene" type="INTEGER" required="true"/>
         <column name="Encodes" type="INTEGER" required="true"/>
+    </table>
+    <table name="MarkersMovedMovedIn">
+        <column name="MovedIn" type="INTEGER" required="true"/>
+        <column name="MarkersMoved" type="INTEGER" required="true"/>
     </table>
     <table name="MeshTermsPublications">
         <column name="MeshTerms" type="INTEGER" required="true"/>
