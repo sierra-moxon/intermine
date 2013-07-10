@@ -116,13 +116,13 @@ public class ZebrafishPantherConverter extends BioFileConverter
                 externalGene.addToCollection("proteins",orthoProtein);
                 ortho.setAttribute("type",orthoType);
                 if (StringUtils.equals(orthoType,"LDO")) {
-                     orthoType = "Least Diverged Orthologue"
+		    orthoType = "Least Diverged Orthologue";
                 }
                else if (StringUtils.equals(orthoType,"O")) {
-                     orthoType = "Orthologue"
+		   orthoType = "Orthologue";
                 }
                else { 
-                     System.out.println("warning: new ortho type: orthoType");
+                     System.out.println("warning: new ortho type");
                 }
                 String orthoId = ortho.getIdentifier();
 		if (geneid1.equalsIgnoreCase("ZDB-GENE-040426-1729")) {
