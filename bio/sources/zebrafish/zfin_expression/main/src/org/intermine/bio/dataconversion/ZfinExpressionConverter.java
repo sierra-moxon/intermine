@@ -58,7 +58,7 @@ public class ZfinExpressionConverter extends BioFileConverter {
      */
     public ZfinExpressionConverter(ItemWriter writer, Model model)
             throws ObjectStoreException {
-        super(writer, model, "ZFIN", "ZFIN Curated Expression Data Set");
+        super(writer, model, "ZFIN", "Curated Expression");
 
         //create and store organism
         Item organism = createItem("Organism");
