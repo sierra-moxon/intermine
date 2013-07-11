@@ -39,7 +39,7 @@ public class ZfinGenotypesConverter extends BioFileConverter {
      */
     public ZfinGenotypesConverter(ItemWriter writer, Model model)
             throws ObjectStoreException {
-        super(writer, model, "ZFIN", "ZFIN Curated Genotypes Data Set");
+        super(writer, model, "ZFIN", "Curated Genotypes");
 
         // create and store organism
         Item organism = createItem("Organism");

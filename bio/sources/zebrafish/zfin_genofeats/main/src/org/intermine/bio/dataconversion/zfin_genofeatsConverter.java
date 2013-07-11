@@ -47,7 +47,7 @@ public class zfin_genofeatsConverter extends BioFileConverter {
      */
     public zfin_genofeatsConverter(ItemWriter writer, Model model)
             throws ObjectStoreException {
-        super(writer, model, "ZFIN", "ZFIN Curated Alleles and Genotypes Data Set");
+        super(writer, model, "ZFIN", "Curated Alleles and Genotypes");
 
     }
 

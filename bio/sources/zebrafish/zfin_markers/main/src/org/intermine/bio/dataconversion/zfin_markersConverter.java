@@ -90,7 +90,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
      */
     public zfin_markersConverter(ItemWriter writer, Model model)
             throws ObjectStoreException {
-        super(writer, model, "ZFIN", "ZFIN Genes/Markers/Clones data set");
+        super(writer, model, "ZFIN", "Genes/Markers/Clones");
 
     }
 
