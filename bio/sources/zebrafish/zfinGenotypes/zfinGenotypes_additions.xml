@@ -423,14 +423,21 @@
       <attribute name="primaryIdentifier" type="java.lang.String"/>
       <attribute name="name" type="java.lang.String"/>
       <attribute name="information" type="java.lang.String"/>
-      <attribute name="contactPerson" type="java.lang.String"/>-->
+      <attribute name="contactPerson" referenced-type="Person"/>
+<!--
       <collection name="lines" referenced-type="SequenceFeature" reverse-reference="labOfOrigin"/>
+-->
     </class>
     <class name ="Company" is-interface="true">
       <attribute name="primaryIdentifier" type="java.lang.String"/>
       <attribute name="name" type="java.lang.String"/>
       <attribute name="information" type="java.lang.String"/>
       <attribute name="contactPerson" type="java.lang.String"/>-->
+    </class>
+    <class name ="Person" is-interface="true">
+      <attribute name="primaryIdentifier" type="java.lang.String"/>
+      <attribute name="lastName" type="java.lang.String"/>
+      <attribute name="firstName" type="java.lang.String"/>
     </class>
     <class name="Publication" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
