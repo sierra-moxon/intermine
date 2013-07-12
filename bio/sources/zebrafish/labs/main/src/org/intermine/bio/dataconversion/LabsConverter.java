@@ -34,6 +34,7 @@ public class LabsConverter extends ZfinDirectoryConverter {
     private static final String DATASET_TITLE = "Labs";
     protected String organismRefId;
     private Map<String, Item> labs = new HashMap<String, Item>(900);
+    private Map<String, Item> persons = new HashMap<String, Item>(900);
 
     /**
      * Constructor
@@ -78,9 +79,6 @@ public class LabsConverter extends ZfinDirectoryConverter {
             String primaryIdentifier = line[0];
             String name = line[1];
             String contactPerson = line[2];
-            System.out.println("Lab ID: " + primaryIdentifier);
-            System.out.println("Lab name: " + name);
-            System.out.println("Lab: contactPerson" + contactPerson);
             Item lab;
             if (!StringUtils.isEmpty(primaryIdentifier)) {
                 lab = getLab(primaryIdentifier);
@@ -89,6 +87,7 @@ public class LabsConverter extends ZfinDirectoryConverter {
                 }
                 if (!StringUtils.isEmpty(contactPerson)) {
                     lab.setAttribute("contactPerson", contactPerson);
+                    //lab.setReference("contactPerson", getPerson(contactPerson));
                 }
             }
         }
@@ -103,6 +102,24 @@ public class LabsConverter extends ZfinDirectoryConverter {
             labs.put(primaryIdentifier, item);
         }
         return item;
+
+    }
+
+    private Item getPerson(String primaryIdentifier)
+            throws SAXException {
+        Item item = persons.get(primaryIdentifier);
+        if (item == null) {
+            item = createItem("Person");
+            item.setAttribute("primaryIdentifier", primaryIdentifier);
+            persons.put(primaryIdentifier, item);
+            try {
+                store(item);
+            } catch (ObjectStoreException e) {
+                throw new SAXException(e);
+            }
+        }
+        return item;
+
     }
 }
 
