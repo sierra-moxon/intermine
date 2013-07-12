@@ -27,3 +27,4 @@ inversion
 translocation
 chromosomal_deletion
 complex_substitution
+contig
