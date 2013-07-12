@@ -148,13 +148,12 @@
             <property name="src.data.dir" location="../data-sources/lab/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
 	</source>-->
-    </source>
         <source name="company" type="company">
-            <property name="src.data.dir" location="../data-sources/company/"/>
-            <property name="src.data.dir.includes" value="*.txt"/>
+          <property name="src.data.dir" location="../data-sources/company/"/>
+          <property name="src.data.dir.includes" value="*.txt"/>
         </source>
         <source name="entrez-organism" type="entrez-organism">
-            <property name="src.data.file" location="build/organisms.xml"/>
+          <property name="src.data.file" location="build/organisms.xml"/>
         </source>
     </sources>
     <post-processing>
