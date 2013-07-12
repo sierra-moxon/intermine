@@ -455,7 +455,8 @@
         <collection name="SNPs" referenced-type="SNP"/>
         <collection name="antibodies" referenced-type="Antibody"/>
         <collection name="regions" referenced-type="Region"/>
-        <collection name="expressions" referenced-type="Expression"/>
+
+               <collection name="expressions" referenced-type="Expression"/>
         <collection name="figures" referenced-type="Figure" reverse-reference="publication"/>
         <collection name="environments" referenced-type="Environment" reverse-reference="publication"/>
 	<collection name="bioEntities" referenced-type="BioEntity" reverse-reference="publications" />
