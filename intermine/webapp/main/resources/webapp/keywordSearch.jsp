@@ -47,13 +47,13 @@
             <ul>
                 <li>
                     Search this entire website. Enter <strong>identifiers</strong>, <strong>names</strong> or <strong>keywords</strong> for
-                    genes, pathways, authors, ontology terms, etc.  (e.g. <i>eve</i>, <i>embryo</i>, <i>zen</i>, <i>allele</i>)
+                    genes, pathways, authors, ontology terms, etc.  (e.g. <i>eve1</i>, <i>pax6a</i>, <i>mitosis</i>)
                 </li>
                 <li>
-                    Use <i>OR</i> to search for either of two terms (e.g. <i>fly OR drosophila</i>) or quotation marks to search for phrases  (e.g. <i>"dna binding"</i>).
+                    Use <i>OR</i> to search for either of two terms (e.g. <i>fish OR danio</i>) or quotation marks to search for phrases  (e.g. <i>"dna binding"</i>).
                 </li>
                 <li>
-                    <strong>Boolean search syntax</strong> is supported: e.g. <i>dros*</i> for partial matches or <i>fly AND NOT embryo</i> to exclude a term
+                    <strong>Boolean search syntax</strong> is supported: e.g. <i>fgf**</i> for partial matches or <i>fish AND NOT embryo</i> to exclude a term
                 </li>
             </ul>
           </c:when>
