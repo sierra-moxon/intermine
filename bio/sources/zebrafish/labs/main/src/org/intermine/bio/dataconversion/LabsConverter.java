@@ -79,9 +79,6 @@ public class LabsConverter extends ZfinDirectoryConverter {
             String primaryIdentifier = line[0];
             String name = line[1];
             String contactPerson = line[2];
-            System.out.println("Lab ID: " + primaryIdentifier);
-            System.out.println("Lab name: " + name);
-            System.out.println("Lab: contactPerson" + contactPerson);
             Item lab;
             if (!StringUtils.isEmpty(primaryIdentifier)) {
                 lab = getLab(primaryIdentifier);
@@ -89,7 +86,8 @@ public class LabsConverter extends ZfinDirectoryConverter {
                     lab.setAttribute("name", name);
                 }
                 if (!StringUtils.isEmpty(contactPerson)) {
-                    lab.setReference("contactPerson", getPerson(contactPerson));
+                    lab.setAttribute("contactPerson", contactPerson);
+                    //lab.setReference("contactPerson", getPerson(contactPerson));
                 }
             }
         }
@@ -102,11 +100,6 @@ public class LabsConverter extends ZfinDirectoryConverter {
             item = createItem("Lab");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
             labs.put(primaryIdentifier, item);
-            try {
-                store(item);
-            } catch (ObjectStoreException e) {
-                throw new SAXException(e);
-            }
         }
         return item;
 
