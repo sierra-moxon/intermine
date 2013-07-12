@@ -53,7 +53,7 @@ public class zfin_pubsConverter extends BioFileConverter {
     public zfin_pubsConverter(ItemWriter writer, Model model)
             throws ObjectStoreException {
 
-        super(writer, model, "ZFIN", "ZFIN Publications Data Set");
+        super(writer, model, "ZFIN", "Publications");
     }
 
     public void process(Reader reader) throws Exception {

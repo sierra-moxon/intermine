@@ -6,6 +6,7 @@
 <class name="Chromosome" extends="SequenceFeature" is-interface="true"></class>
 <class name="Clone" extends="Reagent" is-interface="true"></class>
 <class name="ComplexSubstitution" extends="Substitution" is-interface="true"></class>
+<class name="Contig" extends="SequenceFeature" is-interface="true"></class>
 <class name="Deletion" extends="SequenceAlteration" is-interface="true">
 	<reference name="chromosomalDeletion" referenced-type="ChromosomalDeletion" reverse-reference="deletions"/>
 </class>
