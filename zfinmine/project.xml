@@ -144,18 +144,11 @@
             <property name="src.data.dir" location="../data-sources/zfin_phenotypes/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-        <source name="labs" type="labs">
+        <!--<source name="labs" type="labs">
             <property name="src.data.dir" location="../data-sources/lab/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
-<source>
-	<source name="omimPhenotype" type="omimPhenotype">
-          <property name="src.data.dir" location="../data-sources/omimPhenotype/"/>
-          <property name="src.data.dir.includes" value="*.txt"/>
-	</source>
-<!--	<source name="labs" type="labs">
-	  <property name="src.data.dir" location="../data-sources/lab/"/>
-          <property name="src.data.dir.includes" value="*.txt"/>
 	</source>-->
+    </source>
         <source name="company" type="company">
             <property name="src.data.dir" location="../data-sources/company/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
