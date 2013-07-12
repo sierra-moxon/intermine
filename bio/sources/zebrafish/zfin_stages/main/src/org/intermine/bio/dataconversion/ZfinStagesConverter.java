@@ -53,7 +53,7 @@ public class ZfinStagesConverter extends BioFileConverter
     public ZfinStagesConverter(ItemWriter writer, Model model) 
 	throws ObjectStoreException {
         
-	super(writer, model, "ZFIN", "ZFIN Stages Data Set");
+	super(writer, model, "ZFIN", "Developmental Stages");
     }
 
     /**
