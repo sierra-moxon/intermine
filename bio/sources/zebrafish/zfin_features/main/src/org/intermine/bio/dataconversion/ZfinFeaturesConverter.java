@@ -54,7 +54,7 @@ public class ZfinFeaturesConverter extends BioFileConverter {
      */
     public ZfinFeaturesConverter(ItemWriter writer, Model model)
             throws ObjectStoreException {
-        super(writer, model, "ZFIN", "ZFIN Alleles and Transgenics Data Set");
+        super(writer, model, "ZFIN", "Alleles and Transgenics");
 
     }
 

@@ -46,7 +46,7 @@ public class ZfinJournalsConverter extends BioFileConverter {
      */
     public ZfinJournalsConverter(ItemWriter writer, Model model)
             throws ObjectStoreException {
-        super(writer, model, "ZFIN", "ZFIN Journal Data Set");
+        super(writer, model, "ZFIN", "Journals");
 
     }
 
