@@ -141,10 +141,10 @@
           <property name="src.data.dir" location="../data-sources/omimPhenotype/"/>
           <property name="src.data.dir.includes" value="*.txt"/>
 	</source>
-	<source name="labs" type="labs">
+<!--	<source name="labs" type="labs">
 	  <property name="src.data.dir" location="../data-sources/lab/"/>
           <property name="src.data.dir.includes" value="*.txt"/>
-	</source>
+	</source>-->
 	<source name="entrez-organism" type="entrez-organism">
           <property name="src.data.file" location="build/organisms.xml"/>
         </source> 
