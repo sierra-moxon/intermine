@@ -763,7 +763,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         item.setAttribute("primaryIdentifier", primaryIdentifier);
         item.setAttribute("name", name);
         item.setAttribute("symbol", abbrev);
-        item.setAttribute("type", type);
+	/*item.setAttribute("type", type);*/
     }
 
     private Item getTypedTranscript (String type, String primaryIdentifier) throws SAXException{

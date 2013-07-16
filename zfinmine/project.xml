@@ -55,17 +55,13 @@
 	<source name="markerSequence" type="markerSequence">
 	  <property name="src.data.dir" location="../data-sources/markerSequences/"/>
 	</source>
-<!--	<source name="trimZfinClone" type="gff" dump="true">
-	  <property name="gff3.taxonid" value="7955"/>
+	<source name="trimZfinClone" type="gff" dump="true">
+	  <property name="gff3.taxonId" value="7955"/>
 	  <property name="gff3.dataSourceName" value="ZFIN"/>
 	  <property name="gff3.seqClsName" value="Clone"/>
 	  <property name="gff3.dataSetTitle" value="ZFIN trim clone"/>
 	  <property name="src.data.dir" location="../data-sources/trimGff3/"/>
 	</source>
--->
-       <source name="markerSequence" type="markerSequence">
-            <property name="src.data.dir" location="../data-sources/markerSequences/"/>
-        </source>
        <source name="zebrafishChromosome" type="zebrafishChromosome">
             <property name="src.data.dir" location="../data-sources/chromosome/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
