@@ -138,7 +138,6 @@
     </class>
     <class name="Gene" extends="BioEntity" is-interface="true">
         <attribute name="symbol" type="java.lang.String"/>
-        <attribute name="type" type="java.lang.String"/>
         <collection name="pathways" referenced-type="Pathway" reverse-reference="genes"/>
         <collection name="genotypes" referenced-type="Genotype" reverse-reference="genes"/>
         <collection name="expressions" referenced-type="Expression" reverse-reference="gene"/>
@@ -435,12 +434,12 @@
       <attribute name="information" type="java.lang.String"/>
       <attribute name="contactPerson" type="java.lang.String"/>-->
     </class>
-    <class name ="Person" is-interface="true">
+<!--    <class name ="Person" is-interface="true">
       <attribute name="primaryIdentifier" type="java.lang.String"/>
       <attribute name="firstName" type="java.lang.String"/>
       <attribute name="lastName" type="java.lang.String"/>
       <attribute name="name" type="java.lang.String"/>
-    </class>
+    </class> -->
     <class name="Publication" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
         <attribute name="authorNames" type="java.lang.String"/>
