@@ -39,13 +39,13 @@ import org.intermine.xml.full.ReferenceList;
 /**
  * DataConverter to parse a go annotation file into Items.
  * *
+ *
  * @author Andrew Varley
  * @author Peter Mclaren - some additions to record the parents of a go term.
  * @author Julie Sullivan - updated to handle GAF 2.0
  * @author Xavier Watkins - refactored model
  */
-public class GoConverter extends BioFileConverter
-{
+public class GoConverter extends BioFileConverter {
     protected static final String PROP_FILE = "go-annotation_config.properties";
 
     // configuration maps
@@ -65,7 +65,7 @@ public class GoConverter extends BioFileConverter
 
     // maps renewed for each file
     private Map<GoTermToGene, Set<Evidence>> goTermGeneToEvidence
-        = new LinkedHashMap<GoTermToGene, Set<Evidence>>();
+            = new LinkedHashMap<GoTermToGene, Set<Evidence>>();
     private Map<Integer, List<String>> productCollectionsMap;
     private Map<String, Integer> storedProductIds;
 
@@ -92,7 +92,7 @@ public class GoConverter extends BioFileConverter
      * Constructor
      *
      * @param writer the ItemWriter used to handle the resultant items
-     * @param model the Model
+     * @param model  the Model
      * @throws Exception if an error occurs in storing or finding Model
      */
     public GoConverter(ItemWriter writer, Model model) throws Exception {
@@ -152,7 +152,7 @@ public class GoConverter extends BioFileConverter
                     || "primaryIdentifier".equals(identifier)
                     || "secondaryIdentifier".equals(identifier)
                     || "primaryAccession".equals(identifier)
-                    )) {
+            )) {
                 throw new IllegalArgumentException("Invalid identifier value for taxon: "
                         + taxonId + " was: " + identifier);
             }
@@ -253,7 +253,7 @@ public class GoConverter extends BioFileConverter
             }
 
             // create unique key for go annotation
-            GoTermToGene key = new GoTermToGene(productId, goId, qualifier);
+            GoTermToGene key = new GoTermToGene(productId, goId, qualifier, withText);
 
             String dataSourceCode = array[14]; // e.g. GDB, where uniprot collect the data from
             String dataSource = array[0]; // e.g. UniProtKB, where the goa file comes from
@@ -360,8 +360,8 @@ public class GoConverter extends BioFileConverter
     }
 
     private Integer createGoAnnotation(String productIdentifier, String productType,
-            String termIdentifier, Item organism, String qualifier, String dataSource,
-            String dataSourceCode, String annotationExtension) throws ObjectStoreException {
+                                       String termIdentifier, Item organism, String qualifier, String dataSource,
+                                       String dataSourceCode, String annotationExtension) throws ObjectStoreException {
         Item goAnnotation = createItem(annotationClassName);
         goAnnotation.setReference("subject", productIdentifier);
         goAnnotation.setReference("ontologyTerm", termIdentifier);
@@ -395,15 +395,15 @@ public class GoConverter extends BioFileConverter
      * Given the 'with' text from a gene_association entry parse for recognised identifier
      * types and create Gene or Protein items accordingly.
      *
-     * @param withText string from the gene_association entry
-     * @param organism organism to reference
-     * @param dataSource the name of goa file source
+     * @param withText       string from the gene_association entry
+     * @param organism       organism to reference
+     * @param dataSource     the name of goa file source
      * @param dataSourceCode short code to describe data source
-     * @throws ObjectStoreException if problem when storing
      * @return a list of Items
+     * @throws ObjectStoreException if problem when storing
      */
     protected List<String> createWithObjects(String withText, Item organism,
-            String dataSource, String dataSourceCode) throws ObjectStoreException {
+                                             String dataSource, String dataSourceCode) throws ObjectStoreException {
 
         List<String> withProductList = new ArrayList<String>();
         try {
@@ -452,8 +452,8 @@ public class GoConverter extends BioFileConverter
     }
 
     private String newProduct(String identifier, String type, Item organism,
-            String dataSource, String dataSourceCode, boolean createOrganism,
-            String field) throws ObjectStoreException {
+                              String dataSource, String dataSourceCode, boolean createOrganism,
+                              String field) throws ObjectStoreException {
         String idField = field;
         String accession = identifier;
         String clsName = null;
@@ -537,7 +537,7 @@ public class GoConverter extends BioFileConverter
     }
 
     private String makeProductKey(String identifier, String type, Item organism,
-            boolean createOrganism) {
+                                  boolean createOrganism) {
         if (type == null) {
             throw new IllegalArgumentException("No type provided when creating " + organism
                     + ": " + identifier);
@@ -569,7 +569,7 @@ public class GoConverter extends BioFileConverter
     }
 
     private String newGoTerm(String identifier, String dataSource,
-            String dataSourceCode) throws ObjectStoreException {
+                             String dataSourceCode) throws ObjectStoreException {
         if (identifier == null) {
             return null;
         }
@@ -623,7 +623,7 @@ public class GoConverter extends BioFileConverter
     }
 
     private String getDataset(String dataSource, String code)
-        throws ObjectStoreException {
+            throws ObjectStoreException {
         String dataSetIdentifier = dataSets.get(code);
         if (dataSetIdentifier == null) {
             String dataSourceName = getDataSourceCodeName(code);
@@ -656,6 +656,15 @@ public class GoConverter extends BioFileConverter
 
                     }
                 }
+            } else if (array[i].startsWith("ZFIN:")) {
+                String zdbID = array[i].substring(5);
+                pubRefId = publications.get(zdbID);
+                if (pubRefId == null) {
+                    item = createItem("Publication");
+                    item.setAttribute("primaryIdentifier", zdbID);
+                    pubRefId = item.getIdentifier();
+                    publications.put(zdbID, pubRefId);
+                }
             } else {
                 xrefs.add(array[i]);
             }
@@ -676,7 +685,7 @@ public class GoConverter extends BioFileConverter
     }
 
     private String createDbReference(String value)
-        throws ObjectStoreException {
+            throws ObjectStoreException {
         if (StringUtils.isEmpty(value)) {
             return null;
         }
@@ -725,8 +734,7 @@ public class GoConverter extends BioFileConverter
         return taxonId;
     }
 
-    private class Evidence
-    {
+    private class Evidence {
         private List<String> publicationRefIds = new ArrayList<String>();
         private String evidenceCode = null;
         private Integer storedAnnotationId = null;
@@ -739,7 +747,7 @@ public class GoConverter extends BioFileConverter
         //dataSource, dataSourceCode
 
         protected Evidence(String evidenceCode, String publicationRefId, String withText,
-                Item organism, String dataset, String datasource) {
+                           Item organism, String dataset, String datasource) {
             this.evidenceCode = evidenceCode;
             this.withText = withText;
             this.organism = organism;
@@ -803,11 +811,11 @@ public class GoConverter extends BioFileConverter
      * Identify a GoTerm/geneProduct pair with qualifier
      * used to also use evidence code
      */
-    private class GoTermToGene
-    {
+    private class GoTermToGene {
         private String productId;
         private String goId;
         private String qualifier;
+        private String inferredFrom;
 
         /**
          * Constructor
@@ -816,10 +824,11 @@ public class GoConverter extends BioFileConverter
          * @param goId      GO term id
          * @param qualifier qualifier
          */
-        GoTermToGene(String productId, String goId, String qualifier) {
+        GoTermToGene(String productId, String goId, String qualifier, String inferredFrom) {
             this.productId = productId;
             this.goId = goId;
             this.qualifier = qualifier;
+            this.inferredFrom = inferredFrom;
         }
 
         /**
@@ -831,7 +840,8 @@ public class GoConverter extends BioFileConverter
                 GoTermToGene go = (GoTermToGene) o;
                 return productId.equals(go.productId)
                         && goId.equals(go.goId)
-                        && qualifier.equals(go.qualifier);
+                        && qualifier.equals(go.qualifier)
+                        && inferredFrom.equals(go.inferredFrom);
             }
             return false;
         }
@@ -843,7 +853,8 @@ public class GoConverter extends BioFileConverter
         public int hashCode() {
             return ((3 * productId.hashCode())
                     + (5 * goId.hashCode())
-                    + (7 * qualifier.hashCode()));
+                    + (7 * qualifier.hashCode())
+                    + (9 * inferredFrom.hashCode()));
         }
 
         /**
@@ -859,6 +870,8 @@ public class GoConverter extends BioFileConverter
             toStringBuff.append(goId);
             toStringBuff.append(" qualifier:");
             toStringBuff.append(qualifier);
+            toStringBuff.append(" inferred From:");
+            toStringBuff.append(inferredFrom);
 
             return toStringBuff.toString();
         }
@@ -867,8 +880,7 @@ public class GoConverter extends BioFileConverter
     /**
      * Class to hold the config info for each taxonId.
      */
-    private class Config
-    {
+    private class Config {
         protected String annotationType;
         protected String identifier;
         protected String readColumn;
@@ -877,8 +889,8 @@ public class GoConverter extends BioFileConverter
          * Constructor.
          *
          * @param annotationType type of object being annotated, gene or protein
-         * @param identifier which identifier to set, primaryIdentifier or symbol
-         * @param readColumn which identifier column to read, identifier or symbol
+         * @param identifier     which identifier to set, primaryIdentifier or symbol
+         * @param readColumn     which identifier column to read, identifier or symbol
          */
         Config(String identifier, String readColumn, String annotationType) {
             this.annotationType = annotationType;
