@@ -55,7 +55,7 @@ public class CompanyConverter extends BioDirectoryConverter {
             throw new RuntimeException("error reading companyFile", err);
         }
 
-/*
+
         try {
             for (Item company : company.values()) {
                 store(company);
@@ -67,7 +67,7 @@ public class CompanyConverter extends BioDirectoryConverter {
             pw.flush();
             throw new Exception(sw.toString());
         }
-*/
+
     }
 
     public void processCompanies(Reader reader) throws Exception {
