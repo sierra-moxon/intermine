@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af31b092-8855-4363-ad0e-941e4c95465c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zmine.ipr" afterPath="$PROJECT_DIR$/zmine.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../.gitignore" afterPath="$PROJECT_DIR$/../../.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../zfinmine/project.xml" afterPath="$PROJECT_DIR$/../../zfinmine/project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zmine.ipr" afterPath="$PROJECT_DIR$/zmine.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zmine.iws" afterPath="$PROJECT_DIR$/zmine.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../.gitignore" afterPath="$PROJECT_DIR$/../../.gitignore" />
     </list>
     <ignored path="zmine.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,6 +51,188 @@
     <file path="$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/main/src/org/intermine/bio/dataconversion/ZfinExpressionConverter.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1373661974852" ignored="false" />
     <file path="$PROJECT_DIR$/../../bio/sources/zebrafish/zfinJournals/main/src/org/intermine/bio/dataconversion/ZfinJournalsConverter.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1373661974852" ignored="false" />
     <file path="/CompanyConverter.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1373662733958" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OrthologueEvidenceCode.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473425" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SimpleSequenceLengthVariation.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473425" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/RNAClone.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473425" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ZFATerm.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473425" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OmimPhenotypeShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473425" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/FishShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473425" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/RNACloneShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473425" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SPATIALTermShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473425" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SequenceShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473425" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/AnatomyTerm.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473425" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/DataSet.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473425" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GeneFlankingRegionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473425" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Company.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473425" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ProbeLibrary.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Fish.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/DataSetShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/FigureShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Location.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Translocation.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Comment.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GOAnnotation.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/CrossReference.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/TransgenicInsertion.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/BioEntityShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/MPATHTermShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Inversion.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/IntergenicRegion.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/RAPDShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ProteinShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473426" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/UTRShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GOEvidenceCodeShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Homologue.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/DNAClone.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OntologyAnnotation.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GOEvidence.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ComplexSubstitutionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Organism.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/UTR.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/PATOTerm.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/EnvironmentShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/CDS.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/TranscriptShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/InsertionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Exon.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SequenceFeature.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ImageShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GOTerm.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Protein.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Deletion.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OrganismShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/RAPD.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SNPShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Construct.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ReagentShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Intron.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/EnvironmentalCondition.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Pseudogene.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SequenceAlterationShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GOEvidenceCode.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/MeshTerm.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ProbeLibraryShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/IntronShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SubstitutionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Substitution.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/PointMutation.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Sequence.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/MEDICTerm.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ChromosomalDeletionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SequenceVariantShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OrthologueEvidenceCodeShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OntologyTermShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GenotypeEnvironmentShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/DatabaseReference.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ChromosomalDeletion.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ConstructShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GeneShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/PseudogenicRegionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/AnatomyTermShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/MorpholinoOligoShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/RegionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/JournalShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Reagent.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Journal.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ChromosomeShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SequenceAlteration.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ExpressionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/LocationShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/TranslocationShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Image.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/CommentShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/STSShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/InversionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/EnvironmentalConditionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473427" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/PseudogenicTranscript.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/MeshTermShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/STS.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GOAnnotationShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/DNACloneShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Chromosome.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GenotypeShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/EFGShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OntologyTerm.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Clone.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/PseudogenicRegion.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Author.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OntologyRelation.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/TransgenicInsertionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GenotypeEnvironment.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/AuthorShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OrthologueEvidenceShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/DeletionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Expression.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Tag.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Marker.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/MPATHTerm.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/CloneShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/PATOTermShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ZFATermShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Environment.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OntologyTermSynonymShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Insertion.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Genotype.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/CrossReferenceShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OntologyTermSynonym.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SPATIALTerm.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OntologyAnnotationShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/PathwayShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/DataSource.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OntologyRelationShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Region.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/PhenotypeShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/IntergenicRegionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/MarkerShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Phenotype.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/EFG.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ComplexSubstitution.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GOTermShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GeneFlankingRegion.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Publication.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/FeatureMarkerRelationship.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/PseudogenicTranscriptShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OntologyShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/CDSShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/PseudogeneShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SNP.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Ontology.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/TagShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/PublicationShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Gene.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OmimPhenotype.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Figure.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/CompanyShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SimpleSequenceLengthVariationShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Pathway.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SynonymShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/DatabaseReferenceShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/GOEvidenceShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/MEDICTermShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SOTerm.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SequenceFeatureShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/AntibodyShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SequenceCollectionShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/OrthologueEvidence.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SOTermShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/BioEntity.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/PointMutationShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SequenceCollection.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/MarkerRelationshipShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ExonShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/MorpholinoOligo.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/ContigShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/FeatureMarkerRelationshipShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Antibody.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Synonym.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/HomologueShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/MarkerRelationship.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Contig.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Transcript.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/SequenceVariant.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/DataSourceShadow.java" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/main/genomic_model.xml" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
+    <file path="$PROJECT_DIR$/../../zfinmine/dbmodel/build/main/os.production-schema.xml" changelist="af31b092-8855-4363-ad0e-941e4c95465c" time="1374515473428" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +247,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint url="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/test/src/org/intermine/bio/dataconversion/ZfinExpressionConverterTest.java" line="44" class="org.intermine.bio.dataconversion.ZfinExpressionConverterTest" package="org.intermine.bio.dataconversion">
         <option name="ENABLED" value="true" />
@@ -118,7 +301,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -128,24 +310,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FishConverter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/fish/main/src/org/intermine/bio/dataconversion/FishConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="23" selection-start="582" selection-end="582" vertical-scroll-proportion="-0.68">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ZfinExpressionConverterTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/test/src/org/intermine/bio/dataconversion/ZfinExpressionConverterTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="86" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="genomic_priorities.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/../../lib/zfinmine-dbmodel.jar!/genomic_priorities.properties">
           <provider selected="true" editor-type-id="text-editor">
@@ -164,19 +328,48 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompanyConverter.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CompanyConverter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/company/main/src/org/intermine/bio/dataconversion/CompanyConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="108" selection-start="781" selection-end="781" vertical-scroll-proportion="0.37824476">
+            <state line="30" column="10" selection-start="850" selection-end="850" vertical-scroll-proportion="-1.36">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zfinGenotypes_additions.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfinGenotypes/zfinGenotypes_additions.xml">
+      <file leaf-file-name="Person.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="435" column="87" selection-start="28531" selection-end="28531" vertical-scroll-proportion="0.0">
+            <state line="23" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="-15.64">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Person.class" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/classes/org/intermine/model/bio/Person.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="20" selection-start="118" selection-end="118" vertical-scroll-proportion="0.06115108">
+              <folding>
+                <element signature="e#0#737#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonConverter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/person/main/src/org/intermine/bio/dataconversion/PersonConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="60" selection-start="1731" selection-end="1731" vertical-scroll-proportion="-3.72">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Lab.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Lab.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -186,15 +379,6 @@
         <entry file="file://$PROJECT_DIR$/../../.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state line="18" column="65" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="zfin_markersConverter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_markers/main/src/org/intermine/bio/dataconversion/zfin_markersConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1318" column="112" selection-start="51763" selection-end="51763" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -237,6 +421,9 @@
         <option value="$PROJECT_DIR$/../../zfinmine/dbmodel/resources/genomic_priorities.properties" />
         <option value="$PROJECT_DIR$/../../bio/sources/zebrafish/zfinGenotypes/zfinGenotypes_additions.xml" />
         <option value="$PROJECT_DIR$/../../bio/sources/zebrafish/person/main/src/org/intermine/bio/dataconversion/CompanyConverter.java" />
+        <option value="$PROJECT_DIR$/../../bio/sources/zebrafish/person/main/src/org/intermine/bio/dataconversion/PersonConverter.java" />
+        <option value="$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Person.java" />
+        <option value="$PROJECT_DIR$/../../zfinmine/dbmodel/build/classes/org/intermine/model/bio/Person.class" />
       </list>
     </option>
   </component>
@@ -274,17 +461,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -488,6 +664,70 @@
               <option name="myItemId" value="person" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zmine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="E:" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pmintermine1.2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zebrafish" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="person" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zmine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="E:" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pmintermine1.2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zebrafish" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="person" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -540,6 +780,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -911,6 +1155,17 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -927,12 +1182,12 @@
     <property name="GoToClass.includeJavaFiles" value="true" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -986,19 +1241,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -1025,6 +1267,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1144,7 +1399,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3006483" sideWeight="0.67160773" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17179903" sideWeight="0.67160773" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971996" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1219,32 +1474,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_expression/main/src/org/intermine/bio/dataconversion/ZfinExpressionConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="92" selection-start="6308" selection-end="6308" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../zfinmine/project.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="76" selection-start="7232" selection-end="7232" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Genotype.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="25" selection-start="242" selection-end="242" vertical-scroll-proportion="-0.68" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfinOrthologues/main/src/org/intermine/bio/dataconversion/ZfinOrthologuesConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="107" selection-start="339" selection-end="339" vertical-scroll-proportion="-6.8">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zmine.ipr">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="29" selection-start="870" selection-end="870" vertical-scroll-proportion="0.0" />
@@ -1252,21 +1481,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zmine.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="54" selection-start="1133" selection-end="1136" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="13" column="54" selection-start="1133" selection-end="1136" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/fish/main/src/org/intermine/bio/dataconversion/FishConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="23" selection-start="582" selection-end="582" vertical-scroll-proportion="-0.68">
+        <state line="20" column="23" selection-start="582" selection-end="582" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfin_markers/main/src/org/intermine/bio/dataconversion/zfin_markersConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1318" column="112" selection-start="51763" selection-end="51763" vertical-scroll-proportion="0.0">
+        <state line="1318" column="112" selection-start="51760" selection-end="51760" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1280,7 +1507,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/zfinGenotypes/zfinGenotypes_additions.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="435" column="87" selection-start="28531" selection-end="28531" vertical-scroll-proportion="0.0">
+        <state line="435" column="87" selection-start="28603" selection-end="28603" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1288,13 +1515,6 @@
     <entry file="file://$PROJECT_DIR$/../../.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="65" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../lib/zfinmine-dbmodel.jar!/genomic_priorities.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="8" selection-start="2904" selection-end="2904" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1313,10 +1533,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/../../lib/zfinmine-dbmodel.jar!/genomic_priorities.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="8" selection-start="2904" selection-end="2904" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Lab.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/person/main/src/org/intermine/bio/dataconversion/PersonConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="60" selection-start="1731" selection-end="1731" vertical-scroll-proportion="-3.72">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/PersonShadow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="16" selection-start="593" selection-end="593" vertical-scroll-proportion="0.21356784">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../bio/sources/zebrafish/company/main/src/org/intermine/bio/dataconversion/CompanyConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="108" selection-start="781" selection-end="781" vertical-scroll-proportion="0.37824476">
+        <state line="30" column="10" selection-start="850" selection-end="850" vertical-scroll-proportion="-1.36">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/gen/src/org/intermine/model/bio/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="-15.64">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../zfinmine/dbmodel/build/classes/org/intermine/model/bio/Person.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="20" selection-start="118" selection-end="118" vertical-scroll-proportion="0.06115108">
+          <folding>
+            <element signature="e#0#737#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
