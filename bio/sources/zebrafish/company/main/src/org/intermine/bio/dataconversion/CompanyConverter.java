@@ -22,18 +22,19 @@ import org.intermine.objectstore.ObjectStoreException;
 import org.intermine.util.FormattedTextParser;
 import org.intermine.xml.full.Item;
 import org.xml.sax.SAXException;
+import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
 
 
 /**
  * @author Sierra
- * @author Prita
+ * @author Christian
  */
-public class CompanyConverter extends BioDirectoryConverter {
+public class CompanyConverter extends ZfinDirectoryConverter {
     //
     private static final String DATASET_TITLE = "Company";
-    private static final String DATA_SOURCE_NAME = "ZFIN";
     protected String organismRefId;
-    private Map<String, Item> company = new HashMap<String, Item>(900);
+    private Map<String, Item> companies = new HashMap<String, Item>(900);
+    private Map<String, Item> persons = new HashMap<String, Item>(900);
 
     /**
      * Constructor
@@ -50,14 +51,13 @@ public class CompanyConverter extends BioDirectoryConverter {
         try {
             System.out.println("canonical path: " + directory.getCanonicalPath());
             File companyFile = new File(directory.getCanonicalPath() + "/1company.txt");
-            processCompanies(new FileReader(companyFile));
+            processCompany(new FileReader(companyFile));
         } catch (IOException err) {
             throw new RuntimeException("error reading companyFile", err);
         }
 
-
         try {
-            for (Item company : company.values()) {
+            for (Item company : companies.values()) {
                 store(company);
             }
         } catch (ObjectStoreException e) {
@@ -67,35 +67,27 @@ public class CompanyConverter extends BioDirectoryConverter {
             pw.flush();
             throw new Exception(sw.toString());
         }
-
     }
 
-    public void processCompanies(Reader reader) throws Exception {
+    public void processCompany(Reader reader) throws Exception {
         Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
         while (lineIter.hasNext()) {
             String[] line = (String[]) lineIter.next();
-            if (line.length < 4) {
+            if (line.length < 3) {
                 throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
             }
             String primaryIdentifier = line[0];
             String name = line[1];
-            String information = line[2];
-            String contactPerson = line[3];
-            System.out.println("Company ID: " + primaryIdentifier);
-            System.out.println("Company: name: " + name);
-            System.out.println("Company: info" + information);
-            System.out.println("Company: contactPerson" + contactPerson);
+            String contactPerson = line[2];
             Item company;
             if (!StringUtils.isEmpty(primaryIdentifier)) {
                 company = getCompany(primaryIdentifier);
                 if (!StringUtils.isEmpty(name)) {
                     company.setAttribute("name", name);
                 }
-                if (!StringUtils.isEmpty(information)) {
-                    company.setAttribute("information", information);
-                }
                 if (!StringUtils.isEmpty(contactPerson)) {
                     company.setAttribute("contactPerson", contactPerson);
+                    //lab.setReference("contactPerson", getPerson(contactPerson));
                 }
             }
         }
@@ -103,13 +95,31 @@ public class CompanyConverter extends BioDirectoryConverter {
 
     private Item getCompany(String primaryIdentifier)
             throws SAXException {
-        Item item = company.get(primaryIdentifier);
+        Item item = companies.get(primaryIdentifier);
         if (item == null) {
             item = createItem("Company");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
-            company.put(primaryIdentifier, item);
+            companies.put(primaryIdentifier, item);
         }
         return item;
+
+    }
+
+    private Item getPerson(String primaryIdentifier)
+            throws SAXException {
+        Item item = persons.get(primaryIdentifier);
+        if (item == null) {
+            item = createItem("Person");
+            item.setAttribute("primaryIdentifier", primaryIdentifier);
+            persons.put(primaryIdentifier, item);
+            try {
+                store(item);
+            } catch (ObjectStoreException e) {
+                throw new SAXException(e);
+            }
+        }
+        return item;
+
     }
 }
 
