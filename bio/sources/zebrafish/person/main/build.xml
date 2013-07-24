@@ -1,0 +1,4 @@
+<project name="person-tasks" default="default" basedir=".">
+  <description>build company tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>
