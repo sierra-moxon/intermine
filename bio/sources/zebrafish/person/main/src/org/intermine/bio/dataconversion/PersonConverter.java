@@ -29,11 +29,11 @@ import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
  * @author Sierra
  * @author Christian
  */
-public class CompanyConverter extends ZfinDirectoryConverter {
+public class PersonConverter extends ZfinDirectoryConverter {
     //
-    private static final String DATASET_TITLE = "Company";
+    private static final String DATASET_TITLE = "Person";
     protected String organismRefId;
-    private Map<String, Item> companies = new HashMap<String, Item>(900);
+//    private Map<String, Item> labs = new HashMap<String, Item>(900);
     private Map<String, Item> persons = new HashMap<String, Item>(900);
 
     /**
@@ -43,22 +43,22 @@ public class CompanyConverter extends ZfinDirectoryConverter {
      * @param model  the Model
      */
 
-    public CompanyConverter(ItemWriter writer, Model model) {
+    public PersonConverter(ItemWriter writer, Model model) {
         super(writer, model, DATA_SOURCE_NAME, DATASET_TITLE);
     }
 
     public void process(File directory) throws Exception {
         try {
             System.out.println("canonical path: " + directory.getCanonicalPath());
-            File companyFile = new File(directory.getCanonicalPath() + "/1company.txt");
-            processCompany(new FileReader(companyFile));
+            File personFile = new File(directory.getCanonicalPath() + "/1person.txt");
+            processPerson(new FileReader(personFile));
         } catch (IOException err) {
-            throw new RuntimeException("error reading companyFile", err);
+            throw new RuntimeException("error reading personFile", err);
         }
 
         try {
-            for (Item company : companies.values()) {
-                store(company);
+            for (Item person : persons.values()) {
+                store(person);
             }
         } catch (ObjectStoreException e) {
             StringWriter sw = new StringWriter();
@@ -69,7 +69,7 @@ public class CompanyConverter extends ZfinDirectoryConverter {
         }
     }
 
-    public void processCompany(Reader reader) throws Exception {
+    public void processPerson(Reader reader) throws Exception {
         Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
         while (lineIter.hasNext()) {
             String[] line = (String[]) lineIter.next();
@@ -77,41 +77,52 @@ public class CompanyConverter extends ZfinDirectoryConverter {
                 throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
             }
             String primaryIdentifier = line[0];
-            String name = line[1];
-            String contactPerson = line[2];
-            Item company;
+            String firstName = line[1];
+            String lastName = line[2];
+            String fullName = line[3];
+            String email = line[4];
+//            String lab = line[5];
+            Item person;
             if (!StringUtils.isEmpty(primaryIdentifier)) {
-                company = getCompany(primaryIdentifier);
-                if (!StringUtils.isEmpty(name)) {
-                    company.setAttribute("name", name);
+                person = getPerson(primaryIdentifier);
+                if (!StringUtils.isEmpty(firstName)) {
+                    person.setAttribute("firstName", firstName);
                 }
-                if (!StringUtils.isEmpty(contactPerson)) {
-                    company.setAttribute("contactPerson", contactPerson);
-                    //lab.setReference("contactPerson", getPerson(contactPerson));
+                if (!StringUtils.isEmpty(lastName)) {
+                    person.setAttribute("lastName", lastName);
                 }
-            }
+                if (!StringUtils.isEmpty(fullName)) {
+                    person.setAttribute("fullName", fullName);
+                }
+                if (!StringUtils.isEmpty(email)) {
+                    person.setAttribute("email", email);
+                }
+               /* if (!StringUtils.isEmpty(lab)) {
+                    person.setAttribute("lab", lab);
+                }*/
+}
         }
     }
-
-    private Item getCompany(String primaryIdentifier)
-            throws SAXException {
-        Item item = companies.get(primaryIdentifier);
-        if (item == null) {
-            item = createItem("Company");
-            item.setAttribute("primaryIdentifier", primaryIdentifier);
-            companies.put(primaryIdentifier, item);
-        }
-        return item;
-
-    }
-
-    private Item getPerson(String primaryIdentifier)
+    
+private Item getPerson(String primaryIdentifier)
             throws SAXException {
         Item item = persons.get(primaryIdentifier);
         if (item == null) {
             item = createItem("Person");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
             persons.put(primaryIdentifier, item);
+        }
+        return item;
+
+    }
+
+    /*private Item getLab(String primaryIdentifier)
+            throws SAXException {
+        Item item = labs.get(primaryIdentifier);
+        if (item == null) {
+            item = createItem("Lab");
+            item.setAttribute("primaryIdentifier", primaryIdentifier);
+            labs.put(primaryIdentifier, item);
             try {
                 store(item);
             } catch (ObjectStoreException e) {
@@ -120,6 +131,6 @@ public class CompanyConverter extends ZfinDirectoryConverter {
         }
         return item;
 
-    }
+    }*/
 }
 
