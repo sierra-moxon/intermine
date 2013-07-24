@@ -55,7 +55,6 @@ public class FeatureCrossReferencesConverter extends BioFileConverter
     private static final Logger LOG = Logger.getLogger(FeatureCrossReferencesConverter.class);
     private Map<String, Item> links = new HashMap();
     private Map<String, Item> terms = new HashMap();
-    private Map<String, Item> links = new HashMap();
     private Map<String, Item> linkDbs = new HashMap();
 
 
@@ -94,15 +93,15 @@ public class FeatureCrossReferencesConverter extends BioFileConverter
 
             String dataId = line[0];
             String type = line[1];
-            String accession = line[3];
-            String linkDb = line[4];
-	    String linkUrl = line[5];
-	    String linkPrimaryIdentifier = dataId.accession;
+            String accession = line[2];
+            String linkDb = line[3];
+	    String linkUrl = line[4];
+	    String linkPrimaryIdentifier = dataId+accession;
 
             if (!StringUtils.isEmpty(dataId)){
                 Item feature = getTypedItem(dataId, type);
 		if (!StringUtils.isEmpty(accession)){
-		    Item externalLink = getLink(accession,getTypedItem(dataId),linkPrimaryIdentifier);
+		    Item externalLink = getLink(accession,getTypedItem(dataId, type),linkPrimaryIdentifier);
 		    if (!StringUtils.isEmpty(linkDb)) {
 			externalLink.setReference("source", getLinkDb(linkDb,linkUrl,"Sequence associated with Sequence Alteration"));
 		    }
