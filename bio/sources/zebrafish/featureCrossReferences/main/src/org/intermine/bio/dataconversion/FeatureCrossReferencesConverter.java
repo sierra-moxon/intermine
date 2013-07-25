@@ -79,6 +79,15 @@ public class FeatureCrossReferencesConverter extends BioFileConverter
         }catch (ObjectStoreException e) {
             throw new SAXException(e);
         }
+
+        try{
+            for (Item link : links.values()){
+                store(link);
+            }
+        }catch (ObjectStoreException e) {
+            throw new SAXException(e);
+        }
+
     }
 
     public void processFeatureCrossReferences(Reader reader) throws Exception {
