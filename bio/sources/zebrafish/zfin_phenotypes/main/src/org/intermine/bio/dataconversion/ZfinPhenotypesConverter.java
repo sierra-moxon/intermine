@@ -98,11 +98,11 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
             String subtermId = line[3];
             String superterm2Id = line [4];
             String subterm2Id = line[5];
-            String startStgId = line[7];
-            String endStgId = line[8];
-            String figId = line[9];
-            String tag = line[10];
-            String qualityId = line[6];
+            String startStgId = line[6];
+            String endStgId = line[7];
+            String figId = line[8];
+            String tag = line[9];
+            String qualityId = line[10];
 	    String genoId = line[11];
 	    String expId = line[12];
 
