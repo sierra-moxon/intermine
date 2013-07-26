@@ -36,7 +36,7 @@ public class FishConverter extends BioDirectoryConverter{
     private static final Logger LOG = Logger.getLogger(FishConverter.class);
     protected String organismRefId;
     private Map<String, Item> fishes = new HashMap();
-    private Map<String, Item> phenos = new HashMap();
+    private Map<String, Item> figs = new HashMap();
     private Map<String, Item> genes = new HashMap();
     private Map<String, Item> terms = new HashMap();
     private Map<String, Item> constructs = new HashMap();
@@ -72,8 +72,8 @@ public class FishConverter extends BioDirectoryConverter{
         }
         try {
 
-            for (Item pheno : phenos.values()) {
-                store(pheno);
+            for (Item fig : figs.values()) {
+                store(fig);
             }
             for (Item fish : fishes.values()) {
                 store(fish);
@@ -107,7 +107,7 @@ public class FishConverter extends BioDirectoryConverter{
             if (!StringUtils.isEmpty(primaryIdentifier)) {
                 fish = getFish(primaryIdentifier);
                 if (!StringUtils.isEmpty(phenosId)){
-                    fish.addToCollection("phenotypes", getPhenotype(phenosId));
+                    fish.addToCollection("figures", getFigure(phenosId));
                 }
             }
 
@@ -136,7 +136,7 @@ public class FishConverter extends BioDirectoryConverter{
                 if(!StringUtils.isEmpty(affectorZdbId)){
                     fish.addToCollection("affectors", getTypedItem(affectorZdbId, featureType));
                     if(!StringUtils.isEmpty(constructZdbId)){
-			System.out.println("constructID: " + constructZdbId);
+			//System.out.println("constructID: " + constructZdbId);
                         fish.addToCollection("constructs", getConstruct(constructZdbId));
                     }
                 }
@@ -176,12 +176,12 @@ public class FishConverter extends BioDirectoryConverter{
     }
 
     
-    private Item getPhenotype(String phenosId) throws SAXException{
-        Item item = phenos.get(phenosId);
+    private Item getFigure(String phenosId) throws SAXException{
+        Item item = figs.get(phenosId);
         if (item == null) {
-            item = createItem("Phenotype");
+            item = createItem("Figure");
             item.setAttribute("primaryIdentifier", phenosId);
-            phenos.put(phenosId, item);
+            figs.put(phenosId, item);
         }
         return item;
 

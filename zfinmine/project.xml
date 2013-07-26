@@ -132,6 +132,10 @@
             <property name="src.data.dir" location="../data-sources/mutantAttributions"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
+       <source name="featureCrossReferences" type="featureCrossReferences">
+            <property name="src.data.dir" location="../data-sources/featureCrossReferences"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
         <source name="omimPhenotype" type="omimPhenotype">
             <property name="src.data.dir" location="../data-sources/omimPhenotype/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
