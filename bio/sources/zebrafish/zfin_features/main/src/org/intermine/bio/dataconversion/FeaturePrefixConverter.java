@@ -10,156 +10,54 @@ package org.intermine.bio.dataconversion;
  *
  */
 
-import java.io.Reader;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-
-import java.util.Set;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-
-import org.apache.log4j.Logger;
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.intermine.dataconversion.ItemWriter;
 import org.intermine.metadata.Model;
 import org.intermine.objectstore.ObjectStoreException;
 import org.intermine.util.FormattedTextParser;
 import org.intermine.xml.full.Item;
 import org.xml.sax.SAXException;
+import org.zfin.intermine.dataconversion.ColumnDefinition;
+import org.zfin.intermine.dataconversion.SpecificationSheet;
+import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
+
+import java.io.*;
+import java.util.*;
 
 
 /**
  * DataConverter to load ZFIN feature identifiers from text files
  */
-public class FeaturePrefixConverter extends BioFileConverter {
+public class FeaturePrefixConverter  {
 
-    private static final Logger LOG = Logger.getLogger(FeaturePrefixConverter.class);
-    protected String organismRefId;
-    private Map<String, Item> features = new HashMap();
-    private Map<String, Item> terms = new HashMap();
-    private Set<String> synonyms = new HashSet();
+    private Map<String, Item> featurePrefix = new HashMap();
+    public static final String ITEM_NAME = "FeaturePrefix";
+    private ZfinDirectoryConverter converter;
 
-
-    /**
-     * Constructor
-     *
-     * @param writer the ItemWriter used to handle the resultant items
-     * @param model  the Model
-     * @throws org.intermine.objectstore.ObjectStoreException if an error occurs in storing
-     */
-    public FeaturePrefixConverter(ItemWriter writer, Model model)
-            throws ObjectStoreException {
-        super(writer, model, "ZFIN", "Alleles and Transgenics");
-
+    public FeaturePrefixConverter(ZfinDirectoryConverter converter) {
+        this.converter = converter;
     }
 
-    public void process(Reader reader) throws Exception {
+    public void process(File directory) throws Exception {
+        File featurePrefixes = new File(directory.getCanonicalPath() + "/feature-prefix.txt");
+        System.out.println("canonical path: " + directory.getCanonicalPath());
+        processFeatures(new FileReader(featurePrefixes));
 
-	processFeatures(reader);
 
-	    try {
-		for (Item feature : terms.values()){
-		    
-		    store(feature);
-		}
-	    }
-
-	    catch (ObjectStoreException e) {
-		StringWriter sw = new StringWriter();
-		PrintWriter pw = new PrintWriter(sw);
-		while (e != null) {
-		    e.printStackTrace(pw);
-		}
-		pw.flush();
-		throw new Exception(sw.toString());
-	    }
-
-	
     }
-    
 
     public void processFeatures(Reader reader) throws Exception {
 
-        Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
-
-        while (lineIter.hasNext()) {
-            String[] line = (String[]) lineIter.next();
-            if (line.length < 4) {
-                throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
-            }
-            String primaryIdentifier = line[0];
-
-            String name = line[1];
-            String abbrev = line[2];
-            String type = line[3];
-
-            Item feature ;
-
-            if (!StringUtils.isEmpty(primaryIdentifier)){
-                feature = getTypedItem(primaryIdentifier,type);
-
-                if (!StringUtils.isEmpty(name)) {
-                     feature.setAttribute("name", name);
-                }
-                if (!StringUtils.isEmpty(abbrev)) {
-                    feature.setAttribute("symbol", abbrev);
-                }
-		if (!StringUtils.isEmpty(primaryIdentifier)) {
-                    feature.setAttribute("featureId", primaryIdentifier);
-                }
-
-		//                try {
-		//  store(feature);
-		// } catch (ObjectStoreException e) {
-		//   throw new SAXException(e);
-                //}
-            }
-
-        }
+        SpecificationSheet specSheet = new SpecificationSheet();
+        specSheet.addColumnDefinition(new ColumnDefinition(ITEM_NAME, ColumnDefinition.PRIMARY_IDENTIFIER));
+        specSheet.addColumnDefinition(new ColumnDefinition(ITEM_NAME, "name"));
+        specSheet.addColumnDefinition(new ColumnDefinition(ITEM_NAME, "instituteName"));
+        specSheet.setItemMap(featurePrefix);
+        converter.processFile(reader, specSheet);
     }
 
-    private Item getTypedItem(String primaryIdentifier, String type) throws SAXException {
-        Item typedItem = null;
-
-        if (type.equals("INSERTION")) {
-            typedItem = getFeature(primaryIdentifier,"Insertion");
-        } else if (type.equals("POINT_MUTATION")) {
-            typedItem = getFeature(primaryIdentifier,"PointMutation");
-        } else if (type.equals("DELETION")) {
-            typedItem = getFeature(primaryIdentifier,"Deletion");
-        } else if (type.equals("DEFICIENCY")) {
-            typedItem = getFeature(primaryIdentifier,"ChromosomalDeletion");
-        } else if (type.equals("TRANSLOC")) {
-            typedItem = getFeature(primaryIdentifier,"Translocation");
-        } else if (type.equals("INVERSION")) {
-            typedItem = getFeature(primaryIdentifier,"Inversion");
-        } else if (type.equals("TRANSGENIC_INSERTION")) {
-            typedItem = getFeature(primaryIdentifier,"TransgenicInsertion");
-        } else if (type.equals("SEQUENCE_VARIANT")) {
-            typedItem = getFeature(primaryIdentifier,"SequenceAlteration");
-        } else if (type.equals("UNSPECIFIED")) {
-            typedItem = getFeature(primaryIdentifier,"SequenceAlteration");
-        } else if (type.equals("COMPLEX_SUBSTITUTION")) {
-            typedItem = getFeature(primaryIdentifier,"ComplexSubstitution");      
-        } else if (type.equals("TRANSGENIC_UNSPECIFIED")) {
-            typedItem = getFeature(primaryIdentifier,"TransgenicInsertion");
-        }
-
-        return typedItem;
+    public Map<String, Item> getFeaturePrefix() {
+        return featurePrefix;
     }
-
-    private Item getFeature(String primaryIdentifier, String soTermName) {
-         Item item = terms.get(primaryIdentifier);
-        if (item == null) {
-            item = createItem(soTermName);
-            item.setReference("organism", getOrganism("7955"));
-            item.setAttribute("primaryIdentifier", primaryIdentifier);
-            terms.put(primaryIdentifier, item);
-        }
-
-        return item;
-    }
-
 }

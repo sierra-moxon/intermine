@@ -34,6 +34,7 @@ public class LabsConverter extends ZfinDirectoryConverter {
     private static final String DATASET_TITLE = "Labs";
     protected String organismRefId;
     private Map<String, Item> labs = new HashMap<String, Item>(900);
+    private Map<String, Item> prefixes = new HashMap<String, Item>(900);
     private Map<String, Item> persons = new HashMap<String, Item>(900);
 
     /**
@@ -51,15 +52,18 @@ public class LabsConverter extends ZfinDirectoryConverter {
         try {
             System.out.println("canonical path: " + directory.getCanonicalPath());
             File labFile = new File(directory.getCanonicalPath() + "/1lab.txt");
+            File sourceFeatureFile = new File(directory.getCanonicalPath() + "/feature-prefix-source.txt");
             processLabs(new FileReader(labFile));
+            processSourceFeatures(new FileReader(sourceFeatureFile));
         } catch (IOException err) {
             throw new RuntimeException("error reading labFile", err);
         }
 
         try {
-            for (Item lab : labs.values()) {
+            for (Item prefix : prefixes.values())
+                store(prefix);
+            for (Item lab : labs.values())
                 store(lab);
-            }
         } catch (ObjectStoreException e) {
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
@@ -68,6 +72,24 @@ public class LabsConverter extends ZfinDirectoryConverter {
             throw new Exception(sw.toString());
         }
     }
+
+    public void processSourceFeatures(Reader reader) throws Exception {
+        Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
+
+        while (lineIter.hasNext()) {
+            String[] line = (String[]) lineIter.next();
+            if (line.length < 2) {
+                throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
+            }
+            String prefixID = line[0];
+            String labID = line[1];
+            Item lab = getItem(labID, "Lab", labs);
+            Item prefix = getItem(prefixID, "FeaturePrefix", prefixes);
+            lab.setReference("prefix", prefix);
+            prefix.addToCollection("labs", lab);
+        }
+    }
+
 
     public void processLabs(Reader reader) throws Exception {
         Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
@@ -78,31 +100,18 @@ public class LabsConverter extends ZfinDirectoryConverter {
             }
             String primaryIdentifier = line[0];
             String name = line[1];
-            String contactPerson = line[2];
+            String contactPersonID = line[2];
             Item lab;
             if (!StringUtils.isEmpty(primaryIdentifier)) {
-                lab = getLab(primaryIdentifier);
+                lab = getItem(primaryIdentifier, "Lab", labs);
                 if (!StringUtils.isEmpty(name)) {
                     lab.setAttribute("name", name);
                 }
-                if (!StringUtils.isEmpty(contactPerson)) {
-                    lab.setAttribute("contactPerson", contactPerson);
-                    //lab.setReference("contactPerson", getPerson(contactPerson));
+                if (!StringUtils.isEmpty(contactPersonID)) {
+                    lab.setReference("contactPerson", getPerson(contactPersonID));
                 }
             }
         }
-    }
-
-    private Item getLab(String primaryIdentifier)
-            throws SAXException {
-        Item item = labs.get(primaryIdentifier);
-        if (item == null) {
-            item = createItem("Lab");
-            item.setAttribute("primaryIdentifier", primaryIdentifier);
-            labs.put(primaryIdentifier, item);
-        }
-        return item;
-
     }
 
     private Item getPerson(String primaryIdentifier)
