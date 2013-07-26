@@ -15,8 +15,11 @@ import org.zfin.intermine.dataconversion.ColumnDefinition;
 import org.zfin.intermine.dataconversion.SpecificationSheet;
 import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
 
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.Reader;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -25,7 +28,6 @@ import java.util.*;
 public class SourceFeaturePrefixConverter {
 
     private Map<String, Item> featurePrefix = new HashMap();
-    public static final String ITEM_NAME = "FeaturePrefix";
     private ZfinDirectoryConverter converter;
 
     public SourceFeaturePrefixConverter(ZfinDirectoryConverter converter) {
@@ -43,9 +45,6 @@ public class SourceFeaturePrefixConverter {
     public void processFeatures(Reader reader) throws Exception {
 
         SpecificationSheet specSheet = new SpecificationSheet();
-        specSheet.addColumnDefinition(new ColumnDefinition(ITEM_NAME, ColumnDefinition.PRIMARY_IDENTIFIER));
-        specSheet.addColumnDefinition(new ColumnDefinition(ITEM_NAME, "name"));
-        specSheet.addColumnDefinition(new ColumnDefinition(ITEM_NAME, "instituteName"));
         specSheet.setItemMap(featurePrefix);
         converter.processFile(reader, specSheet);
     }
