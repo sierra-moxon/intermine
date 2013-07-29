@@ -3,6 +3,7 @@ package org.zfin.intermine.dataconversion;
 import org.intermine.xml.full.Item;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +16,9 @@ import java.util.Map;
  */
 public class SpecificationSheet {
 
+    // item map of the main entity
     private Map<String, Item> itemMap;
+    private Map<String, Map<String, Item>> itemMaps = new HashMap<String, Map<String, Item>>();
     private List<ColumnDefinition> columnDefinitionList = new ArrayList<ColumnDefinition>(10);
 
     public void addColumnDefinition(ColumnDefinition definition) {
@@ -54,5 +57,13 @@ public class SpecificationSheet {
 
     public Map<String, Item> getItemMap() {
         return itemMap;
+    }
+
+    public void addItemMap(String name, Map<String, Item> itemMap){
+        itemMaps.put(name, itemMap);
+    }
+
+    public Map<String, Item> getItemMap(String key){
+        return itemMaps.get(key);
     }
 }

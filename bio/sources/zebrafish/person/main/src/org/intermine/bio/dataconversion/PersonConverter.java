@@ -22,6 +22,8 @@ import org.intermine.objectstore.ObjectStoreException;
 import org.intermine.util.FormattedTextParser;
 import org.intermine.xml.full.Item;
 import org.xml.sax.SAXException;
+import org.zfin.intermine.dataconversion.ColumnDefinition;
+import org.zfin.intermine.dataconversion.SpecificationSheet;
 import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
 
 
@@ -83,55 +85,37 @@ public class PersonConverter extends ZfinDirectoryConverter {
         Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
         while (lineIter.hasNext()) {
             String[] line = (String[]) lineIter.next();
+            String pkID = line[0];
             if (line.length < 2) {
-                throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
+                throw new RuntimeException("Line does not have enough elements: " + line.length + pkID);
             }
-            Item person = getItem(line[0], "Person", persons);
+            Item person = getItem(pkID, "Person", persons);
             String sourceID = line[1];
             if (sourceID.startsWith("ZDB-LAB")) {
-                Item lab = getItem(line[0], "Lab", labs);
+                Item lab = getItem(sourceID, "Lab", labs);
                 person.addToCollection("labs", lab);
             }
             if (sourceID.startsWith("ZDB-PUB")) {
-                Item publication = getItem(line[0], "Publication", pubs);
+                Item publication = getItem(sourceID, "Publication", pubs);
                 person.addToCollection("publications", publication);
             }
             if (sourceID.startsWith("ZDB-COMPANY")) {
-                Item publication = getItem(line[0], "Company", pubs);
-                person.addToCollection("companies", publication);
+                Item company = getItem(sourceID, "Company", companies);
+                person.addToCollection("companies", company);
             }
         }
     }
 
     public void processPerson(Reader reader) throws Exception {
-        Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
-        while (lineIter.hasNext()) {
-            String[] line = (String[]) lineIter.next();
-            if (line.length < 3) {
-                throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
-            }
-            String primaryIdentifier = line[0];
-            String firstName = line[1];
-            String lastName = line[2];
-            String fullName = line[3];
-            String email = line[4];
-            Item person;
-            if (!StringUtils.isEmpty(primaryIdentifier)) {
-                person = getItem(primaryIdentifier, "Person", persons);
-                if (!StringUtils.isEmpty(firstName)) {
-                    person.setAttribute("firstName", firstName);
-                }
-                if (!StringUtils.isEmpty(lastName)) {
-                    person.setAttribute("lastName", lastName);
-                }
-                if (!StringUtils.isEmpty(fullName)) {
-                    person.setAttribute("fullName", fullName);
-                }
-                if (!StringUtils.isEmpty(email)) {
-                    person.setAttribute("email", email);
-                }
-            }
-        }
+        SpecificationSheet specSheet = new SpecificationSheet();
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "firstName"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "lastName"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "fullName"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "email"));
+        specSheet.addItemMap(DATASET_TITLE, persons);
+
+        processFile(reader, specSheet);
     }
 
 }

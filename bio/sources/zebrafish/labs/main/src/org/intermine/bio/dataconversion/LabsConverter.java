@@ -22,6 +22,8 @@ import org.intermine.objectstore.ObjectStoreException;
 import org.intermine.util.FormattedTextParser;
 import org.intermine.xml.full.Item;
 import org.xml.sax.SAXException;
+import org.zfin.intermine.dataconversion.ColumnDefinition;
+import org.zfin.intermine.dataconversion.SpecificationSheet;
 import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
 
 
@@ -31,7 +33,7 @@ import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
  */
 public class LabsConverter extends ZfinDirectoryConverter {
     //
-    private static final String DATASET_TITLE = "Labs";
+    private static final String DATASET_TITLE = "Lab";
     protected String organismRefId;
     private Map<String, Item> labs = new HashMap<String, Item>(900);
     private Map<String, Item> prefixes = new HashMap<String, Item>(900);
@@ -60,6 +62,8 @@ public class LabsConverter extends ZfinDirectoryConverter {
         }
 
         try {
+            for (Item person : persons.values())
+                store(person);
             for (Item prefix : prefixes.values())
                 store(prefix);
             for (Item lab : labs.values())
@@ -86,49 +90,24 @@ public class LabsConverter extends ZfinDirectoryConverter {
             Item lab = getItem(labID, "Lab", labs);
             Item prefix = getItem(prefixID, "FeaturePrefix", prefixes);
             lab.setReference("prefix", prefix);
-            prefix.addToCollection("labs", lab);
         }
     }
 
 
     public void processLabs(Reader reader) throws Exception {
-        Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
-        while (lineIter.hasNext()) {
-            String[] line = (String[]) lineIter.next();
-            if (line.length < 3) {
-                throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
-            }
-            String primaryIdentifier = line[0];
-            String name = line[1];
-            String contactPersonID = line[2];
-            Item lab;
-            if (!StringUtils.isEmpty(primaryIdentifier)) {
-                lab = getItem(primaryIdentifier, "Lab", labs);
-                if (!StringUtils.isEmpty(name)) {
-                    lab.setAttribute("name", name);
-                }
-                if (!StringUtils.isEmpty(contactPersonID)) {
-                    lab.setReference("contactPerson", getPerson(contactPersonID));
-                }
-            }
-        }
+        SpecificationSheet specSheet = new SpecificationSheet();
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "name"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "contactPerson", "Person"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "url"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "email"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "fax"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "phone"));
+        specSheet.addItemMap(DATASET_TITLE, labs);
+        specSheet.addItemMap("Person", persons);
+
+        processFile(reader, specSheet);
     }
 
-    private Item getPerson(String primaryIdentifier)
-            throws SAXException {
-        Item item = persons.get(primaryIdentifier);
-        if (item == null) {
-            item = createItem("Person");
-            item.setAttribute("primaryIdentifier", primaryIdentifier);
-            persons.put(primaryIdentifier, item);
-            try {
-                store(item);
-            } catch (ObjectStoreException e) {
-                throw new SAXException(e);
-            }
-        }
-        return item;
-
-    }
 }
 

@@ -22,6 +22,8 @@ import org.intermine.objectstore.ObjectStoreException;
 import org.intermine.util.FormattedTextParser;
 import org.intermine.xml.full.Item;
 import org.xml.sax.SAXException;
+import org.zfin.intermine.dataconversion.ColumnDefinition;
+import org.zfin.intermine.dataconversion.SpecificationSheet;
 import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
 
 
@@ -35,6 +37,7 @@ public class CompanyConverter extends ZfinDirectoryConverter {
     protected String organismRefId;
     private Map<String, Item> companies = new HashMap<String, Item>(900);
     private Map<String, Item> persons = new HashMap<String, Item>(900);
+    private Map<String, Item> prefixes = new HashMap<String, Item>(900);
 
     /**
      * Constructor
@@ -51,12 +54,16 @@ public class CompanyConverter extends ZfinDirectoryConverter {
         try {
             System.out.println("canonical path: " + directory.getCanonicalPath());
             File companyFile = new File(directory.getCanonicalPath() + "/1company.txt");
+            File prefixCompanyFile = new File(directory.getCanonicalPath() + "/company-feature-prefix-source.txt");
             processCompany(new FileReader(companyFile));
+            processPrefixCompany(new FileReader(prefixCompanyFile));
         } catch (IOException err) {
             throw new RuntimeException("error reading companyFile", err);
         }
 
         try {
+            for (Item prefix : prefixes.values())
+                store(prefix);
             for (Item person : persons.values())
                 store(person);
             for (Item company : companies.values()) {
@@ -71,27 +78,28 @@ public class CompanyConverter extends ZfinDirectoryConverter {
         }
     }
 
+    private void processPrefixCompany(FileReader reader) throws Exception {
+        SpecificationSheet specSheet = new SpecificationSheet();
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "prefix", "FeaturePrefix"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE));
+        specSheet.addItemMap(DATASET_TITLE, companies);
+        specSheet.addItemMap("FeaturePrefix", prefixes);
+        processFile(reader, specSheet);
+    }
+
     public void processCompany(Reader reader) throws Exception {
-        Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
-        while (lineIter.hasNext()) {
-            String[] line = (String[]) lineIter.next();
-            if (line.length < 3) {
-                throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
-            }
-            String primaryIdentifier = line[0];
-            String name = line[1];
-            String contactPersonID = line[2];
-            Item company;
-            if (!StringUtils.isEmpty(primaryIdentifier)) {
-                company = getItem(primaryIdentifier, "Company", companies);
-                if (!StringUtils.isEmpty(name)) {
-                    company.setAttribute("name", name);
-                }
-                if (!StringUtils.isEmpty(contactPersonID)) {
-                    company.setReference("contactPerson", getItem(contactPersonID, "Person", persons));
-                }
-            }
-        }
+        SpecificationSheet specSheet = new SpecificationSheet();
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "name"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "contactPerson", "Person"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "url"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "email"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "fax"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "phone"));
+        specSheet.addItemMap(DATASET_TITLE, companies);
+        specSheet.addItemMap("Person", persons);
+
+        processFile(reader, specSheet);
     }
 
 }

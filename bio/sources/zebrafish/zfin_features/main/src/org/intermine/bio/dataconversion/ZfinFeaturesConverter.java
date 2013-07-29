@@ -33,6 +33,7 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
     protected String organismRefId;
     private Map<String, Item> features = new HashMap();
     private Map<String, Item> prefixes = new HashMap();
+    private Map<String, Item> labs = new HashMap();
 
 
     private Model model;
@@ -60,8 +61,12 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
         featurePrefixConverter.process(directory);
         prefixes = featurePrefixConverter.getFeaturePrefix();
         processFeatures(new FileReader(featureFile));
+        File sourceFeatureFile = new File(directory.getCanonicalPath() + "/feature-prefix-source.txt");
+        processSourceFeatures(new FileReader(sourceFeatureFile));
 
         try {
+            for (Item lab : labs.values())
+                store(lab);
             for (Item featurePrefix : prefixes.values())
                 store(featurePrefix);
             for (Item feature : features.values())
@@ -71,6 +76,21 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
         }
     }
 
+    private void processSourceFeatures(FileReader reader) throws IOException, SAXException {
+        Iterator lineIter = getLineIterator(reader);
+
+        while (lineIter.hasNext()) {
+            String[] line = (String[]) lineIter.next();
+            if (line.length < 2) {
+                throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
+            }
+            String prefixID = line[0];
+            String labID = line[1];
+            Item lab = getItem(labID, "Lab", labs);
+            Item prefix = getItem(prefixID, "FeaturePrefix", prefixes);
+            prefix.addToCollection("labs", lab);
+        }
+    }
 
     public void processFeatures(Reader reader) throws Exception {
 
