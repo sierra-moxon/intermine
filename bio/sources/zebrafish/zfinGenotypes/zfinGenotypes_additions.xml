@@ -45,9 +45,6 @@
         <collection name="genotypes" referenced-type="Genotype" reverse-reference="features"></collection>
     </class>
 -->
-    <class name="AbstractFeature" is-interface="true" extends="SequenceAlteration">
-        <reference name="featurePrefix" referenced-type="FeaturePrefix"/>
-    </class>
     <class name="OmimPhenotype" is-interface="true">
         <collection name="genes" referenced-type="Gene" reverse-reference="omimPhenotypes"/>
         <reference name="phenotypeLink" referenced-type="CrossReference"/>
@@ -87,6 +84,7 @@
         <collection name="genotypes" referenced-type="Genotype" reverse-reference="features"/>
         <attribute name="type" type="java.lang.String"/>
         <reference name="organism" referenced-type="Organism"/>
+        <reference name="featurePrefix" referenced-type="FeaturePrefix"/>
         <collection name="relatedMarkers" referenced-type="FeatureMarkerRelationship" reverse-reference="feature"/>
         <!--<collection name="publications" referenced-type="Publication"/>
         <collection name="externalLinks" referenced-type="ExternalLink"/>-->
@@ -104,24 +102,24 @@
         <collection name="labOfOrigin" referenced-type="Lab" reverse-reference="lines"/>
         <collection name="sequences" referenced-type="Sequence"/>
     </class>
-    <class name="Insertion" is-interface="true" extends="AbstractFeature">
+    <class name="Insertion" is-interface="true" extends="SequenceAlteration">
     </class>
-    <class name="ComplexSubstitution" is-interface="true" extends="AbstractFeature">
+    <class name="ComplexSubstitution" is-interface="true" extends="SequenceAlteration">
     </class>
-    <class name="Inversion" is-interface="true" extends="AbstractFeature">
+    <class name="Inversion" is-interface="true" extends="SequenceAlteration">
     </class>
-    <class name="TransgenicInsertion" is-interface="true" extends="AbstractFeature">
+    <class name="TransgenicInsertion" is-interface="true" extends="SequenceAlteration">
         <collection name="phenotypicConstructs" referenced-type="Construct" reverse-reference="phenotypicAlleles"/>
         <collection name="innocuousConstructs" referenced-type="Construct" reverse-reference="innocuousAlleles"/>
         <collection name="insertionConstructs" referenced-type="Construct" reverse-reference="insertionAlleles"/>
     </class>
-    <class name="ChromosomalDeletion" is-interface="true" extends="AbstractFeature">
+    <class name="ChromosomalDeletion" is-interface="true" extends="SequenceAlteration">
     </class>
-    <class name="Translocation" is-interface="true" extends="AbstractFeature">
+    <class name="Translocation" is-interface="true" extends="SequenceAlteration">
     </class>
-    <class name="Deletion" is-interface="true" extends="AbstractFeature">
+    <class name="Deletion" is-interface="true" extends="SequenceAlteration">
     </class>
-    <class name="PointMutation" is-interface="true" extends="AbstractFeature">
+    <class name="PointMutation" is-interface="true" extends="SequenceAlteration">
     </class>
     <class name="Construct" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
@@ -432,6 +430,10 @@
         <attribute name="name" type="java.lang.String"/>
         <attribute name="information" type="java.lang.String"/>
         <reference name="contactPerson" referenced-type="Person"/>
+        <attribute name="url" type="java.lang.String"/>
+        <attribute name="email" type="java.lang.String"/>
+        <attribute name="fax" type="java.lang.String"/>
+        <attribute name="phone" type="java.lang.String"/>
         <reference name="prefix" referenced-type="FeaturePrefix"/>
         <collection name="people" referenced-type="Person" reverse-reference="labs"/>
         <collection name="lines" referenced-type="SequenceFeature" reverse-reference="labOfOrigin"/>
@@ -440,6 +442,11 @@
         <attribute name="primaryIdentifier" type="java.lang.String"/>
         <attribute name="name" type="java.lang.String"/>
         <attribute name="information" type="java.lang.String"/>
+        <attribute name="url" type="java.lang.String"/>
+        <attribute name="email" type="java.lang.String"/>
+        <attribute name="fax" type="java.lang.String"/>
+        <attribute name="phone" type="java.lang.String"/>
+        <reference name="prefix" referenced-type="FeaturePrefix"/>
         <reference name="contactPerson" referenced-type="Person"/>
         <collection name="people" referenced-type="Person" reverse-reference="companies"/>
     </class>

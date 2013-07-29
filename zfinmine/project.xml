@@ -52,17 +52,17 @@
         <source name="zfin_markers" type="zfin_markers" dump="true">
             <property name="src.data.dir" location="../data-sources/zfin_markers/"/>
         </source>
-	<source name="markerSequence" type="markerSequence">
-	  <property name="src.data.dir" location="../data-sources/markerSequences/"/>
-	</source>
-	<source name="trimZfinClone" type="gff" dump="true">
-	  <property name="gff3.taxonId" value="7955"/>
-	  <property name="gff3.dataSourceName" value="ZFIN"/>
-	  <property name="gff3.seqClsName" value="Clone"/>
-	  <property name="gff3.dataSetTitle" value="ZFIN trim clone"/>
-	  <property name="src.data.dir" location="../data-sources/trimGff3/"/>
-	</source>
-       <source name="zebrafishChromosome" type="zebrafishChromosome">
+        <source name="markerSequence" type="markerSequence">
+            <property name="src.data.dir" location="../data-sources/markerSequences/"/>
+        </source>
+        <source name="trimZfinClone" type="gff" dump="true">
+            <property name="gff3.taxonId" value="7955"/>
+            <property name="gff3.dataSourceName" value="ZFIN"/>
+            <property name="gff3.seqClsName" value="Clone"/>
+            <property name="gff3.dataSetTitle" value="ZFIN trim clone"/>
+            <property name="src.data.dir" location="../data-sources/trimGff3/"/>
+        </source>
+        <source name="zebrafishChromosome" type="zebrafishChromosome">
             <property name="src.data.dir" location="../data-sources/chromosome/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
@@ -132,7 +132,7 @@
             <property name="src.data.dir" location="../data-sources/mutantAttributions"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-       <source name="featureCrossReferences" type="featureCrossReferences">
+        <source name="featureCrossReferences" type="featureCrossReferences">
             <property name="src.data.dir" location="../data-sources/featureCrossReferences"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
@@ -151,17 +151,17 @@
         <source name="labs" type="labs">
             <property name="src.data.dir" location="../data-sources/lab/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
-	</source>
+        </source>
         <source name="company" type="company">
-          <property name="src.data.dir" location="../data-sources/company/"/>
-          <property name="src.data.dir.includes" value="*.txt"/>
+            <property name="src.data.dir" location="../data-sources/company/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
         </source>
         <source name="person" type="person">
-          <property name="src.data.dir" location="../data-sources/people/"/>
-          <property name="src.data.dir.includes" value="*.txt"/>
+            <property name="src.data.dir" location="../data-sources/people/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
         </source>
         <source name="entrez-organism" type="entrez-organism">
-          <property name="src.data.file" location="build/organisms.xml"/>
+            <property name="src.data.file" location="build/organisms.xml"/>
         </source>
     </sources>
     <post-processing>
