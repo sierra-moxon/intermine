@@ -226,6 +226,13 @@
       <fieldconfig  fieldExpr="contactPerson.fullName"></fieldconfig>
    </fields>
 </class>
+<class className="org.intermine.model.bio.Company">
+   <fields>
+      <fieldconfig  fieldExpr="name"></fieldconfig>
+       <fieldconfig fieldExpr="primaryIdentifier"></fieldconfig>
+      <fieldconfig  fieldExpr="contactPerson.fullName"></fieldconfig>
+   </fields>
+</class>
 <class className="org.intermine.model.bio.FeaturePrefix">
    <fields>
       <fieldconfig  fieldExpr="name"></fieldconfig>
