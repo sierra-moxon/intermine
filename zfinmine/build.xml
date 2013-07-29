@@ -26,7 +26,10 @@
         <ant antfile="webapp/build.xml" target="default" inheritAll="false"/>
     </target>
 
-    <target name="deploy" depends="postprocess,start-message,build">
+    <target name="deploy" depends="postprocess,webapp">
+    </target>
+
+    <target name="webapp" depends="start-message,build">
         <antcall target="add-zfin-properties"/>
         <antcall target="add-log4j.properties"/>
         <delete includeemptydirs="true" quiet="true">
