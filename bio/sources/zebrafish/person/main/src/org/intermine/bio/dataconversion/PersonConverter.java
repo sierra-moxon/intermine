@@ -28,13 +28,16 @@ import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
 /**
  * @author Sierra
  * @author Christian
+ * @author Prita
  */
 public class PersonConverter extends ZfinDirectoryConverter {
     //
     private static final String DATASET_TITLE = "Person";
     protected String organismRefId;
-//    private Map<String, Item> labs = new HashMap<String, Item>(900);
     private Map<String, Item> persons = new HashMap<String, Item>(900);
+    private Map<String, Item> labs = new HashMap<String, Item>(900);
+    private Map<String, Item> companies = new HashMap<String, Item>(100);
+    private Map<String, Item> pubs = new HashMap<String, Item>(900);
 
     /**
      * Constructor
@@ -52,20 +55,51 @@ public class PersonConverter extends ZfinDirectoryConverter {
             System.out.println("canonical path: " + directory.getCanonicalPath());
             File personFile = new File(directory.getCanonicalPath() + "/1person.txt");
             processPerson(new FileReader(personFile));
+            File personAssociationFile = new File(directory.getCanonicalPath() + "/person_associations.txt");
+            processPersonAssociation(new FileReader(personAssociationFile));
         } catch (IOException err) {
             throw new RuntimeException("error reading personFile", err);
         }
 
         try {
-            for (Item person : persons.values()) {
+            for (Item lab : labs.values())
+                store(lab);
+            for (Item publication : pubs.values())
+                store(publication);
+            for (Item company : companies.values())
+                store(company);
+            for (Item person : persons.values())
                 store(person);
-            }
         } catch (ObjectStoreException e) {
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             pw.flush();
             throw new Exception(sw.toString());
+        }
+    }
+
+    private void processPersonAssociation(FileReader reader) throws Exception {
+        Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
+        while (lineIter.hasNext()) {
+            String[] line = (String[]) lineIter.next();
+            if (line.length < 2) {
+                throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
+            }
+            Item person = getItem(line[0], "Person", persons);
+            String sourceID = line[1];
+            if (sourceID.startsWith("ZDB-LAB")) {
+                Item lab = getItem(line[0], "Lab", labs);
+                person.addToCollection("labs", lab);
+            }
+            if (sourceID.startsWith("ZDB-PUB")) {
+                Item publication = getItem(line[0], "Publication", pubs);
+                person.addToCollection("publications", publication);
+            }
+            if (sourceID.startsWith("ZDB-COMPANY")) {
+                Item publication = getItem(line[0], "Company", pubs);
+                person.addToCollection("companies", publication);
+            }
         }
     }
 
@@ -81,10 +115,9 @@ public class PersonConverter extends ZfinDirectoryConverter {
             String lastName = line[2];
             String fullName = line[3];
             String email = line[4];
-//            String lab = line[5];
             Item person;
             if (!StringUtils.isEmpty(primaryIdentifier)) {
-                person = getPerson(primaryIdentifier);
+                person = getItem(primaryIdentifier, "Person", persons);
                 if (!StringUtils.isEmpty(firstName)) {
                     person.setAttribute("firstName", firstName);
                 }
@@ -97,40 +130,9 @@ public class PersonConverter extends ZfinDirectoryConverter {
                 if (!StringUtils.isEmpty(email)) {
                     person.setAttribute("email", email);
                 }
-               /* if (!StringUtils.isEmpty(lab)) {
-                    person.setAttribute("lab", lab);
-                }*/
-}
-        }
-    }
-    
-private Item getPerson(String primaryIdentifier)
-            throws SAXException {
-        Item item = persons.get(primaryIdentifier);
-        if (item == null) {
-            item = createItem("Person");
-            item.setAttribute("primaryIdentifier", primaryIdentifier);
-            persons.put(primaryIdentifier, item);
-        }
-        return item;
-
-    }
-
-    /*private Item getLab(String primaryIdentifier)
-            throws SAXException {
-        Item item = labs.get(primaryIdentifier);
-        if (item == null) {
-            item = createItem("Lab");
-            item.setAttribute("primaryIdentifier", primaryIdentifier);
-            labs.put(primaryIdentifier, item);
-            try {
-                store(item);
-            } catch (ObjectStoreException e) {
-                throw new SAXException(e);
             }
         }
-        return item;
+    }
 
-    }*/
 }
 
