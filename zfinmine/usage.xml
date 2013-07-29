@@ -8,6 +8,7 @@
             load: load sources: equiv: ant -Dsource=
             postprocess: run the postprocessing step, e.g. create Lucene indexes, etc...
             deploy: build webapp and deploy new war file (including postprocess)
+            webapp: build webapp and deploy new war file (excluding postprocess)
 
         </echo>
     </target>
