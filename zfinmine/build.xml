@@ -1,4 +1,4 @@
-<project name="deploy-webapp" default="deploy" basedir=".">
+<project name="deploy-webapp" default="help" basedir=".">
 
     <description>deploy the web application</description>
 
@@ -26,7 +26,7 @@
         <ant antfile="webapp/build.xml" target="default" inheritAll="false"/>
     </target>
 
-    <target name="deploy" depends="start-message,build">
+    <target name="deploy" depends="postprocess,start-message,build">
         <antcall target="add-zfin-properties"/>
         <antcall target="add-log4j.properties"/>
         <delete includeemptydirs="true" quiet="true">
@@ -63,9 +63,12 @@
         <echo message="Start deploying release: ${environment}"/>
     </target>
 
-    <target name="clean-db">
-        <ant antfile="dbmodel/build.xml" target="clean" inheritAll="false"/>
+    <target name="clean-db" depends="-clean">
         <ant antfile="dbmodel/build.xml" target="build-db" inheritAll="false"/>
+    </target>
+
+    <target name="-clean">
+        <ant antfile="dbmodel/build.xml" target="clean" inheritAll="false"/>
     </target>
 
     <target name="load">

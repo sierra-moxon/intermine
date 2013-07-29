@@ -7,7 +7,7 @@
             clean-db: cleans out the database equiv: clean build-db
             load: load sources: equiv: ant -Dsource=
             postprocess: run the postprocessing step, e.g. create Lucene indexes, etc...
-            default: build webapp and deploy new war file
+            deploy: build webapp and deploy new war file (including postprocess)
 
         </echo>
     </target>

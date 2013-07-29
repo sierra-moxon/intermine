@@ -57,6 +57,8 @@ public class CompanyConverter extends ZfinDirectoryConverter {
         }
 
         try {
+            for (Item person : persons.values())
+                store(person);
             for (Item company : companies.values()) {
                 store(company);
             }
@@ -78,48 +80,19 @@ public class CompanyConverter extends ZfinDirectoryConverter {
             }
             String primaryIdentifier = line[0];
             String name = line[1];
-            String contactPerson = line[2];
+            String contactPersonID = line[2];
             Item company;
             if (!StringUtils.isEmpty(primaryIdentifier)) {
-                company = getCompany(primaryIdentifier);
+                company = getItem(primaryIdentifier, "Company", companies);
                 if (!StringUtils.isEmpty(name)) {
                     company.setAttribute("name", name);
                 }
-                if (!StringUtils.isEmpty(contactPerson)) {
-                    company.setAttribute("contactPerson", contactPerson);
-                    //lab.setReference("contactPerson", getPerson(contactPerson));
+                if (!StringUtils.isEmpty(contactPersonID)) {
+                    company.setReference("contactPerson", getItem(contactPersonID, "Person", persons));
                 }
             }
         }
     }
 
-    private Item getCompany(String primaryIdentifier)
-            throws SAXException {
-        Item item = companies.get(primaryIdentifier);
-        if (item == null) {
-            item = createItem("Company");
-            item.setAttribute("primaryIdentifier", primaryIdentifier);
-            companies.put(primaryIdentifier, item);
-        }
-        return item;
-
-    }
-
-    private Item getPerson(String primaryIdentifier)
-            throws SAXException {
-        Item item = persons.get(primaryIdentifier);
-        if (item == null) {
-            item = createItem("Person");
-            item.setAttribute("primaryIdentifier", primaryIdentifier);
-            persons.put(primaryIdentifier, item);
-            try {
-                store(item);
-            } catch (ObjectStoreException e) {
-                throw new SAXException(e);
-            }
-        }
-        return item;
-
-    }
 }
 
