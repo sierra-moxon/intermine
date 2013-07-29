@@ -26,8 +26,7 @@
         <ant antfile="webapp/build.xml" target="default" inheritAll="false"/>
     </target>
 
-    <target name="deploy" depends="postprocess,webapp">
-    </target>
+    <target name="deploy" depends="postprocess,webapp"/>
 
     <target name="webapp" depends="start-message,build">
         <antcall target="add-zfin-properties"/>
@@ -98,6 +97,13 @@
 
     <target name="?">
         <ant antfile="usage.xml" target="usage" inheritAll="false"/>
+    </target>
+
+    <target name="build-project">
+        <exec command="../bio/scripts/project_build">
+            <arg value="cmpich" />
+            <arg value="localhost" />
+        </exec>
     </target>
 
 
