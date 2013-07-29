@@ -43,8 +43,6 @@ public class FeaturePrefixConverter  {
         File featurePrefixes = new File(directory.getCanonicalPath() + "/feature-prefix.txt");
         System.out.println("canonical path: " + directory.getCanonicalPath());
         processFeatures(new FileReader(featurePrefixes));
-
-
     }
 
     public void processFeatures(Reader reader) throws Exception {
@@ -53,7 +51,7 @@ public class FeaturePrefixConverter  {
         specSheet.addColumnDefinition(new ColumnDefinition(ITEM_NAME, ColumnDefinition.PRIMARY_IDENTIFIER));
         specSheet.addColumnDefinition(new ColumnDefinition(ITEM_NAME, "name"));
         specSheet.addColumnDefinition(new ColumnDefinition(ITEM_NAME, "instituteName"));
-        specSheet.setItemMap(featurePrefix);
+        specSheet.addItemMap(ITEM_NAME, featurePrefix);
         converter.processFile(reader, specSheet);
     }
 

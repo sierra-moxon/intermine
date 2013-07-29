@@ -219,6 +219,19 @@
       <fieldconfig  fieldExpr="publication.primaryIdentifier"></fieldconfig>
    </fields>
 </class>
+<class className="org.intermine.model.bio.Lab">
+   <fields>
+      <fieldconfig  fieldExpr="name"></fieldconfig>
+       <fieldconfig fieldExpr="primaryIdentifier"></fieldconfig>
+      <fieldconfig  fieldExpr="contactPerson.fullName"></fieldconfig>
+   </fields>
+</class>
+<class className="org.intermine.model.bio.Person">
+   <fields>
+      <fieldconfig  fieldExpr="fullName"></fieldconfig>
+      <fieldconfig  fieldExpr="email"></fieldconfig>
+   </fields>
+</class>
 <class className="org.intermine.model.bio.Phenotype">
    <fields>
       <fieldconfig  fieldExpr="startStage.name"></fieldconfig>

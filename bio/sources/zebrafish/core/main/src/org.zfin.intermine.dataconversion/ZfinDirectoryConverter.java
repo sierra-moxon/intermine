@@ -4,10 +4,13 @@ import org.apache.commons.lang.StringUtils;
 import org.intermine.bio.dataconversion.BioDirectoryConverter;
 import org.intermine.dataconversion.ItemWriter;
 import org.intermine.metadata.Model;
+import org.intermine.sql.DatabaseUtil;
 import org.intermine.util.FormattedTextParser;
 import org.intermine.xml.full.Item;
 import org.xml.sax.SAXException;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.Map;
@@ -52,6 +55,11 @@ public abstract class ZfinDirectoryConverter extends BioDirectoryConverter {
         return item;
     }
 
+    protected Iterator<String[]> getLineIterator(FileReader reader) throws IOException {
+        return FormattedTextParser.parseDelimitedReader(reader, '|');
+    }
+
+
     public void processFile(Reader reader, SpecificationSheet specSheet) throws Exception {
 
         Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
@@ -71,7 +79,7 @@ public abstract class ZfinDirectoryConverter extends BioDirectoryConverter {
             ColumnDefinition columnDefinition = specSheet.getColumnDefinition(primaryIdentifierColumn);
             Item item = getItem(pkID,
                     columnDefinition.getItemName(),
-                    specSheet.getItemMap());
+                    specSheet.getItemMap(columnDefinition.getItemName()));
 
             int columnIndex = 0;
             for (String colEntry : line) {
@@ -80,7 +88,13 @@ public abstract class ZfinDirectoryConverter extends BioDirectoryConverter {
                     continue;
                 }
                 if (StringUtils.isNotEmpty(colEntry)) {
-                    item.setAttribute(specSheet.getColumnDefinition(columnIndex).getName(), line[columnIndex]);
+                    ColumnDefinition colDefinition = specSheet.getColumnDefinition(columnIndex);
+                    if (colDefinition.isAttribute())
+                        item.setAttribute(colDefinition.getName(), line[columnIndex]);
+                    if (colDefinition.isReference()) {
+                        Item reference = getItem(colEntry, colDefinition.getReferenceName(), specSheet.getItemMap(colDefinition.getReferenceName()));
+                        item.setReference(colDefinition.getName(), reference);
+                    }
                 }
                 columnIndex++;
             }

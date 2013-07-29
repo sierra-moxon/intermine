@@ -1,15 +1,7 @@
 package org.zfin.intermine.dataconversion;
 
-import org.intermine.xml.full.Item;
-
-import java.util.Map;
-
 /**
- * Created with IntelliJ IDEA.
- * User: cmpich
- * Date: 7/25/13
- * Time: 12:44 PM
- * To change this template use File | Settings | File Templates.
+ * Column definition of a specification sheet
  */
 public class ColumnDefinition {
 
@@ -18,7 +10,6 @@ public class ColumnDefinition {
     private String itemName;
     private String name;
     private String referenceName;
-    private Map<String, Item> itemMap;
 
 
     public ColumnDefinition(String itemName, String name) {
@@ -26,8 +17,12 @@ public class ColumnDefinition {
         this.itemName = itemName;
     }
 
-    public ColumnDefinition(String itemName, String name, String referenceName, Map<String, Item> itemMap) {
-        this.itemMap = itemMap;
+    public ColumnDefinition(String itemName) {
+        this.name = PRIMARY_IDENTIFIER;
+        this.itemName = itemName;
+    }
+
+    public ColumnDefinition(String itemName, String name, String referenceName) {
         this.name = name;
         this.itemName = itemName;
         this.referenceName = referenceName;
@@ -41,15 +36,19 @@ public class ColumnDefinition {
         return referenceName;
     }
 
-    public Map<String, Item> getItemMap() {
-        return itemMap;
-    }
-
     public String getItemName() {
         return itemName;
     }
 
-    public boolean isPrimaryColumnDefinition(){
+    public boolean isPrimaryColumnDefinition() {
         return name.equals(PRIMARY_IDENTIFIER);
+    }
+
+    public boolean isAttribute() {
+        return referenceName == null;
+    }
+
+    public boolean isReference() {
+        return referenceName != null;
     }
 }
