@@ -104,24 +104,24 @@
         <collection name="labOfOrigin" referenced-type="Lab" reverse-reference="lines"/>
         <collection name="sequences" referenced-type="Sequence"/>
     </class>
-    <class name="Insertion" is-interface="true" extends="AbstractFeature">
+    <class name="Insertion" is-interface="true" extends="SequenceAlteration">
     </class>
-    <class name="ComplexSubstitution" is-interface="true" extends="AbstractFeature">
+    <class name="ComplexSubstitution" is-interface="true" extends="SequenceAlteration">
     </class>
-    <class name="Inversion" is-interface="true" extends="AbstractFeature">
+    <class name="Inversion" is-interface="true" extends="SequenceAlteration">
     </class>
-    <class name="TransgenicInsertion" is-interface="true" extends="AbstractFeature">
+    <class name="TransgenicInsertion" is-interface="true" extends="SequenceAlteration">
         <collection name="phenotypicConstructs" referenced-type="Construct" reverse-reference="phenotypicAlleles"/>
         <collection name="innocuousConstructs" referenced-type="Construct" reverse-reference="innocuousAlleles"/>
         <collection name="insertionConstructs" referenced-type="Construct" reverse-reference="insertionAlleles"/>
     </class>
-    <class name="ChromosomalDeletion" is-interface="true" extends="AbstractFeature">
+    <class name="ChromosomalDeletion" is-interface="true" extends="SequenceAlteration">
     </class>
-    <class name="Translocation" is-interface="true" extends="AbstractFeature">
+    <class name="Translocation" is-interface="true" extends="SequenceAlteration">
     </class>
-    <class name="Deletion" is-interface="true" extends="AbstractFeature">
+    <class name="Deletion" is-interface="true" extends="SequenceAlteration">
     </class>
-    <class name="PointMutation" is-interface="true" extends="AbstractFeature">
+    <class name="PointMutation" is-interface="true" extends="SequenceAlteration">
     </class>
     <class name="Construct" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
