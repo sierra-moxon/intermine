@@ -274,6 +274,13 @@
       <fieldconfig  fieldExpr="status"></fieldconfig>
    </fields>
 </class>
+<class className="org.intermine.model.bio.GOEvidence">
+   <fields>
+      <fieldconfig  fieldExpr="withText"></fieldconfig>
+      <fieldconfig  fieldExpr="code.code"></fieldconfig>
+      <fieldconfig  fieldExpr="status"></fieldconfig>
+   </fields>
+</class>
 <class className="org.intermine.model.bio.GenotypeEnvironment">
 </class>
 <tableExportConfig id="sequenceExporter" actionPath="/exportAction?type=sequenceExporter"

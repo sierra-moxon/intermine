@@ -95,6 +95,10 @@ public abstract class ZfinDirectoryConverter extends BioDirectoryConverter {
                         Item reference = getItem(colEntry, colDefinition.getReferenceName(), specSheet.getItemMap(colDefinition.getReferenceName()));
                         item.setReference(colDefinition.getName(), reference);
                     }
+                    if (colDefinition.isCollection()) {
+                        Item reference = getItem(colEntry, colDefinition.getReferenceName(), specSheet.getItemMap(colDefinition.getReferenceName()));
+                        item.addToCollection(colDefinition.getName(), reference);
+                    }
                 }
                 columnIndex++;
             }
