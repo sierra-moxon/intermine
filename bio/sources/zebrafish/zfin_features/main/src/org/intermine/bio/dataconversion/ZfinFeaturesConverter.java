@@ -18,6 +18,8 @@ import org.intermine.objectstore.ObjectStoreException;
 import org.intermine.util.FormattedTextParser;
 import org.intermine.xml.full.Item;
 import org.xml.sax.SAXException;
+import org.zfin.intermine.dataconversion.ColumnDefinition;
+import org.zfin.intermine.dataconversion.SpecificationSheet;
 import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
 
 import java.io.*;
@@ -76,20 +78,14 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
         }
     }
 
-    private void processSourceFeatures(FileReader reader) throws IOException, SAXException {
-        Iterator lineIter = getLineIterator(reader);
+    private void processSourceFeatures(FileReader reader) throws Exception {
 
-        while (lineIter.hasNext()) {
-            String[] line = (String[]) lineIter.next();
-            if (line.length < 2) {
-                throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
-            }
-            String prefixID = line[0];
-            String labID = line[1];
-            Item lab = getItem(labID, "Lab", labs);
-            Item prefix = getItem(prefixID, "FeaturePrefix", prefixes);
-            prefix.addToCollection("labs", lab);
-        }
+        SpecificationSheet specSheet = new SpecificationSheet();
+        specSheet.addColumnDefinition(new ColumnDefinition("FeaturePrefix"));
+        specSheet.addColumnDefinition(new ColumnDefinition("FeaturePrefix", "labs", true, "Lab"));
+        specSheet.addItemMap("Lab", labs);
+        specSheet.addItemMap("FeaturePrefix", prefixes);
+        processFile(reader, specSheet);
     }
 
     public void processFeatures(Reader reader) throws Exception {
