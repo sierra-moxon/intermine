@@ -31,12 +31,12 @@ import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
  * @author Sierra
  * @author Christian
  */
-public class LabsConverter extends ZfinDirectoryConverter {
+public class LabConverter extends ZfinDirectoryConverter {
     //
     private static final String DATASET_TITLE = "Lab";
     protected String organismRefId;
-    private Map<String, Item> labs = new HashMap<String, Item>(900);
-    private Map<String, Item> prefixes = new HashMap<String, Item>(900);
+    private Map<String, Item> labs = new HashMap<String, Item>(1000);
+    private Map<String, Item> prefixes = new HashMap<String, Item>(400);
     private Map<String, Item> persons = new HashMap<String, Item>(900);
 
     /**
@@ -46,7 +46,7 @@ public class LabsConverter extends ZfinDirectoryConverter {
      * @param model  the Model
      */
 
-    public LabsConverter(ItemWriter writer, Model model) {
+    public LabConverter(ItemWriter writer, Model model) {
         super(writer, model, DATA_SOURCE_NAME, DATASET_TITLE);
     }
 
@@ -78,19 +78,12 @@ public class LabsConverter extends ZfinDirectoryConverter {
     }
 
     public void processSourceFeatures(Reader reader) throws Exception {
-        Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
-
-        while (lineIter.hasNext()) {
-            String[] line = (String[]) lineIter.next();
-            if (line.length < 2) {
-                throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
-            }
-            String prefixID = line[0];
-            String labID = line[1];
-            Item lab = getItem(labID, "Lab", labs);
-            Item prefix = getItem(prefixID, "FeaturePrefix", prefixes);
-            lab.setReference("prefix", prefix);
-        }
+        SpecificationSheet specSheet = new SpecificationSheet();
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "prefix", "FeaturePrefix"));
+        specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE));
+        specSheet.addItemMap(DATASET_TITLE, labs);
+        specSheet.addItemMap("FeaturePrefix", prefixes);
+        processFile(reader, specSheet);
     }
 
 
