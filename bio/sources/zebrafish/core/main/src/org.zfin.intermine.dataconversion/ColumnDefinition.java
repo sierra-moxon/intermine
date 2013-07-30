@@ -10,7 +10,7 @@ public class ColumnDefinition {
     private String itemName;
     private String name;
     private String referenceName;
-
+    private boolean collection;
 
     public ColumnDefinition(String itemName, String name) {
         this.name = name;
@@ -25,6 +25,13 @@ public class ColumnDefinition {
     public ColumnDefinition(String itemName, String name, String referenceName) {
         this.name = name;
         this.itemName = itemName;
+        this.referenceName = referenceName;
+    }
+
+    public ColumnDefinition(String itemName, String name, boolean isCollection, String referenceName) {
+        this.name = name;
+        this.itemName = itemName;
+        this.collection = isCollection;
         this.referenceName = referenceName;
     }
 
@@ -49,6 +56,10 @@ public class ColumnDefinition {
     }
 
     public boolean isReference() {
-        return referenceName != null;
+        return referenceName != null && !collection;
+    }
+
+    public boolean isCollection() {
+        return collection;
     }
 }
