@@ -1,0 +1,5 @@
+<project name="ontologySubset" default="default" basedir=".">
+  <description>build, test, package ontologySubset</description>
+  
+  <import file="../../../../imbuild/source.xml"/>
+</project>

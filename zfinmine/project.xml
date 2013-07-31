@@ -37,6 +37,10 @@
         <source name="uberon" type="uberon" dump="true">
             <property name="src.data.file" location="../data-sources/uberon/uberon.obo"/>
         </source>
+	<source name="ontologySubset" type="ontologySubset">
+            <property name="src.data.dir" location="../data-sources/ontologySubset/"/>
+	    <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
         <source name="zfinJournals" type="zfinJournals">
             <property name="src.data.dir" location="../data-sources/zfin_journals/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
