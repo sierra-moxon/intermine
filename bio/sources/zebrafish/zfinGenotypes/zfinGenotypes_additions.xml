@@ -491,6 +491,12 @@
         <collection name="meshTerms" referenced-type="MeshTerm" reverse-reference="publications"/>
         <collection name="people" referenced-type="Person" reverse-reference="publications"/>
     </class>
+    <class name="OntologySubset" is-interface="true">
+      <attribute name="primaryIdentifier" type="java.lang.String"/>
+      <attribute name="name" type="java.lang.String"/>
+      <attribute name="definition" type="java.lang.String"/>
+      <collection name="terms" referenced-type="OntologyTerm" reverse-reference="subsets"/>
+    </class>
     <class name="Journal" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
         <collection name="publications" referenced-type="Publication" reverse-reference="journal"/>
@@ -549,6 +555,7 @@
         <collection name="phenotypesStartStg" referenced-type="Phenotype" reverse-reference="startStage"/>
         <collection name="phenotypesEndStg" referenced-type="Phenotype" reverse-reference="endStage"/>
         <collection name="expressionResultSubterms" referenced-type="Expression"/>
+	<collection name="subsets" referenced-type="OntologySubset" reverse-reference="terms"/>
     </class>
     <class name="FeaturePrefix" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
