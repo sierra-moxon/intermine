@@ -405,8 +405,7 @@
     <class name="Image" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
         <reference name="figure" referenced-type="Figure" reverse-reference="images"/>
-        <attribute name="imageUrl" type="java.lang.String"/>
-        <attribute name="imageFileName" type="java.lang.String"/>
+        <attribute name="label" type="java.lang.String"/>
     </class>
     <class name="Antibody" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
