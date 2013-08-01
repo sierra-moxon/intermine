@@ -107,6 +107,10 @@
             <property name="src.data.dir" location="../data-sources/zfin_figures/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
+	<source name="images" type="images">
+            <property name="src.data.dir" location="../data-sources/images/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
         <source name="go-annotation" type="go-annotation" dump="true">
             <property name="ontologyfile" location="../data-sources/go-annotation/gene_ontology.obo"/>
             <property name="src.data.dir" location="../data-sources/go-annotation/"/>
