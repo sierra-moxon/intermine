@@ -109,9 +109,9 @@
     <class name="Inversion" is-interface="true" extends="SequenceAlteration">
     </class>
     <class name="TransgenicInsertion" is-interface="true" extends="SequenceAlteration">
-        <collection name="phenotypicConstructs" referenced-type="Construct" reverse-reference="phenotypicAlleles"/>
-        <collection name="innocuousConstructs" referenced-type="Construct" reverse-reference="innocuousAlleles"/>
-        <collection name="insertionConstructs" referenced-type="Construct" reverse-reference="insertionAlleles"/>
+        <collection name="contributesToPhenotype" referenced-type="Construct" reverse-reference="phenotypicallyInserted"/>
+        <collection name="doesNotContributeToPhenotype" referenced-type="Construct" reverse-reference="innocuousllyInserted"/>
+        <collection name="constructs" referenced-type="Construct" reverse-reference="insertedIn"/>
     </class>
     <class name="ChromosomalDeletion" is-interface="true" extends="SequenceAlteration">
     </class>
@@ -136,12 +136,9 @@
         <collection name="promoters" referenced-type="Gene" reverse-reference="promotes"/>
         <collection name="crossReferences" referenced-type="CrossReference"/>
         <!--<collection name="externalLinks" referenced-type="ExternalLink"/>-->
-        <collection name="phenotypicAlleles" referenced-type="TransgenicInsertion"
-                    reverse-reference="phenotypicConstructs"/>
-        <collection name="innocuousAlleles" referenced-type="TransgenicInsertion"
-                    reverse-reference="innocuousConstructs"/>
-        <collection name="insertionAlleles" referenced-type="TransgenicInsertion"
-                    reverse-reference="insertionConstructs"/>
+        <collection name="phenotypicallyInserted" referenced-type="TransgenicInsertion" reverse-reference="contributesToPhenotype"/>
+        <collection name="innocuousllyInserted" referenced-type="TransgenicInsertion" reverse-reference="doesNotContributeToPhenotype"/>
+        <collection name="insertedIn" referenced-type="TransgenicInsertion" reverse-reference="constructs"/>
     </class>
     <class name="Gene" extends="BioEntity" is-interface="true">
         <attribute name="symbol" type="java.lang.String"/>
