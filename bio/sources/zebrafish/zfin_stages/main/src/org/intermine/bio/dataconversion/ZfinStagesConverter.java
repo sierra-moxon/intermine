@@ -28,10 +28,9 @@ public class ZfinStagesConverter extends ZfinDirectoryConverter {
     }
 
     public void process(File directory) throws Exception {
+        this.directory = directory;
         try {
-            System.out.println("canonical path: " + directory.getCanonicalPath());
-            File stageFile = new File(directory.getCanonicalPath() + "/1stages.txt");
-            processStages(new FileReader(stageFile));
+            processStages("1stages.txt");
         } catch (IOException err) {
             throw new RuntimeException("error reading labFile", err);
         }
@@ -48,7 +47,7 @@ public class ZfinStagesConverter extends ZfinDirectoryConverter {
         }
     }
 
-    public void processStages(Reader reader) throws Exception {
+    public void processStages(String fileName) throws Exception {
         SpecificationSheet specSheet = new SpecificationSheet();
         String itemName = "ZFATerm";
         specSheet.addColumnDefinition(new ColumnDefinition(itemName));
@@ -58,7 +57,8 @@ public class ZfinStagesConverter extends ZfinDirectoryConverter {
         specSheet.addColumnDefinition(new ColumnDefinition(itemName, "stageEndHour"));
         specSheet.addColumnDefinition(new ColumnDefinition(itemName, "identifier"));
         specSheet.addItemMap(itemName, stages);
-        processFile(reader, specSheet);
+        specSheet.setFileName(fileName);
+        processFile(specSheet);
     }
 
 }
