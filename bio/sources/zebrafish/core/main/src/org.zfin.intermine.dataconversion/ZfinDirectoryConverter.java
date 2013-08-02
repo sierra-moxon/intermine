@@ -4,14 +4,13 @@ import org.apache.commons.lang.StringUtils;
 import org.intermine.bio.dataconversion.BioDirectoryConverter;
 import org.intermine.dataconversion.ItemWriter;
 import org.intermine.metadata.Model;
-import org.intermine.sql.DatabaseUtil;
 import org.intermine.util.FormattedTextParser;
 import org.intermine.xml.full.Item;
 import org.xml.sax.SAXException;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -21,6 +20,7 @@ import java.util.Map;
 public abstract class ZfinDirectoryConverter extends BioDirectoryConverter {
 
     protected static final String DATA_SOURCE_NAME = "ZFIN";
+    public File directory;
 
     public ZfinDirectoryConverter(ItemWriter writer, Model model, String dataSourceName, String dataSetTitle) {
         super(writer, model, dataSourceName, dataSetTitle);
@@ -59,9 +59,8 @@ public abstract class ZfinDirectoryConverter extends BioDirectoryConverter {
         return FormattedTextParser.parseDelimitedReader(reader, '|');
     }
 
-
-    public void processFile(Reader reader, SpecificationSheet specSheet) throws Exception {
-
+    public void processFile(SpecificationSheet specSheet) throws Exception {
+        FileReader reader = new FileReader(directory.getCanonicalPath() + System.getProperty("file.separator") + specSheet.getFileName());
         Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
         int lineIndex = 0;
         while (lineIter.hasNext()) {
@@ -77,13 +76,20 @@ public abstract class ZfinDirectoryConverter extends BioDirectoryConverter {
                 throw new RuntimeException("primaryIdentifier is null in line " + lineIndex);
             }
             ColumnDefinition columnDefinition = specSheet.getColumnDefinition(primaryIdentifierColumn);
-            Item item = getItem(pkID,
-                    columnDefinition.getItemName(),
-                    specSheet.getItemMap(columnDefinition.getItemName()));
-
+            // main item to work with (populate)
+            Item item;
+            if (specSheet.isMappedItemName()) {
+                String mappedItemName = getMappedItemName(line[specSheet.getMappingColumn()]);
+                item = getItem(pkID,
+                        mappedItemName, specSheet.getItemMap(ColumnDefinition.MAPPED_ITEM_NAME));
+            } else {
+                item = getItem(pkID,
+                        columnDefinition.getItemName(),
+                        specSheet.getItemMap(columnDefinition.getItemName()));
+            }
             int columnIndex = 0;
             for (String colEntry : line) {
-                if (columnIndex > specSheet.getNumberOfColumns() - 1 || specSheet.isPKColumn(columnIndex)) {
+                if (columnIndex > specSheet.getNumberOfColumns() - 1 || specSheet.isPKColumn(columnIndex) || specSheet.getMappingColumn() == columnIndex) {
                     columnIndex++;
                     continue;
                 }
@@ -103,5 +109,15 @@ public abstract class ZfinDirectoryConverter extends BioDirectoryConverter {
                 columnIndex++;
             }
         }
+    }
+
+    /**
+     * Override if you need to map an id to an item name such as features.
+     *
+     * @param featureType
+     * @return
+     */
+    public String getMappedItemName(String featureType) {
+        return null;
     }
 }

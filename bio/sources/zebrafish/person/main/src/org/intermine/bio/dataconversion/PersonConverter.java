@@ -53,10 +53,9 @@ public class PersonConverter extends ZfinDirectoryConverter {
     }
 
     public void process(File directory) throws Exception {
+        this.directory = directory;
         try {
-            System.out.println("canonical path: " + directory.getCanonicalPath());
-            File personFile = new File(directory.getCanonicalPath() + "/1person.txt");
-            processPerson(new FileReader(personFile));
+            processPerson("1person.txt");
             File personAssociationFile = new File(directory.getCanonicalPath() + "/person_associations.txt");
             processPersonAssociation(new FileReader(personAssociationFile));
         } catch (IOException err) {
@@ -106,7 +105,7 @@ public class PersonConverter extends ZfinDirectoryConverter {
         }
     }
 
-    public void processPerson(Reader reader) throws Exception {
+    public void processPerson(String fileName) throws Exception {
         SpecificationSheet specSheet = new SpecificationSheet();
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "firstName"));
@@ -114,8 +113,8 @@ public class PersonConverter extends ZfinDirectoryConverter {
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "fullName"));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "email"));
         specSheet.addItemMap(DATASET_TITLE, persons);
-
-        processFile(reader, specSheet);
+        specSheet.setFileName(fileName);
+        processFile(specSheet);
     }
 
 }
