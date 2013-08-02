@@ -23,13 +23,14 @@ import org.intermine.objectstore.ObjectStoreException;
 import org.intermine.util.FormattedTextParser;
 import org.intermine.xml.full.Item;
 import org.xml.sax.SAXException;
+import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
 
 
 /**
  * 
  * @author Sierra
  */
-public class FishConverter extends BioDirectoryConverter{
+public class FishConverter extends ZfinDirectoryConverter {
     //
     private static final String DATASET_TITLE = "Fish: Mutants and Morphants";
     private static final String DATA_SOURCE_NAME = "ZFIN";

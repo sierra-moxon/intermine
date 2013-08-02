@@ -1,30 +1,16 @@
-package org.intermine.bio.dataconversion;  
+package org.intermine.bio.dataconversion;
 
-/*
- * Copyright (C) 2002-2011 FlyMine
- *
- * This code may be freely distributed and modified under the
- * terms of the GNU Lesser General Public Licence.  This should
- * be distributed with the code.  See the LICENSE file for more
- * information or http://www.gnu.org/copyleft/lesser.html.
- *
- */
-
-import java.io.*;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-import org.apache.commons.lang.StringUtils;
 import org.intermine.dataconversion.ItemWriter;
 import org.intermine.metadata.Model;
 import org.intermine.objectstore.ObjectStoreException;
-import org.intermine.util.FormattedTextParser;
 import org.intermine.xml.full.Item;
-import org.xml.sax.SAXException;
 import org.zfin.intermine.dataconversion.ColumnDefinition;
 import org.zfin.intermine.dataconversion.SpecificationSheet;
 import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
+
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
