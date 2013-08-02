@@ -114,7 +114,7 @@ public class ZebrafishPantherConverter extends BioFileConverter
                 ortho.addToCollection("crossReferences",crossReference);
                 gene.addToCollection("proteins",zebrafishProtein);
                 externalGene.addToCollection("proteins",orthoProtein);
-                ortho.setAttribute("type",orthoType);
+               
                 if (StringUtils.equals(orthoType,"LDO")) {
 		    orthoType = "Least Diverged Orthologue";
                 }
@@ -124,6 +124,7 @@ public class ZebrafishPantherConverter extends BioFileConverter
                else { 
                      System.out.println("warning: new ortho type");
                 }
+		ortho.setAttribute("type",orthoType);
                 String orthoId = ortho.getIdentifier();
 		if (geneid1.equalsIgnoreCase("ZDB-GENE-040426-1729")) {
                     System.out.println ("here is the record we're looking for: ZDB-GENE-040426-1729 ortho identifier"+orthoId);
