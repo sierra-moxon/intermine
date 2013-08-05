@@ -521,7 +521,7 @@
     <class name="Homologue" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
         <attribute name="type" type="java.lang.String"/>
-        <attribute name="LG" type="java.lang.String"/>
+        <attribute name="Chromosome" type="java.lang.String"/>
         <reference name="gene" referenced-type="Gene" reverse-reference="homologues"/>
         <reference name="homologue" referenced-type="Gene"/>
         <reference name="protein" referenced-type="Protein"/>

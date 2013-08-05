@@ -106,7 +106,7 @@ public class ZfinOrthologuesConverter extends BioFileConverter {
 
             ortho.addToCollection("crossReferences", externalLink);
             if (!StringUtils.isEmpty(orthoLG)) {
-                ortho.setAttribute("LG", orthoLG);
+                ortho.setAttribute("Chromosome", orthoLG);
             }
             gene.addToCollection("homologues", ortho);
 
