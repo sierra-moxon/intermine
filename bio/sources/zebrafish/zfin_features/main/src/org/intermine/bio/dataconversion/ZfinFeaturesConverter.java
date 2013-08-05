@@ -1,15 +1,5 @@
 package org.intermine.bio.dataconversion;
 
-/*
- * Copyright (C) 2002-2009 FlyMine
- *
- * This code may be freely distributed and modified under the
- * terms of the GNU Lesser General Public Licence.  This should
- * be distributed with the code.  See the LICENSE file for more
- * information or http://www.gnu.org/copyleft/lesser.html.
- *
- */
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.intermine.dataconversion.ItemWriter;
@@ -33,10 +23,9 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
 
     private static final Logger LOG = Logger.getLogger(ZfinFeaturesConverter.class);
     protected String organismRefId;
-    private Map<String, Item> features = new HashMap();
-    private Map<String, Item> prefixes = new HashMap();
-    private Map<String, Item> labs = new HashMap();
-
+    private Map<String, Item> features = new HashMap<String, Item>(25000);
+    private Map<String, Item> prefixes = new HashMap<String, Item>(150);
+    private Map<String, Item> labs = new HashMap<String, Item>(400);
 
     private Model model;
     private ItemWriter writer;
@@ -57,14 +46,12 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
 
     @Override
     public void process(File directory) throws Exception {
+        this.directory = directory;
         File featureFile = new File(directory.getCanonicalPath() + "/1features.txt");
-
         FeaturePrefixConverter featurePrefixConverter = new FeaturePrefixConverter(this);
-        featurePrefixConverter.process(directory);
         prefixes = featurePrefixConverter.getFeaturePrefix();
         processFeatures(new FileReader(featureFile));
-        File sourceFeatureFile = new File(directory.getCanonicalPath() + "/feature-prefix-source.txt");
-        processSourceFeatures(new FileReader(sourceFeatureFile));
+        processSourceFeatures("feature-prefix-source.txt");
 
         try {
             for (Item lab : labs.values())
@@ -78,14 +65,15 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
         }
     }
 
-    private void processSourceFeatures(FileReader reader) throws Exception {
+    private void processSourceFeatures(String file) throws Exception {
 
         SpecificationSheet specSheet = new SpecificationSheet();
         specSheet.addColumnDefinition(new ColumnDefinition("FeaturePrefix"));
         specSheet.addColumnDefinition(new ColumnDefinition("FeaturePrefix", "labs", true, "Lab"));
         specSheet.addItemMap("Lab", labs);
         specSheet.addItemMap("FeaturePrefix", prefixes);
-        processFile(reader, specSheet);
+        specSheet.setFileName(file);
+        processFile(specSheet);
     }
 
     public void processFeatures(Reader reader) throws Exception {
@@ -170,3 +158,4 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
     }
 
 }
+
