@@ -37,12 +37,10 @@ public class LabConverter extends ZfinDirectoryConverter {
     }
 
     public void process(File directory) throws Exception {
+        this.directory = directory;
         try {
-            System.out.println("canonical path: " + directory.getCanonicalPath());
-            File labFile = new File(directory.getCanonicalPath() + "/1lab.txt");
-            File sourceFeatureFile = new File(directory.getCanonicalPath() + "/feature-prefix-source.txt");
-            processLabs(new FileReader(labFile));
-            processSourceFeatures(new FileReader(sourceFeatureFile));
+            processLabs("1lab.txt");
+            processSourceFeatures("feature-prefix-source.txt");
         } catch (IOException err) {
             throw new RuntimeException("error reading labFile", err);
         }
@@ -63,17 +61,18 @@ public class LabConverter extends ZfinDirectoryConverter {
         }
     }
 
-    public void processSourceFeatures(Reader reader) throws Exception {
+    public void processSourceFeatures(String file) throws Exception {
         SpecificationSheet specSheet = new SpecificationSheet();
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "prefix", "FeaturePrefix"));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE));
         specSheet.addItemMap(DATASET_TITLE, labs);
         specSheet.addItemMap("FeaturePrefix", prefixes);
-        processFile(reader, specSheet);
+        specSheet.setFileName(file);
+        processFile(specSheet);
     }
 
 
-    public void processLabs(Reader reader) throws Exception {
+    public void processLabs(String file) throws Exception {
         SpecificationSheet specSheet = new SpecificationSheet();
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "name"));
@@ -84,8 +83,8 @@ public class LabConverter extends ZfinDirectoryConverter {
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "phone"));
         specSheet.addItemMap(DATASET_TITLE, labs);
         specSheet.addItemMap("Person", persons);
-
-        processFile(reader, specSheet);
+        specSheet.setFileName(file);
+        processFile(specSheet);
     }
 
 }
