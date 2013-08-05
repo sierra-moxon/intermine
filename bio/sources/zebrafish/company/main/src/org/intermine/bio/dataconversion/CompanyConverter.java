@@ -51,12 +51,10 @@ public class CompanyConverter extends ZfinDirectoryConverter {
     }
 
     public void process(File directory) throws Exception {
+        this.directory = directory;
         try {
-            System.out.println("canonical path: " + directory.getCanonicalPath());
-            File companyFile = new File(directory.getCanonicalPath() + "/1company.txt");
-            File prefixCompanyFile = new File(directory.getCanonicalPath() + "/company-feature-prefix-source.txt");
-            processCompany(new FileReader(companyFile));
-            processPrefixCompany(new FileReader(prefixCompanyFile));
+            processCompany("1company.txt");
+            processPrefixCompany("company-feature-prefix-source.txt");
         } catch (IOException err) {
             throw new RuntimeException("error reading companyFile", err);
         }
@@ -78,16 +76,17 @@ public class CompanyConverter extends ZfinDirectoryConverter {
         }
     }
 
-    private void processPrefixCompany(FileReader reader) throws Exception {
+    private void processPrefixCompany(String fileName) throws Exception {
         SpecificationSheet specSheet = new SpecificationSheet();
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "prefix", "FeaturePrefix"));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE));
         specSheet.addItemMap(DATASET_TITLE, companies);
         specSheet.addItemMap("FeaturePrefix", prefixes);
-        processFile(reader, specSheet);
+        specSheet.setFileName(fileName);
+        processFile(specSheet);
     }
 
-    public void processCompany(Reader reader) throws Exception {
+    public void processCompany(String fileName) throws Exception {
         SpecificationSheet specSheet = new SpecificationSheet();
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "name"));
@@ -98,8 +97,8 @@ public class CompanyConverter extends ZfinDirectoryConverter {
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "phone"));
         specSheet.addItemMap(DATASET_TITLE, companies);
         specSheet.addItemMap("Person", persons);
-
-        processFile(reader, specSheet);
+        specSheet.setFileName(fileName);
+        processFile(specSheet);
     }
 
 }
