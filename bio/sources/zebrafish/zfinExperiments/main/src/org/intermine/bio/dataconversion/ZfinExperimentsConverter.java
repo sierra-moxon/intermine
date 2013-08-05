@@ -57,6 +57,8 @@ public class ZfinExperimentsConverter extends BioFileConverter {
     public void process(Reader reader) throws Exception {
 
         processExps(reader);
+	
+
 
     }
 
@@ -80,6 +82,13 @@ public class ZfinExperimentsConverter extends BioFileConverter {
 
             Item environment = getEnv(envPrimaryIdentifier);
             Item environmentCondition = getEnvCond(envcondPrimaryIdentifier);
+	    
+	    if(envPrimaryIdentifier.equals("ZDB-EXP-070511-5")) {
+		environment.setAttribute("StandardEnvironment","true");
+	    }
+	    if(envPrimaryIdentifier.equals("ZDB-EXP-041102-1")) {
+		environment.setAttribute("StandardEnvironment","true");
+            }
 
             if (!StringUtils.isEmpty(envValue)) {
                 environmentCondition.setAttribute("value", envValue);
@@ -148,13 +157,19 @@ public class ZfinExperimentsConverter extends BioFileConverter {
             item = createItem("Environment");
             /*item.setAttribute("name", name);*/
             item.setAttribute("primaryIdentifier", primaryIdentifier);
+	    if(primaryIdentifier.equals("ZDB-EXP-070511-5")) {
+                item.setAttribute("StandardEnvironment","true");
+            }
+            if(primaryIdentifier.equals("ZDB-EXP-041102-1")) {
+                item.setAttribute("StandardEnvironment","true");
+            }
             envs.put(primaryIdentifier, item);
             try {
                 store(item);
-            }
+	     }
             catch (ObjectStoreException e) {
                 throw new SAXException(e);
-            }
+	     }
         }
         return item;
     }
