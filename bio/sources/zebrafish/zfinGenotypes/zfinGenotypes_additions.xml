@@ -109,8 +109,8 @@
     <class name="Inversion" is-interface="true" extends="SequenceAlteration">
     </class>
     <class name="TransgenicInsertion" is-interface="true" extends="SequenceAlteration">
-        <collection name="contributesToPhenotype" referenced-type="Construct" reverse-reference="phenotypicallyInserted"/>
-        <collection name="doesNotContributeToPhenotype" referenced-type="Construct" reverse-reference="innocuousllyInserted"/>
+        <!--<collection name="contributesToPhenotype" referenced-type="Construct" reverse-reference="phenotypicallyInserted"/>
+        <collection name="doesNotContributeToPhenotype" referenced-type="Construct" reverse-reference="innocuousllyInserted"/>-->
         <collection name="constructs" referenced-type="Construct" reverse-reference="insertedIn"/>
     </class>
     <class name="ChromosomalDeletion" is-interface="true" extends="SequenceAlteration">
@@ -136,8 +136,8 @@
         <collection name="promoters" referenced-type="Gene" reverse-reference="promotes"/>
         <collection name="crossReferences" referenced-type="CrossReference"/>
         <!--<collection name="externalLinks" referenced-type="ExternalLink"/>-->
-        <collection name="phenotypicallyInserted" referenced-type="TransgenicInsertion" reverse-reference="contributesToPhenotype"/>
-        <collection name="innocuousllyInserted" referenced-type="TransgenicInsertion" reverse-reference="doesNotContributeToPhenotype"/>
+        <attribute name="phenotypicallyInserted" type="java.lang.String"/>
+        <attribute name="innocuouslyInserted" type="java.lang.String"/>
         <collection name="insertedIn" referenced-type="TransgenicInsertion" reverse-reference="constructs"/>
     </class>
     <class name="Gene" extends="BioEntity" is-interface="true">
@@ -521,7 +521,7 @@
     <class name="Homologue" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
         <attribute name="type" type="java.lang.String"/>
-        <attribute name="LG" type="java.lang.String"/>
+        <attribute name="Chromosome" type="java.lang.String"/>
         <reference name="gene" referenced-type="Gene" reverse-reference="homologues"/>
         <reference name="homologue" referenced-type="Gene"/>
         <reference name="protein" referenced-type="Protein"/>
