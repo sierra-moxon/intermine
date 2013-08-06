@@ -24,6 +24,7 @@ import org.intermine.xml.full.Item;
 import org.xml.sax.SAXException;
 import org.zfin.intermine.dataconversion.ColumnDefinition;
 import org.zfin.intermine.dataconversion.SpecificationSheet;
+import org.zfin.intermine.dataconversion.ZdbPkId;
 import org.zfin.intermine.dataconversion.ZfinDirectoryConverter;
 
 
@@ -36,10 +37,7 @@ public class PersonConverter extends ZfinDirectoryConverter {
     //
     private static final String DATASET_TITLE = "Person";
     protected String organismRefId;
-    private Map<String, Item> persons = new HashMap<String, Item>(900);
-    private Map<String, Item> labs = new HashMap<String, Item>(900);
-    private Map<String, Item> companies = new HashMap<String, Item>(100);
-    private Map<String, Item> pubs = new HashMap<String, Item>(900);
+    private Map<String, Item> items = new HashMap<String, Item>(2800);
 
     /**
      * Constructor
@@ -63,13 +61,7 @@ public class PersonConverter extends ZfinDirectoryConverter {
         }
 
         try {
-            for (Item lab : labs.values())
-                store(lab);
-            for (Item publication : pubs.values())
-                store(publication);
-            for (Item company : companies.values())
-                store(company);
-            for (Item person : persons.values())
+            for (Item person : items.values())
                 store(person);
         } catch (ObjectStoreException e) {
             StringWriter sw = new StringWriter();
@@ -88,18 +80,18 @@ public class PersonConverter extends ZfinDirectoryConverter {
             if (line.length < 2) {
                 throw new RuntimeException("Line does not have enough elements: " + line.length + pkID);
             }
-            Item person = getItem(pkID, "Person", persons);
+            Item person = getItem(pkID, "Person", items);
             String sourceID = line[1];
             if (sourceID.startsWith("ZDB-LAB")) {
-                Item lab = getItem(sourceID, "Lab", labs);
+                Item lab = getItem(sourceID, "Lab", items);
                 person.addToCollection("labs", lab);
             }
             if (sourceID.startsWith("ZDB-PUB")) {
-                Item publication = getItem(sourceID, "Publication", pubs);
+                Item publication = getItem(sourceID, "Publication", items);
                 person.addToCollection("publications", publication);
             }
             if (sourceID.startsWith("ZDB-COMPANY")) {
-                Item company = getItem(sourceID, "Company", companies);
+                Item company = getItem(sourceID, "Company", items);
                 person.addToCollection("companies", company);
             }
         }
@@ -112,7 +104,7 @@ public class PersonConverter extends ZfinDirectoryConverter {
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "lastName"));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "fullName"));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "email"));
-        specSheet.addItemMap(DATASET_TITLE, persons);
+        specSheet.setItemMap(items);
         specSheet.setFileName(fileName);
         processFile(specSheet);
     }

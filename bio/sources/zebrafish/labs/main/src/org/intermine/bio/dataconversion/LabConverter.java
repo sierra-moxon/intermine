@@ -21,9 +21,7 @@ public class LabConverter extends ZfinDirectoryConverter {
     //
     private static final String DATASET_TITLE = "Lab";
     protected String organismRefId;
-    private Map<String, Item> labs = new HashMap<String, Item>(1000);
-    private Map<String, Item> prefixes = new HashMap<String, Item>(400);
-    private Map<String, Item> persons = new HashMap<String, Item>(900);
+    private Map<String, Item> labs = new HashMap<String, Item>(2300);
 
     /**
      * Constructor
@@ -46,10 +44,6 @@ public class LabConverter extends ZfinDirectoryConverter {
         }
 
         try {
-            for (Item person : persons.values())
-                store(person);
-            for (Item prefix : prefixes.values())
-                store(prefix);
             for (Item lab : labs.values())
                 store(lab);
         } catch (ObjectStoreException e) {
@@ -65,8 +59,7 @@ public class LabConverter extends ZfinDirectoryConverter {
         SpecificationSheet specSheet = new SpecificationSheet();
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "prefix", "FeaturePrefix"));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE));
-        specSheet.addItemMap(DATASET_TITLE, labs);
-        specSheet.addItemMap("FeaturePrefix", prefixes);
+        specSheet.setItemMap(labs);
         specSheet.setFileName(file);
         processFile(specSheet);
     }
@@ -81,8 +74,7 @@ public class LabConverter extends ZfinDirectoryConverter {
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "email"));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "fax"));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "phone"));
-        specSheet.addItemMap(DATASET_TITLE, labs);
-        specSheet.addItemMap("Person", persons);
+        specSheet.setItemMap(labs);
         specSheet.setFileName(file);
         processFile(specSheet);
     }
