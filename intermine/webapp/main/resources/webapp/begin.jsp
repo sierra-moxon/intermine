@@ -227,10 +227,10 @@
                                         We provide client libraries in the following languages:
                                 </p>
                                 <ul id="api-langs">
-                                        <li><a href="<c:out value="${WEB_PROPERTIES['path']}" />api.do?subtab=perl">Perl </a>
-                                        <li><a href="<c:out value="${WEB_PROPERTIES['path']}" />api.do?subtab=python">Python</a>
-                                        <li><a href="<c:out value="${WEB_PROPERTIES['path']}" />api.do?subtab=ruby">Ruby   </a>
-                                        <li><a href="<c:out value="${WEB_PROPERTIES['path']}" />api.do?subtab=java">Java</a>
+                                        <li><a href="<c:out value="${WEB_PROPERTIES['path']}" />api.do?subtab=perl"> Perl </a>&nbsp;
+                                        <li><a href="<c:out value="${WEB_PROPERTIES['path']}" />api.do?subtab=python">  Python</a>&nbsp;
+                                        <li><a href="<c:out value="${WEB_PROPERTIES['path']}" />api.do?subtab=ruby">  Ruby   </a>&nbsp;
+                                        <li><a href="<c:out value="${WEB_PROPERTIES['path']}" />api.do?subtab=java">  Java</a>&nbsp;
                                 </ul>
                         </div>
 

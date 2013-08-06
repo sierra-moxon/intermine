@@ -332,6 +332,7 @@
     <class name="Environment" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
         <attribute name="name" type="java.lang.String"/>
+	<attribute name="StandardEnvironment" type="java.lang.String"/>
         <reference name="publication" referenced-type="Publication" reverse-reference="environments"/>
         <collection name="conditions" referenced-type="EnvironmentalCondition" reverse-reference="environment"/>
         <!--        <collection name="genotypeEnvironments" referenced-type="GenotypeEnvironment" reverse-reference="environment"/>-->

@@ -1,0 +1,4 @@
+<project name="cleanPhenotype-tasks" default="default" basedir=".">
+  <description>build cleanPhenotype tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>
