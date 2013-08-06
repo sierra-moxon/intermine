@@ -23,9 +23,7 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
 
     private static final Logger LOG = Logger.getLogger(ZfinFeaturesConverter.class);
     protected String organismRefId;
-    private Map<String, Item> features = new HashMap<String, Item>(25000);
-    private Map<String, Item> prefixes = new HashMap<String, Item>(150);
-    private Map<String, Item> labs = new HashMap<String, Item>(400);
+    private Map<String, Item> items = new HashMap<String, Item>(25550);
 
     private Model model;
     private ItemWriter writer;
@@ -49,17 +47,13 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
         this.directory = directory;
         File featureFile = new File(directory.getCanonicalPath() + "/1features.txt");
         FeaturePrefixConverter featurePrefixConverter = new FeaturePrefixConverter(this);
-        prefixes = featurePrefixConverter.getFeaturePrefix();
+        items.putAll(featurePrefixConverter.getFeaturePrefix());
         processFeatures(new FileReader(featureFile));
         processSourceFeatures("feature-prefix-source.txt");
 
         try {
-            for (Item lab : labs.values())
+            for (Item lab : items.values())
                 store(lab);
-            for (Item featurePrefix : prefixes.values())
-                store(featurePrefix);
-            for (Item feature : features.values())
-                store(feature);
         } catch (ObjectStoreException e) {
             throw new Exception(e);
         }
@@ -70,8 +64,7 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
         SpecificationSheet specSheet = new SpecificationSheet();
         specSheet.addColumnDefinition(new ColumnDefinition("FeaturePrefix"));
         specSheet.addColumnDefinition(new ColumnDefinition("FeaturePrefix", "labs", true, "Lab"));
-        specSheet.addItemMap("Lab", labs);
-        specSheet.addItemMap("FeaturePrefix", prefixes);
+        specSheet.setItemMap(items);
         specSheet.setFileName(file);
         processFile(specSheet);
     }
@@ -107,7 +100,7 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
                     feature.setAttribute("featureId", primaryIdentifier);
                 }
                 if (!StringUtils.isEmpty(lineDesignation)) {
-                    Item prefix = getItem(lineDesignation, "FeaturePrefix", prefixes);
+                    Item prefix = getItem(lineDesignation, "FeaturePrefix", items);
                     feature.setReference("featurePrefix", prefix);
                 }
             }
@@ -146,12 +139,12 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
     }
 
     private Item getFeature(String primaryIdentifier, String soTermName) {
-        Item item = features.get(primaryIdentifier);
+        Item item = items.get(primaryIdentifier);
         if (item == null) {
             item = createItem(soTermName);
             item.setReference("organism", getOrganism("7955"));
             item.setAttribute("primaryIdentifier", primaryIdentifier);
-            features.put(primaryIdentifier, item);
+            items.put(primaryIdentifier, item);
         }
 
         return item;

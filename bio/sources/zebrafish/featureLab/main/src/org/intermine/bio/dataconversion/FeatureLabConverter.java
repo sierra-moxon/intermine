@@ -16,8 +16,7 @@ import java.util.Map;
 
 public class FeatureLabConverter extends ZfinDirectoryConverter {
 
-    private Map<String, Item> features = new HashMap<String, Item>(40000);
-    private Map<String, Item> labs = new HashMap<String, Item>(400);
+    private Map<String, Item> items = new HashMap<String, Item>(40000);
 
 
     public FeatureLabConverter(ItemWriter writer, Model model)
@@ -30,9 +29,7 @@ public class FeatureLabConverter extends ZfinDirectoryConverter {
         this.directory = dataDir;
         processFeatureLab("labOfOrigin.txt");
         try {
-            for (Item lab : labs.values())
-                store(lab);
-            for (Item feature : features.values())
+            for (Item feature : items.values())
                 store(feature);
         } catch (ObjectStoreException e) {
             throw new Exception(e);
@@ -44,8 +41,7 @@ public class FeatureLabConverter extends ZfinDirectoryConverter {
         specSheet.addColumnDefinition(new ColumnDefinition(ColumnDefinition.MAPPED_ITEM_NAME));
         specSheet.addColumnDefinition(new ColumnDefinition(ColumnDefinition.MAPPED_ITEM_NAME, "labOfOrigin", true, "Lab"));
         specSheet.addColumnDefinition(new ColumnDefinition(ColumnDefinition.MAPPED_ITEM_NAME, "featureType"));
-        specSheet.addItemMap(ColumnDefinition.MAPPED_ITEM_NAME, features);
-        specSheet.addItemMap("Lab", labs);
+        specSheet.setItemMap(items);
         // feature item name is mapped into feature type mapped item name
         specSheet.setMappingColumn(2);
         specSheet.setFileName(fileName);

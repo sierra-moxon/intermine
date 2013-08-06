@@ -242,6 +242,7 @@
 <class className="org.intermine.model.bio.Person">
    <fields>
       <fieldconfig  fieldExpr="fullName"></fieldconfig>
+      <fieldconfig  fieldExpr="primaryIdentifier"></fieldconfig>
       <fieldconfig  fieldExpr="email"></fieldconfig>
    </fields>
 </class>

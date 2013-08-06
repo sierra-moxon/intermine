@@ -17,6 +17,13 @@ public class ColumnDefinition {
     private String referenceName;
     private boolean collection;
     private Map<String, Item> itemMap;
+    private ZdbPkId[] enumMap;
+    boolean enumMapping = false;
+
+    public ColumnDefinition(ZdbPkId[] enums) {
+        this.enumMap = enums;
+        enumMapping = true;
+    }
 
     public ColumnDefinition(String itemName, String name) {
         this.name = name;
@@ -66,6 +73,16 @@ public class ColumnDefinition {
         return itemName;
     }
 
+    public String getItemName(String pkID) {
+        if (enumMapping) {
+            for (ZdbPkId enumeration : enumMap) {
+                if (enumeration.toString().equals(pkID))
+                    return enumeration.getValue();
+            }
+        }
+        throw new RuntimeException("No PK found for " + pkID);
+    }
+
     public boolean isPrimaryColumnDefinition() {
         return name.equals(PRIMARY_IDENTIFIER);
     }
@@ -89,4 +106,9 @@ public class ColumnDefinition {
     public void setItemMap(Map<String, Item> itemMap) {
         this.itemMap = itemMap;
     }
+
+    public boolean isEnumMapping() {
+        return enumMapping;
+    }
+
 }
