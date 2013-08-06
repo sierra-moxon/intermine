@@ -35,9 +35,7 @@ public class CompanyConverter extends ZfinDirectoryConverter {
     //
     private static final String DATASET_TITLE = "Company";
     protected String organismRefId;
-    private Map<String, Item> companies = new HashMap<String, Item>(900);
-    private Map<String, Item> persons = new HashMap<String, Item>(900);
-    private Map<String, Item> prefixes = new HashMap<String, Item>(900);
+    private Map<String, Item> items = new HashMap<String, Item>(2700);
 
     /**
      * Constructor
@@ -60,13 +58,8 @@ public class CompanyConverter extends ZfinDirectoryConverter {
         }
 
         try {
-            for (Item prefix : prefixes.values())
+            for (Item prefix : items.values())
                 store(prefix);
-            for (Item person : persons.values())
-                store(person);
-            for (Item company : companies.values()) {
-                store(company);
-            }
         } catch (ObjectStoreException e) {
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
@@ -80,8 +73,7 @@ public class CompanyConverter extends ZfinDirectoryConverter {
         SpecificationSheet specSheet = new SpecificationSheet();
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "prefix", "FeaturePrefix"));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE));
-        specSheet.addItemMap(DATASET_TITLE, companies);
-        specSheet.addItemMap("FeaturePrefix", prefixes);
+        specSheet.setItemMap(items);
         specSheet.setFileName(fileName);
         processFile(specSheet);
     }
@@ -95,8 +87,7 @@ public class CompanyConverter extends ZfinDirectoryConverter {
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "email"));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "fax"));
         specSheet.addColumnDefinition(new ColumnDefinition(DATASET_TITLE, "phone"));
-        specSheet.addItemMap(DATASET_TITLE, companies);
-        specSheet.addItemMap("Person", persons);
+        specSheet.setItemMap(items);
         specSheet.setFileName(fileName);
         processFile(specSheet);
     }

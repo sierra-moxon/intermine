@@ -85,7 +85,7 @@ public abstract class ZfinDirectoryConverter extends BioDirectoryConverter {
             } else {
                 item = getItem(pkID,
                         columnDefinition.getItemName(),
-                        specSheet.getItemMap(columnDefinition.getItemName()));
+                        specSheet.getItemMap());
             }
             int columnIndex = 0;
             for (String colEntry : line) {
@@ -98,11 +98,11 @@ public abstract class ZfinDirectoryConverter extends BioDirectoryConverter {
                     if (colDefinition.isAttribute())
                         item.setAttribute(colDefinition.getName(), line[columnIndex]);
                     if (colDefinition.isReference()) {
-                        Item reference = getItem(colEntry, colDefinition.getReferenceName(), specSheet.getItemMap(colDefinition.getReferenceName()));
+                        Item reference = getItem(colEntry, colDefinition.getReferenceName(), specSheet.getItemMap());
                         item.setReference(colDefinition.getName(), reference);
                     }
                     if (colDefinition.isCollection()) {
-                        Item reference = getItem(colEntry, colDefinition.getReferenceName(), specSheet.getItemMap(colDefinition.getReferenceName()));
+                        Item reference = getItem(colEntry, colDefinition.getReferenceName(), specSheet.getItemMap());
                         item.addToCollection(colDefinition.getName(), reference);
                     }
                 }
