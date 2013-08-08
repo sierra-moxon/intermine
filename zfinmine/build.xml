@@ -36,9 +36,11 @@
         <antcall target="add-zfin-properties"/>
         <antcall target="add-log4j.properties"/>
         <antcall target="add-urlrewrite"/>
+<!--
         <delete includeemptydirs="true" quiet="true">
             <fileset dir="${tomcat.webapp}" includes="**/*"/>
         </delete>
+-->
         <mkdir dir="${tomcat.webapp}"/>
         <copy file="${dist.webapp}/zfinmine-webapp.war" tofile="${tomcat.webapp}/${release}-zebrafishmine.war"/>
     </target>
