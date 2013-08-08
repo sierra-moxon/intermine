@@ -38,7 +38,7 @@ import org.xml.sax.SAXException;
 public class FeaturePubsConverter extends BioFileConverter
 {
     //
-    private static final String DATASET_TITLE = "Feature Attribution";
+    private static final String DATASET_TITLE = "Sequence Alteration Attribution";
     private static final String DATA_SOURCE_NAME = "ZFIN";
 
     private static final Logger LOG = Logger.getLogger(FeaturePubsConverter.class);

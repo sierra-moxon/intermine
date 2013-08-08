@@ -93,6 +93,10 @@
             <property name="src.data.dir" location="../data-sources/zfin_genofeats/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
+	<source name="mutagenMutagee" type="mutagenMutagee">
+	    <property name="src.data.dir" location="../data-sources/mutagenMutagee/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+	</source>
         <source name="zfinFeatureMarkerRelationships" type="zfinFeatureMarkerRelationships">
             <property name="src.data.dir" location="../data-sources/zfin_fmrels/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
