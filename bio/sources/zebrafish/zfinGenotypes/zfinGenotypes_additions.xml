@@ -83,6 +83,8 @@
         <collection name="genes" referenced-type="Gene" reverse-reference="features"/>
         <collection name="genotypes" referenced-type="Genotype" reverse-reference="features"/>
         <attribute name="type" type="java.lang.String"/>
+	<attribute name="mutagen" type="java.lang.String"/>
+	<attribute name="mutagee" type="java.lang.String"/>
         <reference name="organism" referenced-type="Organism"/>
         <reference name="featurePrefix" referenced-type="FeaturePrefix"/>
         <collection name="relatedMarkers" referenced-type="FeatureMarkerRelationship" reverse-reference="feature"/>

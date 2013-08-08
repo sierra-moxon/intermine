@@ -1,0 +1,5 @@
+<project name="mutagenMutagee" default="default" basedir=".">
+  <description>build, test, package mutagenMutagee</description>
+  
+  <import file="../../../../imbuild/source.xml"/>
+</project>
