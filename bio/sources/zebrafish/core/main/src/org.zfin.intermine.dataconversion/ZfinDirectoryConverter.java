@@ -4,6 +4,7 @@ import org.apache.commons.lang.StringUtils;
 import org.intermine.bio.dataconversion.BioDirectoryConverter;
 import org.intermine.dataconversion.ItemWriter;
 import org.intermine.metadata.Model;
+import org.intermine.objectstore.ObjectStoreException;
 import org.intermine.util.FormattedTextParser;
 import org.intermine.xml.full.Item;
 import org.xml.sax.SAXException;
@@ -48,6 +49,27 @@ public abstract class ZfinDirectoryConverter extends BioDirectoryConverter {
         return item;
 
     }
+
+    protected void storeAll(Map<String, Item> items, String... itemNames) throws ObjectStoreException {
+        if (itemNames == null)
+            return;
+        for (String itemName : itemNames) {
+            Iterator<Map.Entry<String,Item>> iterator = items.entrySet().iterator();
+            while (iterator.hasNext()) {
+                Map.Entry<String,Item> entry = iterator.next();
+                Item value = entry.getValue();
+                if (value.getClassName().equals(itemName)) {
+                    store(value);
+                    iterator.remove();
+                }
+            }
+        }
+        // store the remaining objects
+        for (Item feature : items.values())
+            store(feature);
+
+    }
+
 
     private Item createItem(String primaryID, String itemName) {
         Item item = super.createItem(itemName);
