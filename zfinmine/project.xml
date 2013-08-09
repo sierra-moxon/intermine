@@ -63,7 +63,7 @@
             <property name="gff3.taxonId" value="7955"/>
             <property name="gff3.dataSourceName" value="ZFIN"/>
             <property name="gff3.seqClsName" value="Clone"/>
-            <property name="gff3.dataSetTitle" value="ZFIN trim clone"/>
+            <property name="gff3.dataSetTitle" value="sequence"/>
             <property name="src.data.dir" location="../data-sources/trimGff3/"/>
         </source>
         <source name="zebrafishChromosome" type="zebrafishChromosome">
@@ -172,10 +172,10 @@
             <property name="src.data.dir" location="../data-sources/people/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-        <source name="featureLab" type="featureLab">
+<!--        <source name="featureLab" type="featureLab">
             <property name="src.data.dir" location="../data-sources/zfin_features/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
-        </source>
+        </source> -->
         <source name="entrez-organism" type="entrez-organism">
             <property name="src.data.file" location="build/organisms.xml"/>
         </source>
