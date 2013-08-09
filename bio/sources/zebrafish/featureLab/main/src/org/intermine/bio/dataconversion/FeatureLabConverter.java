@@ -29,8 +29,7 @@ public class FeatureLabConverter extends ZfinDirectoryConverter {
         this.directory = dataDir;
         processFeatureLab("labOfOrigin.txt");
         try {
-            for (Item feature : items.values())
-                store(feature);
+            storeAll(items, "lab");
         } catch (ObjectStoreException e) {
             throw new Exception(e);
         }

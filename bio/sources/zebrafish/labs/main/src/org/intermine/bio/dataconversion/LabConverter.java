@@ -44,8 +44,7 @@ public class LabConverter extends ZfinDirectoryConverter {
         }
 
         try {
-            for (Item lab : labs.values())
-                store(lab);
+            storeAll(labs, "Person", "FeaturePrefix");
         } catch (ObjectStoreException e) {
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
