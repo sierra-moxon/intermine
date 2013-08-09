@@ -61,8 +61,7 @@ public class PersonConverter extends ZfinDirectoryConverter {
         }
 
         try {
-            for (Item person : items.values())
-                store(person);
+            storeAll(items, "Lab","Company","Publication");
         } catch (ObjectStoreException e) {
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
