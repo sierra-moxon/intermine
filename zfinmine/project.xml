@@ -172,10 +172,10 @@
             <property name="src.data.dir" location="../data-sources/people/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-<!--        <source name="featureLab" type="featureLab">
+        <source name="featureLab" type="featureLab">
             <property name="src.data.dir" location="../data-sources/zfin_features/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
-        </source> -->
+        </source>
         <source name="entrez-organism" type="entrez-organism">
             <property name="src.data.file" location="build/organisms.xml"/>
         </source>
