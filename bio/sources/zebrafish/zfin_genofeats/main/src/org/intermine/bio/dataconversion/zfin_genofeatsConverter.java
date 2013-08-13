@@ -109,11 +109,11 @@ public class zfin_genofeatsConverter extends BioFileConverter {
             if (!StringUtils.isEmpty(featureId)) {
                 feature.setAttribute("featureId", featureId);
             }
-            if  (!StringUtils.isEmpty(featureName)) {
+            if  (!StringUtils.isEmpty(name)) {
                 feature.setAttribute("name", name);
             }
 
-            if  (!StringUtils.isEmpty(featureAbbrev)) {
+            if  (!StringUtils.isEmpty(abbrev)) {
                 feature.setAttribute("symbol", abbrev);
             }
 	    if  (!StringUtils.isEmpty(mutagen)) {
