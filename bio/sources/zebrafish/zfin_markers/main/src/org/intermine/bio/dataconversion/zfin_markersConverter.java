@@ -597,7 +597,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
                     item1.addToCollection("overlapsWith", item2);
                     //item2.addToCollection("overlapsWith",item1);
                 }
-                if (mrelType.equals("coding sequnece of")) {
+                if (mrelType.equals("coding sequence of")) {
                     item1 = getGene(mrel2);
                     item2 = getConstruct(mrel1);
                     item2.addToCollection("codingSequences", item1);
