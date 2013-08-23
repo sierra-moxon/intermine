@@ -83,6 +83,8 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
             String abbrev = columns[2];
             String type = columns[3];
             String lineDesignation = columns[4];
+	    String mutagen = columns[5];
+	    String mutagee = columns[6];
 
             Item feature;
 
@@ -97,6 +99,12 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
                 }
                 if (!StringUtils.isEmpty(primaryIdentifier)) {
                     feature.setAttribute("featureId", primaryIdentifier);
+                }
+		if (!StringUtils.isEmpty(mutagen)) {
+                    feature.setAttribute("mutagen", mutagen);
+                }
+		if (!StringUtils.isEmpty(mutagee)) {
+                    feature.setAttribute("mutagee", mutagee);
                 }
                 if (!StringUtils.isEmpty(lineDesignation)) {
                     Item prefix = getItem(lineDesignation, "FeaturePrefix", items);
