@@ -132,9 +132,9 @@
         <collection name="CDS" referenced-type="Gene"/>
         <collection name="Promoter" referenced-type="Gene"/>
         <collection name="publications" referenced-type="Publication"/>
-        <collection name="EFGs" referenced-type="EFG" reverse-reference="constructs"/>
+        <!--<collection name="EFGs" referenced-type="EFG" reverse-reference="constructs"/>-->
+	<collection name="engineeredRegions" referenced-type="Region"/>
         <collection name="codingSequences" referenced-type="Gene" reverse-reference="codingSequenceOf"/>
-        <collection name="contains" referenced-type="Region" reverse-reference="constructs"/>
         <collection name="promoters" referenced-type="Gene" reverse-reference="promotes"/>
         <collection name="crossReferences" referenced-type="CrossReference"/>
         <!--<collection name="externalLinks" referenced-type="ExternalLink"/>-->
@@ -235,7 +235,6 @@
         <collection name="publications" referenced-type="Publication"/>
         <collection name="promotes" referenced-type="Construct"/>
         <reference name="organism" referenced-type="Organism"/>
-        <collection name="constructs" referenced-type="Construct" reverse-reference="contains"/>
         <!--<collection name="externalLinks" referenced-type="ExternalLink"/>-->
     </class>
     <class name="DNAClone" is-interface="true" extends="Clone"/>
@@ -291,7 +290,6 @@
         <attribute name="comments" type="java.lang.String"/>
         <reference name="organism" referenced-type="Organism"/>
         <collection name="publications" referenced-type="Publication"/>
-        <collection name="constructs" referenced-type="Construct" reverse-reference="EFGs"/>
         <collection name="expressions" referenced-type="Expression" reverse-reference="EFG"/>
         <collection name="crossReferences" referenced-type="CrossReference"/>
         <!--<collection name="externalLinks" referenced-type="ExternalLink"/>-->
