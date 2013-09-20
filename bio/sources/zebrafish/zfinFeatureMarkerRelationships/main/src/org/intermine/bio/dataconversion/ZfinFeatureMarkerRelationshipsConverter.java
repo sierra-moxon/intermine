@@ -132,7 +132,8 @@ public class ZfinFeatureMarkerRelationshipsConverter extends BioFileConverter {
                         }     
 
                     } else if (relType.equals("contains innocuous sequence feature")) {
-                       marker.setAttribute("innocuouslyInserted", "true");
+			System.out.println("innocuous!" + marker.getAttribute("primaryIdentifier").toString());
+			marker.setAttribute("innocuouslyInserted", "true");
 		       marker.setAttribute("phenotypicallyInserted", "false");
 
                     } else if (relType.equals("contains phenotypic sequence feature")) {
