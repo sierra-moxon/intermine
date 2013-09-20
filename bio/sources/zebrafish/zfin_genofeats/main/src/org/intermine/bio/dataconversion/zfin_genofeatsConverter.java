@@ -90,6 +90,8 @@ public class zfin_genofeatsConverter extends BioFileConverter {
             String name=line[5];
             String abbrev =line[6];
 	    String labOfOriginId = line[7];
+	    String mutagen = line[8];
+	    String mutagee = line[9];
 	    // System.out.println(type);
             Item geno = getGenotype(genoId);
             Item feature = getTypedItem(featureId, type);
@@ -104,15 +106,21 @@ public class zfin_genofeatsConverter extends BioFileConverter {
             if (!StringUtils.isEmpty(featureZygosity)) {
                 feature.setAttribute("featureZygosity", featureZygosity);
             }
-            if (!StringUtils.isEmpty(featureZygosity)) {
+            if (!StringUtils.isEmpty(featureId)) {
                 feature.setAttribute("featureId", featureId);
             }
-            if  (!StringUtils.isEmpty(featureZygosity)) {
+            if  (!StringUtils.isEmpty(name)) {
                 feature.setAttribute("name", name);
             }
 
-            if  (!StringUtils.isEmpty(featureZygosity)) {
+            if  (!StringUtils.isEmpty(abbrev)) {
                 feature.setAttribute("symbol", abbrev);
+            }
+	    if  (!StringUtils.isEmpty(mutagen)) {
+                feature.setAttribute("mutagen", mutagen);
+            }
+	    if  (!StringUtils.isEmpty(mutagee)) {
+                feature.setAttribute("mutagee", mutagee);
             }
 
         }
