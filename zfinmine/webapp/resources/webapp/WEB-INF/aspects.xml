@@ -93,6 +93,26 @@
         <tile-name>model/zfin.jsp</tile-name>
         <aspect-source name="ZFIN" url="http://zfin.org"/>
     </aspect>
+    <aspect name="Expression">
+        <subtitle></subtitle>
+        <icon-image>model/images/logo.png</icon-image>
+        <large-image>model/images/logo.png</large-image>
+        <intro-text>
+           Expression.
+        </intro-text>
+        <tile-name>model/zfin.jsp</tile-name>
+        <aspect-source name="ZFIN" url="http://zfin.org"/>
+    </aspect>
+    <aspect name="Phenotype">
+        <subtitle></subtitle>
+        <icon-image>model/images/logo.png</icon-image>
+        <large-image>model/images/logo.png</large-image>
+        <intro-text>
+           Phenotype.
+        </intro-text>
+        <tile-name>model/zfin.jsp</tile-name>
+        <aspect-source name="ZFIN" url="http://zfin.org"/>
+    </aspect>
     <aspect name="Ontology">
         <subtitle></subtitle>
         <icon-image>model/images/logo.png</icon-image>
