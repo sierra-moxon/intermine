@@ -140,6 +140,8 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
             typedItem = getFeature(primaryIdentifier, "ComplexSubstitution");
         } else if (type.equals("TRANSGENIC_UNSPECIFIED")) {
             typedItem = getFeature(primaryIdentifier, "TransgenicInsertion");
+        } else if (type.equals("INDEL")) {
+            typedItem = getFeature(primaryIdentifier, "Indel");
         }
 
         return typedItem;

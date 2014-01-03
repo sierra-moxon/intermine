@@ -124,7 +124,7 @@ public class ZfinExpressionConverter extends BioFileConverter {
                     result.setReference("gene", gene);
                 } else {
                     Item gene = getEFG(genePrimaryIdentifier);
-                    result.setReference("EFG", gene);
+                    result.setReference("gene", gene);
                 }
             }
             if (!StringUtils.isEmpty(estId)) {
@@ -356,7 +356,7 @@ public class ZfinExpressionConverter extends BioFileConverter {
             throws SAXException {
         Item item = efgs.get(primaryIdentifier);
         if (item == null) {
-            item = createItem("EFG");
+            item = createItem("EngineeredForeignGene");
             item.setReference("organism", organismRefId);
             efgs.put(primaryIdentifier, item);
             try {

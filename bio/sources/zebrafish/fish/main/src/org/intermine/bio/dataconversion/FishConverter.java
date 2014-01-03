@@ -42,6 +42,7 @@ public class FishConverter extends ZfinDirectoryConverter {
     private Map<String, Item> terms = new HashMap();
     private Map<String, Item> constructs = new HashMap();
     private Map<String, Item> morphs = new HashMap();
+    private Map<String, Item> reagents = new HashMap();
     /**
      * Constructor
      * @param writer the ItemWriter used to handle the resultant items
@@ -256,11 +257,39 @@ public class FishConverter extends ZfinDirectoryConverter {
             typedItem = getFeature(primaryIdentifier,"ComplexSubstitution");
         } else if (type.equals("TRANSGENIC_UNSPECIFIED")) {
             typedItem = getFeature(primaryIdentifier,"TransgenicInsertion");
+        } else if (type.equals("INDEL")) {
+            typedItem = getFeature(primaryIdentifier,"Indel");
         } else if (type.equals("morpholino")) {
-            typedItem = getMorpholino(primaryIdentifier);
-        }
-
+	    if (StringUtils.substring(primaryIdentifier,0,9).equals("ZDB-TALEN")){
+		    typedItem = getReagent(primaryIdentifier);
+		    //System.out.println("talen found" + primaryIdentifier);
+	    }
+	    else if (StringUtils.substring(primaryIdentifier,0,10).equals("ZDB-CRISPR")){
+		typedItem = getReagent(primaryIdentifier);
+		//System.out.println("crispr found" + primaryIdentifier);
+	    }
+	    else if (StringUtils.substring(primaryIdentifier,0,11).equals("ZDB-MRPHLNO")){
+		    typedItem = getMorpholino(primaryIdentifier);
+		    // System.out.println("morpholino found" + primaryIdentifier);
+	    }
+	}
         return typedItem;
+    }
+
+    private Item getReagent(String primaryIdentifier) throws SAXException{
+        Item item = reagents.get(primaryIdentifier);
+        if (item == null) {
+            item = createItem("Reagent");
+            item.setAttribute("primaryIdentifier", primaryIdentifier);
+            reagents.put(primaryIdentifier, item);
+            try {
+                store(item);
+            } catch (ObjectStoreException e) {
+                throw new SAXException(e);
+            }
+        }
+	return item;
+
     }
 
     private Item getMorpholino(String primaryIdentifier) throws SAXException{
