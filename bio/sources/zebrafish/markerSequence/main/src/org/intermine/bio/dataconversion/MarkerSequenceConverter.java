@@ -94,12 +94,16 @@ public class MarkerSequenceConverter extends BioFileConverter {
             String stopOffset = line[3];
             String variation = line[4];
             String type = line[5];
+	    String sequence2 = line[6];
 
             if (!StringUtils.isEmpty(dataId)) {
                 Item mrkr = getTypedItem(dataId, type);
                 if (!StringUtils.isEmpty(seq)) {
                     Item sequence = getSeq(dataId, seq, variation, startOffset, stopOffset);
                     mrkr.addToCollection("sequences", sequence);
+		    if (!StringUtils.isEmpty(sequence2)){
+			mrkr.addToCollection("sequences",sequence);
+		    }
                     if (!StringUtils.isEmpty(variation)) {
                         sequence.setAttribute("variation", variation);
                     }
@@ -125,7 +129,13 @@ public class MarkerSequenceConverter extends BioFileConverter {
             typedItem = getMrkr(primaryIdentifier, "MorpholinoOligo");
         } else if (type.equals("SNP")) {
             typedItem = getMrkr(primaryIdentifier, "SNP");
-        } else {
+	} else if (type.equals("TALEN")){
+	    typedItem = getMrkr(primaryIdentifier, "Reagent");
+	} else if (type.equals("CRISPR")){
+	    typedItem = getMrkr(primaryIdentifier, "Reagent");
+        } else if (type.equals("SSLP")){
+            typedItem = getMrkr(primaryIdentifier, "SimpleSequenceLengthVariation");
+        }else {
             typedItem = getMrkr(primaryIdentifier, "Gene");
         }
 

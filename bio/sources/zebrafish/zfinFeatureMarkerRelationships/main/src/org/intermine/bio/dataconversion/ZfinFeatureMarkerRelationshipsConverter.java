@@ -46,6 +46,7 @@ public class ZfinFeatureMarkerRelationshipsConverter extends BioFileConverter {
     private Map<String, Item> rapds = new HashMap();
     private Map<String, Item> markers = new HashMap();
     private Map<String, Item> terms = new HashMap();
+    private Map<String, Item> reagents = new HashMap();
 
     public ZfinFeatureMarkerRelationshipsConverter(ItemWriter writer, Model model)
             throws ObjectStoreException {
@@ -68,6 +69,11 @@ public class ZfinFeatureMarkerRelationshipsConverter extends BioFileConverter {
                 //System.out.println(feature.getClassName());
                     store(construct);
                //System.out.println(feature.getAttribute("primaryIdentifier").toString());
+            }
+	    for (Item reagent : reagents.values()) {
+                System.out.println(reagent.getClassName());                                                                      
+		store(reagent);
+		//System.out.println(feature.getAttribute("primaryIdentifier").toString());                                         
             }
             for (Item dnaclone : DNAClones.values()) {
                 //System.out.println(feature.getClassName());
@@ -132,11 +138,15 @@ public class ZfinFeatureMarkerRelationshipsConverter extends BioFileConverter {
                         }     
 
                     } else if (relType.equals("contains innocuous sequence feature")) {
-			System.out.println("innocuous!" + marker.getAttribute("primaryIdentifier").toString());
+			//System.out.println("innocuous!" + marker.getAttribute("primaryIdentifier").toString());
 			marker.setAttribute("innocuouslyInserted", "true");
 		       marker.setAttribute("phenotypicallyInserted", "false");
 
-                    } else if (relType.equals("contains phenotypic sequence feature")) {
+                    } else if (relType.equals("created by")) {
+			System.out.println("created by found");
+			marker.setReference("creates", feature);
+			feature.setReference("createdBy", marker);
+		    } else if (relType.equals("contains phenotypic sequence feature")) {
                         marker.setAttribute("phenotypicallyInserted", "true");
 			marker.setAttribute("innocuouslyInserted", "false");
 
@@ -200,6 +210,10 @@ public class ZfinFeatureMarkerRelationshipsConverter extends BioFileConverter {
             typedItem = getRAPD(primaryIdentifier);
         } else if (primaryIdentifier.substring(0, 9).equals("ZDB-SSLP-")) {
             typedItem = getSSLP(primaryIdentifier);
+	} else if (primaryIdentifier.substring(0, 10).equals("ZDB-TALEN-")) {
+            typedItem = getReagent(primaryIdentifier);
+	} else if (primaryIdentifier.substring(0, 11).equals("ZDB-CRISPR-")) {
+            typedItem = getReagent(primaryIdentifier);
         } else {
             System.out.println("markerType not found! " + primaryIdentifier);
 
@@ -243,6 +257,24 @@ public class ZfinFeatureMarkerRelationshipsConverter extends BioFileConverter {
             }     */
         }
         return item;                                  
+    }
+
+    private Item getReagent(String primaryIdentifier)
+	throws SAXException {
+        Item item = reagents.get(primaryIdentifier);
+        if (item == null) {
+            item = createItem("Reagent");
+            item.setReference("organism", getOrganism("7955"));
+            item.setAttribute("primaryIdentifier", primaryIdentifier);
+            reagents.put(primaryIdentifier, item);
+            /*try {                                                                                                                
+                store(item);                                                                                                       
+            }                                                                                                                      
+            catch (ObjectStoreException e) {                                                                                       
+                throw new SAXException(e);                                                                                         
+		}     */
+        }
+        return item;
     }
 
     private Item getDNAClone(String primaryIdentifier)
@@ -342,7 +374,10 @@ public class ZfinFeatureMarkerRelationshipsConverter extends BioFileConverter {
             typedItem = getFeature(primaryIdentifier, "ComplexSubstitution");
         } else if (type.equals("TRANSGENIC_UNSPECIFIED")) {
             typedItem = getFeature(primaryIdentifier, "TransgenicInsertion");
-        } else {
+        } else if (type.equals("INDEL")) {
+            typedItem = getFeature(primaryIdentifier, "Indel");
+        }
+	else {
             System.out.println("Type not found " + type);
         }
         return typedItem;

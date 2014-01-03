@@ -123,6 +123,8 @@ public class MutagenMutageeConverter extends BioFileConverter
             typedItem = getFeature(featureId, "ComplexSubstitution");
         } else if (type.equals("TRANSGENIC_UNSPECIFIED")) {
             typedItem = getFeature(featureId, "TransgenicInsertion");
+        } else if (type.equals("INDEL")) {
+            typedItem = getFeature(featureId, "Indel");
         }
 
         return typedItem;

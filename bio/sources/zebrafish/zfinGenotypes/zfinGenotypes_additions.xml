@@ -17,34 +17,27 @@
 	<collection name="constructs" referenced-type="Construct"/>
 	<collection name="figures" referenced-type="Figure"/>
     </class>
-    <class name="Genotype" is-interface="true">
+ <class name="LoadedDate" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
-        <attribute name="genoDisplayName" type="java.lang.String"/>
-        <attribute name="genoHandle" type="java.lang.String"/>
-        <attribute name="parentalGenotype" type="java.lang.String"/>
-        <collection name="features" referenced-type="SequenceAlteration" reverse-reference="genotypes"/>
-        <collection name="genes" referenced-type="Gene" reverse-reference="genotypes"/>
-        <collection name="phenotypes" referenced-type="Phenotype" reverse-reference="genotype"/>
-        <collection name="expressions" referenced-type="Expression" reverse-reference="genotype"/>
-        <attribute name="backgrounds" type="java.lang.String"/>
-        <attribute name="isWildType" type="java.lang.Boolean"/>
-        <attribute name="isExtinct" type="java.lang.Boolean"/>
-        <reference name="organism" referenced-type="Organism"/>
-        <collection name="publications" referenced-type="Publication"/>
-    </class>
-    <class name="Intron" is-interface="true" extends="SequenceFeature">
-    </class>
-<!--
-    <class name="Feature" is-interface="true" extends="SequenceAlteration">
-        <attribute name="primaryIdentifier" type="java.lang.String"/>
-        <attribute name="featureId" type="java.lang.String"/>
-        <attribute name="featureZygosity" type="java.lang.String"/>
-        <attribute name="name" type="java.lang.String"/>
-        <attribute name="symbol" type="java.lang.String"/>
-        <attribute name="type" type="java.lang.String"/>
-        <collection name="genotypes" referenced-type="Genotype" reverse-reference="features"></collection>
-    </class>
--->
+        <attribute name="timestamp" type="java.lang.String"/>
+ </class>
+ <class name="Genotype" is-interface="true">
+   <attribute name="primaryIdentifier" type="java.lang.String"/>
+   <attribute name="genoDisplayName" type="java.lang.String"/>
+   <attribute name="genoHandle" type="java.lang.String"/>
+   <attribute name="parentalGenotype" type="java.lang.String"/>
+   <collection name="features" referenced-type="SequenceAlteration" reverse-reference="genotypes"/>
+   <collection name="genes" referenced-type="Gene" reverse-reference="genotypes"/>
+   <collection name="phenotypes" referenced-type="Phenotype" reverse-reference="genotype"/>
+   <collection name="expressions" referenced-type="Expression" reverse-reference="genotype"/>
+   <attribute name="backgrounds" type="java.lang.String"/>
+   <attribute name="isWildType" type="java.lang.Boolean"/>
+   <attribute name="isExtinct" type="java.lang.Boolean"/>
+   <reference name="organism" referenced-type="Organism"/>
+   <collection name="publications" referenced-type="Publication"/>
+ </class>
+ <class name="Intron" is-interface="true" extends="SequenceFeature">
+ </class>
     <class name="OmimPhenotype" is-interface="true">
         <collection name="genes" referenced-type="Gene" reverse-reference="omimPhenotypes"/>
         <reference name="phenotypeLink" referenced-type="CrossReference"/>
@@ -71,10 +64,8 @@
         <attribute name="ThisseCloneRating" type="java.lang.String"/>
         <reference name="organism" referenced-type="Organism"/>
         <!--<collection name="publications" referenced-type="Publication"/>-->
-        <collection name="genes" referenced-type="Gene" reverse-reference="encodes"/>
         <collection name="transcripts" referenced-type="Transcript" reverse-reference="clones"/>
-        <collection name="clones" referenced-type="Clone" reverse-reference="contains"/>
-        <collection name="contains" referenced-type="Clone" reverse-reference="clones"/>
+        <collection name="contains" referenced-type="SequenceFeature" reverse-reference="partOfClones"/>
         <collection name="artifacts" referenced-type="Gene" reverse-reference="cloneArtifacts"/>
         <!--<collection name="xternalLinks" referenced-type="ExternalLink"/>-->
     </class>
@@ -96,6 +87,7 @@
         <attribute name="featureId" type="java.lang.String"/>
         <attribute name="featureZygosity" type="java.lang.String"/>
         <reference name="featurePrefix" referenced-type="FeaturePrefix"/>
+	<reference name="createdBy" referenced-type="SequenceFeature"/>
     </class>
     <class name="SequenceFeature" is-interface="true">
         <collection name="missingFrom" referenced-type="SequenceAlteration" reverse-reference="markersMissing"/>
@@ -103,6 +95,14 @@
         <collection name="movedIn" referenced-type="SequenceAlteration" reverse-reference="markersMoved"/>
         <collection name="labOfOrigin" referenced-type="Lab" reverse-reference="lines"/>
         <collection name="sequences" referenced-type="Sequence"/>
+	<collection name="environmentalConditions" referenced-type="EnvironmentalCondition"
+		    reverse-reference="STR"/>
+	<collection name="codingSequenceOf" referenced-type="Construct" reverse-reference="codingSequences"/>
+	<collection name="targets" referenced-type="Gene" reverse-reference="sequencefeatures"/>
+	<reference name="creates" referenced-type="SequenceAlteration" reverse-reference="createdBy"/>
+	<collection name="encodes" referenced-type="SequenceFeature" reverse-reference="genesEncoded"/>
+	<collection name="genesEncoded" referenced-type="SequenceFeature" reverse-references="encodes"/>
+        <collection name="partOfClones" referenced-type="Clone" reverse-reference="contains"/>
     </class>
     <class name="Insertion" is-interface="true" extends="SequenceAlteration">
     </class>
@@ -123,6 +123,8 @@
     </class>
     <class name="PointMutation" is-interface="true" extends="SequenceAlteration">
     </class>
+    <class name="Indel" is-interface="true" extends="SequenceAlteration">
+    </class>
     <class name="Construct" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
         <attribute name="name" type="java.lang.String"/>
@@ -132,29 +134,26 @@
         <collection name="CDS" referenced-type="Gene"/>
         <collection name="Promoter" referenced-type="Gene"/>
         <collection name="publications" referenced-type="Publication"/>
-        <!--<collection name="EFGs" referenced-type="EFG" reverse-reference="constructs"/>-->
 	<collection name="engineeredRegions" referenced-type="Region"/>
-        <collection name="codingSequences" referenced-type="Gene" reverse-reference="codingSequenceOf"/>
+        <collection name="codingSequences" referenced-type="SequenceFeature" reverse-reference="codingSequenceOf"/>
         <collection name="promoters" referenced-type="Gene" reverse-reference="promotes"/>
         <collection name="crossReferences" referenced-type="CrossReference"/>
-        <!--<collection name="externalLinks" referenced-type="ExternalLink"/>-->
         <attribute name="phenotypicallyInserted" type="java.lang.String"/>
         <attribute name="innocuouslyInserted" type="java.lang.String"/>
         <collection name="insertedIn" referenced-type="TransgenicInsertion" reverse-reference="constructs"/>
     </class>
     <class name="Gene" extends="BioEntity" is-interface="true">
         <attribute name="symbol" type="java.lang.String"/>
-        <collection name="pathways" referenced-type="Pathway" reverse-reference="genes"/>
+        <collection name="hybridizedBySmallSegments" referenced-type="RNAClone"/>
+	<collection name="pathways" referenced-type="Pathway" reverse-reference="genes"/>
         <collection name="genotypes" referenced-type="Genotype" reverse-reference="genes"/>
         <collection name="expressions" referenced-type="Expression" reverse-reference="gene"/>
-        <collection name="encodes" referenced-type="Clone" reverse-reference="genes"/>
-        <collection name="morpholinos" referenced-type="MorpholinoOligo" reverse-reference="targets"/>
+        <collection name="sequencefeatures" referenced-type="SequenceFeature" reverse-reference="targets"/>
         <collection name="transcripts" referenced-type="Transcript" reverse-reference="gene"/>
         <collection name="antibodies" referenced-type="Antibody" reverse-reference="genes"/>
         <collection name="snps" referenced-type="SNP" reverse-reference="gene"/>
         <collection name="promotes" referenced-type="Construct" reverse-reference="promoters"/>
         <!--<collection name="publications" referenced-type="Publication"/>-->
-        <collection name="codingSequenceOf" referenced-type="Construct" reverse-reference="codingSequences"/>
         <collection name="cloneArtifacts" referenced-type="Clone" reverse-reference="artifacts"/>
         <!--<collection name="externalLinks" referenced-type="ExternalLink"/>-->
         <collection name="homologues" referenced-type="Homologue" reverse-reference="gene"/>
@@ -162,6 +161,7 @@
         <collection name="stss" referenced-type="STS" reverse-reference="genes"/>
         <collection name="chromosomes" referenced-type="Chromosome" reverse-reference="genes"/>
         <collection name="omimPhenotypes" referenced-type="OmimPhenotype" reverse-reference="genes"/>
+	<collection name="containsSmallSegments" referenced-type="RNAClone"/>
     </class>
     <class name="Chromosome" extends="BioEntity" is-interface="true">
         <attribute name="name" type="java.lang.String"/>
@@ -174,12 +174,14 @@
         <attribute name="type" type="java.lang.String"/>
         <attribute name="comments" type="java.lang.String"/>
         <reference name="organism" referenced-type="Organism"/>
-        <!--<collection name="publications" referenced-type="Publication"/>-->
-        <collection name="targets" referenced-type="Gene" reverse-reference="morpholinos"/>
-
-        <!--<collection name="externalLinks" referenced-type="ExternalLink"/>-->
-        <collection name="environmentalConditions" referenced-type="EnvironmentalCondition"
-                    reverse-reference="morpholino"/>
+    </class>
+    <class name="Reagent" is-interface="true" extends="SequenceFeature">
+        <attribute name="primaryIdentifier" type="java.lang.String"/>
+        <attribute name="name" type="java.lang.String"/>
+        <attribute name="symbol" type="java.lang.String"/>
+        <attribute name="type" type="java.lang.String"/>
+        <attribute name="comments" type="java.lang.String"/>
+        <reference name="organism" referenced-type="Organism"/>
     </class>
     <class name="Pseudogene" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
@@ -191,7 +193,6 @@
         <reference name="organism" referenced-type="Organism"/>
         <!--<collection name="externalLinks" referenced-type="ExternalLink"/>-->
         <collection name="proteins" referenced-type="Protein"/>
-        <collection name="encodes" referenced-type="Clone"/>
     </class>
     <class name="Transcript" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
@@ -282,18 +283,17 @@
         <collection name="genes" referenced-type="Gene" reverse-reference="stss"/>
         <!--<collection name="externalLinks" referenced-type="ExternalLink"/>-->
     </class>
-    <class name="EFG" is-interface="true">
+    <class name="EngineeredForeignGene" extends="Gene" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
         <attribute name="name" type="java.lang.String"/>
         <attribute name="symbol" type="java.lang.String"/>
         <attribute name="type" type="java.lang.String"/>
         <attribute name="comments" type="java.lang.String"/>
         <reference name="organism" referenced-type="Organism"/>
-        <collection name="publications" referenced-type="Publication"/>
-        <collection name="expressions" referenced-type="Expression" reverse-reference="EFG"/>
-        <collection name="crossReferences" referenced-type="CrossReference"/>
-        <!--<collection name="externalLinks" referenced-type="ExternalLink"/>-->
-        <collection name="promotes" referenced-type="Construct"/>
+        <!--<collection name="publications" referenced-type="Publication"/>-->
+        <!--<collection name="crossReferences" referenced-type="CrossReference"/>-->
+        <!--<collection name="externalLinks" referenced-type="ExternalLink"/>
+        <collection name="promotes" referenced-type="Construct"/>-->
     </class>
     <class name="Marker" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
@@ -345,7 +345,7 @@
         <attribute name="conditionGroup" type="java.lang.String"/>
         <attribute name="value" type="java.lang.String"/>
         <attribute name="unit" type="java.lang.String"/>
-        <reference name="morpholino" referenced-type="MorpholinoOligo" reverse-reference="environmentalConditions"/>
+        <reference name="STR" referenced-type="SequenceFeature" reverse-reference="environmentalConditions"/>
         <reference name="environment" referenced-type="Environment" reverse-reference="conditions"/>
     </class>
     <class name="Phenotype" is-interface="true">
@@ -383,7 +383,6 @@
         <attribute name="assay" type="java.lang.String"/>
         <reference name="probe" referenced-type="RNAClone" reverse-reference="expressions"/>
         <reference name="gene" referenced-type="Gene" reverse-reference="expressions"/>
-        <reference name="EFG" referenced-type="EFG" reverse-reference="expressions"/>
         <reference name="genotype" referenced-type="Genotype" reverse-reference="expressions"/>
         <reference name="environment" referenced-type="Environment" reverse-reference="expressions"/>
         <reference name="publication" referenced-type="Publication"/>
@@ -473,14 +472,13 @@
         <collection name="clones" referenced-type="Clone"/>
         <collection name="morpholinos" referenced-type="MorpholinoOligo"/>
         <collection name="transcripts" referenced-type="Transcript"/>
-        <collection name="EFGs" referenced-type="EFG"/>
+        <collection name="EngineeredForeignGenes" referenced-type="EngineeredForeignGene"/>
         <collection name="constructs" referenced-type="Construct"/>
         <collection name="STSs" referenced-type="STS"/>
         <collection name="SSLPs" referenced-type="SimpleSequenceLengthVariation"/>
         <collection name="SNPs" referenced-type="SNP"/>
         <collection name="antibodies" referenced-type="Antibody"/>
         <collection name="regions" referenced-type="Region"/>
-
         <collection name="expressions" referenced-type="Expression"/>
         <collection name="figures" referenced-type="Figure" reverse-reference="publication"/>
         <collection name="environments" referenced-type="Environment" reverse-reference="publication"/>

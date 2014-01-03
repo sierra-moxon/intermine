@@ -162,7 +162,9 @@ public class ZebrafishFeatureAliasesConverter extends BioFileConverter
             typedItem = getFeature(primaryIdentifier,"ComplexSubstitution");
         } else if (type.equals("TRANSGENIC_UNSPECIFIED")) {
             typedItem = getFeature(primaryIdentifier,"TransgenicInsertion");
-        }
+        } else if (type.equals("INDEL")) {
+            typedItem = getFeature(primaryIdentifier,"Indel");
+	}
 	else {
 	    typedItem = getFeature(primaryIdentifier,"SequenceAlteration");
 	}

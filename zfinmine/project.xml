@@ -16,6 +16,10 @@
         <source name="so" type="so">
             <property name="src.data.file" location="../../bio/sources/so/so.obo"/>
         </source>
+	<source name="dateLoaded" type="dateLoaded">
+	  <property name="src.data.dir" location="../data-sources/dataDate"/>
+	  <property name="src.data.dir.includes" value="*.txt"/>
+	</source>
         <source name="zfinSpatial" type="zfinSpatial">
             <property name="src.data.file" location="../data-sources/zfinSpatial/spatial.obo"/>
         </source>

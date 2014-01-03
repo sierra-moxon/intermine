@@ -152,6 +152,9 @@ public class zfin_genofeatsConverter extends BioFileConverter {
         } else if (type.equals("TRANSGENIC_UNSPECIFIED")) {
             typedItem = getFeature(primaryIdentifier, "TransgenicInsertion");
         }
+	else if (type.equals("INDEL")){
+	    typedItem = getFeature(primaryIdentifier,"Indel");
+	}
 
         return typedItem;
     }

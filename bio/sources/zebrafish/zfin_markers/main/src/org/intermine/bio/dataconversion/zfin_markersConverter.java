@@ -1,3 +1,4 @@
+
 package org.intermine.bio.dataconversion;
 
 /*
@@ -41,6 +42,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
 
     private Map<String, Item> links = new HashMap();
 
+    private Map<String, Item> reagents = new HashMap();
     private Map<String, Item> regions = new HashMap();
     private Map<String, Item> snps = new HashMap();
     private Map<String, Item> genes = new HashMap();
@@ -186,7 +188,6 @@ public class zfin_markersConverter extends BioDirectoryConverter {
             for (Item snp : snps.values()) {
                 store(snp);
             }
-
             for (Item antibody : antibodies.values()) {
                 store(antibody);
             }
@@ -196,6 +197,10 @@ public class zfin_markersConverter extends BioDirectoryConverter {
             for (Item mrph : mrphs.values()) {
                 store(mrph);
             }
+	    for (Item reagent : reagents.values()){
+                store(reagent);
+            }
+
             for (Item sslp : sslps.values()) {
                 store(sslp);
             }
@@ -574,17 +579,25 @@ public class zfin_markersConverter extends BioDirectoryConverter {
             String mrelType = line[1];
 
             if (!StringUtils.isEmpty(primaryIdentifier)) {
-
+		
                 Item item1 = null;
                 Item item2 = null;
-
-
+		
+		
                 if (mrelType.equals("clone contains gene")) {
-                    item1 = getTypedItem(mrel1);
-                    item2 = getGene(mrel2);
-                    item1.addToCollection("genes", item2);
-                }
-                if (mrelType.equals("clone contains transcript")) {
+		    if (!(StringUtils.substring(mrel1,0,7).equals("ZDB-STS"))){
+			item1 = getTypedItem(mrel1);	
+			if (StringUtils.substring(mrel2,0,9).equals("ZDB-GENEP")){
+			    item2 = getGeneP(mrel2);
+			    item1.addToCollection("contains", item2);
+			}
+			if (StringUtils.substring(mrel2,0,9).equals("ZDB-GENE-")){
+			    item2 = getGene(mrel2);
+			    item1.addToCollection("contains", item2);
+			}
+		    }
+		}
+		if (mrelType.equals("clone contains transcript")) {
                     item1 = getTypedItem(mrel1);
                     item2 = getTscript(mrel2);
                     item1.addToCollection("transcripts", item2);
@@ -597,24 +610,41 @@ public class zfin_markersConverter extends BioDirectoryConverter {
                     item1.addToCollection("overlapsWith", item2);
                     //item2.addToCollection("overlapsWith",item1);
                 }
+		
+		if (mrelType.equals("gene contains small segment")) {
+                    item1 = getGene(mrel1);
+                    item2 = getTypedItem(mrel2);
+                    item1.addToCollection("containsSmallSegments", item2);
+                    //item2.addToCollection("overlapsWith",item1);                                                                                                     
+                }
+		
+                if (mrelType.equals("gene hybridized by small segment")) {
+                    item1 = getTypedItem(mrel1);
+                    item2 = getTypedItem(mrel2);
+                    item1.addToCollection("hybridizedBySmallSegments", item2);
+                }
+		
                 if (mrelType.equals("coding sequence of")) {
-                    item1 = getGene(mrel2);
-                    item2 = getConstruct(mrel1);
-                    item2.addToCollection("codingSequences", item1);
+		    if (StringUtils.substring(mrel2,0,8).equals("ZDB-EFG-")){
+			item1 = getEFG(mrel2);
+		    }
+		    if (StringUtils.substring(mrel2,0,8).equals("ZDB-GENE")){
+                        item1 = getGene(mrel2);
+                    }
+		    if (StringUtils.substring(mrel2,0,12).equals("ZDB-TSCRIPT-")){
+                        item1 = getTscript(mrel2);
+                    }
+		    item2 = getConstruct(mrel1);
+		    item2.addToCollection("codingSequences", item1);
                     //item1.addToCollection("codingSequenceOf", item2);
                 }
 		if (mrelType.equals("contains engineered region")) {
                     item1 = getRegion(mrel2);
                     item2 = getConstruct(mrel1);
                     item2.addToCollection("engineeredRegions", item1);
-                    //item1.addToCollection("codingSequenceOf", item2);                                                                                              
+                    //item1.addToCollection("codingSequenceOf", item2);                                                                 \   
                 }
-		if (mrelType.equals("")) {
-                    item1 = getGene(mrel2);
-                    item2 = getConstruct(mrel1);
-                    item2.addToCollection("codingSequences", item1);
-                    //item1.addToCollection("codingSequenceOf", item2);                                                                                              
-                }
+
                 if (mrelType.equals("gene produces transcript")) {
                     if(mrel1.substring(0,10).equals("ZDB-GENE-P")) {
                         item1 = getGeneP(mrel1);
@@ -627,34 +657,47 @@ public class zfin_markersConverter extends BioDirectoryConverter {
                         item2.setReference("gene", item1);
                     }
                     //item1.addToCollection("transcripts",item2);
-
+		    
                 }
                 if (mrelType.equals("gene product recognized by antibody")) {
-                    item1 = getGene(mrel1);
-                    item2 = getAntibody(mrel2);
-                    item1.addToCollection("antibodies", item2);
-                    //item2.addToCollection("genes",item1);
+		    if (mrel1.substring(0,9).equals("ZDB-GENE-")){
+			item1 = getGene(mrel1);
+			item2 = getAntibody(mrel2);
+			item1.addToCollection("antibodies", item2);
+		    }
                 }
                 if (mrelType.equals("gene encodes small segment")) {
-                    if(mrel1.substring(0,10).equals("ZDB-GENE-P")) {
+                    if(mrel1.substring(0,10).equals("ZDB-GENEP-")) {
                         item1 = getGeneP(mrel1);
                         item2 = getTypedItem(mrel2);
                         item1.addToCollection("encodes", item2);
                     }
-                    else {
-
-                        item1 = getGeneP(mrel1);
+                    if (mrel1.substring(0,9).equals("ZDB-GENE-")){
+                        item1 = getGene(mrel1);
                         item2 = getTypedItem(mrel2);
                         item1.addToCollection("encodes", item2);
                         //item2.addToCollection("genes",item1);
                     }
-
                 }
                 if (mrelType.equals("knockdown reagent targets gene")) {
-                    item1 = getMrph(mrel1);
-                    item2 = getGene(mrel2);
-                    item1.addToCollection("targets", item2);
-                    //item2.addToCollection("morpholinos",item1);
+		    if (mrel1.substring(0,10).equals("ZDB-TALEN-"))  {
+			item1 = getReagent(mrel1);
+			item2 = getGene(mrel2);
+			item1.addToCollection("targets", item2);
+			//System.out.println("got a talen: " + mrel1);
+		    }
+		    else if (mrel1.substring(0,11).equals("ZDB-CRISPR-"))  {
+			item1 = getReagent(mrel1);
+			item2 = getGene(mrel2);
+			item1.addToCollection("targets", item2);
+			//System.out.println("got a crispr: " + mrel1);
+                    }
+		    else if (mrel1.substring(0,12).equals("ZDB-MRPHLNO-"))  {
+                        item1 = getMrph(mrel1);
+                        item2 = getGene(mrel2);
+                        item1.addToCollection("targets", item2);
+			//System.out.println("got a mrph: " + mrel1);
+                    }               
                 }
                 if (mrelType.equals("clone contains small segment")) {
                     item1 = getTypedItem(mrel1);
@@ -669,10 +712,12 @@ public class zfin_markersConverter extends BioDirectoryConverter {
                     //item2.addToCollection("constructs",item1);
                 }
                 if (mrelType.equals("contains polymorphism")) {
-                    item1 = getGene(mrel1);
-                    item2 = getSNP(mrel2);
-                    item1.addToCollection("snps", item2);
-                    //item2.addToCollection("genes",item1);
+		    if(mrel1.substring(0,9).equals("ZDB-GENE-")){
+			item1 = getGene(mrel1);
+			item2 = getSNP(mrel2);
+			item1.addToCollection("snps", item2);
+			//item2.addToCollection("genes",item1);
+		    }
                 }
                 if (mrelType.equals("gene has artifact")) {
                     item1 = getGene(mrel1);
@@ -703,24 +748,24 @@ public class zfin_markersConverter extends BioDirectoryConverter {
                     }
                     //item2.addToCollection("promoters",item1);
                 }
-
+		
             }
-
-        }
+	    
+	}
     }
-
-
+    
+    
     public void processMarkers(Reader reader) throws Exception {
-
+	
         Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
-
+	
         while (lineIter.hasNext()) {
             String[] line = (String[]) lineIter.next();
-
+	    
             if (line.length < 3) {
                 throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
             }
-
+	    
             String primaryIdentifier = line[0];
             String name = line[1];
             String abbrev = line[1];
@@ -728,13 +773,13 @@ public class zfin_markersConverter extends BioDirectoryConverter {
             String nameR = line[3];
 
             if (!StringUtils.isEmpty(primaryIdentifier)) {
-                    Item itemTypedItem = getTypedItem(primaryIdentifier);
-                    addProperties(itemTypedItem, primaryIdentifier, nameR, type, abbrev);
-                    addSynonym(itemTypedItem, "identifier", primaryIdentifier);
-                    addSynonym(itemTypedItem, "accession", primaryIdentifier);
+		Item itemTypedItem = getTypedItem(primaryIdentifier);
+		addProperties(itemTypedItem, primaryIdentifier, nameR, type, abbrev);
+		addSynonym(itemTypedItem, "identifier", primaryIdentifier);
+		addSynonym(itemTypedItem, "accession", primaryIdentifier);
             }
         } // end parsing of file
-
+	
         System.out.println("size of genes" + ":" + genes.size());
         System.out.println("size of antibodies" + ":" + antibodies.size());
         System.out.println("size of clones" + ":" + clones.size());
@@ -747,6 +792,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         System.out.println("size of constructs" + ":" + constructs.size());
         System.out.println("size of DNAClones" +":"+DNAclones.size());
         System.out.println("size of RNAClones" +":"+RNAclones.size());
+	System.out.println("size of Talens and Crisprs" +":"+reagents.size());
     }
 
     private void addSynonym(Item item, String type, String value)
@@ -772,80 +818,88 @@ public class zfin_markersConverter extends BioDirectoryConverter {
 
     private void addProperties(Item item, String primaryIdentifier, String name, String type, String abbrev)
             throws SAXException {
-        item.setAttribute("primaryIdentifier", primaryIdentifier);
-        item.setAttribute("name", name);
-        item.setAttribute("symbol", abbrev);
+        if (!StringUtils.isEmpty(primaryIdentifier)){
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
+	}
+        if (!StringUtils.isEmpty(name)){
+	    item.setAttribute("name", name);
+	}
+        if (!StringUtils.isEmpty(abbrev)){
+	    item.setAttribute("symbol", abbrev);
+	}
 	/*item.setAttribute("type", type);*/
     }
-
-    private Item getTypedTranscript (String type, String primaryIdentifier) throws SAXException{
-            Item typedTscript = null;
-            if (type.equals("antisense")){
-                typedTscript = getAntisenseTscript(primaryIdentifier);
-            }
-            else if (type.equals("V-gene")){
-                typedTscript = getVGeneTscript(primaryIdentifier);
-            }
-            else if (type.equals("aberrant processed transcript")){
-                typedTscript = getAbberantTscript(primaryIdentifier);
-            }
-            else if (type.equals("pseudogenic transcript")){
-                typedTscript =  getPseudogenicTrscript(primaryIdentifier);
-            }
-            else if (type.equals("polycistronic transcript")){
-                typedTscript =  getPolycistronicTscript(primaryIdentifier);
-            }
-            else if (type.equals("ncRNA")){
-                typedTscript = getNcRnaTscript(primaryIdentifier);
-            }
-            else if (type.equals("mRNA")){
-                typedTscript =  getMRnaTscript(primaryIdentifier);
-            }
-            else if (type.equals("piRNA")){
-                typedTscript =  getPiRnaTscript(primaryIdentifier);
-            }
-            else if (type.equals("miRNA")){
-                typedTscript =  getMiRnaTscript(primaryIdentifier);
-            }
-            else if (type.equals("pre miRNA")){
-                typedTscript =  getPreMiRnaTscript(primaryIdentifier);
-            }
-            else if (type.equals("rRNA")){
-                typedTscript =  getRRnaTscript(primaryIdentifier);
-            }
-            else if (type.equals("snRNA")){
-                typedTscript =  getSnRnaTscript(primaryIdentifier);
-            }
-            else if (type.equals("snoRNA")){
-                typedTscript =  getSnoRnaTscript(primaryIdentifier);
-            }
-            else if (type.equals("tRNA")){
-                typedTscript =  getTRnaTscript(primaryIdentifier);
-            }
-            else if (type.equals("transposable element")){
-                typedTscript =  getTElementTscript(primaryIdentifier);
-            }
-            else if (type.equals("transcript")){
-                typedTscript = getTscript(primaryIdentifier);
-            }
-            else if (type.equals("disrupted domain")){
-                typedTscript =  getDisruptedDomainTscript(primaryIdentifier);
-            }
-            else if (type.equals("lincRNA")){
-                typedTscript =  getLincRna(primaryIdentifier);
-            }
-            else{
-                typedTscript = getTscript(primaryIdentifier);
-            }
+    
+    private Item getTypedTranscript (String type, String primaryIdentifier) 
+	throws SAXException{
+	Item typedTscript = null;
+	if (type.equals("antisense")){
+	    typedTscript = getAntisenseTscript(primaryIdentifier);
+	}
+	else if (type.equals("V-gene")){
+	    typedTscript = getVGeneTscript(primaryIdentifier);
+	}
+	else if (type.equals("aberrant processed transcript")){
+	    typedTscript = getAbberantTscript(primaryIdentifier);
+	}
+	else if (type.equals("pseudogenic transcript")){
+	    typedTscript =  getPseudogenicTrscript(primaryIdentifier);
+	}
+	else if (type.equals("polycistronic transcript")){
+	    typedTscript =  getPolycistronicTscript(primaryIdentifier);
+	}
+	else if (type.equals("ncRNA")){
+	    typedTscript = getNcRnaTscript(primaryIdentifier);
+	}
+	else if (type.equals("mRNA")){
+	    typedTscript =  getMRnaTscript(primaryIdentifier);
+	}
+	else if (type.equals("piRNA")){
+	    typedTscript =  getPiRnaTscript(primaryIdentifier);
+	}
+	else if (type.equals("miRNA")){
+	    typedTscript =  getMiRnaTscript(primaryIdentifier);
+	}
+	else if (type.equals("pre miRNA")){
+	    typedTscript =  getPreMiRnaTscript(primaryIdentifier);
+	}
+	else if (type.equals("rRNA")){
+	    typedTscript =  getRRnaTscript(primaryIdentifier);
+	}
+	else if (type.equals("snRNA")){
+	    typedTscript =  getSnRnaTscript(primaryIdentifier);
+	}
+	else if (type.equals("snoRNA")){
+	    typedTscript =  getSnoRnaTscript(primaryIdentifier);
+	}
+	else if (type.equals("tRNA")){
+	    typedTscript =  getTRnaTscript(primaryIdentifier);
+	}
+	else if (type.equals("transposable element")){
+	    typedTscript =  getTElementTscript(primaryIdentifier);
+	}
+	else if (type.equals("transcript")){
+	    typedTscript = getTscript(primaryIdentifier);
+	}
+	else if (type.equals("disrupted domain")){
+	    typedTscript =  getDisruptedDomainTscript(primaryIdentifier);
+	}
+	else if (type.equals("lincRNA")){
+	    typedTscript =  getLincRna(primaryIdentifier);
+	}
+	else{
+	    typedTscript = getTscript(primaryIdentifier);
+	}
         return typedTscript;
     }
-
+    
 
     private Item getPolycistronicTscript(String primaryIdentifier) throws SAXException {
 
         Item item = polyTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("Polycistronic Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             polyTscripts.put(primaryIdentifier, item);
         }
@@ -856,6 +910,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = ncrnaTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             ncrnaTscripts.put(primaryIdentifier, item);
         }
@@ -866,6 +921,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = mrnaTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             mrnaTscripts.put(primaryIdentifier, item);
         }
@@ -876,6 +932,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = pirnaTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             pirnaTscripts.put(primaryIdentifier, item);
         }
@@ -886,6 +943,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = mirnaTscript.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             mirnaTscript.put(primaryIdentifier, item);
         }
@@ -896,6 +954,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = ncrnaTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             ncrnaTscripts.put(primaryIdentifier, item);
         }
@@ -906,6 +965,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = rnaTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             rnaTscripts.put(primaryIdentifier, item);
         }
@@ -916,6 +976,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = snrnaTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             snrnaTscripts.put(primaryIdentifier, item);
         }
@@ -926,6 +987,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = snornaTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             snornaTscripts.put(primaryIdentifier, item);
         }
@@ -936,6 +998,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = trnaTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             trnaTscripts.put(primaryIdentifier, item);
         }
@@ -946,6 +1009,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = telementTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             telementTscripts.put(primaryIdentifier, item);
         }
@@ -956,6 +1020,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = disrupteddomainTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             disrupteddomainTscripts.put(primaryIdentifier, item);
         }
@@ -966,6 +1031,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = lincrnaTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             lincrnaTscripts.put(primaryIdentifier, item);
         }
@@ -976,6 +1042,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = pseudogenicTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             pseudogenicTscripts.put(primaryIdentifier, item);
         }
@@ -986,6 +1053,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = abberantTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             abberantTscripts.put(primaryIdentifier, item);
         }
@@ -996,6 +1064,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = antisenseTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             antisenseTscripts.put(primaryIdentifier, item);
         }
@@ -1006,6 +1075,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = vgeneTscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("ncRNA Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             vgeneTscripts.put(primaryIdentifier, item);
         }
@@ -1013,7 +1083,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
     }
 
     private Item getTypedItem(String primaryIdentifier)
-            throws SAXException {
+	throws SAXException {
 
         Item typedItem = null;
 
@@ -1038,6 +1108,12 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         else if (primaryIdentifier.substring(0, 12).equals("ZDB-MRPHLNO-")) {
             typedItem = getMrph(primaryIdentifier);
         }
+        else if (primaryIdentifier.substring(0, 10).equals("ZDB-TALEN-")){
+            typedItem = getReagent(primaryIdentifier);
+	}
+        else if (primaryIdentifier.substring(0, 11).equals("ZDB-CRISPR-")){
+            typedItem = getReagent(primaryIdentifier);
+        }
         else if (primaryIdentifier.substring(0, 8).equals("ZDB-EST-")) {
             typedItem = getRNAClone(primaryIdentifier);
         }
@@ -1056,7 +1132,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         else if (primaryIdentifier.substring(0, 9).equals("ZDB-RAPD-")) {
             typedItem = getRAPD(primaryIdentifier);
         }
-        else if (primaryIdentifier.substring(0, 9).equals("ZDB-SSLP-")) {
+	else if (primaryIdentifier.substring(0, 9).equals("ZDB-SSLP-")) {
             typedItem = getSSLP(primaryIdentifier);
         }
         else if (primaryIdentifier.substring(0, 8).equals("ZDB-STS-")) {
@@ -1082,18 +1158,20 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         }
         else if (primaryIdentifier.substring(0, 12).equals("ZDB-PAC_END-")) {
             typedItem = getRNAClone(primaryIdentifier);
-        }
-        else {
-            System.out.println("Missing markertype: "+ primaryIdentifier);
-        }
-        return typedItem;
+	    
+	}else {
+		System.out.println("Missing markertype: "+ primaryIdentifier);
+	    }
+	return typedItem;
     }
+
 
     private Item getGene(String primaryIdentifier)
             throws SAXException {
         Item item = genes.get(primaryIdentifier);
         if (item == null) {
             item = createItem("Gene");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             genes.put(primaryIdentifier, item);
         }
@@ -1142,17 +1220,29 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = regions.get(primaryIdentifier);
         if (item == null) {
             item = createItem("Region");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955") );
             regions.put(primaryIdentifier, item);
         }
         return item;
     }
-
+    private Item getReagent(String primaryIdentifier)
+	throws SAXException {
+        Item item = reagents.get(primaryIdentifier);
+        if (item == null) {
+            item = createItem("Reagent");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
+            item.setReference("organism", getOrganism("7955") );
+            reagents.put(primaryIdentifier, item);
+        }
+        return item;
+    }
     private Item getAntibody(String primaryIdentifier)
             throws SAXException {
         Item item = antibodies.get(primaryIdentifier);
         if (item == null) {
             item = createItem("Antibody");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism",  getOrganism("7955"));
             antibodies.put(primaryIdentifier, item);
         }
@@ -1164,6 +1254,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = geneps.get(primaryIdentifier);
         if (item == null) {
             item = createItem("Pseudogene");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955"));
             geneps.put(primaryIdentifier, item);
         }
@@ -1175,8 +1266,9 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = constructs.get(primaryIdentifier);
         if (item == null) {
             item = createItem("Construct");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism",  getOrganism("7955"));
-            constructs.put(primaryIdentifier, item);
+	    constructs.put(primaryIdentifier, item);
         }
         return item;
     }
@@ -1186,6 +1278,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = stss.get(primaryIdentifier);
         if (item == null) {
             item = createItem("STS");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism",  getOrganism("7955"));
             stss.put(primaryIdentifier, item);
         }
@@ -1197,6 +1290,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = snps.get(primaryIdentifier);
         if (item == null) {
             item = createItem("SNP");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism",  getOrganism("7955"));
             snps.put(primaryIdentifier, item);
         }
@@ -1208,6 +1302,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = regions.get(primaryIdentifier);
         if (item == null) {
             item = createItem("Region");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism",  getOrganism("7955"));
             regions.put(primaryIdentifier, item);
         }
@@ -1220,6 +1315,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         if (item == null) {
             item = createItem("SimpleSequenceLengthVariation");
             item.setReference("organism", getOrganism("7955") );
+	    item.setAttribute("primaryIdentifier",primaryIdentifier);
             sslps.put(primaryIdentifier, item);
         }
         return item;
@@ -1230,6 +1326,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = rapds.get(primaryIdentifier);
         if (item == null) {
             item = createItem("RAPD");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism",  getOrganism("7955"));
             rapds.put(primaryIdentifier, item);
         }
@@ -1243,6 +1340,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = clones.get(primaryIdentifier);
         if (item == null) {
             item = createItem("Clone");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism",  getOrganism("7955"));
             clones.put(primaryIdentifier, item);
         }
@@ -1253,6 +1351,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = DNAclones.get(primaryIdentifier);
         if (item == null) {
             item = createItem("DNAClone");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism",  getOrganism("7955"));
             DNAclones.put(primaryIdentifier, item);
         }
@@ -1263,6 +1362,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = RNAclones.get(primaryIdentifier);
         if (item == null) {
             item = createItem("RNAClone");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955") );
             RNAclones.put(primaryIdentifier, item);
         }
@@ -1274,8 +1374,9 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = mrphs.get(primaryIdentifier);
         if (item == null) {
             item = createItem("MorpholinoOligo");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism",  getOrganism("7955"));
-            mrphs.put(primaryIdentifier, item);
+	    mrphs.put(primaryIdentifier, item);
         }
         return item;
     }
@@ -1285,6 +1386,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         Item item = tscripts.get(primaryIdentifier);
         if (item == null) {
             item = createItem("Transcript");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism",  getOrganism("7955"));
             tscripts.put(primaryIdentifier, item);
         }
@@ -1295,7 +1397,8 @@ public class zfin_markersConverter extends BioDirectoryConverter {
             throws SAXException {
         Item item = efgs.get(primaryIdentifier);
         if (item == null) {
-            item = createItem("EFG");
+            item = createItem("EngineeredForeignGene");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism",  getOrganism("7955"));
             efgs.put(primaryIdentifier, item);
         }
