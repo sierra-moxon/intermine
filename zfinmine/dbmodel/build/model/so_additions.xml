@@ -10,10 +10,12 @@
 <class name="Deletion" extends="SequenceAlteration" is-interface="true">
 	<reference name="chromosomalDeletion" referenced-type="ChromosomalDeletion" reverse-reference="deletions"/>
 </class>
+<class name="EngineeredForeignGene" extends="Gene" is-interface="true"></class>
 <class name="Gene" extends="SequenceFeature" is-interface="true">
 	<collection name="transcripts" referenced-type="Transcript" reverse-reference="gene"/>
 </class>
 <class name="Genotype" is-interface="true"></class>
+<class name="Indel" extends="SequenceAlteration" is-interface="true"></class>
 <class name="Insertion" extends="SequenceAlteration" is-interface="true"></class>
 <class name="Intron" extends="SequenceFeature" is-interface="true">
 	<reference name="transcript" referenced-type="Transcript" reverse-reference="introns"/>
