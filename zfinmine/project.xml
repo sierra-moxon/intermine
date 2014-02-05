@@ -18,7 +18,7 @@
         </source>
 	<source name="dateLoaded" type="dateLoaded">
 	  <property name="src.data.dir" location="../data-sources/dataDate"/>
-	  <property name="src.data.dir.includes" value="*.txt"/>
+	  <property name="src.data.includes" location="*.txt"/>
 	</source>
         <source name="zfinSpatial" type="zfinSpatial">
             <property name="src.data.file" location="../data-sources/zfinSpatial/spatial.obo"/>
