@@ -128,7 +128,7 @@ public class FishConverter extends ZfinDirectoryConverter {
             String affectorZdbId = line[6];
             String constructZdbId = line[8];
             String featureType = line[9];
-            //System.out.println("Gfrv: " + geneZdbId);
+            //System.out.println("Gfrv: " + primaryIdentifier);
             Item fish = null;
             if (!StringUtils.isEmpty(primaryIdentifier)) {
                 fish = getFish(primaryIdentifier);
@@ -235,6 +235,7 @@ public class FishConverter extends ZfinDirectoryConverter {
     private Item getTypedItem(String primaryIdentifier, String type) throws SAXException {
         Item typedItem = null;
 
+	System.out.println("primaryIdentifier " + primaryIdentifier +type); 
         if (type.equals("INSERTION")) {
             typedItem = getFeature(primaryIdentifier,"Insertion");
         } else if (type.equals("POINT_MUTATION")) {
@@ -259,7 +260,7 @@ public class FishConverter extends ZfinDirectoryConverter {
             typedItem = getFeature(primaryIdentifier,"TransgenicInsertion");
         } else if (type.equals("INDEL")) {
             typedItem = getFeature(primaryIdentifier,"Indel");
-        } else if (type.equals("morpholino")) {
+        } else if (type.equals("str")) {
 	    if (StringUtils.substring(primaryIdentifier,0,9).equals("ZDB-TALEN")){
 		    typedItem = getReagent(primaryIdentifier);
 		    //System.out.println("talen found" + primaryIdentifier);
@@ -269,7 +270,8 @@ public class FishConverter extends ZfinDirectoryConverter {
 		//System.out.println("crispr found" + primaryIdentifier);
 	    }
 	    else if (StringUtils.substring(primaryIdentifier,0,11).equals("ZDB-MRPHLNO")){
-		    typedItem = getMorpholino(primaryIdentifier);
+		System.out.println ("got a morpholino" + primaryIdentifier);    
+		typedItem = getMorpholino(primaryIdentifier);
 		    // System.out.println("morpholino found" + primaryIdentifier);
 	    }
 	}
@@ -295,9 +297,11 @@ public class FishConverter extends ZfinDirectoryConverter {
     private Item getMorpholino(String primaryIdentifier) throws SAXException{
         Item item = morphs.get(primaryIdentifier);
         if (item == null) {
+	    System.out.println("morph: " + primaryIdentifier);
             item = createItem("MorpholinoOligo");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
             morphs.put(primaryIdentifier, item);
+	    System.out.println("morph found: " +primaryIdentifier);
             try {
                 store(item);
             } catch (ObjectStoreException e) {
