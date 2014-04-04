@@ -114,18 +114,26 @@ if ((typeof intermine != 'undefined') && (intermine.Service != null)) {
         "help": "${WEB_PROPERTIES['feedback.destination']}"
     });
     var notification = new FailureNotification({message: $SERVICE.root + " is incorrect"});
-    $SERVICE.fetchVersion().fail(notification.render).done(function(v) {
-        console.log("Webservice is at version " + v);
-    });
-    if (intermine.widgets != null) {
+
+    $SERVICE.fetchVersion().then(reportVersion, notification.render);
+  
+    // Load list widgets.  
+    (function() {
+      if (window['list-widgets'] != null) {
         // Make sure we have all deps required in `global.web.properties`, otherwise we fail!!!
-        var opts = { 'root': $SERVICE.root, 'token': $SERVICE.token, 'skipDeps': true };
-        window.widgets = new intermine.widgets($SERVICE.root, $SERVICE.token, opts);
-    }
+        var ListWidgets = require('list-widgets');
+        window.widgets = new ListWidgets({ 'root': $SERVICE.root, 'token': $SERVICE.token });
+      }
+    })();
+    
     var ua = jQuery.browser; // kinda evil, but best way to do this for now
-    if (ua.msie && parseInt(ua.version, 10) < 9) {
+    if (ua && ua.msie && parseInt(ua.version, 10) < 9) { // removed in 1.9.1
         new Notification({message: '<fmt:message key="old.browser"/>'}).render();
     }
+}
+
+function reportVersion (v) {
+    console.log("Webservice is at version " + v);
 }
 
 $MODEL_TRANSLATION_TABLE = {
