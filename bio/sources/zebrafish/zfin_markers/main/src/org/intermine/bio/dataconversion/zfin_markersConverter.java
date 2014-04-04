@@ -634,6 +634,9 @@ public class zfin_markersConverter extends BioDirectoryConverter {
 		    if (StringUtils.substring(mrel2,0,12).equals("ZDB-TSCRIPT-")){
                         item1 = getTscript(mrel2);
                     }
+		    if (StringUtils.substring(mrel2,0,11).equals("ZDB-REGION-")){
+                        item1 = getRegion(mrel2);
+                    }
 		    item2 = getConstruct(mrel1);
 		    item2.addToCollection("codingSequences", item1);
                     //item1.addToCollection("codingSequenceOf", item2);
