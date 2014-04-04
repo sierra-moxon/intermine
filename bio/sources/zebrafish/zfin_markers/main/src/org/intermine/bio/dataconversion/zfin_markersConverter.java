@@ -583,6 +583,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
                 Item item1 = null;
                 Item item2 = null;
 		
+		System.out.println(primaryIdentifier+" "+mrel1+" "+mrel2+" "+mrelType);
 		
                 if (mrelType.equals("clone contains gene")) {
 		    if (!(StringUtils.substring(mrel1,0,7).equals("ZDB-STS"))){
@@ -637,6 +638,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
 		    if (StringUtils.substring(mrel2,0,11).equals("ZDB-REGION-")){
                         item1 = getRegion(mrel2);
                     }
+
 		    item2 = getConstruct(mrel1);
 		    item2.addToCollection("codingSequences", item1);
                     //item1.addToCollection("codingSequenceOf", item2);
@@ -687,7 +689,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
 			item1 = getReagent(mrel1);
 			item2 = getGene(mrel2);
 			item1.addToCollection("targets", item2);
-			//System.out.println("got a talen: " + mrel1);
+			System.out.println("got a talen: " + mrel1);
 		    }
 		    else if (mrel1.substring(0,11).equals("ZDB-CRISPR-"))  {
 			item1 = getReagent(mrel1);
@@ -699,7 +701,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
                         item1 = getMrph(mrel1);
                         item2 = getGene(mrel2);
                         item1.addToCollection("targets", item2);
-			//System.out.println("got a mrph: " + mrel1);
+			System.out.println("got a mrph: " + mrel1);
                     }               
                 }
                 if (mrelType.equals("clone contains small segment")) {
