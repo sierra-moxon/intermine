@@ -1,7 +1,7 @@
 package org.intermine.bio.dataconversion;
 
 /*
- * Copyright (C) 2002-2013 FlyMine
+ * Copyright (C) 2002-2014 FlyMine
  *
  * This code may be freely distributed and modified under the
  * terms of the GNU Lesser General Public Licence.  This should
@@ -108,7 +108,7 @@ public class EnsemblHgncConverter extends BioFileConverter
         Set<String> duplicateEnsembls = new HashSet<String>();
 
         // Read all lines into id pairs, track any ensembl ids or symbols that appear twice
-        Iterator lineIter = FormattedTextParser.parseTabDelimitedReader(reader);
+        Iterator<?> lineIter = FormattedTextParser.parseTabDelimitedReader(reader);
         while (lineIter.hasNext()) {
             String[] line = (String[]) lineIter.next();
             String ensembl = line[0];
@@ -166,6 +166,7 @@ public class EnsemblHgncConverter extends BioFileConverter
         storeSynonyms(ensemblSynonymsMap, "primaryIdentifier");
     }
 
+    @SuppressWarnings("unused")
     private void processEntrezIds(Reader reader) throws Exception {
         Set<String> chrs = getChromosomes();
 
@@ -174,7 +175,7 @@ public class EnsemblHgncConverter extends BioFileConverter
         Set<String> duplicateEnsembls = new HashSet<String>();
 
         // Read all lines into id pairs, track any ensembl ids mapped to more than one entrez id
-        Iterator lineIter = FormattedTextParser.parseTabDelimitedReader(reader);
+        Iterator<?> lineIter = FormattedTextParser.parseTabDelimitedReader(reader);
         while (lineIter.hasNext()) {
             String[] line = (String[]) lineIter.next();
             String ensembl = line[0];
@@ -239,6 +240,7 @@ public class EnsemblHgncConverter extends BioFileConverter
         Set<String> chrs = new HashSet<String>();
         chrs.add("X");
         chrs.add("Y");
+        chrs.add("MT");
         for (int i = 1; i <= 22; i++) {
             chrs.add("" + i);
         }
