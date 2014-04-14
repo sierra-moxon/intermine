@@ -264,7 +264,6 @@
       <fieldconfig  fieldExpr="conditionGroup"></fieldconfig>
       <fieldconfig  fieldExpr="value"></fieldconfig>
       <fieldconfig  fieldExpr="unit"></fieldconfig>
-      <fieldconfig  fieldExpr="morpholino.symbol"></fieldconfig>
       <fieldconfig  fieldExpr="environment"></fieldconfig>
    </fields>
 </class>
@@ -279,7 +278,6 @@
    <fields>
       <fieldconfig  fieldExpr="withText"></fieldconfig>
       <fieldconfig  fieldExpr="code.code"></fieldconfig>
-      <fieldconfig  fieldExpr="status"></fieldconfig>
    </fields>
 </class>
 <class className="org.intermine.model.bio.GenotypeEnvironment">
