@@ -82,6 +82,10 @@
             <property name="src.data.dir" location="../data-sources/zfin_features/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
+	<source name="featurePrefix" type="featurePrefix">
+	  <property name="src.data.dir" location="../data-sources/featurePrefix/"/>
+	  <property name="src.data.file" location="../data-sources/featurePrefix/feature-prefix.txt"/>
+	</source>
         <source name="zfinExperiments" type="zfinExperiments">
             <property name="src.data.dir" location="../data-sources/zfin_experiments/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
