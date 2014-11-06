@@ -1,0 +1,4 @@
+<project name="featurePrefix-tasks" default="default" basedir=".">
+  <description>build featurePrefix tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>
