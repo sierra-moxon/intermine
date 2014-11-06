@@ -96,6 +96,12 @@ public class ZfinOrthologuesConverter extends BioFileConverter {
 
             Item gene = getGene(genePrimaryIdentifier);
             Item ortho = getOrtho(orthoPrimaryIdentifier, orthoEvidenceCode, orthoPub);
+	    //System.out.println(orthoEvidenceCode);
+	    if (orthoPrimaryIdentifier.equals("ZDB-ORTHO-010125-2")){
+		System.out.println(orthoPrimaryIdentifier);
+		System.out.println (orthoEvidenceCode);
+		
+	    }
             Item externalGene = getExternalGene(orthoAbbrev, orthoName, orthoSpecies, orthoPrimaryIdentifier);
             Item externalLink = getExternalLink(dblinkPrimaryIdentifier, orthoAccession, orthoFdbType, orthoForeignDBName);
 
@@ -199,19 +205,24 @@ public class ZfinOrthologuesConverter extends BioFileConverter {
             item = createItem("Homologue");
             item.setAttribute("primaryIdentifier", orthoPrimaryIdentifier);
             orthos.put(orthoPrimaryIdentifier, item);
-            Item orthoEv = getOrthoEv(orthoPrimaryIdentifier, codeAbbrev, orthoPub);
-            item.addToCollection("evidence", orthoEv);
+	    //           Item orthoEv = getOrthoEv(orthoPrimaryIdentifier, codeAbbrev, orthoPub);
+            //item.addToCollection("evidence", orthoEv);
         }
+	Item orthoEv = getOrthoEv(orthoPrimaryIdentifier, codeAbbrev, orthoPub);
+	item.addToCollection("evidence", orthoEv);
         return item;
     }
 
     private Item getOrthoEv(String primaryIdentifier, String codeAbbrev, String orthoPub)
             throws SAXException {
         String orthoEvPK = primaryIdentifier.concat(codeAbbrev);
-        Item item = orthoEvs.get(orthoEvPK);
+	String fullKey = orthoEvPK.concat(orthoPub);
+	//System.out.println(fullKey);
+	Item item = orthoEvs.get(fullKey);
         if (item == null) {
             item = createItem("OrthologueEvidence");
             item.addToCollection("publications", getPub(orthoPub));
+	    item.setAttribute("primaryIdentifier", fullKey);
             orthoEvs.put(orthoEvPK, item);
             Item code = getCode(codeAbbrev);
             item.setReference("evidenceCode", code);
@@ -225,13 +236,14 @@ public class ZfinOrthologuesConverter extends BioFileConverter {
         return item;
     }
 
-    private Item getCode(String abbrev)
+    private Item getCode(String abbreviation)
             throws SAXException {
-        Item item = codes.get(abbrev);
+        Item item = codes.get(abbreviation);
         if (item == null) {
+	    System.out.println(abbreviation);
             item = createItem("OrthologueEvidenceCode");
-            item.setAttribute("abbreviation", abbrev);
-            codes.put(abbrev, item);
+            item.setAttribute("abbreviation", abbreviation);
+            codes.put(abbreviation, item);
             try {
                 store(item);
             }
