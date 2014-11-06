@@ -46,8 +46,7 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
     public void process(File directory) throws Exception {
         this.directory = directory;
         File featureFile = new File(directory.getCanonicalPath() + "/1features.txt");
-        FeaturePrefixConverter featurePrefixConverter = new FeaturePrefixConverter(this);
-        items.putAll(featurePrefixConverter.getFeaturePrefix());
+        
         processFeatures(new FileReader(featureFile));
         processSourceFeatures("feature-prefix-source.txt");
 
@@ -158,6 +157,7 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
 
         return item;
     }
+
 
 }
 
