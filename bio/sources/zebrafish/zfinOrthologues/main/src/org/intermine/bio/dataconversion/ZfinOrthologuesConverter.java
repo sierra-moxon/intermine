@@ -95,26 +95,30 @@ public class ZfinOrthologuesConverter extends BioFileConverter {
             String dblinkPrimaryIdentifier = line[14];
 
             Item gene = getGene(genePrimaryIdentifier);
+	    
             Item ortho = getOrtho(orthoPrimaryIdentifier, orthoEvidenceCode, orthoPub);
 	    //System.out.println(orthoEvidenceCode);
-	    if (orthoPrimaryIdentifier.equals("ZDB-ORTHO-010125-2")){
+	    if (orthoPrimaryIdentifier.equals("ZDB-ORTHO-050503-12")){
 		System.out.println(orthoPrimaryIdentifier);
 		System.out.println (orthoEvidenceCode);
-		
+		System.out.println(genePrimaryIdentifier);
+		//System.out.println(gene.getReference("PrimaryIdentifier"));
 	    }
             Item externalGene = getExternalGene(orthoAbbrev, orthoName, orthoSpecies, orthoPrimaryIdentifier);
             Item externalLink = getExternalLink(dblinkPrimaryIdentifier, orthoAccession, orthoFdbType, orthoForeignDBName);
 
             ortho.setReference("gene", gene);
-            ortho.setReference("homologue", externalGene);
-            ortho.setAttribute("type", "orthologue");
+	    //	    System.out.println (ortho.getAttribute("PrimaryIdentifier"));
 
+	    ortho.setReference("homologue", externalGene);
+            ortho.setAttribute("type", "orthologue");
 
             ortho.addToCollection("crossReferences", externalLink);
             if (!StringUtils.isEmpty(orthoLG)) {
                 ortho.setAttribute("Chromosome", orthoLG);
             }
             gene.addToCollection("homologues", ortho);
+
 
         }
     }
@@ -175,18 +179,19 @@ public class ZfinOrthologuesConverter extends BioFileConverter {
 
     private Item getExternalGene(String orthoAbbrev, String orthoName, String orthoSpecies, String orthoPrimaryIdentifier)
             throws SAXException {
-        Item item = externalGenes.get(orthoName);
+        Item item = externalGenes.get(orthoName.concat(orthoSpecies));
         if (item == null) {
             item = createItem("Gene");
             if (!StringUtils.isEmpty(orthoName)) {
                 item.setAttribute("name", orthoName);
             } else {
+		System.out.println("is OrthoName null");
                 System.out.println(orthoAbbrev);
             }
             item.setAttribute("symbol", orthoAbbrev);
             item.setAttribute("primaryIdentifier", orthoPrimaryIdentifier);
             item.setReference("organism", getOrganism(getTaxon(orthoSpecies)));
-            externalGenes.put(orthoName, item);
+            externalGenes.put(orthoName.concat(orthoSpecies), item);
             try {
                 store(item);
             }
