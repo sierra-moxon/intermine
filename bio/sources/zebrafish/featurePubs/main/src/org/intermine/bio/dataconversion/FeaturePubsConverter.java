@@ -88,8 +88,8 @@ public class FeaturePubsConverter extends BioFileConverter
                 throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
             }
 
-            String dataId = line[0];
-            String pubId = line[1];
+            String dataId = line[1];
+            String pubId = line[2];
 	    String type = line[3];
 	    String featureType = line[4];
 		
