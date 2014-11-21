@@ -48,7 +48,7 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
         File featureFile = new File(directory.getCanonicalPath() + "/1features.txt");
         
         processFeatures(new FileReader(featureFile));
-        processSourceFeatures("feature-prefix-source.txt");
+	//      processSourceFeatures("feature-prefix-source.txt");
 
         try {
             storeAll(items, "Lab");
@@ -57,15 +57,15 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
         }
     }
 
-    private void processSourceFeatures(String file) throws Exception {
+    // private void processSourceFeatures(String file) throws Exception {
 
-        SpecificationSheet specSheet = new SpecificationSheet();
-        specSheet.addColumnDefinition(new ColumnDefinition("FeaturePrefix"));
-        specSheet.addColumnDefinition(new ColumnDefinition("FeaturePrefix", "labs", true, "Lab"));
-        specSheet.setItemMap(items);
-        specSheet.setFileName(file);
-        processFile(specSheet);
-    }
+    //  SpecificationSheet specSheet = new SpecificationSheet();
+    //  specSheet.addColumnDefinition(new ColumnDefinition("FeaturePrefix"));
+    //  specSheet.addColumnDefinition(new ColumnDefinition("FeaturePrefix", "labs", true, "Lab"));
+    //  specSheet.setItemMap(items);
+    //  specSheet.setFileName(file);
+    //  processFile(specSheet);
+    //}
 
     public void processFeatures(Reader reader) throws Exception {
 
