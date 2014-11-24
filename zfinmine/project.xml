@@ -38,9 +38,9 @@
         <source name="mpath" type="mpath">
             <property name="src.data.file" location="../data-sources/mpath/mpath.obo"/>
         </source>
-        <source name="uberon" type="uberon" dump="true">
+<!--        <source name="uberon" type="uberon" dump="true">
             <property name="src.data.file" location="../data-sources/uberon/uberon.obo"/>
-        </source>
+        </source>-->
 	<source name="ontologySubset" type="ontologySubset">
             <property name="src.data.dir" location="../data-sources/ontologySubset/"/>
 	    <property name="src.data.dir.includes" value="*.txt"/>
