@@ -61,10 +61,10 @@ public class ZfinExpressionConverter extends BioFileConverter {
         super(writer, model, "ZFIN", "Curated Expression");
 
         //create and store organism
-        Item organism = createItem("Organism");
-        organism.setAttribute("taxonId", "7955");
-        store(organism);
-        organismRefId = organism.getIdentifier();
+	//        Item organism = createItem("Organism");
+        //organism.setAttribute("taxonId", "7955");
+        //store(organism);
+        //organismRefId = organism.getIdentifier();
     }
 
     public void process(Reader reader) throws Exception, SAXException {
@@ -269,7 +269,7 @@ public class ZfinExpressionConverter extends BioFileConverter {
         if (item == null) {
             item = createItem("Antibody");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
-	    item.setReference("organism", organismRefId);
+	    item.setReference("organism", getOrganism("7955"));
             atbs.put(primaryIdentifier, item);
             try {
                 store(item);
@@ -288,7 +288,7 @@ public class ZfinExpressionConverter extends BioFileConverter {
         if (item == null) {
             item = createItem("RNAClone");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
-	    item.setReference("organism", organismRefId);
+	    item.setReference("organism", getOrganism("7955"));
 	    ESTs.put(primaryIdentifier, item);
 
             try {
@@ -308,7 +308,8 @@ public class ZfinExpressionConverter extends BioFileConverter {
         if (genox2 == null) {
             genox2 = createItem("Genotype");
             genox2.setAttribute("primaryIdentifier", primaryIdentifier);
-	    genox2.setReference("organism", organismRefId);
+	    genox2.setReference("organism", getOrganism("7955"));
+	    
             genotypes.put(primaryIdentifier, genox2);
             try {
                 store(genox2);
@@ -339,12 +340,12 @@ public class ZfinExpressionConverter extends BioFileConverter {
 
     private Item getGene(String primaryIdentifier)
             throws SAXException {
-        Item item = genes.get(primaryIdentifier);
-        if (item == null) {
-            item = createItem("Gene");
-            item.setAttribute("primaryIdentifier", primaryIdentifier);
-	    item.setReference("organism", organismRefId);
-	    genes.put(primaryIdentifier, item);
+        Item item = genes.get(primaryIdentifier) ;
+         if (item == null) {
+             item = createItem("Gene");
+             item.setAttribute("primaryIdentifier", primaryIdentifier);
+	     item.setReference("organism", getOrganism("7955"));
+	     genes.put(primaryIdentifier, item);
             try {
                 store(item);
             } catch (ObjectStoreException e) {
@@ -361,7 +362,7 @@ public class ZfinExpressionConverter extends BioFileConverter {
         Item item = efgs.get(primaryIdentifier);
         if (item == null) {
             item = createItem("EngineeredForeignGene");
-            item.setReference("organism", organismRefId);
+            item.setReference("organism", getOrganism("7955"));
             efgs.put(primaryIdentifier, item);
             try {
                 store(item);
