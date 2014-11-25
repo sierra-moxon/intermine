@@ -90,9 +90,12 @@ public class zfin_markersConverter extends BioDirectoryConverter {
      * @param model  the Model
      * @throws ObjectStoreException if an error occurs in storing
      */
-    public zfin_markersConverter(ItemWriter writer, Model model)
-            throws ObjectStoreException {
-        super(writer, model, "ZFIN", "Genes/Markers/Clones");
+    private static final String DATASET_TITLE = "Genes, Markers, and Clones";
+    private static final String DATA_SOURCE_NAME = "ZFIN";
+
+
+    public zfin_markersConverter(ItemWriter writer, Model model){
+        super(writer, model, DATA_SOURCE_NAME, DATASET_TITLE);
 
     }
 
