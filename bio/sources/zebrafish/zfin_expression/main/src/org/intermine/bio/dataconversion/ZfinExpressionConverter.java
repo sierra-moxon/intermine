@@ -269,6 +269,7 @@ public class ZfinExpressionConverter extends BioFileConverter {
         if (item == null) {
             item = createItem("Antibody");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
+	    item.setReference("organism", organismRefId);
             atbs.put(primaryIdentifier, item);
             try {
                 store(item);
@@ -287,7 +288,8 @@ public class ZfinExpressionConverter extends BioFileConverter {
         if (item == null) {
             item = createItem("RNAClone");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
-            ESTs.put(primaryIdentifier, item);
+	    item.setReference("organism", organismRefId);
+	    ESTs.put(primaryIdentifier, item);
 
             try {
                 store(item);
@@ -306,6 +308,7 @@ public class ZfinExpressionConverter extends BioFileConverter {
         if (genox2 == null) {
             genox2 = createItem("Genotype");
             genox2.setAttribute("primaryIdentifier", primaryIdentifier);
+	    genox2.setReference("organism", organismRefId);
             genotypes.put(primaryIdentifier, genox2);
             try {
                 store(genox2);
@@ -340,7 +343,8 @@ public class ZfinExpressionConverter extends BioFileConverter {
         if (item == null) {
             item = createItem("Gene");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
-            genes.put(primaryIdentifier, item);
+	    item.setReference("organism", organismRefId);
+	    genes.put(primaryIdentifier, item);
             try {
                 store(item);
             } catch (ObjectStoreException e) {
