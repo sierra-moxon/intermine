@@ -109,12 +109,12 @@
             <property name="src.data.dir" location="../data-sources/zfin_fmrels/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-        <source name="flybase-identifiers" type="flybase-identifiers" dump="true">
+<!--        <source name="flybase-identifiers" type="flybase-identifiers" dump="true">
             <property name="src.data.dir" location="../data-sources/flybase-identifiers"/>
         </source>
         <source name="mgi-identifiers" type="mgi-identifiers" dump="true">
             <property name="src.data.dir" location="../data-sources/mgi-identifiers"/>
-        </source>
+        </source> -->
         <source name="zfinFigures" type="zfinFigures">
             <property name="src.data.dir" location="../data-sources/zfin_figures/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
@@ -132,10 +132,10 @@
             <property name="src.data.dir" location="../data-sources/zfin_orthos/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-        <source name="zebrafishPanther" type="zebrafishPanther">
+<!--        <source name="zebrafishPanther" type="zebrafishPanther">
             <property name="src.data.dir" location="../data-sources/panther/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
-        </source>
+        </source>-->
         <source name="genotypeAliases" type="genotypeAliases">
             <property name="src.data.dir" location="../data-sources/genotype_alias"/>
             <property name="src.data.dir.includes" value="*.txt"/>

@@ -194,7 +194,8 @@ public class FishConverter extends ZfinDirectoryConverter {
         if (item == null) {
             item = createItem("Gene");
             item.setAttribute("primaryIdentifier", geneZdbId);
-            genes.put(geneZdbId, item);
+            item.setReference("organism", getOrganism("7955"));
+	    genes.put(geneZdbId, item);
             try {
                 store(item);
             } catch (ObjectStoreException e) {
@@ -209,6 +210,7 @@ public class FishConverter extends ZfinDirectoryConverter {
         if (item == null) {
             item = createItem("Construct");
             item.setAttribute("primaryIdentifier", constructZdbId);
+	    item.setReference("organism", getOrganism("7955"));
             constructs.put(constructZdbId, item);
             try {
                 store(item);
@@ -283,6 +285,7 @@ public class FishConverter extends ZfinDirectoryConverter {
         if (item == null) {
             item = createItem("Reagent");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
+	    item.setReference("organism", getOrganism("7955"));
             reagents.put(primaryIdentifier, item);
             try {
                 store(item);
@@ -300,6 +303,7 @@ public class FishConverter extends ZfinDirectoryConverter {
 	    System.out.println("morph: " + primaryIdentifier);
             item = createItem("MorpholinoOligo");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
+	    item.setReference("organism", getOrganism("7955"));
             morphs.put(primaryIdentifier, item);
 	    System.out.println("morph found: " +primaryIdentifier);
             try {
