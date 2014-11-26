@@ -162,7 +162,7 @@
         </source>
         <source name="zfin_expression" type="zfin_expression" dump="true">
             <property name="src.data.dir" location="../data-sources/zfin_expression/"/>
-            <property name="src.data.dir.includes" value="*.txt"/>
+            <property name="src.data.dir.includes" value="*.txt"/> 
         </source>
         <source name="zfin_phenotypes" type="zfin_phenotypes">
             <property name="src.data.dir" location="../data-sources/zfin_phenotypes/"/>
