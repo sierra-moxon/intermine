@@ -308,7 +308,7 @@ public class ZfinExpressionConverter extends BioFileConverter {
         if (genox2 == null) {
             genox2 = createItem("Genotype");
             genox2.setAttribute("primaryIdentifier", primaryIdentifier);
-	    genox2.setReference("organism", getOrganism("7955"));
+	    //genox2.setReference("organism", getOrganism("7955"));
             genotypes.put(primaryIdentifier, genox2);
             try {
                 store(genox2);
