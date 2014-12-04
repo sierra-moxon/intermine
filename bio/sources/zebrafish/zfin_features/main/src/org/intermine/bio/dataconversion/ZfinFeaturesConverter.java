@@ -50,11 +50,13 @@ public class ZfinFeaturesConverter extends ZfinDirectoryConverter {
         processFeatures(new FileReader(featureFile));
 	//      processSourceFeatures("feature-prefix-source.txt");
 
-        try {
-            storeAll(items, "Lab");
-        } catch (ObjectStoreException e) {
-            throw new Exception(e);
-        }
+	try {
+	    for (Item feature : items.values()){
+		store(feature);
+	    }
+	} catch (ObjectStoreException e) {
+	    throw new Exception(e);
+	}
     }
 
     // private void processSourceFeatures(String file) throws Exception {
