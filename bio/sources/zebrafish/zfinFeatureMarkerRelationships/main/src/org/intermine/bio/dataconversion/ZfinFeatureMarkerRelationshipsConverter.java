@@ -124,58 +124,55 @@ public class ZfinFeatureMarkerRelationshipsConverter extends BioFileConverter {
 
             if (!StringUtils.isEmpty(featurePrimaryIdentifier)) {
                 if (!StringUtils.isEmpty(markerPrimaryIdentifier)) {
-
+		    
                     Item feature = getTypedFeature(featurePrimaryIdentifier, type);
-
+		    
                     Item marker = getTypedItem(markerPrimaryIdentifier);
-
+		    
                     if (relType.equals("is allele of")) {
-                        if (markerPrimaryIdentifier.substring(6, 15).equals("CONSTRCT-")) {
-                            feature.addToCollection("insertionConstructs", marker);
-                        } else {
-
-                            feature.addToCollection("genes", marker);
-                        }     
-
-                    } else if (relType.equals("contains innocuous sequence feature")) {
+			feature.addToCollection("genes", marker);
+		    }     
+		    
+		    else if (relType.equals("contains innocuous sequence feature")) {
 			//System.out.println("innocuous!" + marker.getAttribute("primaryIdentifier").toString());
 			marker.setAttribute("innocuouslyInserted", "true");
-		       marker.setAttribute("phenotypicallyInserted", "false");
-
-                    } else if (relType.equals("created by")) {
+			marker.setAttribute("phenotypicallyInserted", "false");
+			feature.addToCollection("constructs",marker);
+		    } else if (relType.equals("created by")) {
 			System.out.println("created by found");
 			marker.setReference("creates", feature);
 			feature.setReference("createdBy", marker);
 		    } else if (relType.equals("contains phenotypic sequence feature")) {
-                        marker.setAttribute("phenotypicallyInserted", "true");
+			marker.setAttribute("phenotypicallyInserted", "true");
 			marker.setAttribute("innocuouslyInserted", "false");
-
-                    } else if (relType.equals("markers present")) {
-                        feature.addToCollection("markersPresent", marker);
-
-                    } else if (relType.equals("markers missing")) {
-                        feature.addToCollection("markersMissing", marker);
-
-                    } else if (relType.equals("markers moved")) {
-                        feature.addToCollection("markersMoved", marker);
-                        
-                    } else {
-                        System.out.println("relType not found! " + relType);
-                        if (marker == null){
-                            throw new SAXException();
-
-                        }
-                        if (feature == null){
-                            throw new SAXException();
-
-                        }
-                    }
-                    //TODO: set synonym relationships
-                }
-
-
-            }
-        }
+			feature.addToCollection("constructs",marker);
+			
+		    } else if (relType.equals("markers present")) {
+			feature.addToCollection("markersPresent", marker);
+			
+		    } else if (relType.equals("markers missing")) {
+			feature.addToCollection("markersMissing", marker);
+			
+		    } else if (relType.equals("markers moved")) {
+			feature.addToCollection("markersMoved", marker);
+			
+		    } else {
+			System.out.println("relType not found! " + relType);
+			if (marker == null){
+			    throw new SAXException();
+			    
+			}
+		    }
+		    if (feature == null){
+			throw new SAXException();
+			
+		    }
+		}
+		//TODO: set synonym relationships
+	    }
+	    
+	    
+	}
     }
 
     private Item getTypedItem(String primaryIdentifier)

@@ -1,0 +1,4 @@
+<project name="labLines-tasks" default="default" basedir=".">
+  <description>build labLines tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>
