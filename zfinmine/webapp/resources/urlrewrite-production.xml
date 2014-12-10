@@ -11,15 +11,10 @@
 <urlrewrite>
 
     <rule>
-        <from>^/zebrafishmine/(.*)$</from>
-        <to type="redirect">/$1</to>
-    </rule>
-
-    <rule>
         <name>Domain Name Check</name>
         <condition name="host" operator="notequal">zebrafishmine.org</condition>
-        <from>^(.*)$</from>
-        <to type="redirect">http://zebrafishmine.org/</to>
+        <from>^.(.*)$</from>
+        <to type="redirect">http://zebrafishmine.org/$1</to>
     </rule>
 
     <!--   <rule>
