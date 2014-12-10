@@ -23,16 +23,14 @@
         <to type="redirect">http://zebrafishmine.org/context$1</to>
     </rule>
 -->
-    <!--   <rule>
-           <note>
-               The rule means that requests to this context will be redirected to /default context
-               the url will be rewritten.
-           </note>
-           <from>/</from>
-           <to type="redirect">http://zebrafishmine.org/</to>
-       </rule>
 
-   -->
+    <rule>
+        <name>Domain Name Check</name>
+        <condition name="host" operator="notequal">zebrafishmine.org</condition>
+        <from>^.(.*)$</from>
+        <to type="redirect">http://zebrafishmine.org/$1</to>
+    </rule>
+
     <!--
 
     INSTALLATION
