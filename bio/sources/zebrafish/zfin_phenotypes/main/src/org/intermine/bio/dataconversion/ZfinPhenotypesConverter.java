@@ -105,6 +105,7 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
             String qualityId = line[10];
 	    String genoId = line[11];
 	    String expId = line[12];
+	    String monogenic = line[13];
 
             Item apato = getPheno(phenosId);
 	    
@@ -155,7 +156,10 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
             if (!StringUtils.isEmpty(tag)) {
                 apato.setAttribute("tag", tag);
             }
-
+	    if (!StringUtils.isEmpty(monogenic)){
+		System.out.println("found flag:" + monogenic);
+		apato.setAttribute("phenotypeIsMonogenic",monogenic);
+	    }
         }
     }
 

@@ -1,5 +1,0 @@
-<project name="dataSourceSupplier" default="default" basedir=".">
-  <description>build, test, package dataSourceSupplier</description>
-  
-  <import file="../../../../imbuild/source.xml"/>
-</project>

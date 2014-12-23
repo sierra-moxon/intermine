@@ -1,4 +1,0 @@
-<project name="dataSourceSupplier-tasks" default="default" basedir=".">
-  <description>build dataSourceSupplier tasks</description>
-  <import file="../../../../../imbuild/library.xml"/> 
-</project>
