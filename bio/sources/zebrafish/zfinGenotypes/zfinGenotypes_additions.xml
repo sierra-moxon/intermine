@@ -363,6 +363,7 @@
         <reference name="phenotypeTerm" referenced-type="PATOTerm"/>
         <attribute name="tag" type="java.lang.String"/>
         <reference name="figure" referenced-type="Figure" reverse-reference="phenotypes"/>
+	<attribute name="phenotypeIsMonogenic" type="java.lang.String"/>
     </class>
     <!--    <class name="PATOTerm" extends="OntologyTerm" is-interface="true">
             <collection name="phenotypes" referenced-type="Phenotype" reverse-reference="phenotypeTerm"/>
