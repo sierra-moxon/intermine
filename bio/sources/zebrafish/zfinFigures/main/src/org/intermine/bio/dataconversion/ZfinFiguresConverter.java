@@ -59,7 +59,7 @@ public class ZfinFiguresConverter extends BioFileConverter {
 
         while (lineIter.hasNext()) {
             String[] line = (String[]) lineIter.next();
-            if (line.length < 3) {
+            if (line.length < 4) {
                 throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
             }
 
