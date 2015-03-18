@@ -32,12 +32,12 @@
         <source name="pato" type="pato">
             <property name="src.data.file" location="../data-sources/zfin_pato/quality.obo"/>
         </source>
-        <source name="medic" type="medic">
+<!--        <source name="medic" type="medic">
             <property name="src.data.file" location="../data-sources/medic/medic.obo"/>
-        </source>
+        </source> 
         <source name="mpath" type="mpath">
             <property name="src.data.file" location="../data-sources/mpath/mpath.obo"/>
-        </source>
+        </source>-->
 <!--        <source name="uberon" type="uberon" dump="true">
             <property name="src.data.file" location="../data-sources/uberon/uberon.obo"/>
         </source>-->
