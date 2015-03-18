@@ -54,7 +54,7 @@ public class PersonConverter extends ZfinDirectoryConverter {
         this.directory = directory;
         try {
             processPerson("1person.txt");
-            File personAssociationFile = new File(directory.getCanonicalPath() + "/person_associations.txt");
+            File personAssociationFile = new File(directory.getCanonicalPath() + "/1person_associations.txt");
             processPersonAssociation(new FileReader(personAssociationFile));
         } catch (IOException err) {
             throw new RuntimeException("error reading personFile", err);
