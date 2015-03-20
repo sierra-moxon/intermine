@@ -84,10 +84,10 @@ public class MutagenMutageeConverter extends BioFileConverter
 
             Item feature;
 
-            if (!StringUtils.isEmpty(featureId)) {
+            if (!StringUtils.isEmpty(featureId) && !StringUtils.isEmpty(type)) {
                 feature = getTypedItem(featureId, type);
 
-                if (!StringUtils.isEmpty(mutagen)) {
+                if (!StringUtils.isEmpty(mutagen)) {		    
                     feature.setAttribute("mutagen", mutagen);
                 }
                 if (!StringUtils.isEmpty(mutagee)) {
