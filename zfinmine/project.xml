@@ -32,6 +32,9 @@
         <source name="pato" type="pato">
             <property name="src.data.file" location="../data-sources/zfin_pato/quality.obo"/>
         </source>
+	<source name="do" type="do">
+	    <property name="src.data.file" location="../data-sources/do/doid.obo"/>
+	</source>
 <!--        <source name="medic" type="medic">
             <property name="src.data.file" location="../data-sources/medic/medic.obo"/>
         </source> 

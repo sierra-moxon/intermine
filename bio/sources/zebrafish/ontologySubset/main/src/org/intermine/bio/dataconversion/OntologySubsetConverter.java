@@ -141,6 +141,10 @@ public class OntologySubsetConverter extends BioFileConverter
 	if (ontology.equals("behavior_ontology")){
 	    typedItem = getTerm(termId,"MeshTerm");
 	}
+	else if
+            (ontology.equals("disease_ontology")){
+            typedItem =getTerm(termId,"DOTerm");
+        }
 	else if 
 	    (ontology.equals("biological_process")){
             typedItem =getTerm(termId,"GOTerm");
