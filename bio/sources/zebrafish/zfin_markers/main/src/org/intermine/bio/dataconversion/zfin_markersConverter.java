@@ -41,7 +41,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
     private static final Logger LOG = Logger.getLogger(zfin_markersConverter.class);
 
     private Map<String, Item> links = new HashMap();
-
+    private Map<String, Item> cnes = new HashMap();
     private Map<String, Item> reagents = new HashMap();
     private Map<String, Item> regions = new HashMap();
     private Map<String, Item> snps = new HashMap();
@@ -200,10 +200,13 @@ public class zfin_markersConverter extends BioDirectoryConverter {
             for (Item mrph : mrphs.values()) {
                 store(mrph);
             }
+	   
 	    for (Item reagent : reagents.values()){
                 store(reagent);
             }
-
+	    for (Item cne : cnes.values()){
+		store(cne);
+	    }
             for (Item sslp : sslps.values()) {
                 store(sslp);
             }
@@ -687,6 +690,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
                         //item2.addToCollection("genes",item1);
                     }
                 }
+		
                 if (mrelType.equals("knockdown reagent targets gene")) {
 		    if (mrel1.substring(0,10).equals("ZDB-TALEN-"))  {
 			item1 = getReagent(mrel1);
@@ -801,6 +805,7 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         System.out.println("size of DNAClones" +":"+DNAclones.size());
         System.out.println("size of RNAClones" +":"+RNAclones.size());
 	System.out.println("size of Talens and Crisprs" +":"+reagents.size());
+	System.out.println("size of CNE" + ":"+ ":" +cnes.size());
     }
 
     private void addSynonym(Item item, String type, String value)
@@ -1116,6 +1121,9 @@ public class zfin_markersConverter extends BioDirectoryConverter {
         else if (primaryIdentifier.substring(0, 12).equals("ZDB-MRPHLNO-")) {
             typedItem = getMrph(primaryIdentifier);
         }
+	else if (primaryIdentifier.substring(0, 8).equals("ZDB-CNE-")){
+	    typedItem = getCNE(primaryIdentifier);
+	}
         else if (primaryIdentifier.substring(0, 10).equals("ZDB-TALEN-")){
             typedItem = getReagent(primaryIdentifier);
 	}
@@ -1231,6 +1239,17 @@ public class zfin_markersConverter extends BioDirectoryConverter {
 	    item.setAttribute("primaryIdentifier", primaryIdentifier);
             item.setReference("organism", getOrganism("7955") );
             regions.put(primaryIdentifier, item);
+        }
+        return item;
+    }
+    private Item getCNE(String primaryIdentifier)
+        throws SAXException {
+        Item item = cnes.get(primaryIdentifier);
+	if (item == null) {
+            item = createItem("CNE");
+	    item.setAttribute("primaryIdentifier", primaryIdentifier);
+            item.setReference("organism", getOrganism("7955") );
+            cnes.put(primaryIdentifier, item);
         }
         return item;
     }
