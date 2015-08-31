@@ -37,11 +37,7 @@ public class FishConverter extends ZfinDirectoryConverter {
     private static final Logger LOG = Logger.getLogger(FishConverter.class);
     protected String organismRefId;
     private Map<String, Item> fishes = new HashMap();
-    private Map<String, Item> figs = new HashMap();
-    private Map<String, Item> genes = new HashMap();
-    private Map<String, Item> terms = new HashMap();
-    private Map<String, Item> constructs = new HashMap();
-    private Map<String, Item> morphs = new HashMap();
+    private Map<String, Item> genotypes = new HashMap();
     private Map<String, Item> reagents = new HashMap();
     /**
      * Constructor
@@ -60,29 +56,18 @@ public class FishConverter extends ZfinDirectoryConverter {
         } catch (IOException err) {
             throw new RuntimeException("error reading fishFile", err);
         }
-        try {
-            File gfrvFile = new File(directory.getCanonicalPath()+"/2geneFeatureResultView.txt");
-            processGfrv(new FileReader(gfrvFile));
-        } catch (IOException err) {
-            throw new RuntimeException("error reading gfrvFile", err);
-        }
-        try {
-            File figAnatFile = new File(directory.getCanonicalPath()+"/3figureAnat.txt");
-            processFigAnat(new FileReader(figAnatFile));
-        } catch (IOException err) {
-            throw new RuntimeException("error reading figAnatFile", err);
-        }
-        try {
+	try {
+	    for (Item geno: genotypes.values()){
+		store(geno);
+	    }
 
-            for (Item fig : figs.values()) {
-                store(fig);
-            }
+	    for (Item STR : reagents.values()){
+		store(STR);
+	    }
             for (Item fish : fishes.values()) {
                 store(fish);
             }
-
-
-        }
+	}
         catch (ObjectStoreException e) {
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
@@ -95,57 +80,6 @@ public class FishConverter extends ZfinDirectoryConverter {
         }
     }
 
-    public void processFigAnat(Reader reader) throws Exception {
-        Iterator lineIter = FormattedTextParser.parseDelimitedReader(reader, '|');
-        while (lineIter.hasNext()) {
-            String[] line = (String[]) lineIter.next();
-            if (line.length < 5) {
-                throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
-            }
-            String primaryIdentifier = line[0];
-            String phenosId = line[4];
-            //System.out.println("figAnat: " + primaryIdentifier + " " + phenosId);
-            Item fish = null;
-            if (!StringUtils.isEmpty(primaryIdentifier)) {
-                fish = getFish(primaryIdentifier);
-                if (!StringUtils.isEmpty(phenosId)){
-                    fish.addToCollection("figures", getFigure(phenosId));
-                }
-            }
-
-        }
-    }
-
-    private void processGfrv(Reader fileReader) throws Exception{
-        Iterator lineIter = FormattedTextParser.parseDelimitedReader(fileReader, '|');
-        while (lineIter.hasNext()) {
-            String[] line = (String[]) lineIter.next();
-            if (line.length < 9) {
-                throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
-            }
-            String primaryIdentifier = line[0];
-            String geneZdbId = line[4];
-            String affectorZdbId = line[6];
-            String constructZdbId = line[8];
-            String featureType = line[9];
-            //System.out.println("Gfrv: " + primaryIdentifier);
-            Item fish = null;
-            if (!StringUtils.isEmpty(primaryIdentifier)) {
-                fish = getFish(primaryIdentifier);
-                if(!StringUtils.isEmpty(geneZdbId)){
-                    fish.addToCollection("genes",getGene(geneZdbId));
-                }
-                if(!StringUtils.isEmpty(affectorZdbId)){
-                    fish.addToCollection("affectors", getTypedItem(affectorZdbId, featureType));
-                    if(!StringUtils.isEmpty(constructZdbId)){
-			//System.out.println("constructID: " + constructZdbId);
-                        fish.addToCollection("constructs", getConstruct(constructZdbId));
-                    }
-                }
-            }
-        }
-    }
-
 
     private void processFish(Reader fileReader) throws Exception{
 
@@ -155,72 +89,35 @@ public class FishConverter extends ZfinDirectoryConverter {
             if (line.length < 4) {
                 throw new RuntimeException("Line does not have enough elements: " + line.length + line[0]);
             }
-            String primaryIdentifier = line[3];
-	    String fishId = line[4];
-            String genoLongName = line[2];
-            String genoName = line[2];
+            String fishId = line[0];
+	    String fish_name = line[1];
+            String fish_handle = line[2];
+            String fish_order = line[3];
+            String fish_functional_affected_gene_count = line[4];
+            String fish_genotype_zdb_id = line[5];
+            String fish_str_zdb_id = line[6];
             //System.out.println("fish: " + primaryIdentifier);
             Item fish = null;
-            if (!StringUtils.isEmpty(primaryIdentifier)) {
-                fish = getFish(primaryIdentifier);
-                if (!StringUtils.isEmpty(genoName)) {
-                    fish.setAttribute("name",genoName);
+            if (!StringUtils.isEmpty(fishId)) {
+                fish = getFish(fishId);
+                if (!StringUtils.isEmpty(fish_name)) {
+                    fish.setAttribute("name",fish_name);
+		    if (fishId.equals("ZDB-FISH-150706-1")) {
+			    System.out.println("fish found: "+ fishId + fish_name + fish_handle);
+			}
                 }
-		if(!StringUtils.isEmpty(fishId)){
-		    fish.setAttribute("fishId",fishId);
+                if (!StringUtils.isEmpty(fish_handle)) {
+                    fish.setAttribute("handle",fish_handle);
+                }
+                if (!StringUtils.isEmpty(fish_genotype_zdb_id)) {
+                    fish.setReference("genotype",getGenotype(fish_genotype_zdb_id));
+                }
+		if (!StringUtils.isEmpty(fish_str_zdb_id)) {
+		fish.addToCollection("STRs",getReagent(fish_str_zdb_id));
 		}
-                if (!StringUtils.isEmpty(genoLongName)) {
-                    fish.setAttribute("longName",genoLongName);
-                }
             }
 
         }
-    }
-
-    
-    private Item getFigure(String phenosId) throws SAXException{
-        Item item = figs.get(phenosId);
-        if (item == null) {
-            item = createItem("Figure");
-            item.setAttribute("primaryIdentifier", phenosId);
-            figs.put(phenosId, item);
-        }
-        return item;
-
-    }
-
-    private Item getGene(String geneZdbId) throws SAXException{
-        Item item = genes.get(geneZdbId);
-        if (item == null) {
-            item = createItem("Gene");
-            item.setAttribute("primaryIdentifier", geneZdbId);
-            item.setReference("organism", getOrganism("7955"));
-	    genes.put(geneZdbId, item);
-            try {
-                store(item);
-            } catch (ObjectStoreException e) {
-                throw new SAXException(e);
-            }
-        }
-
-        return item;
-    }
-    private Item getConstruct(String constructZdbId) throws SAXException{
-        Item item = constructs.get(constructZdbId);
-        if (item == null) {
-            item = createItem("Construct");
-            item.setAttribute("primaryIdentifier", constructZdbId);
-	    item.setReference("organism", getOrganism("7955"));
-            constructs.put(constructZdbId, item);
-            try {
-                store(item);
-            } catch (ObjectStoreException e) {
-                throw new SAXException(e);
-            }
-        }
-
-        return item;
-
     }
 
     private Item getFish(String primaryIdentifier)
@@ -229,55 +126,11 @@ public class FishConverter extends ZfinDirectoryConverter {
         if (item == null) {
             item = createItem("Fish");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
-            fishes.put(primaryIdentifier, item);
+            item.setReference("organism", getOrganism("7955"));
+	    fishes.put(primaryIdentifier, item);
+	    
         }
         return item;
-    }
-
-    private Item getTypedItem(String primaryIdentifier, String type) throws SAXException {
-        Item typedItem = null;
-
-	System.out.println("primaryIdentifier " + primaryIdentifier +type); 
-        if (type.equals("INSERTION")) {
-            typedItem = getFeature(primaryIdentifier,"Insertion");
-        } else if (type.equals("POINT_MUTATION")) {
-            typedItem = getFeature(primaryIdentifier,"PointMutation");
-        } else if (type.equals("DELETION")) {
-            typedItem = getFeature(primaryIdentifier,"Deletion");
-        } else if (type.equals("DEFICIENCY")) {
-            typedItem = getFeature(primaryIdentifier,"ChromosomalDeletion");
-        } else if (type.equals("TRANSLOC")) {
-            typedItem = getFeature(primaryIdentifier,"Translocation");
-        } else if (type.equals("INVERSION")) {
-            typedItem = getFeature(primaryIdentifier,"Inversion");
-        } else if (type.equals("TRANSGENIC_INSERTION")) {
-            typedItem = getFeature(primaryIdentifier,"TransgenicInsertion");
-        } else if (type.equals("SEQUENCE_VARIANT")) {
-            typedItem = getFeature(primaryIdentifier,"SequenceAlteration");
-        } else if (type.equals("UNSPECIFIED")) {
-            typedItem = getFeature(primaryIdentifier,"SequenceAlteration");
-        } else if (type.equals("COMPLEX_SUBSTITUTION")) {
-            typedItem = getFeature(primaryIdentifier,"ComplexSubstitution");
-        } else if (type.equals("TRANSGENIC_UNSPECIFIED")) {
-            typedItem = getFeature(primaryIdentifier,"TransgenicInsertion");
-        } else if (type.equals("INDEL")) {
-            typedItem = getFeature(primaryIdentifier,"Indel");
-        } else if (type.equals("str")) {
-	    if (StringUtils.substring(primaryIdentifier,0,9).equals("ZDB-TALEN")){
-		    typedItem = getReagent(primaryIdentifier);
-		    //System.out.println("talen found" + primaryIdentifier);
-	    }
-	    else if (StringUtils.substring(primaryIdentifier,0,10).equals("ZDB-CRISPR")){
-		typedItem = getReagent(primaryIdentifier);
-		//System.out.println("crispr found" + primaryIdentifier);
-	    }
-	    else if (StringUtils.substring(primaryIdentifier,0,11).equals("ZDB-MRPHLNO")){
-		System.out.println ("got a morpholino" + primaryIdentifier);    
-		typedItem = getMorpholino(primaryIdentifier);
-		    // System.out.println("morpholino found" + primaryIdentifier);
-	    }
-	}
-        return typedItem;
     }
 
     private Item getReagent(String primaryIdentifier) throws SAXException{
@@ -287,51 +140,23 @@ public class FishConverter extends ZfinDirectoryConverter {
             item.setAttribute("primaryIdentifier", primaryIdentifier);
 	    item.setReference("organism", getOrganism("7955"));
             reagents.put(primaryIdentifier, item);
-            try {
-                store(item);
-            } catch (ObjectStoreException e) {
-                throw new SAXException(e);
-            }
         }
 	return item;
 
     }
 
-    private Item getMorpholino(String primaryIdentifier) throws SAXException{
-        Item item = morphs.get(primaryIdentifier);
+
+
+    private Item getGenotype(String primaryIdentifier) throws SAXException{
+        Item item = genotypes.get(primaryIdentifier);
         if (item == null) {
-	    System.out.println("morph: " + primaryIdentifier);
-            item = createItem("MorpholinoOligo");
+            item = createItem("Genotype");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
-	    item.setReference("organism", getOrganism("7955"));
-            morphs.put(primaryIdentifier, item);
-	    System.out.println("morph found: " +primaryIdentifier);
-            try {
-                store(item);
-            } catch (ObjectStoreException e) {
-                throw new SAXException(e);
-            }
-        }
-
-        return item;
-
-    }
-
-    private Item getFeature(String primaryIdentifier, String soTermName) throws SAXException{
-        Item item = terms.get(primaryIdentifier);
-        if (item == null) {
-            item = createItem(soTermName);
             item.setReference("organism", getOrganism("7955"));
-            item.setAttribute("primaryIdentifier", primaryIdentifier);
-            terms.put(primaryIdentifier, item);
-            try {
-                store(item);
-            } catch (ObjectStoreException e) {
-                throw new SAXException(e);
-            }
+            genotypes.put(primaryIdentifier, item);
+
         }
-
-
         return item;
+
     }
 }

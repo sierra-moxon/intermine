@@ -21,7 +21,7 @@
 	  <property name="src.data.includes" location="*.txt"/>
 	</source>
         <source name="zfinSpatial" type="zfinSpatial">
-            <property name="src.data.file" location="../data-sources/zfinSpatial/spatial.obo"/>
+            <property name="src.data.file" location="../data-sources/zfinSpatial/bspo.obo"/>
         </source>
         <source name="zfin_anatomy" type="zfin_anatomy">
             <property name="src.data.file" location="../data-sources/zfin_anatomy/zebrafish_anatomy.obo"/>
@@ -30,7 +30,7 @@
             <property name="src.data.file" location="../data-sources/go/gene_ontology.obo"/>
         </source>
         <source name="pato" type="pato">
-            <property name="src.data.file" location="../data-sources/zfin_pato/quality.obo"/>
+            <property name="src.data.file" location="../data-sources/zfin_pato/pato.obo"/>
         </source>
 	<source name="do" type="do">
 	    <property name="src.data.file" location="../data-sources/do/doid.obo"/>
@@ -99,7 +99,7 @@
         </source>
         <source name="fish" type="fish">
             <property name="src.data.dir" location="../data-sources/fish/"/>
-        </source>
+        </source> 
         <!--        <source name="zfin_genoenvs" type="zfin_genoenvs">
                     <property name="src.data.dir" location="../data-sources/zfin_genoenvs/"/>
                     <property name="src.data.dir.includes" value="*.txt"/>
