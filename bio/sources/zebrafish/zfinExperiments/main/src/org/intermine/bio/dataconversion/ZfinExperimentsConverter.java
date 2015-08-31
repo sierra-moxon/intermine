@@ -34,8 +34,6 @@ public class ZfinExperimentsConverter extends BioFileConverter {
     protected String organismRefId;
     private Map<String, Item> envs = new HashMap();
     private Map<String, Item> envConds = new HashMap();
-    private Map<String, Item> morphs = new HashMap();
-    private Map<String, Item> reagents = new HashMap();
     /**
      * Constructor
      *
@@ -74,9 +72,6 @@ public class ZfinExperimentsConverter extends BioFileConverter {
 
             String envcondPrimaryIdentifier = line[0];
             String envPrimaryIdentifier = line[1];
-            String envValue = line[2];
-            String str = line[4];
-            String envUnit = line[5];
             String envConditionName = line[6];
             String envConditionGroup = line[7];
 
@@ -90,32 +85,13 @@ public class ZfinExperimentsConverter extends BioFileConverter {
 		environment.setAttribute("StandardEnvironment","true");
             }
 
-            if (!StringUtils.isEmpty(envValue)) {
-                environmentCondition.setAttribute("value", envValue);
-            }
-            if (!StringUtils.isEmpty(envUnit)) {
-                environmentCondition.setAttribute("unit", envUnit);
-            }
-
-
             if (!StringUtils.isEmpty(envConditionName)) {
                 environmentCondition.setAttribute("conditionName", envConditionName);
             }
             if (!StringUtils.isEmpty(envConditionGroup)) {
                 environmentCondition.setAttribute("conditionGroup", envConditionGroup);
             }
-
-            if (!StringUtils.isEmpty(str)) {
-		if (StringUtils.substring(str,0,8).equals("ZDB-MRPH")){
-		    environmentCondition.setReference("STR", getMorpholino(str));    
-		} else if (StringUtils.substring(str,0,10).equals("ZDB-TALEN-")){
-		    environmentCondition.setReference("STR", getReagent(str));
-		}else if (StringUtils.substring(str,0,11).equals("ZDB-CRISPR-")){
-                    environmentCondition.setReference("STR", getReagent(str));
-                }
-
-	    }
-
+            
             environmentCondition.setReference("environment", environment);
 
             try {
@@ -126,43 +102,6 @@ public class ZfinExperimentsConverter extends BioFileConverter {
             }
         }
     }
-
-    private Item getMorpholino(String morpholino)
-            throws SAXException {
-        Item item = morphs.get(morpholino);
-        if (item == null) {
-            item = createItem("MorpholinoOligo");
-            item.setAttribute("primaryIdentifier", morpholino);
-            morphs.put(morpholino, item);
-            try {
-                store(item);
-            }
-            catch (ObjectStoreException e) {
-                throw new SAXException(e);
-            }
-        }
-
-        return item;
-    }
-
-    private Item getReagent(String str)
-	throws SAXException {
-        Item item = reagents.get(str);
-        if (item == null) {
-            item = createItem("Reagent");
-            item.setAttribute("primaryIdentifier", str);
-            reagents.put(str, item);
-            try {
-                store(item);
-            }
-            catch (ObjectStoreException e) {
-                throw new SAXException(e);
-            }
-        }
-
-        return item;
-    }
-
 
     private Item getEnvCond(String evncondPrimaryIdentifier)
             throws SAXException {

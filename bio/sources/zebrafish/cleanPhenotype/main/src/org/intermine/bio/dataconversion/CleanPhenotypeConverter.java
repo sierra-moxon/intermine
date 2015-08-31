@@ -43,7 +43,7 @@ public class CleanPhenotypeConverter extends BioFileConverter
     private static final String DATASET_TITLE = "Phenotypes tracable to Gene mutations";
     private static final String DATA_SOURCE_NAME = "ZFIN";
 
-    private Map<String, Item> genotypes = new HashMap();
+    private Map<String, Item> fishes = new HashMap();
     private Map<String, Item> environments = new HashMap();
 
     /**
