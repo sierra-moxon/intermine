@@ -38,7 +38,7 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
     private Map<String, Item> phenos = new HashMap();
     private Map<String, Item> figures = new HashMap();
     private Map<String, Item> terms = new HashMap();
-    private Map<String, Item> genotypes = new HashMap();
+    private Map<String, Item> fishes = new HashMap();
     private Map<String, Item> environments = new HashMap();
     /**
      * Constructor
@@ -103,16 +103,16 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
             String figId = line[8];
             String tag = line[9];
             String qualityId = line[10];
-	    String genoId = line[11];
+	    String fishId = line[11];
 	    String expId = line[12];
 	    String monogenic = line[13];
 
             Item apato = getPheno(phenosId);
 	    
-	    if (!StringUtils.isEmpty(genoId)) {
+	    if (!StringUtils.isEmpty(fishId)) {
 
-		Item geno = getGeno(genoId);
-                apato.setReference("genotype", geno);
+		Item fish = getFish(fishId);
+                apato.setReference("fish", fish);
 	    }
 
             if (!StringUtils.isEmpty(expId)) {
@@ -239,21 +239,21 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
         return item;
     }
 
-    private Item getGeno(String primaryIdentifier)
+    private Item getFish(String primaryIdentifier)
             throws SAXException {
-        Item genox2 = genotypes.get(primaryIdentifier);
-        if (genox2 == null) {
-            genox2 = createItem("Genotype");
-            genox2.setAttribute("primaryIdentifier", primaryIdentifier);
-            genotypes.put(primaryIdentifier, genox2);
+        Item fish = fishes.get(primaryIdentifier);
+        if (fish == null) {
+            fish = createItem("Fish");
+            fish.setAttribute("primaryIdentifier", primaryIdentifier);
+            fishes.put(primaryIdentifier, fish);
             try {
-                store(genox2);
+                store(fish);
             } catch (ObjectStoreException e) {
                 throw new SAXException(e);
             }
 
         }
-        return genox2;
+        return fish;
     }
 
     private Item getEnv(String primaryIdentifier)

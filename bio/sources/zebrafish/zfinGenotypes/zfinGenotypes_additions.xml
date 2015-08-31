@@ -11,8 +11,13 @@
    <attribute name="primaryIdentifier" type="java.lang.String"/>
    <attribute name="name" type="java.lang.String"/>
    <attribute name="handle" type="java.lang.String"/>
+   <reference name="genotype" referenced-type="Genotype"/>
+   <collection name="STRs" referenced-type="Reagent"/>
+   <collection name="phenotypes" referenced-type="Phenotype" reverse-reference="fish"/>
+   <collection name="expressions" referenced-type="Expression" reverse-reference="fish"/>
+   <reference name="organism" referenced-type="Organism"/>
  </class>
- <class name="Fish2" is-interface="true">
+<!-- <class name="Fish2" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
 	<attribute name="name" type="java.lang.String"/>
 	<attribute name="longName" type="java.lang.String"/>
@@ -21,7 +26,7 @@
 	<collection name="affectors" referenced-type="SequenceFeature"/>
 	<collection name="constructs" referenced-type="Construct"/>
 	<collection name="figures" referenced-type="Figure"/>
-    </class>
+    </class> -->
  <class name="LoadedDate" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
         <attribute name="timestamp" type="java.lang.String"/>
@@ -33,8 +38,6 @@
    <attribute name="parentalGenotype" type="java.lang.String"/>
    <collection name="features" referenced-type="SequenceAlteration" reverse-reference="genotypes"/>
    <collection name="genes" referenced-type="Gene" reverse-reference="genotypes"/>
-   <collection name="phenotypes" referenced-type="Phenotype" reverse-reference="genotype"/>
-   <collection name="expressions" referenced-type="Expression" reverse-reference="genotype"/>
    <attribute name="backgrounds" type="java.lang.String"/>
    <attribute name="isWildType" type="java.lang.Boolean"/>
    <attribute name="isExtinct" type="java.lang.Boolean"/>
@@ -100,8 +103,6 @@
         <collection name="movedIn" referenced-type="SequenceAlteration" reverse-reference="markersMoved"/>
         <collection name="labOfOrigin" referenced-type="Lab" reverse-reference="lines"/>
         <collection name="sequences" referenced-type="Sequence"/>
-	<collection name="environmentalConditions" referenced-type="EnvironmentalCondition"
-		    reverse-reference="STR"/>
 	<collection name="codingSequenceOf" referenced-type="Construct" reverse-reference="codingSequences"/>
 	<collection name="targets" referenced-type="Gene" reverse-reference="sequencefeatures"/>
 	<reference name="creates" referenced-type="SequenceAlteration" reverse-reference="createdBy"/>
@@ -356,14 +357,11 @@
         <attribute name="primaryIdentifier" type="java.lang.String"/>
         <attribute name="conditionName" type="java.lang.String"/>
         <attribute name="conditionGroup" type="java.lang.String"/>
-        <attribute name="value" type="java.lang.String"/>
-        <attribute name="unit" type="java.lang.String"/>
-        <reference name="STR" referenced-type="SequenceFeature" reverse-reference="environmentalConditions"/>
         <reference name="environment" referenced-type="Environment" reverse-reference="conditions"/>
     </class>
     <class name="Phenotype" is-interface="true">
         <attribute name="primaryIdentifier" type="java.lang.String"/>
-        <reference name="genotype" referenced-type="Genotype" reverse-reference="phenotypes"/>
+        <reference name="fish" referenced-type="Fish" reverse-reference="phenotypes"/>
         <reference name="environment" referenced-type="Environment" reverse-reference="phenotypes"/>
         <reference name="startStage" referenced-type="OntologyTerm" reverse-reference="phenotypesStartStg"/>
         <reference name="endStage" referenced-type="OntologyTerm" reverse-reference="phenotypesEndStg"/>
@@ -397,7 +395,7 @@
         <attribute name="assay" type="java.lang.String"/>
         <reference name="probe" referenced-type="RNAClone" reverse-reference="expressions"/>
         <reference name="gene" referenced-type="Gene" reverse-reference="expressions"/>
-        <reference name="genotype" referenced-type="Genotype" reverse-reference="expressions"/>
+        <reference name="fish" referenced-type="Fish" reverse-reference="expressions"/>
         <reference name="environment" referenced-type="Environment" reverse-reference="expressions"/>
         <reference name="publication" referenced-type="Publication"/>
         <collection name="crossReferences" referenced-type="CrossReference"/>
