@@ -72,8 +72,8 @@ public class ZfinExperimentsConverter extends BioFileConverter {
 
             String envcondPrimaryIdentifier = line[0];
             String envPrimaryIdentifier = line[1];
-            String envConditionName = line[6];
-            String envConditionGroup = line[7];
+            String envConditionName = line[3];
+            String envConditionGroup = line[4];
 
             Item environment = getEnv(envPrimaryIdentifier);
             Item environmentCondition = getEnvCond(envcondPrimaryIdentifier);
