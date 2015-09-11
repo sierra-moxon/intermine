@@ -92,10 +92,11 @@ public class FishConverter extends ZfinDirectoryConverter {
             String fishId = line[0];
 	    String fish_name = line[1];
             String fish_handle = line[2];
-            String fish_order = line[3];
-            String fish_functional_affected_gene_count = line[4];
-            String fish_genotype_zdb_id = line[5];
-            String fish_str_zdb_id = line[6];
+	    String fish_is_wildtype = line[3];
+            String fish_order = line[4];
+            String fish_functional_affected_gene_count = line[5];
+            String fish_genotype_zdb_id = line[6];
+            String fish_str_zdb_id = line[7];
             //System.out.println("fish: " + primaryIdentifier);
             Item fish = null;
             if (!StringUtils.isEmpty(fishId)) {
@@ -108,6 +109,14 @@ public class FishConverter extends ZfinDirectoryConverter {
                 }
                 if (!StringUtils.isEmpty(fish_handle)) {
                     fish.setAttribute("handle",fish_handle);
+                }
+		if (!StringUtils.isEmpty(fish_is_wildtype)) {
+                    if (StringUtils.equals (fish_is_wildtype,"f")) {
+			fish.setAttribute("wildtype", "false");
+		    }
+		    if (StringUtils.equals(fish_is_wildtype,"t")){
+			fish.setAttribute("wildtype","true");
+		    }
                 }
                 if (!StringUtils.isEmpty(fish_genotype_zdb_id)) {
                     fish.setReference("genotype",getGenotype(fish_genotype_zdb_id));
