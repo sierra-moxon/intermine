@@ -11,6 +11,7 @@
    <attribute name="primaryIdentifier" type="java.lang.String"/>
    <attribute name="name" type="java.lang.String"/>
    <attribute name="handle" type="java.lang.String"/>
+   <attribute name="wildtype" type="java.lang.Boolean"/>
    <reference name="genotype" referenced-type="Genotype"/>
    <collection name="STRs" referenced-type="Reagent"/>
    <collection name="phenotypes" referenced-type="Phenotype" reverse-reference="fish"/>
