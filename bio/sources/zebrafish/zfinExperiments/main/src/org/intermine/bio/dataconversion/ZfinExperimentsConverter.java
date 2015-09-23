@@ -78,13 +78,15 @@ public class ZfinExperimentsConverter extends BioFileConverter {
             Item environment = getEnv(envPrimaryIdentifier);
             Item environmentCondition = getEnvCond(envcondPrimaryIdentifier);
 	    
+	    environment.setAttribute("StandardEnvironment","false");
+
 	    if(envPrimaryIdentifier.equals("ZDB-EXP-070511-5")) {
 		environment.setAttribute("StandardEnvironment","true");
 	    }
 	    if(envPrimaryIdentifier.equals("ZDB-EXP-041102-1")) {
 		environment.setAttribute("StandardEnvironment","true");
             }
-
+	    
             if (!StringUtils.isEmpty(envConditionName)) {
                 environmentCondition.setAttribute("conditionName", envConditionName);
             }
