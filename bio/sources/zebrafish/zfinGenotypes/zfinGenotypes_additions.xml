@@ -95,14 +95,13 @@
         <collection name="markersPresent" referenced-type="SequenceFeature" reverse-reference="presentIn"/>
         <attribute name="featureId" type="java.lang.String"/>
         <attribute name="featureZygosity" type="java.lang.String"/>
-        <reference name="featurePrefix" referenced-type="FeaturePrefix"/>
 	<reference name="createdBy" referenced-type="SequenceFeature"/>
     </class>
     <class name="SequenceFeature" is-interface="true">
         <collection name="missingFrom" referenced-type="SequenceAlteration" reverse-reference="markersMissing"/>
         <collection name="presentIn" referenced-type="SequenceAlteration" reverse-reference="markersPresent"/>
         <collection name="movedIn" referenced-type="SequenceAlteration" reverse-reference="markersMoved"/>
-        <collection name="labOfOrigin" referenced-type="Lab" reverse-reference="lines"/>
+        <reference name="labOfOrigin" referenced-type="Lab" reverse-reference="lines"/>
         <collection name="sequences" referenced-type="Sequence"/>
 	<collection name="codingSequenceOf" referenced-type="Construct" reverse-reference="codingSequences"/>
 	<collection name="targets" referenced-type="Gene" reverse-reference="sequencefeatures"/>

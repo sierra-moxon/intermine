@@ -90,22 +90,24 @@ public class LabLinesConverter extends BioFileConverter
             String featureId = columns[0];
 
             String LabId = columns[1];
-	    System.out.println(LabId);
+	    //System.out.println(LabId);
 	    String sourceType = columns[4];
-	    String suppliedType = columns[5];
-	    String featureType = columns[6];
+	    //	    System.out.println(sourceType);
+	    String featureType = columns[5];
+	    String saType = columns[6];
 
 	    Item feature;
 	    
             if (!StringUtils.isEmpty(featureId) && !StringUtils.isEmpty(featureType)) {
                 if (featureType.equals("ALT")){ 
-		    feature = getTypedItem(featureId, featureType);
+		    feature = getTypedItem(featureId, saType);
 		    if (!StringUtils.isEmpty(sourceType)){
 			if(sourceType.equals("source")){
 			    System.out.println(sourceType);
-			    if (!StringUtils.isEmpty(LabId) && LabId.startsWith("ZDB-LAB")) {
+			    if (!StringUtils.isEmpty(LabId)) {
 				System.out.println(featureId);
-				feature.addToCollection("labOfOrigin",getLab(LabId));
+				Item lab = getLab(LabId);
+			       	feature.setReference("labOfOrigin",lab);
 			    }
 			}
 			//		    else if (!StringUtils.isEmpty()) {
