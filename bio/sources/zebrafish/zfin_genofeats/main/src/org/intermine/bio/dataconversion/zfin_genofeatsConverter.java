@@ -38,6 +38,7 @@ public class zfin_genofeatsConverter extends BioFileConverter {
     private Set<String> synonyms = new HashSet();
     private Map<String, Item> terms = new HashMap();
     private Map<String, Item> labs = new HashMap();
+    private Map<String, Item> prefixes = new HashMap();
     /**
      * Constructor
      *
@@ -92,6 +93,7 @@ public class zfin_genofeatsConverter extends BioFileConverter {
 	    String labOfOriginId = line[7];
 	    String mutagen = line[8];
 	    String mutagee = line[9];
+	    String featurePrefix = line[10];
 	    // System.out.println(type);
             Item geno = getGenotype(genoId);
             Item feature = getTypedItem(featureId, type);
@@ -99,9 +101,9 @@ public class zfin_genofeatsConverter extends BioFileConverter {
             if (!StringUtils.isEmpty(featureId)) {
                 geno.addToCollection("features", feature);
 		feature.addToCollection("genotypes",geno);                
-		if (!StringUtils.isEmpty(labOfOriginId)){
-		    feature.addToCollection("labOfOrigin", getSource(labOfOriginId));
-		}
+		//if (!StringUtils.isEmpty(labOfOriginId)){
+		//  feature.setReference("labOfOrigin", getSource(labOfOriginId));
+		//	}
 	    }
             if (!StringUtils.isEmpty(featureZygosity)) {
                 feature.setAttribute("featureZygosity", featureZygosity);
@@ -122,10 +124,29 @@ public class zfin_genofeatsConverter extends BioFileConverter {
 	    if  (!StringUtils.isEmpty(mutagee)) {
                 feature.setAttribute("mutagee", mutagee);
             }
+	    if (!StringUtils.isEmpty(featurePrefix)){
+		Item prefix = getPrefix(featurePrefix);
+		feature.setReference("featurePrefix", prefix);
+	    }
 
         }
     }
 
+    private Item getPrefix(String primaryIdentifier) throws SAXException {
+	Item item = prefixes.get(primaryIdentifier);
+        if (item == null) {
+            item = createItem("FeaturePrefix");
+            item.setAttribute("primaryIdentifier", primaryIdentifier);
+            prefixes.put(primaryIdentifier, item);
+	    try {
+                store(item);
+            } catch (ObjectStoreException e) {
+                throw new SAXException(e);
+            }
+	}
+        return item;
+	
+    }
     private Item getTypedItem(String primaryIdentifier, String type) throws SAXException {
         Item typedItem = null;
 
