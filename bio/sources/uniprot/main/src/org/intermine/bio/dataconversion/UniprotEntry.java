@@ -1,7 +1,7 @@
 package org.intermine.bio.dataconversion;
 
 /*
- * Copyright (C) 2002-2014 FlyMine
+ * Copyright (C) 2002-2015 FlyMine
  *
  * This code may be freely distributed and modified under the
  * terms of the GNU Lesser General Public Licence.  This should
@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
-import org.intermine.util.Util;
+import org.intermine.metadata.Util;
 import org.intermine.xml.full.Item;
 
 /**
@@ -136,24 +136,9 @@ public class UniprotEntry
     }
 
     /**
-     * @param refId id representing protein domain intermine object
-     */
-    public void addDomainRefId(String refId) {
-        addRefId("domains", refId);
-    }
-
-    /**
-     * @return the domains
-     */
-    public List<String> getDomains() {
-        return collections.get("domains");
-    }
-
-    /**
      * @param refId id representing comment intermine object
      * @param objectId id representing the object in the database.  used later to add pub collection
      */
-    @SuppressWarnings({ "unchecked", "rawtypes" })
     public void addCommentRefId(String refId, Integer objectId) {
         commentEvidence.put(objectId, new ArrayList(comment.evidence));
         addRefId("comments", refId);
@@ -811,13 +796,14 @@ public class UniprotEntry
      * @param dbrefName name of database, eg Ensembl
      * @return gene designation for a certain dbref.type, eg Ensembl
      */
-    public String getGeneDesignation(String dbrefName) {
+    public Set<String> getGeneDesignation(String dbrefName) {
+        Set<String> identifiers = new HashSet<String>();
         for (Map.Entry<String, Dbref> entry : geneDesignationToDbref.entrySet()) {
             if (entry.getValue().getType().equals(dbrefName)) {
-                return entry.getKey();
+                identifiers.add(entry.getKey());
             }
         }
-        return null;
+        return identifiers;
     }
 
     /**
