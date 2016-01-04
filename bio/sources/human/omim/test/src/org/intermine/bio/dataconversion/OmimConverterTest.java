@@ -1,7 +1,7 @@
 package org.intermine.bio.dataconversion;
 
 /*
- * Copyright (C) 2002-2014 FlyMine
+ * Copyright (C) 2002-2015 FlyMine
  *
  * This code may be freely distributed and modified under the
  * terms of the GNU Lesser General Public Licence.  This should
@@ -13,7 +13,10 @@ package org.intermine.bio.dataconversion;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -41,7 +44,11 @@ public class OmimConverterTest extends ItemsTestCase
 
     public void setUp() throws Exception {
         itemWriter = new MockItemWriter(new HashMap<String, org.intermine.model.fulldata.Item>());
-        converter = new OmimConverterConverter(itemWriter, model);
+        converter = new OmimConverter(itemWriter, model);
+
+        converter.rslv = IdResolverService.getMockIdResolver("Gene");
+        converter.rslv.addResolverEntry("9606", "PEX6", new HashSet<String>(Arrays.asList("609300", "OMIM:609300", "MIM:OMIM:609300")));
+        converter.rslv.addResolverEntry("9606", "PEX6", new HashSet<String>(Arrays.asList("601498", "OMIM:601498", "MIM:OMIM:601498")));
         super.setUp();
     }
 
@@ -49,38 +56,18 @@ public class OmimConverterTest extends ItemsTestCase
      * Basic test of converter functionality.
      * @throws Exception
      */
-    public void testSimpleFiles() throws Exception {
-        process("human_gene");
-        assertEquals(42, itemWriter.getItems().size());
-    }
-
-    /**
-     * Test the count of items created from the records that have gene type: protein-coding, etc.
-     * @throws Exception
-     */
-    public void testGeneCount() throws Exception {
-        process("human_gene");
-        assertEquals(6, getGenes().size());
-    }
-
-    private void process(String infoFile) throws Exception {
-        File geneInfo = new File(getClass().getClassLoader().getResource(infoFile).toURI());
-
-        converter.setCurrentFile(geneInfo);
-        converter.process(new FileReader(geneInfo));
+    public void testProcess() throws Exception {
+        File tmp = new File(getClass().getClassLoader()
+                .getResource("omim.txt").toURI());
+        File datadir = tmp.getParentFile();
+        converter.process(datadir);
         converter.close();
-
         storedItems = itemWriter.getItems();
-        // writeItemsFile(storedItems, "humangene-tgt-items.xml");
+        //writeItemsFile(storedItems, "omim-tgt-items.xml");
+
+        Set<org.intermine.xml.full.Item> expected = readItemSet("OmimConverterTest_tgt.xml");
+        assertEquals(expected, storedItems);
     }
 
-    private List<Item> getGenes() {
-        List<Item> ret = new  ArrayList<Item>();
-        for (Item item : storedItems) {
-            if (item.getClassName().contains("Gene")) {
-                ret.add(item);
-            }
-        }
-        return ret;
-    }
+
 }
