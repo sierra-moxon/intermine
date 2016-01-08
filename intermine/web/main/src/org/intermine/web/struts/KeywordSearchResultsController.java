@@ -55,8 +55,6 @@ import org.json.JSONObject;
  *
  * @author nils
  */
-
-	//public class KeywordSearchResultsController extends TilesAction {
 public class KeywordSearchResultsController extends TilesAction
 {
     private static final String QUERY_TERM_ALL = "*:*";
@@ -68,12 +66,6 @@ public class KeywordSearchResultsController extends TilesAction
      */
     @Override
     public ActionForward execute(ComponentContext context,
-
-                                 //@SuppressWarnings("unused") ActionMapping mapping,
-				 // @SuppressWarnings("unused") ActionForm form,
-                                 //HttpServletRequest request,
-                                 //@SuppressWarnings("unused") HttpServletResponse response) throws Exception {
-
             ActionMapping mapping,
             ActionForm form,
             HttpServletRequest request,
@@ -88,7 +80,6 @@ public class KeywordSearchResultsController extends TilesAction
             return null;
             // searchTerm = QUERY_TERM_ALL;
         }
-
 
         long time = System.currentTimeMillis();
         final InterMineAPI im = SessionMethods.getInterMineAPI(request.getSession());
@@ -122,26 +113,6 @@ public class KeywordSearchResultsController extends TilesAction
 
         long searchTime = System.currentTimeMillis();
 
-	    //     BrowseResult result = KeywordSearch.runBrowseSearch(searchTerm, offset, facetValues,
-	    //   ids);
-	    //searchTime = System.currentTimeMillis() - searchTime;
-	    //Vector<KeywordSearchResult> searchResultsParsed = new Vector<KeywordSearchResult>();
-	    //Vector<KeywordSearchFacet> searchResultsFacets = new Vector<KeywordSearchFacet>();
-	    //Set<Integer> objectIds = new HashSet<Integer>();
-
-	    //if (result != null) {
-            //totalHits = result.getNumHits();
-            //LOG.debug("Browse found " + result.getNumHits() + " hits");
-            //BrowseHit[] browseHits = result.getHits();
-            //objectIds = KeywordSearch.getObjectIds(browseHits);
-            //Map<Integer, InterMineObject> objMap = KeywordSearch.getObjects(im, objectIds);
-            //Vector<KeywordSearchHit> searchHits = KeywordSearch.getSearchHits(browseHits, objMap);
-            //WebConfig wc = SessionMethods.getWebConfig(request);
-            //searchResultsParsed = KeywordSearch.parseResults(im, wc, searchHits);
-            //searchResultsFacets = KeywordSearch.parseFacets(result, facets, facetValues);
-	    //}
-
-
         ResultsWithFacets results =
                 KeywordSearch.runBrowseWithFacets(im, searchTerm, offset, facetValues, ids);
 
@@ -150,7 +121,6 @@ public class KeywordSearchResultsController extends TilesAction
 
         Collection<KeywordSearchFacet> searchResultsFacets = results.getFacets();
         totalHits = results.getTotalHits();
-
 
         logSearch(searchTerm, totalHits, time, offset, searchTime, facetValues, searchBag);
         LOG.debug("SEARCH RESULTS FOR " + searchTerm  + ": " + totalHits);
@@ -209,8 +179,8 @@ public class KeywordSearchResultsController extends TilesAction
         return offset.intValue();
     }
 
-    private List<Integer> getBagIds(InterMineAPI im, HttpServletRequest request,
-                                    String searchBag) {
+    private  List<Integer> getBagIds(InterMineAPI im, HttpServletRequest request,
+            String searchBag) {
         List<Integer> ids = new ArrayList<Integer>();
         if (!StringUtils.isEmpty(searchBag)) {
             LOG.debug("SEARCH BAG: '" + searchBag + "'");
@@ -226,7 +196,7 @@ public class KeywordSearchResultsController extends TilesAction
 
     @SuppressWarnings("unchecked")
     private Map<String, String> getFacetValues(HttpServletRequest request,
-                                               Vector<KeywordSearchFacetData> facets) {
+            Vector<KeywordSearchFacetData> facets) {
         HashMap<String, String> facetValues = new HashMap<String, String>();
         // if this is a new search (searchSubmit set) only keep facets if
         // searchSubmitRestricted used
@@ -261,7 +231,7 @@ public class KeywordSearchResultsController extends TilesAction
     }
 
     private void logSearch(String searchTerm, int totalHits, long time, int offset,
-                           long timeSearch, Map<String, String> facetValues, String searchBag) {
+            long timeSearch, Map<String, String> facetValues, String searchBag) {
         // log this search to search log
         StringBuilder searchLogLine = new StringBuilder();
         searchLogLine.append("query=").append(searchTerm).append("; ");
@@ -283,12 +253,8 @@ public class KeywordSearchResultsController extends TilesAction
     private void intialiseLogging(String projectName) throws IOException {
         if (searchLog == null) {
             searchLog = Logger.getLogger(KeywordSearchResultsController.class.getName()
-                    + ".searches");
-            String path = System.getProperty("catalina.home");
+                        + ".searches");
             String logFileName = projectName + "_searches.log";
-            if (path != null)
-                logFileName = path + "/logs/" + logFileName;
-
             Layout layout = new PatternLayout("%d{ISO8601}\t%m%n");
             try {
                 RollingFileAppender appender = new RollingFileAppender(layout, logFileName, true);
