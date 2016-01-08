@@ -28,6 +28,10 @@ import org.apache.log4j.Logger;
 import org.intermine.webservice.server.exceptions.ServiceException;
 import org.xml.sax.SAXParseException;
 
+/**
+ * XMLValidator is class that validates xml string according an XML Schema at specified url.
+ * @author Radek Štěpán after Jakub Kulaviak
+ **/
 public class XMLValidator
 {
 
@@ -70,7 +74,7 @@ public class XMLValidator
         } catch (SAXParseException e) {
             LOG.debug(e);
         } catch (Exception e) {
-	               throw new ServiceException("XML validation failed.", e);
+            throw new ServiceException("XML validation failed.", e);
         }
     }
 
