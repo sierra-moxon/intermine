@@ -74,7 +74,7 @@ public class XMLValidator
         } catch (SAXParseException e) {
             LOG.debug(e);
         } catch (Exception e) {
-            throw new ServiceException("XML validation failed.", e);
+	    //            throw new ServiceException("XML validation failed.", e);
         }
     }
 
