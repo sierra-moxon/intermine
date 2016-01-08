@@ -13,8 +13,6 @@ executeLog*
 productionLog
 *~
 
-!/intermine/webservice/client/download/dist/
-
 # /intermine/objectstore/main/
 /intermine/objectstore/main/src.png
 /intermine/objectstore/main/src.dot
@@ -204,10 +202,3 @@ nb-build.xml
 .DS_Store
 
 zebrafishmine/
-
-apache-tomcat*
-prefixed
-failures.list
-*.jks
-biotestmine/project.xml
-
