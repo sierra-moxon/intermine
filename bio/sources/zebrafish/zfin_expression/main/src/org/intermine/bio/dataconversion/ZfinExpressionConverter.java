@@ -123,8 +123,8 @@ public class ZfinExpressionConverter extends BioFileConverter {
                     Item gene = getGene(genePrimaryIdentifier);
                     result.setReference("gene", gene);
                 } else {
-                    Item gene = getEFG(genePrimaryIdentifier);
-                    result.setReference("gene", gene);
+                    Item efg = getEFG(genePrimaryIdentifier);
+                    result.setReference("gene", efg);
                 }
             }
             if (!StringUtils.isEmpty(estId)) {
