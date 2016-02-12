@@ -175,6 +175,10 @@
             <property name="src.data.dir" location="../data-sources/zfin_phenotypes/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
+<source name="disease" type="disease">
+            <property name="src.data.dir" location="../data-sources/disease/"/>
+            <property name="src.data.dir.includes" value="*.txt"/>
+</source>
         <source name="zLabs" type="labs">
             <property name="src.data.dir" location="../data-sources/lab/"/>
             <property name="src.data.dir.includes" value="*.txt"/>

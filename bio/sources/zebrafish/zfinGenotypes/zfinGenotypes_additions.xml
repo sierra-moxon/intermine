@@ -7,6 +7,15 @@
     <attribute name="offsetEnd" type="java.lang.String"/>
     <reference name="organism" referenced-type="Organism"/>
   </class>
+<class name="DiseaseAnnotation" is-interface="true">
+  <attribute name="primaryIdentifier" type="java.lang.String"/>
+  <reference name="publication" referenced-type="Publication"/>
+  <reference name="fish" referenced-type="Fish"/>
+  <reference name="disease" referenced-type="DOTerm"/>
+  <reference name="environment" referenced-type="Environment"/>
+  <attribute name="evidenceCode" type="java.lang.String"/>
+  <reference name="organism" referenced-type="Organism"/>
+</class>
  <class name="Fish" is-interface="true">
    <attribute name="primaryIdentifier" type="java.lang.String"/>
    <attribute name="name" type="java.lang.String"/>
