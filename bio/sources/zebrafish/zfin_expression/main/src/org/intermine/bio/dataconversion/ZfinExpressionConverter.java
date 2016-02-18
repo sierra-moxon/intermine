@@ -89,31 +89,21 @@ public class ZfinExpressionConverter extends BioFileConverter {
         while (lineIter.hasNext()) {
             String[] line = (String[]) lineIter.next();
             String xpatresId = line[0];
-            //String xpatexId = line[1];
-           // String anatitemZdb=line[2];
-            //String startStgZdb=line[3];
-            //String endStgZdb=line[4];
-            String xpatFound = line[4];
-            //6 xpatex comments
-            //7 suggested anatomy
-            //String subtermZdbId =line[8];
-            String anatitem = line[9];
-            String startStgId = line[10];
-            String endStgId = line[11];
-            //xpatex 12
-            String publicationId = line[13];
-            String expressionAssay = line[14];
-            String estId = line[15];
-            String genePrimaryIdentifier = line[16];
-            //date 17
-            String dblinkId = line[18];
-            String genoxId = line[19];
-            String atbId = line[20];
-            String figId = line[21];
-            //xaptfig_xpatres_id 22
-            String subtermId = line[23];
-	    String fishId = line[24];
-	    String expId = line[25];
+            String xpatFound = line[1];
+            String anatitem = line[2];
+            String startStgId = line[3];
+            String endStgId = line[4];
+            String publicationId = line[5];
+            String expressionAssay = line[6];
+            String estId = line[7];
+            String genePrimaryIdentifier = line[8];
+            String dblinkId = line[9];
+            String genoxId = line[10];
+            String atbId = line[11];
+            String figId = line[12];
+            String subtermId = line[13];
+	    String fishId = line[14];
+	    String expId = line[15];
 
             Item result = getResult(xpatresId);
 
