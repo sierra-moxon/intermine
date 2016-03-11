@@ -40,6 +40,7 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
     private Map<String, Item> terms = new HashMap();
     private Map<String, Item> fishes = new HashMap();
     private Map<String, Item> environments = new HashMap();
+    private Map<String, Item> genes = new HashMap();
     /**
      * Constructor
      *
@@ -106,6 +107,8 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
 	    String fishId = line[11];
 	    String expId = line[12];
 	    String monogenic = line[13];
+	    String geneId = line[14];
+	    String phenotypeStatement = line[15];
 
             Item apato = getPheno(phenosId);
 	    
@@ -160,6 +163,13 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
 		System.out.println("found flag:" + monogenic);
 		apato.setAttribute("phenotypeIsMonogenic",monogenic);
 	    }
+	    if (!StringUtils.isEmpty(geneId)) {
+                Item gene = getGene(geneId);
+                apato.setReference("gene", gene);
+            }
+            if (!StringUtils.isEmpty(phenotypeStatement)) {
+                apato.setAttribute("phenotypeStatement", phenotypeStatement);
+            }
         }
     }
 
@@ -170,6 +180,22 @@ public class ZfinPhenotypesConverter extends BioFileConverter {
             item = createItem("PATOTerm");
             item.setAttribute("identifier", identifier);
             terms.put(identifier, item);
+            try {
+                store(item);
+            } catch (ObjectStoreException e) {
+                throw new SAXException(e);
+            }
+        }
+        return item;
+    }
+
+    private Item getGene(String primaryIdentifier)
+	throws SAXException {
+        Item item = genes.get(primaryIdentifier);
+        if (item == null) {
+            item = createItem("Gene");
+            item.setAttribute("primaryIdentifier", primaryIdentifier);
+            genes.put(primaryIdentifier, item);
             try {
                 store(item);
             } catch (ObjectStoreException e) {
