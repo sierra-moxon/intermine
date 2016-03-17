@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<classes>
+  <class name="ZFATerm" extends="AnatomyTerm" is-interface="true">
+  </class>
+  <class name="AnatomyTerm" extends="OntologyTerm" is-interface="true">
+  </class>
+</classes>

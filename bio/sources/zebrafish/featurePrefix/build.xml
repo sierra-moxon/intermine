@@ -1,0 +1,5 @@
+<project name="featurePrefix" default="default" basedir=".">
+  <description>build, test, package featurePrefix</description>
+  
+  <import file="../../../../imbuild/source.xml"/>
+</project>

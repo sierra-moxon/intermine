@@ -1,0 +1,5 @@
+<project name="markerSequence" default="default" basedir=".">
+  <description>build, test, package markerSequence</description>
+  
+  <import file="../../../../imbuild/source.xml"/>
+</project>

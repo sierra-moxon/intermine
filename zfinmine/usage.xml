@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="usage" basedir="." default="usage">
+    <target name="usage">
+        <echo>
+            TARGETS
+
+            clean-db: cleans out the database equiv: clean build-db
+            load: load sources: equiv: ant -Dsource=
+            postprocess: run the postprocessing step, e.g. create Lucene indexes, etc...
+            deploy: build webapp and deploy new war file (including postprocess)
+            webapp: build webapp and deploy new war file (excluding postprocess)
+
+        </echo>
+    </target>
+
+</project>

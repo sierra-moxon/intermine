@@ -1,0 +1,4 @@
+<project name="zLabs-tasks" default="default" basedir=".">
+  <description>build zLabs tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>

@@ -1,0 +1,5 @@
+<project name="labLines" default="default" basedir=".">
+  <description>build, test, package labLines</description>
+  
+  <import file="../../../../imbuild/source.xml"/>
+</project>

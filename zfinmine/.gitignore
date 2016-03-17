@@ -1,0 +1,8 @@
+*.log
+*.class
+.DS_Store
+.DS_Store?
+
+##### folder
+data-sources
+dbmodel/build/gen

@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<classes>
+<class name="SPATIALTerm" extends="OntologyTerm" is-interface="true"/>
+</classes>

@@ -1,0 +1,4 @@
+<project name="mutagenMutagee-tasks" default="default" basedir=".">
+  <description>build mutagenMutagee tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>

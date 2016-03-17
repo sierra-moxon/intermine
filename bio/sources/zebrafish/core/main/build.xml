@@ -1,0 +1,4 @@
+<project name="core-tasks" default="default" basedir=".">
+  <description>build labs tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>

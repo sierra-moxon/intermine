@@ -1,0 +1,4 @@
+<project name="ontologySubset-tasks" default="default" basedir=".">
+  <description>build ontologySubset tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>

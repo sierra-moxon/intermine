@@ -1,0 +1,4 @@
+<project name="featurePubs-tasks" default="default" basedir=".">
+  <description>build featurePubs tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>

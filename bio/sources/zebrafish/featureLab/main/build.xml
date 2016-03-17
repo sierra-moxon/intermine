@@ -1,0 +1,4 @@
+<project name="featureLab-tasks" default="default" basedir="">
+  <description>build featureLab tasks</description>
+  <import file="../../../../../imbuild/library.xml"/>
+</project>

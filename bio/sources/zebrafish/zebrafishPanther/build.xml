@@ -1,0 +1,5 @@
+<project name="zebrafishPanther" default="default" basedir=".">
+  <description>build, test, package zebrafishPanther</description>
+  
+  <import file="../../../../imbuild/source.xml"/>
+</project>

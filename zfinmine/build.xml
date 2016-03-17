@@ -1,0 +1,125 @@
+<project name="deploy-webapp" default="help" basedir=".">
+
+    <description>deploy the web application</description>
+
+    <!-- load environment variables-->
+    <property environment="env"/>
+
+    <!-- load properties file with release variable in it -->
+    <loadproperties>
+        <file file="${env.HOME}/.intermine/zfinmine.properties"/>
+    </loadproperties>
+
+    <!-- from the file above -->
+    <property name="release" value="${release}"/>
+
+    <!-- load users intermine.properties file -->
+    <loadproperties>
+        <file file="${env.HOME}/.intermine/zfinmine.properties.${release}"/>
+    </loadproperties>
+
+    <property name="dist.webapp" value="webapp/dist"/>
+    <property name="tomcat.webapp" value="${dist.webapp}/tomcat-webapp"/>
+    <property name="environment" value="${hostname}/${release}"/>
+
+    <condition property="isProduction">
+        <equals arg1="${hostname}" arg2="zebrafishmine.org"/>
+    </condition>
+
+    <target name="build">
+        <ant antfile="webapp/build.xml" target="default" inheritAll="false"/>
+    </target>
+
+    <target name="deploy" depends="postprocess,webapp"/>
+
+    <target name="webapp" depends="start-message,build">
+        <antcall target="add-zfin-properties"/>
+        <antcall target="add-log4j.properties"/>
+        <antcall target="add-urlrewrite"/>
+<!--
+        <delete includeemptydirs="true" quiet="true">
+            <fileset dir="${tomcat.webapp}" includes="**/*"/>
+        </delete>
+-->
+        <mkdir dir="${tomcat.webapp}"/>
+        <copy file="${dist.webapp}/zfinmine-webapp.war" tofile="${tomcat.webapp}/${release}-zebrafishmine.war"/>
+    </target>
+
+    <target name="restart-tomcat">
+        <exec executable="sudo">
+            <arg value="-u"/>
+            <arg value="intermine"/>
+            <arg value="/etc/init.d/tomcat6"/>
+            <arg value="restart"/>
+        </exec>
+    </target>
+
+    <target name="add-zfin-properties">
+        <zip destfile="${dist.webapp}/zfinmine-webapp.war" update="true">
+            <zipfileset dir="webapp/resources" includes="zfin.properties" fullpath="WEB-INF/zfin.web.properties"/>
+        </zip>
+    </target>
+
+    <target name="add-log4j.properties" depends="replace-variables">
+        <zip destfile="${dist.webapp}/zfinmine-webapp.war" update="true">
+            <zipfileset dir="${dist.webapp}" includes="log4j.properties" fullpath="WEB-INF/classes/log4j.properties"/>
+            <zipfileset dir="../lib" includes="json-smart-1.1.1.jar" fullpath="WEB-INF/lib/json-smart-1.1.1.jar"/>
+        </zip>
+    </target>
+
+    <target name="add-urlrewrite" depends="" if="${isProduction}">
+        <echo message="Use production url rewrite file" />
+        <zip destfile="${dist.webapp}/zfinmine-webapp.war" update="true">
+            <zipfileset dir="webapp/resources" includes="urlrewrite-production.xml" fullpath="WEB-INF/urlrewrite.xml"/>
+        </zip>
+    </target>
+
+
+    <target name="start-message">
+        <echo message="Start deploying release: ${environment}"/>
+    </target>
+
+    <target name="clean-db" depends="-clean">
+        <ant antfile="dbmodel/build.xml" target="build-db" inheritAll="false"/>
+    </target>
+
+    <target name="-clean">
+        <ant antfile="dbmodel/build.xml" target="clean" inheritAll="false"/>
+    </target>
+
+    <target name="load">
+        <ant antfile="integrate/build.xml" target="default" inheritAll="false"/>
+    </target>
+
+    <target name="postprocess">
+        <ant antfile="postprocess/build.xml" target="default" inheritAll="false"/>
+    </target>
+
+    <target name="replace-variables">
+        <copy todir="${dist.webapp}/">
+            <fileset file="webapp/src/log4j.properties"/>
+            <filterset>
+                <filter token="EMAIL" value="${tomcat.email.list}"/>
+                <filter token="DOMAIN" value="${environment}"/>
+            </filterset>
+        </copy>
+    </target>
+
+    <target name="help">
+        <ant antfile="usage.xml" target="usage" inheritAll="false"/>
+    </target>
+
+    <target name="?">
+        <ant antfile="usage.xml" target="usage" inheritAll="false"/>
+    </target>
+
+    <target name="build-project">
+        <exec command="../bio/scripts/project_build">
+            <arg value="cmpich"/>
+            <arg value="localhost"/>
+        </exec>
+    </target>
+
+
+</project>
+

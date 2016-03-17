@@ -1,0 +1,5 @@
+<project name="trimZfinClone" default="default" basedir=".">
+  <description>build, test, package trimZfinClone</description>
+  
+  <import file="../../../../imbuild/source.xml"/>
+</project>

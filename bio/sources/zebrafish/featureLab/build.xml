@@ -1,0 +1,5 @@
+<project name="featureLab" default="default" basedir="">
+  <description>build, test, package featureLab</description>
+
+    <import file="../../../../imbuild/source.xml"/>
+</project>

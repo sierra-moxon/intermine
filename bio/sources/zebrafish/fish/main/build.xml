@@ -1,0 +1,4 @@
+<project name="fish-tasks" default="default" basedir=".">
+  <description>build fish tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>
