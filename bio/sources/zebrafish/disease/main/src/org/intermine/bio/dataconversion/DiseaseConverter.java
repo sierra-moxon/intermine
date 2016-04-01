@@ -150,14 +150,14 @@ public class DiseaseConverter extends BioFileConverter
         return item;
     }
 
-    private Item getDOTerm(String primaryIdentifier)
+    private Item getDOTerm(String identifier)
         throws SAXException {
-        Item item = doTerms.get(primaryIdentifier);
+        Item item = doTerms.get(identifier);
         if (item == null) {
             item = createItem("DOTerm");
-            item.setAttribute("primaryIdentifier", primaryIdentifier);
+            item.setAttribute("identifier", identifier);
 	    //item.setReference("organism", getOrganism("7955"));
-            doTerms.put(primaryIdentifier, item);
+            doTerms.put(identifier, item);
 	       try {
 	    	store(item);
 	     } catch (ObjectStoreException e) {
