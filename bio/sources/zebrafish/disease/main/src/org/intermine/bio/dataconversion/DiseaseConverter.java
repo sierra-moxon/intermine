@@ -68,16 +68,16 @@ public class DiseaseConverter extends BioFileConverter
 	processDisease (reader);
 
 	try {
-            for (Item fish: fishes.values()){
-                store(fish);
-            }
+	    //            for (Item fish: fishes.values()){
+            //    store(fish);
+	    // }
 
-            for (Item exp : exps.values()){
-                store(exp);
-            }
-            for (Item pub : pubs.values()) {
-                store(pub);
-            }
+            //for (Item exp : exps.values()){
+            //    store(exp);
+	    // }
+	    // for (Item pub : pubs.values()) {
+            //    store(pub);
+	    // }
 
 	    for (Item dat : dats.values()) {
                 store(dat);
@@ -108,14 +108,14 @@ public class DiseaseConverter extends BioFileConverter
 	    String expId = line[5];
 	    
             Item diseaseAnnotation = getDiseaseAnnotation(primaryIdentifier);
-	    System.out.println(primaryIdentifier);
+	    //System.out.println(primaryIdentifier);
 	    
             if (!StringUtils.isEmpty(dotermId)) {
 		Item doT = getDOTerm(dotermId);
       		diseaseAnnotation.setReference("disease",doT);
             }
             if (!StringUtils.isEmpty(pubId)) {
-                System.out.println(pubId);
+		//  System.out.println(pubId);
 		Item pub = getPub(pubId);
 	        diseaseAnnotation.setReference("publication", pub);
             }
@@ -123,15 +123,21 @@ public class DiseaseConverter extends BioFileConverter
                diseaseAnnotation.setAttribute("evidenceCode", evidenceCode);
             }
             if (!StringUtils.isEmpty(fishId)) {
-                System.out.println("fishId: " + fishId);
-		Item fsh = getFish(fishId);
-		diseaseAnnotation.setReference("fish", fsh );
-		
+		// System.out.println("fishId: " + fishId);
+		if (StringUtils.equals(fishId,"ZDB-FISH-150901-10137")){
+			System.out.println("Found a missing fish - ZDB-FISH-150901-10137");
+		    }
+		Item fish = getFish(fishId);
+		diseaseAnnotation.addToCollection("fish", fish );
+		if (StringUtils.equals(fishId,"ZDB-FISH-150901-10137")){
+	
+		}
             }
 	    if (!StringUtils.isEmpty(expId)) {
 		System.out.println(expId);
 		Item Env = getExperiment(expId);
-		diseaseAnnotation.setReference("environment",Env);
+		diseaseAnnotation.addToCollection("environment",Env);
+		System.out.println("diseaseAnnotation");
             }
 	   
 	}
@@ -158,11 +164,11 @@ public class DiseaseConverter extends BioFileConverter
             item.setAttribute("identifier", identifier);
 	    //item.setReference("organism", getOrganism("7955"));
             doTerms.put(identifier, item);
-	       try {
-	    	store(item);
-	     } catch (ObjectStoreException e) {
-	    		throw new SAXException(e);
-	     }
+	    try {
+		store(item);
+	    } catch (ObjectStoreException e) {
+		throw new SAXException(e);
+	    }
 	}
 	return item;
     }
@@ -174,6 +180,11 @@ public class DiseaseConverter extends BioFileConverter
             item = createItem("Publication");
             item.setAttribute("primaryIdentifier", primaryIdentifier);
 	    pubs.put(primaryIdentifier, item);
+	    try {
+                store(item);
+            } catch (ObjectStoreException e) {
+		throw new SAXException(e);
+            }
 	    // item.setReference("organism", getOrganism("7955"));
 	    //    try {
             //    store(item);
@@ -191,6 +202,11 @@ public class DiseaseConverter extends BioFileConverter
 	    item = createItem("Environment");
 	    item.setAttribute("primaryIdentifier", primaryIdentifier);
 	    exps.put(primaryIdentifier, item);
+	    try {
+                store(item);
+            } catch (ObjectStoreException e) {
+		throw new SAXException(e);
+            }
 	    //try {
 	    //		store(item);
 	    //} catch (ObjectStoreException e) {
@@ -199,7 +215,7 @@ public class DiseaseConverter extends BioFileConverter
 	}
 	return item;
     }
-
+    
     private Item getFish(String primaryIdentifier)
 	throws SAXException {
 	System.out.println(primaryIdentifier);
@@ -209,6 +225,11 @@ public class DiseaseConverter extends BioFileConverter
 	    item.setAttribute("primaryIdentifier", primaryIdentifier);
 	    item.setReference("organism", getOrganism("7955"));
 	    fishes.put(primaryIdentifier, item);
+	    try {
+                store(item);
+            } catch (ObjectStoreException e) {
+		throw new SAXException(e);
+            }
 	    //try {
             //    store(item);
             //} catch (ObjectStoreException e) {

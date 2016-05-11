@@ -175,7 +175,6 @@
 </class>
 <class className="org.intermine.model.bio.Genotype">
    <fields>
-      <fieldconfig  fieldExpr="genoDisplayName"></fieldconfig>
       <fieldconfig  fieldExpr="backgrounds"></fieldconfig>
       <fieldconfig  fieldExpr="parentalGenotype"></fieldconfig>
    </fields>

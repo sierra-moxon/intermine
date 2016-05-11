@@ -139,10 +139,15 @@
             <property name="src.data.dir" location="../data-sources/zfin_orthos/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
-        <source name="zebrafishPanther" type="zebrafishPanther">
+	<source name="panther" type="panther">
+	  <property name="src.data.dir" location="../data-sources/panther"/>
+	  <property name="panther.organisms" value="7955"/>
+	  <property name="panther.homologues" value="9606 10090 10116 7955 6239 4932"/>
+	</source>
+<!--        <source name="zebrafishPanther" type="zebrafishPanther">
             <property name="src.data.dir" location="../data-sources/panther/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
-        </source>
+        </source>-->
         <source name="genotypeAliases" type="genotypeAliases">
             <property name="src.data.dir" location="../data-sources/genotype_alias"/>
             <property name="src.data.dir.includes" value="*.txt"/>

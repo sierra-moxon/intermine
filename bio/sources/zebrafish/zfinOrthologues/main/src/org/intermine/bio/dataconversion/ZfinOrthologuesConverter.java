@@ -93,9 +93,14 @@ public class ZfinOrthologuesConverter extends BioFileConverter {
             String orthoEvidenceCode = line[12];
             String orthoPub = line[13];
             String dblinkPrimaryIdentifier = line[14];
+	    Item gene; 
 
-            Item gene = getGene(genePrimaryIdentifier);
-	    
+	    if (genePrimaryIdentifier.substring(0, 10).equals("ZDB-GENEP-")){
+		gene = getGeneP(genePrimaryIdentifier);
+	    }                                                
+	    else { 
+	       gene = getGene(genePrimaryIdentifier);
+	    }
             Item ortho = getOrtho(orthoPrimaryIdentifier, orthoEvidenceCode, orthoPub);
 	    //System.out.println(orthoEvidenceCode);
 	    if (orthoPrimaryIdentifier.equals("ZDB-ORTHO-050503-12")){
@@ -121,6 +126,24 @@ public class ZfinOrthologuesConverter extends BioFileConverter {
 
 
         }
+    }
+
+    private Item getGeneP(String primaryIdentifier)
+	throws SAXException {
+        Item item = genes.get(primaryIdentifier);
+        if (item == null) {
+            item = createItem("Pseudogene");
+            item.setReference("organism", getOrganism("7955"));
+            item.setAttribute("primaryIdentifier", primaryIdentifier);
+            genes.put(primaryIdentifier, item);
+            try {
+                store(item);
+            }
+            catch (ObjectStoreException e) {
+                throw new SAXException(e);
+            }
+        }
+        return item;
     }
 
     private Item getGene(String primaryIdentifier)
