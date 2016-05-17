@@ -85,6 +85,18 @@
             <property name="src.data.dir" location="../data-sources/zfin_features/"/>
             <property name="src.data.dir.includes" value="*.txt"/>
         </source>
+	<source name="proteinMutationDetail" type="proteinMutationDetail">
+	  <property name="src.data.dir" location="../data-sources/proteinMutationDetail"/>
+	  <property name="src.data.dir.includes" value="*.txt"/>
+	</source>
+        <source name="dnaMutationDetail" type="dnaMutationDetail">
+          <property name="src.data.dir" location="../data-sources/dnaMutationDetail"/>
+          <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
+        <source name="transcriptMutationDetail" type="transcriptMutationDetail">
+          <property name="src.data.dir" location="../data-sources/transcriptMutationDetail"/>
+          <property name="src.data.dir.includes" value="*.txt"/>
+        </source>
         <source name="labLines" type="labLines">
             <property name="src.data.dir" location="../data-sources/dataSourceSupplier/"/>
             <property name="src.data.dir.includes" value="*.txt"/>

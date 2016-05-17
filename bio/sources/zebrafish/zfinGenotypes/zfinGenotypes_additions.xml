@@ -105,6 +105,31 @@
         <attribute name="featureId" type="java.lang.String"/>
         <attribute name="featureZygosity" type="java.lang.String"/>
 	<reference name="createdBy" referenced-type="SequenceFeature"/>
+	<reference name="dnaMutation" referenced-type="SOTerm"/>
+	<attribute name="dnaSequenceOfReference" type="java.lang.String"/>
+	<attribute name="dnaPositionStart" type="java.lang.String"/>
+	<attribute name="dnaPositionEnd" type="java.lang.String"/>
+	<attribute name="dnaBpPlus" type="java.lang.String"/>
+	<attribute name="dnaBpMinus" type="java.lang.String"/>
+	<attribute name="dnaExon" type="java.lang.String"/>
+	<attribute name="dnaIntron" type="java.lang.String"/>
+	<reference name="dnaGeneLocalization" referenced-type="SOTerm"/>
+	<attribute name="proteinSequenceOfReference" type="java.lang.String"/>
+	<attribute name="proteinPositionStart" type="java.lang.String"/>
+	<attribute name="proteinPositionEnd" type="java.lang.String"/>
+	<reference name="WTProtein" referenced-type="SOTerm"/>
+	<reference name="mutantProtein" referenced-type="SOTerm"/>
+	<attribute name="numberAminoAcidsRemoved" type="java.lang.String"/>
+	<attribute name="numberAminoAcidsAdded" type="java.lang.String"/>
+	<reference name="proteinConsequence" referenced-type="SOTerm"/>
+	<collection name="transcriptConsequences" referenced-type="TranscriptConsequence" reverse-reference="feature"/>
+    </class>
+    <class name="TranscriptConsequence" is-interface="true">
+      <reference name="feature" referenced-type="SequenceAlteration" reverse-reference="transcriptConsequences"/>
+      <attribute name="primaryIdentifier" type="java.lang.String"/>
+      <reference name="consequence" referenced-type="SOTerm"/>
+      <attribute name="transcriptExonNumber" type="java.lang.String"/>
+      <attribute name="transcriptIntronNumber" type="java.lang.String"/>
     </class>
     <class name="SequenceFeature" is-interface="true">
         <collection name="missingFrom" referenced-type="SequenceAlteration" reverse-reference="markersMissing"/>
