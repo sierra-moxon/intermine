@@ -114,13 +114,13 @@
 	<attribute name="dnaExon" type="java.lang.String"/>
 	<attribute name="dnaIntron" type="java.lang.String"/>
 	<reference name="dnaGeneLocalization" referenced-type="SOTerm"/>
-	<attribute name="proteinSequenceOfReference" type="java.lang.String"/>
-	<attribute name="proteinPositionStart" type="java.lang.String"/>
-	<attribute name="proteinPositionEnd" type="java.lang.String"/>
-	<reference name="WTProtein" referenced-type="SOTerm"/>
+	<attribute name="proteinAccessionNumber" type="java.lang.String"/>
+	<attribute name="proteinStart" type="java.lang.String"/>
+	<attribute name="proteinEnd" type="java.lang.String"/>
+	<reference name="wtProtein" referenced-type="SOTerm"/>
 	<reference name="mutantProtein" referenced-type="SOTerm"/>
-	<attribute name="numberAminoAcidsRemoved" type="java.lang.String"/>
-	<attribute name="numberAminoAcidsAdded" type="java.lang.String"/>
+	<attribute name="aminoAcidsRemoved" type="java.lang.String"/>
+	<attribute name="aminoAcidsAdded" type="java.lang.String"/>
 	<reference name="proteinConsequence" referenced-type="SOTerm"/>
 	<collection name="transcriptConsequences" referenced-type="TranscriptConsequence" reverse-reference="feature"/>
     </class>
