@@ -130,6 +130,7 @@
       <reference name="consequence" referenced-type="SOTerm"/>
       <attribute name="transcriptExonNumber" type="java.lang.String"/>
       <attribute name="transcriptIntronNumber" type="java.lang.String"/>
+      <reference name="organism" referenced-type="Organism"/>
     </class>
     <class name="SequenceFeature" is-interface="true">
         <collection name="missingFrom" referenced-type="SequenceAlteration" reverse-reference="markersMissing"/>
