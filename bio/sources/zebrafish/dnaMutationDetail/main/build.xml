@@ -1,0 +1,4 @@
+<project name="dnaMutationDetail-tasks" default="default" basedir=".">
+  <description>build dnaMutationDetail tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>

@@ -1,0 +1,4 @@
+<project name="proteinMutationDetail-tasks" default="default" basedir=".">
+  <description>build proteinMutationDetail tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>

@@ -1,0 +1,5 @@
+<project name="dnaMutationDetail" default="default" basedir=".">
+  <description>build, test, package dnaMutationDetail</description>
+  
+  <import file="../../../../imbuild/source.xml"/>
+</project>

@@ -1,0 +1,4 @@
+<project name="transcriptMutationDetail-tasks" default="default" basedir=".">
+  <description>build transcriptMutationDetail tasks</description>
+  <import file="../../../../../imbuild/library.xml"/> 
+</project>
