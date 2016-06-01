@@ -92,8 +92,12 @@
     <source name="omim" type="omim">
       <property name="src.data.dir" location="/micklem/data/metabolic/omim/current" />
     </source>
+    <source name="clinvar" type="clinvar">
+      <property name="src.data.dir" location="/micklem/data/human/clinvar/current" />
+      <property name="src.data.includes" value="variant_summary.txt" />
+    </source>
     <source name="hpo" type="hpo">
-      <property name="src.data.file" location="/micklem/data/hpo/hp.obo" />
+      <property name="src.data.file" location="/micklem/data/hpo/current/hp.obo" />
     </source>
     <source name="hpo-annotation" type="hpo-annotation" dump="true">
       <property name="src.data.dir" location="/micklem/data/hpo/current" />
